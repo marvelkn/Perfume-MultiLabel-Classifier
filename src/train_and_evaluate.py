@@ -19,6 +19,7 @@ import time
 import warnings
 from pathlib import Path
 
+import joblib
 import numpy as np
 import pandas as pd
 import scipy.sparse as sp
@@ -127,8 +128,14 @@ def train_xgboost(X_tr, Y_tr, X_val, Y_val, X_test, labels):
     thresholds = np.array(thresholds)
     Y_pred = (proba_test >= thresholds).astype(int)
 
-    # Simpan model dan threshold
+    # Simpan model dan threshold ke disk
     np.save(MODELS / "xgb_thresholds.npy", thresholds)
+    xgb_model_dir = MODELS / "xgb_models"
+    xgb_model_dir.mkdir(exist_ok=True)
+    for j, (clf, label) in enumerate(zip(models, labels)):
+        safe = label.replace(" ", "_").replace("/", "-")
+        joblib.dump(clf, xgb_model_dir / f"xgb_{safe}.pkl")
+    print(f"[XGBoost] Model tersimpan ke {xgb_model_dir}/")
 
     print(f"[XGBoost] Training selesai dalam {time.time()-t0:.1f}s")
     return models, thresholds, proba_test, Y_pred
@@ -178,6 +185,12 @@ def train_lightgbm(X_tr, Y_tr, X_val, Y_val, X_test, labels):
     Y_pred = (proba_test >= thresholds).astype(int)
 
     np.save(MODELS / "lgbm_thresholds.npy", thresholds)
+    lgbm_model_dir = MODELS / "lgbm_models"
+    lgbm_model_dir.mkdir(exist_ok=True)
+    for j, (clf, label) in enumerate(zip(models, labels)):
+        safe = label.replace(" ", "_").replace("/", "-")
+        joblib.dump(clf, lgbm_model_dir / f"lgbm_{safe}.pkl")
+    print(f"[LightGBM] Model tersimpan ke {lgbm_model_dir}/")
 
     print(f"[LightGBM] Training selesai dalam {time.time()-t0:.1f}s")
     return models, thresholds, proba_test, Y_pred
@@ -188,7 +201,7 @@ def export_onnx_xgb(models, labels):
     """Export XGBoost Binary Relevance ke ONNX."""
     try:
         from onnxmltools.convert import convert_xgboost
-        from onnxconverter_common.data_types import FloatTensorType
+        from onnxmltools.convert.common.data_types import FloatTensorType
 
         print("\n[ONNX] Exporting XGBoost models ...")
         xgb_onnx_dir = MODELS / "xgb_onnx"
@@ -197,7 +210,6 @@ def export_onnx_xgb(models, labels):
         for j, (clf, label) in enumerate(zip(models, labels)):
             initial_type = [("float_input", FloatTensorType([None, 2048]))]
             try:
-                # XGBoost menggunakan convert_xgboost dari onnxmltools
                 onnx_model = convert_xgboost(clf, initial_types=initial_type)
                 fname = xgb_onnx_dir / f"xgb_{label.replace(' ', '_')}.onnx"
                 fname.write_bytes(onnx_model.SerializeToString())
@@ -207,16 +219,17 @@ def export_onnx_xgb(models, labels):
             if (j + 1) % 30 == 0:
                 print(f"  Exported {j+1}/{len(labels)} models")
 
-        print(f"[ONNX] XGBoost models saved to {xgb_onnx_dir}/")
-    except ImportError:
-        print("[ONNX] onnxmltools tidak terinstall. Jalankan: pip install onnxmltools")
+        n_ok = len(list(xgb_onnx_dir.glob("*.onnx")))
+        print(f"[ONNX] XGBoost: {n_ok}/{len(labels)} models saved to {xgb_onnx_dir}/")
+    except ImportError as e:
+        print(f"[ONNX] Import error: {e}. Jalankan: pip install onnxmltools")
 
 
 def export_onnx_lgbm(models, labels):
     """Export LightGBM Binary Relevance ke ONNX."""
     try:
         from onnxmltools.convert import convert_lightgbm
-        from onnxconverter_common.data_types import FloatTensorType
+        from onnxmltools.convert.common.data_types import FloatTensorType
 
         print("\n[ONNX] Exporting LightGBM models ...")
         lgbm_onnx_dir = MODELS / "lgbm_onnx"
@@ -225,7 +238,6 @@ def export_onnx_lgbm(models, labels):
         for j, (clf, label) in enumerate(zip(models, labels)):
             initial_type = [("float_input", FloatTensorType([None, 2048]))]
             try:
-                # LightGBM menggunakan convert_lightgbm dari onnxmltools
                 onnx_model = convert_lightgbm(clf, initial_types=initial_type, zipmap=False)
                 fname = lgbm_onnx_dir / f"lgbm_{label.replace(' ', '_')}.onnx"
                 fname.write_bytes(onnx_model.SerializeToString())
@@ -235,9 +247,10 @@ def export_onnx_lgbm(models, labels):
             if (j + 1) % 30 == 0:
                 print(f"  Exported {j+1}/{len(labels)} models")
 
-        print(f"[ONNX] LightGBM models saved to {lgbm_onnx_dir}/")
-    except ImportError:
-        print("[ONNX] onnxmltools tidak terinstall.")
+        n_ok = len(list(lgbm_onnx_dir.glob("*.onnx")))
+        print(f"[ONNX] LightGBM: {n_ok}/{len(labels)} models saved to {lgbm_onnx_dir}/")
+    except ImportError as e:
+        print(f"[ONNX] Import error: {e}. Jalankan: pip install onnxmltools")
 
 
 # ── Main Orchestrator ─────────────────────────────────────────────────────────
@@ -332,5 +345,61 @@ def run():
     return xgb_metrics, lgbm_metrics
 
 
+# ── Export-Only Mode ─────────────────────────────────────────────────────────
+def export_only():
+    """Load saved models dari disk dan ekspor ke ONNX tanpa re-training."""
+    print("=" * 60)
+    print("MODE: Export ONNX Only (load dari disk)")
+    print("=" * 60)
+
+    _, _, _, _, labels = load_data()
+
+    # Load XGBoost models
+    xgb_model_dir = MODELS / "xgb_models"
+    if not xgb_model_dir.exists():
+        print("[ERROR] Folder models/xgb_models/ tidak ditemukan. Jalankan training dulu.")
+    else:
+        xgb_models = []
+        for label in labels:
+            safe = label.replace(" ", "_").replace("/", "-")
+            pkl_path = xgb_model_dir / f"xgb_{safe}.pkl"
+            if pkl_path.exists():
+                xgb_models.append(joblib.load(pkl_path))
+            else:
+                print(f"  [SKIP] {pkl_path.name} tidak ditemukan")
+                xgb_models.append(None)
+        valid_xgb = [(m, l) for m, l in zip(xgb_models, labels) if m is not None]
+        print(f"[XGBoost] Loaded {len(valid_xgb)}/{len(labels)} models dari disk")
+        export_onnx_xgb([m for m, _ in valid_xgb], [l for _, l in valid_xgb])
+
+    # Load LightGBM models
+    lgbm_model_dir = MODELS / "lgbm_models"
+    if not lgbm_model_dir.exists():
+        print("[ERROR] Folder models/lgbm_models/ tidak ditemukan. Jalankan training dulu.")
+    else:
+        lgbm_models = []
+        for label in labels:
+            safe = label.replace(" ", "_").replace("/", "-")
+            pkl_path = lgbm_model_dir / f"lgbm_{safe}.pkl"
+            if pkl_path.exists():
+                lgbm_models.append(joblib.load(pkl_path))
+            else:
+                print(f"  [SKIP] {pkl_path.name} tidak ditemukan")
+                lgbm_models.append(None)
+        valid_lgbm = [(m, l) for m, l in zip(lgbm_models, labels) if m is not None]
+        print(f"[LightGBM] Loaded {len(valid_lgbm)}/{len(labels)} models dari disk")
+        export_onnx_lgbm([m for m, _ in valid_lgbm], [l for _, l in valid_lgbm])
+
+    print("\n" + "=" * 60)
+    print("EXPORT SELESAI")
+    print(f"  ONNX XGBoost  : models/xgb_onnx/")
+    print(f"  ONNX LightGBM : models/lgbm_onnx/")
+    print("=" * 60)
+
+
 if __name__ == "__main__":
-    run()
+    import sys
+    if "--export-only" in sys.argv:
+        export_only()
+    else:
+        run()
