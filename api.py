@@ -9,6 +9,10 @@ from pydantic import BaseModel
 import numpy as np
 import requests
 import json
+import os
+import sqlite3
+import pandas as pd
+from sklearn.metrics.pairwise import cosine_similarity
 
 app = FastAPI(title="AromaML Fingerprint API", version="1.0.0")
 
@@ -37,6 +41,32 @@ class FingerprintResponse(BaseModel):
     iupac_name: str | None = None
     molecular_formula: str | None = None
     molecular_weight: float | None = None
+
+class RecommendRequest(BaseModel):
+    desired_accords: dict[str, float] # e.g., {"floral": 1.0, "woody": 0.5}
+    top_k: int = 10
+
+class PerfumeResult(BaseModel):
+    pid: str
+    brand: str
+    name: str
+    main_photo: str | None
+    top_accords: str
+    similarity_score: float
+    rating: float | None
+
+PERFUME_DB_PATH = r"C:\Users\Lenovo\Documents\UMN\Semester 7\AromaML\data\fragdb\perfume_db.sqlite"
+df_perfumes = pd.DataFrame()
+
+def load_perfume_db():
+    global df_perfumes
+    if not df_perfumes.empty:
+        return
+    if os.path.exists(PERFUME_DB_PATH):
+        conn = sqlite3.connect(PERFUME_DB_PATH)
+        df_perfumes = pd.read_sql("SELECT * FROM perfumes", conn)
+        conn.close()
+        print(f"Loaded {len(df_perfumes)} perfumes for recommendation.")
 
 
 def name_to_smiles(name: str) -> dict:
@@ -121,6 +151,68 @@ def demo_molecules():
             {"name": "benzaldehyde",  "description": "Almond, cherry, sweet"},
         ]
     }
+
+
+@app.post("/recommend", response_model=list[PerfumeResult])
+def recommend_perfumes(req: RecommendRequest):
+    """
+    Sistem rekomendasi B2C. 
+    Mencari parfum berdasarkan input label (accords) yang diinginkan pengguna.
+    Menggunakan Cosine Similarity terhadap database SQLite.
+    """
+    load_perfume_db()
+    if df_perfumes.empty:
+        raise HTTPException(500, "Database parfum belum siap/belum di-generate (Jalankan etl_pipeline.py).")
+    
+    if not req.desired_accords:
+        return []
+
+    # 1. Ekstrak himpunan semua unique accords yang ada di DB
+    all_accords_set = set()
+    parsed_accords_list = []
+    
+    for _, row in df_perfumes.iterrows():
+        acc_dict = json.loads(row['accords_parsed'])
+        parsed_accords_list.append(acc_dict)
+        all_accords_set.update(acc_dict.keys())
+        
+    all_accords = sorted(list(all_accords_set))
+    
+    # 2. Buat vektor untuk database
+    db_vectors = np.zeros((len(df_perfumes), len(all_accords)))
+    for i, acc_dict in enumerate(parsed_accords_list):
+        for j, acc_name in enumerate(all_accords):
+            db_vectors[i, j] = acc_dict.get(acc_name, 0.0)
+            
+    # 3. Buat vektor untuk query (input user)
+    query_vector = np.zeros((1, len(all_accords)))
+    for j, acc_name in enumerate(all_accords):
+        # Case insensitive match
+        match = next((v for k, v in req.desired_accords.items() if k.lower() == acc_name.lower()), 0.0)
+        query_vector[0, j] = match
+        
+    # 4. Hitung Cosine Similarity
+    similarities = cosine_similarity(query_vector, db_vectors)[0]
+    
+    # 5. Ambil Top K
+    top_indices = np.argsort(similarities)[::-1][:req.top_k]
+    
+    results = []
+    for idx in top_indices:
+        score = similarities[idx]
+        if score > 0: # Hanya kembalikan yang ada kecocokan
+            row = df_perfumes.iloc[idx]
+            results.append(PerfumeResult(
+                pid=str(row['pid']),
+                brand=str(row['brand']),
+                name=str(row['name']),
+                main_photo=str(row['main_photo']) if pd.notna(row['main_photo']) else None,
+                top_accords=str(row['top_accords']),
+                similarity_score=float(score),
+                rating=float(str(row['rating']).split(';')[0]) if pd.notna(row['rating']) and str(row['rating']) != 'nan' else None
+            ))
+            
+    return results
 
 
 if __name__ == "__main__":
