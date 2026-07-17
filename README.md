@@ -9,10 +9,10 @@ ONNX export, and the mobile app are the thesis contribution and start downstream
 
 ## 🚀 Progress Tracker
 - [x] **Step 1: Data Pipeline Execution** (DONE - EXPANDED) - 5 sumber data: GoodScents + Leffingwell + Arctander + Sigma + Flavornet. Morgan fingerprinting menghasilkan **X=(7036, 2048), Y=(7036, 111)**. Iterative-Stratified 80/20 Split. Artefak tersimpan di `data/processed/`.
-- [ ] **Step 2: Exploratory Data Analysis (EDA)** - Review `notebooks/01_eda.ipynb` untuk melihat statistik sebaran label data.
-- [ ] **Step 3: Imbalance Handling (ML-SMOTE)** - Implementasi fungsi pada `src/resampling.py`.
-- [ ] **Step 4: Modeling (XGBoost & LightGBM)** - Training model menggunakan `notebooks/02_modeling.ipynb`.
-- [ ] **Step 5: Model Export (ONNX)** - Export model ke format ONNX untuk dipakai di React Native.
+- [x] **Step 2: Exploratory Data Analysis (EDA)** - Review `notebooks/01_eda.ipynb` untuk melihat statistik sebaran label data.
+- [x] **Step 3: Imbalance Handling (ML-SMOTE)** - Implementasi fungsi pada `src/resampling.py`.
+- [x] **Step 4: Modeling (XGBoost & LightGBM)** - Training model menggunakan `notebooks/02_modeling.ipynb`.
+- [x] **Step 5: Model Export (ONNX)** - Export model ke format ONNX untuk dipakai di React Native.
 
 ## Data
 GS-LF = `goodscents` + `leffingwell` Pyrfume archives. Label taxonomy is anchored on
