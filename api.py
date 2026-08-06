@@ -73,11 +73,16 @@ class OnnxPredictor:
             
         self.meta = json.loads(Path(meta_path).read_text())
         
+        # Optimize memory usage for cloud deployment (prevents OOM on Railway)
+        opts = ort.SessionOptions()
+        opts.inter_op_num_threads = 1
+        opts.intra_op_num_threads = 1
+        
         for entry in self.meta:
             label = entry["label"]
             fname = Path(onnx_dir) / f"xgb_{label.replace(' ', '_')}.onnx"
             if fname.exists():
-                self.sessions[label] = ort.InferenceSession(str(fname))
+                self.sessions[label] = ort.InferenceSession(str(fname), sess_options=opts)
 
     def predict(self, fingerprint: list[int]) -> dict:
         if not self.sessions:
