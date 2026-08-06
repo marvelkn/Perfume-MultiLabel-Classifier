@@ -9,7 +9,8 @@ __pycache__/
 *$py.class
 
 # Raw Datasets
-dataset/
+dataset/*
+!dataset/perfume_db.sqlite
 data/raw/
 
 # Jupyter Notebook checkpoints
