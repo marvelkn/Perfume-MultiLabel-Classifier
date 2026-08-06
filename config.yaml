@@ -15,6 +15,8 @@ split:
 labels:
   taxonomy_source: leffingwell   # anchor the label space on Leffingwell's curated odor classes
   min_positive_count: 30         # drop labels with fewer than this many positives (too rare to learn/eval)
+  blocklist:
+    - stimulus
 
 sources:
   goodscents:

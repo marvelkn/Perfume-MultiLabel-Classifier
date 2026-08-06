@@ -1,7 +1,5 @@
 """
-AromaML Fingerprint API
-Menghitung Morgan Fingerprint (2048-bit, radius 2) dari SMILES atau nama senyawa.
-Jalankan dengan: python api.py
+AromaML Fingerprint & Prediction API (B2B Duplication Tool)
 """
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
@@ -13,10 +11,11 @@ import os
 import sqlite3
 import pandas as pd
 from sklearn.metrics.pairwise import cosine_similarity
+import onnxruntime as ort
+from pathlib import Path
 
-app = FastAPI(title="AromaML Fingerprint API", version="1.0.0")
+app = FastAPI(title="AromaML B2B Duplication API", version="1.1.0")
 
-# Izinkan akses dari semua origin (untuk development / mobile app)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -24,7 +23,6 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Lazy import RDKit
 def get_rdkit():
     from rdkit import Chem
     from rdkit.Chem import AllChem
@@ -37,13 +35,14 @@ class FingerprintRequest(BaseModel):
 class FingerprintResponse(BaseModel):
     smiles: str
     compound_name: str
-    fingerprint: list[int]   # 2048-bit vector
+    fingerprint: list[int]
+    predictions: dict[str, dict[str, float | int]]
     iupac_name: str | None = None
     molecular_formula: str | None = None
     molecular_weight: float | None = None
 
 class RecommendRequest(BaseModel):
-    desired_accords: dict[str, float] # e.g., {"floral": 1.0, "woody": 0.5}
+    label_probabilities: dict[str, float] 
     top_k: int = 10
 
 class PerfumeResult(BaseModel):
@@ -55,22 +54,76 @@ class PerfumeResult(BaseModel):
     similarity_score: float
     rating: float | None
 
-PERFUME_DB_PATH = r"C:\Users\Lenovo\Documents\UMN\Semester 7\AromaML\data\fragdb\perfume_db.sqlite"
-df_perfumes = pd.DataFrame()
+PERFUME_DB_PATH = os.path.join("dataset", "perfume_db.sqlite")
+CROSSWALK_PATH = os.path.join("mobile_assets", "leffingwell_to_fragrantica.json")
+ONNX_DIR = os.path.join("models", "xgb_onnx")
+META_PATH = os.path.join("mobile_assets", "xgb_meta.json")
 
-def load_perfume_db():
-    global df_perfumes
-    if not df_perfumes.empty:
-        return
+df_perfumes = pd.DataFrame()
+crosswalk = {}
+
+class OnnxPredictor:
+    """Loads all XGBoost ONNX sessions at startup; returns probs + binary labels."""
+    def __init__(self, onnx_dir, meta_path):
+        self.sessions = {}
+        self.meta = []
+        if not os.path.exists(meta_path):
+            print(f"Warning: {meta_path} not found. Prediction disabled.")
+            return
+            
+        self.meta = json.loads(Path(meta_path).read_text())
+        
+        for entry in self.meta:
+            label = entry["label"]
+            fname = Path(onnx_dir) / f"xgb_{label.replace(' ', '_')}.onnx"
+            if fname.exists():
+                self.sessions[label] = ort.InferenceSession(str(fname))
+
+    def predict(self, fingerprint: list[int]) -> dict:
+        if not self.sessions:
+            return {}
+            
+        x = np.array(fingerprint, dtype=np.float32).reshape(1, -1)
+        results = {}
+        for entry in self.meta:
+            label, threshold = entry["label"], entry["threshold"]
+            sess = self.sessions.get(label)
+            if sess:
+                try:
+                    res = sess.run(None, {"float_input": x})
+                    # Attempt to extract probability (class 1) safely
+                    if isinstance(res[1][0], dict):
+                        prob = float(res[1][0].get(1, 0.0))
+                    else:
+                        prob = float(res[1][0][1])
+                except Exception:
+                    prob = 0.0
+                results[label] = {"probability": prob, "predicted": int(prob >= threshold)}
+        return results
+
+predictor = None
+
+@app.on_event("startup")
+def startup_event():
+    global predictor, df_perfumes, crosswalk
+    print("Loading ONNX models...")
+    predictor = OnnxPredictor(ONNX_DIR, META_PATH)
+    
+    print("Loading Fragrantica database...")
     if os.path.exists(PERFUME_DB_PATH):
         conn = sqlite3.connect(PERFUME_DB_PATH)
         df_perfumes = pd.read_sql("SELECT * FROM perfumes", conn)
         conn.close()
-        print(f"Loaded {len(df_perfumes)} perfumes for recommendation.")
-
+        print(f"Loaded {len(df_perfumes)} perfumes.")
+    else:
+        print(f"Warning: {PERFUME_DB_PATH} not found. Recommendation disabled.")
+        
+    if os.path.exists(CROSSWALK_PATH):
+        with open(CROSSWALK_PATH, "r") as f:
+            crosswalk = json.load(f)
+        print("Loaded crosswalk mapping.")
 
 def name_to_smiles(name: str) -> dict:
-    """Cari SMILES dari nama senyawa via PubChem."""
     url = f"https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/{requests.utils.quote(name)}/property/IsomericSMILES,IUPACName,MolecularFormula,MolecularWeight/JSON"
     resp = requests.get(url, timeout=10)
     if resp.status_code != 200:
@@ -83,9 +136,7 @@ def name_to_smiles(name: str) -> dict:
         "molecular_weight": data.get("MolecularWeight"),
     }
 
-
 def compute_fingerprint(smiles: str) -> list[int]:
-    """Hitung Morgan Fingerprint 2048-bit radius 2 dari SMILES."""
     Chem, AllChem = get_rdkit()
     mol = Chem.MolFromSmiles(smiles)
     if mol is None:
@@ -93,18 +144,12 @@ def compute_fingerprint(smiles: str) -> list[int]:
     fp = AllChem.GetMorganFingerprintAsBitVect(mol, radius=2, nBits=2048)
     return list(fp)
 
-
 @app.get("/")
 def root():
-    return {"status": "ok", "message": "AromaML Fingerprint API berjalan!"}
-
+    return {"status": "ok", "message": "AromaML B2B API berjalan!"}
 
 @app.post("/fingerprint", response_model=FingerprintResponse)
 def get_fingerprint(req: FingerprintRequest):
-    """
-    Hitung Morgan Fingerprint dari nama senyawa atau SMILES.
-    Kirim salah satu dari `compound_name` atau `smiles`.
-    """
     if not req.smiles and not req.compound_name:
         raise HTTPException(400, "Berikan 'smiles' atau 'compound_name'.")
 
@@ -120,54 +165,37 @@ def get_fingerprint(req: FingerprintRequest):
         smiles = req.smiles
 
     fp = compute_fingerprint(smiles)
+    preds = predictor.predict(fp) if predictor else {}
 
     return FingerprintResponse(
         smiles=smiles,
         compound_name=name,
         fingerprint=fp,
+        predictions=preds,
         **meta,
     )
 
-
-@app.get("/demo-molecules")
-def demo_molecules():
-    """Daftar molekul parfum populer untuk demo."""
-    return {
-        "molecules": [
-            {"name": "linalool",      "description": "Lavender, floral, woody"},
-            {"name": "geraniol",      "description": "Rose, floral, citrus"},
-            {"name": "limonene",      "description": "Citrus, orange, lemon"},
-            {"name": "vanillin",      "description": "Vanilla, sweet, creamy"},
-            {"name": "menthol",       "description": "Mint, fresh, cooling"},
-            {"name": "eugenol",       "description": "Clove, spicy, woody"},
-            {"name": "benzyl alcohol","description": "Floral, sweet, rose"},
-            {"name": "citronellol",   "description": "Rose, citrus, floral"},
-            {"name": "camphor",       "description": "Camphor, medicinal, woody"},
-            {"name": "coumarin",      "description": "Sweet, hay, tonka bean"},
-            {"name": "isoeugenol",    "description": "Spicy, floral, clove"},
-            {"name": "carvone",       "description": "Spearmint, herbal, fresh"},
-            {"name": "cinnamaldehyde","description": "Cinnamon, spicy, sweet"},
-            {"name": "hexanal",       "description": "Grassy, fresh, green"},
-            {"name": "benzaldehyde",  "description": "Almond, cherry, sweet"},
-        ]
-    }
-
-
 @app.post("/recommend", response_model=list[PerfumeResult])
 def recommend_perfumes(req: RecommendRequest):
-    """
-    Sistem rekomendasi B2C. 
-    Mencari parfum berdasarkan input label (accords) yang diinginkan pengguna.
-    Menggunakan Cosine Similarity terhadap database SQLite.
-    """
-    load_perfume_db()
     if df_perfumes.empty:
         raise HTTPException(500, "Database parfum belum siap/belum di-generate (Jalankan etl_pipeline.py).")
     
-    if not req.desired_accords:
+    if not req.label_probabilities:
         return []
 
-    # 1. Ekstrak himpunan semua unique accords yang ada di DB
+    # Map Leffingwell probabilities to Fragrantica accords using crosswalk
+    desired_accords = {}
+    for label, prob in req.label_probabilities.items():
+        if prob == 0:
+            continue
+        mapped_accord = crosswalk.get(label.lower())
+        if mapped_accord:
+            # If multiple labels map to the same accord, take the max probability
+            desired_accords[mapped_accord] = max(desired_accords.get(mapped_accord, 0.0), prob)
+            
+    if not desired_accords:
+        return []
+
     all_accords_set = set()
     parsed_accords_list = []
     
@@ -178,29 +206,24 @@ def recommend_perfumes(req: RecommendRequest):
         
     all_accords = sorted(list(all_accords_set))
     
-    # 2. Buat vektor untuk database
     db_vectors = np.zeros((len(df_perfumes), len(all_accords)))
     for i, acc_dict in enumerate(parsed_accords_list):
         for j, acc_name in enumerate(all_accords):
             db_vectors[i, j] = acc_dict.get(acc_name, 0.0)
             
-    # 3. Buat vektor untuk query (input user)
     query_vector = np.zeros((1, len(all_accords)))
     for j, acc_name in enumerate(all_accords):
-        # Case insensitive match
-        match = next((v for k, v in req.desired_accords.items() if k.lower() == acc_name.lower()), 0.0)
+        match = next((v for k, v in desired_accords.items() if k.lower() == acc_name.lower()), 0.0)
         query_vector[0, j] = match
         
-    # 4. Hitung Cosine Similarity
     similarities = cosine_similarity(query_vector, db_vectors)[0]
     
-    # 5. Ambil Top K
     top_indices = np.argsort(similarities)[::-1][:req.top_k]
     
     results = []
     for idx in top_indices:
         score = similarities[idx]
-        if score > 0: # Hanya kembalikan yang ada kecocokan
+        if score > 0: 
             row = df_perfumes.iloc[idx]
             results.append(PerfumeResult(
                 pid=str(row['pid']),
@@ -214,16 +237,14 @@ def recommend_perfumes(req: RecommendRequest):
             
     return results
 
-
 if __name__ == "__main__":
     import uvicorn
     import socket
 
-    # Tampilkan IP lokal agar mudah diakses dari HP
     hostname = socket.gethostname()
     local_ip = socket.gethostbyname(hostname)
     print(f"\n{'='*50}")
-    print(f"  AromaML Fingerprint API")
+    print(f"  AromaML B2B Duplication API")
     print(f"  Akses dari laptop : http://localhost:8000")
     print(f"  Akses dari HP     : http://{local_ip}:8000")
     print(f"  Dokumentasi API   : http://localhost:8000/docs")

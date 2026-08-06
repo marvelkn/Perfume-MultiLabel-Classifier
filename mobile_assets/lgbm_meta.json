@@ -1,57 +1,57 @@
 [
   {
     "label": "alcoholic",
-    "threshold": 0.88,
+    "threshold": 0.69,
     "index": 0
   },
   {
     "label": "aldehydic",
-    "threshold": 0.17,
+    "threshold": 0.15000000000000002,
     "index": 1
   },
   {
     "label": "alliaceous",
-    "threshold": 0.76,
+    "threshold": 0.1,
     "index": 2
   },
   {
     "label": "almond",
-    "threshold": 0.65,
+    "threshold": 0.11,
     "index": 3
   },
   {
     "label": "animal",
-    "threshold": 0.14,
+    "threshold": 0.18,
     "index": 4
   },
   {
     "label": "anisic",
-    "threshold": 0.88,
+    "threshold": 0.77,
     "index": 5
   },
   {
     "label": "apple",
-    "threshold": 0.21000000000000002,
+    "threshold": 0.28,
     "index": 6
   },
   {
     "label": "apricot",
-    "threshold": 0.37,
+    "threshold": 0.83,
     "index": 7
   },
   {
     "label": "aromatic",
-    "threshold": 0.88,
+    "threshold": 0.89,
     "index": 8
   },
   {
     "label": "balsamic",
-    "threshold": 0.5,
+    "threshold": 0.59,
     "index": 9
   },
   {
     "label": "banana",
-    "threshold": 0.22,
+    "threshold": 0.13,
     "index": 10
   },
   {
@@ -61,17 +61,17 @@
   },
   {
     "label": "berry",
-    "threshold": 0.18,
+    "threshold": 0.35,
     "index": 12
   },
   {
     "label": "brandy",
-    "threshold": 0.88,
+    "threshold": 0.5,
     "index": 13
   },
   {
     "label": "brothy",
-    "threshold": 0.5,
+    "threshold": 0.26,
     "index": 14
   },
   {
@@ -81,42 +81,42 @@
   },
   {
     "label": "buttery",
-    "threshold": 0.87,
+    "threshold": 0.15000000000000002,
     "index": 16
   },
   {
     "label": "cabbage",
-    "threshold": 0.15000000000000002,
+    "threshold": 0.5,
     "index": 17
   },
   {
     "label": "camphoreous",
-    "threshold": 0.26,
+    "threshold": 0.1,
     "index": 18
   },
   {
     "label": "caramellic",
-    "threshold": 0.76,
+    "threshold": 0.12000000000000001,
     "index": 19
   },
   {
     "label": "chamomile",
-    "threshold": 0.1,
+    "threshold": 0.5,
     "index": 20
   },
   {
     "label": "cheesy",
-    "threshold": 0.51,
+    "threshold": 0.48,
     "index": 21
   },
   {
     "label": "cherry",
-    "threshold": 0.5,
+    "threshold": 0.11,
     "index": 22
   },
   {
     "label": "chicken",
-    "threshold": 0.1,
+    "threshold": 0.44000000000000006,
     "index": 23
   },
   {
@@ -126,167 +126,167 @@
   },
   {
     "label": "cinnamon",
-    "threshold": 0.9,
+    "threshold": 0.5,
     "index": 25
   },
   {
     "label": "citrus",
-    "threshold": 0.73,
+    "threshold": 0.72,
     "index": 26
   },
   {
     "label": "cocoa",
-    "threshold": 0.87,
+    "threshold": 0.32,
     "index": 27
   },
   {
     "label": "coconut",
-    "threshold": 0.87,
+    "threshold": 0.44000000000000006,
     "index": 28
   },
   {
     "label": "coffee",
-    "threshold": 0.85,
+    "threshold": 0.24000000000000002,
     "index": 29
   },
   {
     "label": "cognac",
-    "threshold": 0.88,
+    "threshold": 0.71,
     "index": 30
   },
   {
     "label": "coumarinic",
-    "threshold": 0.15000000000000002,
+    "threshold": 0.18,
     "index": 31
   },
   {
     "label": "creamy",
-    "threshold": 0.41000000000000003,
+    "threshold": 0.73,
     "index": 32
   },
   {
     "label": "cucumber",
-    "threshold": 0.79,
+    "threshold": 0.66,
     "index": 33
   },
   {
     "label": "dairy",
-    "threshold": 0.30000000000000004,
+    "threshold": 0.45000000000000007,
     "index": 34
   },
   {
     "label": "dry",
-    "threshold": 0.8,
+    "threshold": 0.27,
     "index": 35
   },
   {
     "label": "earthy",
-    "threshold": 0.28,
+    "threshold": 0.13,
     "index": 36
   },
   {
     "label": "ethereal",
-    "threshold": 0.41000000000000003,
+    "threshold": 0.67,
     "index": 37
   },
   {
     "label": "fatty",
-    "threshold": 0.25,
+    "threshold": 0.64,
     "index": 38
   },
   {
     "label": "fermented",
-    "threshold": 0.24000000000000002,
+    "threshold": 0.1,
     "index": 39
   },
   {
     "label": "fishy",
-    "threshold": 0.29000000000000004,
+    "threshold": 0.65,
     "index": 40
   },
   {
     "label": "floral",
-    "threshold": 0.1,
+    "threshold": 0.24000000000000002,
     "index": 41
   },
   {
     "label": "fresh",
-    "threshold": 0.14,
+    "threshold": 0.33999999999999997,
     "index": 42
   },
   {
     "label": "fruity",
-    "threshold": 0.24000000000000002,
+    "threshold": 0.22,
     "index": 43
   },
   {
     "label": "garlic",
-    "threshold": 0.63,
+    "threshold": 0.83,
     "index": 44
   },
   {
     "label": "gasoline",
-    "threshold": 0.33999999999999997,
+    "threshold": 0.21000000000000002,
     "index": 45
   },
   {
     "label": "grape",
-    "threshold": 0.12000000000000001,
+    "threshold": 0.58,
     "index": 46
   },
   {
     "label": "grapefruit",
-    "threshold": 0.5,
+    "threshold": 0.76,
     "index": 47
   },
   {
     "label": "grassy",
-    "threshold": 0.73,
+    "threshold": 0.1,
     "index": 48
   },
   {
     "label": "green",
-    "threshold": 0.12000000000000001,
+    "threshold": 0.31,
     "index": 49
   },
   {
     "label": "hay",
-    "threshold": 0.67,
+    "threshold": 0.21000000000000002,
     "index": 50
   },
   {
     "label": "hazelnut",
-    "threshold": 0.5,
+    "threshold": 0.15000000000000002,
     "index": 51
   },
   {
     "label": "herbal",
-    "threshold": 0.25,
+    "threshold": 0.2,
     "index": 52
   },
   {
     "label": "honey",
-    "threshold": 0.5700000000000001,
+    "threshold": 0.87,
     "index": 53
   },
   {
     "label": "horseradish",
-    "threshold": 0.32,
+    "threshold": 0.54,
     "index": 54
   },
   {
     "label": "jasmine",
-    "threshold": 0.5,
+    "threshold": 0.1,
     "index": 55
   },
   {
     "label": "ketonic",
-    "threshold": 0.23,
+    "threshold": 0.5,
     "index": 56
   },
   {
     "label": "leafy",
-    "threshold": 0.33,
+    "threshold": 0.86,
     "index": 57
   },
   {
@@ -296,47 +296,47 @@
   },
   {
     "label": "lemon",
-    "threshold": 0.1,
+    "threshold": 0.53,
     "index": 59
   },
   {
     "label": "malty",
-    "threshold": 0.16,
+    "threshold": 0.9,
     "index": 60
   },
   {
     "label": "meaty",
-    "threshold": 0.17,
+    "threshold": 0.37,
     "index": 61
   },
   {
     "label": "medicinal",
-    "threshold": 0.28,
+    "threshold": 0.1,
     "index": 62
   },
   {
     "label": "melon",
-    "threshold": 0.26,
+    "threshold": 0.56,
     "index": 63
   },
   {
     "label": "metallic",
-    "threshold": 0.2,
+    "threshold": 0.87,
     "index": 64
   },
   {
     "label": "milky",
-    "threshold": 0.67,
+    "threshold": 0.88,
     "index": 65
   },
   {
     "label": "mint",
-    "threshold": 0.12000000000000001,
+    "threshold": 0.19,
     "index": 66
   },
   {
     "label": "mushroom",
-    "threshold": 0.86,
+    "threshold": 0.30000000000000004,
     "index": 67
   },
   {
@@ -346,212 +346,207 @@
   },
   {
     "label": "musty",
-    "threshold": 0.28,
+    "threshold": 0.13,
     "index": 69
   },
   {
     "label": "nutty",
-    "threshold": 0.17,
+    "threshold": 0.4,
     "index": 70
   },
   {
     "label": "odorless",
-    "threshold": 0.12000000000000001,
+    "threshold": 0.30000000000000004,
     "index": 71
   },
   {
     "label": "oily",
-    "threshold": 0.85,
+    "threshold": 0.82,
     "index": 72
   },
   {
     "label": "onion",
-    "threshold": 0.48,
+    "threshold": 0.9,
     "index": 73
   },
   {
     "label": "orange",
-    "threshold": 0.41000000000000003,
+    "threshold": 0.84,
     "index": 74
   },
   {
     "label": "orris",
-    "threshold": 0.88,
+    "threshold": 0.18,
     "index": 75
   },
   {
     "label": "peach",
-    "threshold": 0.24000000000000002,
+    "threshold": 0.31,
     "index": 76
   },
   {
     "label": "pear",
-    "threshold": 0.28,
+    "threshold": 0.15000000000000002,
     "index": 77
   },
   {
     "label": "phenolic",
-    "threshold": 0.37,
+    "threshold": 0.9,
     "index": 78
   },
   {
     "label": "pine",
-    "threshold": 0.1,
+    "threshold": 0.88,
     "index": 79
   },
   {
     "label": "pineapple",
-    "threshold": 0.42000000000000004,
+    "threshold": 0.11,
     "index": 80
   },
   {
     "label": "plum",
-    "threshold": 0.25,
+    "threshold": 0.88,
     "index": 81
   },
   {
     "label": "popcorn",
-    "threshold": 0.26,
+    "threshold": 0.14,
     "index": 82
   },
   {
     "label": "potato",
-    "threshold": 0.84,
+    "threshold": 0.41000000000000003,
     "index": 83
   },
   {
     "label": "pungent",
-    "threshold": 0.18,
+    "threshold": 0.9,
     "index": 84
   },
   {
     "label": "radish",
-    "threshold": 0.21000000000000002,
+    "threshold": 0.53,
     "index": 85
   },
   {
     "label": "ripe",
-    "threshold": 0.24000000000000002,
+    "threshold": 0.87,
     "index": 86
   },
   {
     "label": "roasted",
-    "threshold": 0.12000000000000001,
+    "threshold": 0.1,
     "index": 87
   },
   {
     "label": "rose",
-    "threshold": 0.66,
+    "threshold": 0.72,
     "index": 88
   },
   {
     "label": "rum",
-    "threshold": 0.5,
+    "threshold": 0.9,
     "index": 89
   },
   {
     "label": "savory",
-    "threshold": 0.2,
+    "threshold": 0.1,
     "index": 90
   },
   {
     "label": "sharp",
-    "threshold": 0.71,
+    "threshold": 0.5,
     "index": 91
   },
   {
     "label": "smoky",
-    "threshold": 0.6799999999999999,
+    "threshold": 0.9,
     "index": 92
   },
   {
     "label": "solvent",
-    "threshold": 0.27,
+    "threshold": 0.5,
     "index": 93
   },
   {
     "label": "sour",
-    "threshold": 0.67,
+    "threshold": 0.8,
     "index": 94
   },
   {
     "label": "spicy",
-    "threshold": 0.23,
+    "threshold": 0.4,
     "index": 95
   },
   {
-    "label": "stimulus",
-    "threshold": 0.2,
+    "label": "strawberry",
+    "threshold": 0.12000000000000001,
     "index": 96
   },
   {
-    "label": "strawberry",
-    "threshold": 0.6799999999999999,
+    "label": "sulfurous",
+    "threshold": 0.64,
     "index": 97
   },
   {
-    "label": "sulfurous",
-    "threshold": 0.32,
+    "label": "sweet",
+    "threshold": 0.18,
     "index": 98
   },
   {
-    "label": "sweet",
-    "threshold": 0.31,
+    "label": "tea",
+    "threshold": 0.5,
     "index": 99
   },
   {
-    "label": "tea",
-    "threshold": 0.1,
+    "label": "tobacco",
+    "threshold": 0.19,
     "index": 100
   },
   {
-    "label": "tobacco",
-    "threshold": 0.12000000000000001,
+    "label": "tomato",
+    "threshold": 0.5,
     "index": 101
   },
   {
-    "label": "tomato",
-    "threshold": 0.1,
+    "label": "tropical",
+    "threshold": 0.26,
     "index": 102
   },
   {
-    "label": "tropical",
-    "threshold": 0.42000000000000004,
+    "label": "vanilla",
+    "threshold": 0.84,
     "index": 103
   },
   {
-    "label": "vanilla",
-    "threshold": 0.89,
+    "label": "vegetable",
+    "threshold": 0.82,
     "index": 104
   },
   {
-    "label": "vegetable",
-    "threshold": 0.1,
-    "index": 105
-  },
-  {
     "label": "violet",
-    "threshold": 0.86,
-    "index": 106
+    "threshold": 0.9,
+    "index": 105
   },
   {
     "label": "warm",
     "threshold": 0.5,
-    "index": 107
+    "index": 106
   },
   {
     "label": "waxy",
-    "threshold": 0.58,
-    "index": 108
+    "threshold": 0.59,
+    "index": 107
   },
   {
     "label": "winey",
-    "threshold": 0.12000000000000001,
-    "index": 109
+    "threshold": 0.24000000000000002,
+    "index": 108
   },
   {
     "label": "woody",
-    "threshold": 0.18,
-    "index": 110
+    "threshold": 0.2,
+    "index": 109
   }
 ]

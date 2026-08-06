@@ -4,10 +4,10 @@ import os
 import sqlite3
 
 # Path dataset
-DATA_DIR = r"C:\Users\Lenovo\Documents\UMN\Semester 7\AromaML\data\fragdb"
+DATA_DIR = r"dataset\fragrance-database-main\samples"
 FRAGRANCES_CSV = os.path.join(DATA_DIR, "fragrances.csv")
 ACCORDS_CSV = os.path.join(DATA_DIR, "accords.csv")
-DB_PATH = os.path.join(DATA_DIR, "perfume_db.sqlite")
+DB_PATH = os.path.join("dataset", "perfume_db.sqlite")
 
 def run_etl():
     print("Mulai ETL Pipeline untuk AromaML B2C...")

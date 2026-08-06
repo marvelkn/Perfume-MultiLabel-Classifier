@@ -35,20 +35,27 @@ _LOCAL_BASE = Path("dataset/pyrfume-data-main/pyrfume-data-main")
 
 def _load_one(rel: str) -> pd.DataFrame:
     """Load a single archive file. Try local folder first, then pyrfume, then GitHub."""
+    df = None
+    
     # 1. Try local dataset folder (already downloaded)
     local_path = _LOCAL_BASE / rel
     if local_path.exists():
-        return pd.read_csv(local_path)
-
-    # 2. Try pyrfume library
-    try:
-        import pyrfume
-        return pyrfume.load_data(rel)
-    except Exception as exc:  # noqa: BLE001
-        print(f"      pyrfume.load_data({rel!r}) failed ({exc!r}); using raw GitHub")
-
-    # 3. Fallback: raw GitHub
-    return pd.read_csv(f"{_RAW_BASE}/{rel}", index_col=0)
+        df = pd.read_csv(local_path)
+    else:
+        # 2. Try pyrfume library
+        try:
+            import pyrfume
+            df = pyrfume.load_data(rel)
+        except Exception as exc:  # noqa: BLE001
+            print(f"      pyrfume.load_data({rel!r}) failed ({exc!r}); using raw GitHub")
+            # 3. Fallback: raw GitHub
+            df = pd.read_csv(f"{_RAW_BASE}/{rel}", index_col=0)
+            
+    # Pandas 3.0 compatibility: if index has a name, it must be a column to be accessed as df["name"]
+    if df is not None and df.index.name is not None:
+        df = df.reset_index()
+        
+    return df
 
 
 def load_all(save_raw: bool = True) -> dict[str, pd.DataFrame]:

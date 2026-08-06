@@ -255,10 +255,11 @@ def build():
                 Y[r, j] = 1
 
     col_pos = Y.sum(axis=0)
-    keep = col_pos >= min_pos
+    blocklist = {normalize(b) for b in CONFIG["labels"].get("blocklist", [])}
+    keep = (col_pos >= min_pos) & np.array([t not in blocklist for t in taxonomy])
     taxonomy_kept = [t for t, k in zip(taxonomy, keep) if k]
     Y = Y[:, keep]
-    print(f"[5/6] Label floor (>= {min_pos}): kept {len(taxonomy_kept)}/{len(taxonomy)} labels")
+    print(f"[5/6] Label floor (>= {min_pos}) & blocklist: kept {len(taxonomy_kept)}/{len(taxonomy)} labels")
 
     row_has = Y.sum(axis=1) > 0
     X, Y = X[row_has], Y[row_has]
