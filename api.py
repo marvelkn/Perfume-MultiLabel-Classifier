@@ -40,6 +40,7 @@ class FingerprintResponse(BaseModel):
     iupac_name: str | None = None
     molecular_formula: str | None = None
     molecular_weight: float | None = None
+    warning: str | None = None
 
 class RecommendRequest(BaseModel):
     label_probabilities: dict[str, float] 
@@ -181,13 +182,27 @@ def get_fingerprint(req: FingerprintRequest):
         smiles = req.smiles
 
     fp = compute_fingerprint(smiles)
+    
+    # Filter 1: Fisika (Berat Molekul)
+    wt = fp[-5]
+    if wt > 400:
+        raise HTTPException(400, f"Senyawa terlalu berat ({wt:.2f} g/mol) dan tidak mudah menguap. Kemungkinan besar bukan wewangian.")
+
     preds = predictor.predict(fp) if predictor else {}
+    
+    # Filter 2: AI Confidence
+    warning_msg = None
+    if preds:
+        max_prob = max([p["probability"] for p in preds.values()])
+        if max_prob < 0.3:
+            warning_msg = "Model kurang yakin (maksimal probabilitas < 30%). Senyawa ini mungkin bukan bahan wewangian."
 
     return FingerprintResponse(
         smiles=smiles,
         compound_name=name,
         fingerprint=fp,
         predictions=preds,
+        warning=warning_msg,
         **meta,
     )
 
