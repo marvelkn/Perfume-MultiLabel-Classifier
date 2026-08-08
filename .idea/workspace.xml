@@ -4,25 +4,13 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4e29f833-013c-4d05-8d35-2309165a66c2" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/caches/deviceStreaming.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/deviceStreaming.xml" afterDir="false" />
+    <list default="true" id="4e29f833-013c-4d05-8d35-2309165a66c2" name="Changes" comment="some changes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api.py" beforeDir="false" afterPath="$PROJECT_DIR$/api.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/interim/dataset_harmonized.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/interim/dataset_harmonized.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/processed/X_test.npz" beforeDir="false" afterPath="$PROJECT_DIR$/data/processed/X_test.npz" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/processed/X_train.npz" beforeDir="false" afterPath="$PROJECT_DIR$/data/processed/X_train.npz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/Y_test.npz" beforeDir="false" afterPath="$PROJECT_DIR$/data/processed/Y_test.npz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/Y_train.npz" beforeDir="false" afterPath="$PROJECT_DIR$/data/processed/Y_train.npz" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/processed/dataset_summary.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/processed/dataset_summary.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/label_names.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/processed/label_names.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/smiles_test.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/processed/smiles_test.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/processed/smiles_train.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/processed/smiles_train.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/etl_pipeline.py" beforeDir="false" afterPath="$PROJECT_DIR$/etl_pipeline.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/export_for_mobile.py" beforeDir="false" afterPath="$PROJECT_DIR$/export_for_mobile.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mobile_assets/labels.json" beforeDir="false" afterPath="$PROJECT_DIR$/mobile_assets/labels.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mobile_assets/lgbm_meta.json" beforeDir="false" afterPath="$PROJECT_DIR$/mobile_assets/lgbm_meta.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mobile_assets/xgb_manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/mobile_assets/xgb_manifest.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mobile_assets/xgb_meta.json" beforeDir="false" afterPath="$PROJECT_DIR$/mobile_assets/xgb_meta.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/lgbm_models/lgbm_alcoholic.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/models/lgbm_models/lgbm_alcoholic.pkl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/lgbm_models/lgbm_aldehydic.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/models/lgbm_models/lgbm_aldehydic.pkl" afterDir="false" />
@@ -230,7 +218,6 @@
       <change beforePath="$PROJECT_DIR$/models/lgbm_onnx/lgbm_solvent.onnx" beforeDir="false" afterPath="$PROJECT_DIR$/models/lgbm_onnx/lgbm_solvent.onnx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/lgbm_onnx/lgbm_sour.onnx" beforeDir="false" afterPath="$PROJECT_DIR$/models/lgbm_onnx/lgbm_sour.onnx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/lgbm_onnx/lgbm_spicy.onnx" beforeDir="false" afterPath="$PROJECT_DIR$/models/lgbm_onnx/lgbm_spicy.onnx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/lgbm_onnx/lgbm_stimulus.onnx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/models/lgbm_onnx/lgbm_strawberry.onnx" beforeDir="false" afterPath="$PROJECT_DIR$/models/lgbm_onnx/lgbm_strawberry.onnx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/lgbm_onnx/lgbm_sulfurous.onnx" beforeDir="false" afterPath="$PROJECT_DIR$/models/lgbm_onnx/lgbm_sulfurous.onnx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/lgbm_onnx/lgbm_sweet.onnx" beforeDir="false" afterPath="$PROJECT_DIR$/models/lgbm_onnx/lgbm_sweet.onnx" afterDir="false" />
@@ -452,7 +439,6 @@
       <change beforePath="$PROJECT_DIR$/models/xgb_onnx/xgb_solvent.onnx" beforeDir="false" afterPath="$PROJECT_DIR$/models/xgb_onnx/xgb_solvent.onnx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/xgb_onnx/xgb_sour.onnx" beforeDir="false" afterPath="$PROJECT_DIR$/models/xgb_onnx/xgb_sour.onnx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/xgb_onnx/xgb_spicy.onnx" beforeDir="false" afterPath="$PROJECT_DIR$/models/xgb_onnx/xgb_spicy.onnx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/xgb_onnx/xgb_stimulus.onnx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/models/xgb_onnx/xgb_strawberry.onnx" beforeDir="false" afterPath="$PROJECT_DIR$/models/xgb_onnx/xgb_strawberry.onnx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/xgb_onnx/xgb_sulfurous.onnx" beforeDir="false" afterPath="$PROJECT_DIR$/models/xgb_onnx/xgb_sulfurous.onnx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/xgb_onnx/xgb_sweet.onnx" beforeDir="false" afterPath="$PROJECT_DIR$/models/xgb_onnx/xgb_sweet.onnx" afterDir="false" />
@@ -471,9 +457,9 @@
       <change beforePath="$PROJECT_DIR$/reports/comparison_table.csv" beforeDir="false" afterPath="$PROJECT_DIR$/reports/comparison_table.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/reports/results_lgbm.json" beforeDir="false" afterPath="$PROJECT_DIR$/reports/results_lgbm.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/reports/results_xgb.json" beforeDir="false" afterPath="$PROJECT_DIR$/reports/results_xgb.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/build_dataset.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/build_dataset.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data_acquisition.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/data_acquisition.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements_dev.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements_dev.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/featurize.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/featurize.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/train_and_evaluate.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/train_and_evaluate.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -516,6 +502,19 @@
       <option name="presentableId" value="Default" />
       <updated>1783998455665</updated>
     </task>
+    <task id="LOCAL-00001" summary="some changes">
+      <option name="closed" value="true" />
+      <created>1785999880571</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1785999880571</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="some changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="some changes" />
   </component>
 </project>

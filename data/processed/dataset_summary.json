@@ -13,7 +13,7 @@
   "min_positive_count": 30,
   "n_train": 5601,
   "n_test": 1434,
-  "x_n_features": 2048,
+  "x_n_features": 2053,
   "train_test_disjoint": true,
   "train_positives_per_label": {
     "alcoholic": 94,

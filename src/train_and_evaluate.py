@@ -28,6 +28,7 @@ from sklearn.metrics import (
     recall_score, roc_auc_score,
 )
 from sklearn.model_selection import train_test_split
+import optuna
 
 warnings.filterwarnings("ignore")
 
@@ -78,11 +79,60 @@ def evaluate(Y_true, Y_pred_binary, Y_pred_proba, label_names):
     }
 
 
+def optimize_xgboost(X_tr, Y_tr, X_val, Y_val, labels, n_trials=20):
+    from xgboost import XGBClassifier
+    import random
+    
+    # Pick 5 random labels to optimize globally to save time
+    random.seed(42)
+    sample_indices = random.sample(range(len(labels)), min(5, len(labels)))
+    
+    def objective(trial):
+        params = {
+            "n_estimators": trial.suggest_int("n_estimators", 100, 500, step=100),
+            "max_depth": trial.suggest_int("max_depth", 3, 9),
+            "learning_rate": trial.suggest_float("learning_rate", 0.01, 0.2, log=True),
+            "subsample": trial.suggest_float("subsample", 0.5, 1.0),
+            "colsample_bytree": trial.suggest_float("colsample_bytree", 0.5, 1.0),
+            "tree_method": "hist",
+            "eval_metric": "logloss",
+            "use_label_encoder": False,
+            "verbosity": 0,
+            "random_state": 42,
+        }
+        
+        f1_scores = []
+        for j in sample_indices:
+            y_tr_j = Y_tr[:, j]
+            y_val_j = Y_val[:, j]
+            n_pos = y_tr_j.sum()
+            n_neg = len(y_tr_j) - n_pos
+            spw = max(1.0, n_neg / max(n_pos, 1))
+            
+            clf = XGBClassifier(scale_pos_weight=spw, **params)
+            clf.fit(X_tr, y_tr_j)
+            
+            pv = clf.predict_proba(X_val)[:, 1]
+            t_best = find_best_threshold(y_val_j, pv)
+            f1 = f1_score(y_val_j, (pv >= t_best).astype(int), zero_division=0)
+            f1_scores.append(f1)
+            
+        return np.mean(f1_scores)
+
+    print("\n[Optuna] Mencari hyperparameter XGBoost terbaik...")
+    optuna.logging.set_verbosity(optuna.logging.WARNING)
+    study = optuna.create_study(direction="maximize")
+    study.optimize(objective, n_trials=n_trials)
+    print(f"  Best F1: {study.best_value:.4f}")
+    print(f"  Best Params: {study.best_params}")
+    return study.best_params
+
+
 # ── XGBoost Binary Relevance ──────────────────────────────────────────────────
-def train_xgboost(X_tr, Y_tr, X_val, Y_val, X_test, labels):
+def train_xgboost(X_tr, Y_tr, X_val, Y_val, X_test, labels, best_params):
     from xgboost import XGBClassifier
 
-    print("\n[XGBoost] Training Binary Relevance ...")
+    print("\n[XGBoost] Training Binary Relevance dengan Optuna Params ...")
     n_labels = Y_tr.shape[1]
     models, thresholds = [], []
     proba_val  = np.zeros((len(X_val),  n_labels))
@@ -98,17 +148,13 @@ def train_xgboost(X_tr, Y_tr, X_val, Y_val, X_test, labels):
         spw = max(1.0, n_neg / max(n_pos, 1))   # scale_pos_weight
 
         clf = XGBClassifier(
-            n_estimators=300,
-            max_depth=5,
-            learning_rate=0.07,
-            subsample=0.8,
-            colsample_bytree=0.8,
             scale_pos_weight=spw,
             tree_method="hist",
             eval_metric="logloss",
             use_label_encoder=False,
             verbosity=0,
             random_state=42,
+            **best_params
         )
         clf.fit(X_tr, y_tr_j)
         models.append(clf)
@@ -197,7 +243,7 @@ def train_lightgbm(X_tr, Y_tr, X_val, Y_val, X_test, labels):
 
 
 # ── ONNX Export ───────────────────────────────────────────────────────────────
-def export_onnx_xgb(models, labels):
+def export_onnx_xgb(models, labels, n_features):
     """Export XGBoost Binary Relevance ke ONNX."""
     try:
         from onnxmltools.convert import convert_xgboost
@@ -208,7 +254,7 @@ def export_onnx_xgb(models, labels):
         xgb_onnx_dir.mkdir(exist_ok=True)
 
         for j, (clf, label) in enumerate(zip(models, labels)):
-            initial_type = [("float_input", FloatTensorType([None, 2048]))]
+            initial_type = [("float_input", FloatTensorType([None, n_features]))]
             try:
                 onnx_model = convert_xgboost(clf, initial_types=initial_type)
                 fname = xgb_onnx_dir / f"xgb_{label.replace(' ', '_')}.onnx"
@@ -225,7 +271,7 @@ def export_onnx_xgb(models, labels):
         print(f"[ONNX] Import error: {e}. Jalankan: pip install onnxmltools")
 
 
-def export_onnx_lgbm(models, labels):
+def export_onnx_lgbm(models, labels, n_features):
     """Export LightGBM Binary Relevance ke ONNX."""
     try:
         from onnxmltools.convert import convert_lightgbm
@@ -236,7 +282,7 @@ def export_onnx_lgbm(models, labels):
         lgbm_onnx_dir.mkdir(exist_ok=True)
 
         for j, (clf, label) in enumerate(zip(models, labels)):
-            initial_type = [("float_input", FloatTensorType([None, 2048]))]
+            initial_type = [("float_input", FloatTensorType([None, n_features]))]
             try:
                 onnx_model = convert_lightgbm(clf, initial_types=initial_type, zipmap=False)
                 fname = lgbm_onnx_dir / f"lgbm_{label.replace(' ', '_')}.onnx"
@@ -280,9 +326,9 @@ def run():
     X_tr_res, Y_tr_res = ml_smote(X_tr, Y_tr, k=5, sampling_ratio=0.5, seed=42)
 
     # 4. Train XGBoost
-    print("\n[4/7] Training XGBoost Binary Relevance ...")
+    xgb_params = optimize_xgboost(X_tr_res, Y_tr_res, X_val, Y_val, labels, n_trials=10)
     xgb_models, xgb_thresholds, xgb_proba, xgb_pred = train_xgboost(
-        X_tr_res, Y_tr_res, X_val, Y_val, X_test, labels
+        X_tr_res, Y_tr_res, X_val, Y_val, X_test, labels, xgb_params
     )
 
     # 5. Train LightGBM
@@ -330,8 +376,8 @@ def run():
 
     # 7. Export ONNX
     print("\n[7/7] Exporting ke ONNX ...")
-    export_onnx_xgb(xgb_models, labels)
-    export_onnx_lgbm(lgbm_models, labels)
+    export_onnx_xgb(xgb_models, labels, X_train.shape[1])
+    export_onnx_lgbm(lgbm_models, labels, X_train.shape[1])
 
     print("\n" + "=" * 60)
     print("PIPELINE SELESAI")
@@ -352,7 +398,8 @@ def export_only():
     print("MODE: Export ONNX Only (load dari disk)")
     print("=" * 60)
 
-    _, _, _, _, labels = load_data()
+    X_train, _, _, _, labels = load_data()
+    n_features = X_train.shape[1]
 
     # Load XGBoost models
     xgb_model_dir = MODELS / "xgb_models"
@@ -370,7 +417,7 @@ def export_only():
                 xgb_models.append(None)
         valid_xgb = [(m, l) for m, l in zip(xgb_models, labels) if m is not None]
         print(f"[XGBoost] Loaded {len(valid_xgb)}/{len(labels)} models dari disk")
-        export_onnx_xgb([m for m, _ in valid_xgb], [l for _, l in valid_xgb])
+        export_onnx_xgb([m for m, _ in valid_xgb], [l for _, l in valid_xgb], n_features)
 
     # Load LightGBM models
     lgbm_model_dir = MODELS / "lgbm_models"
@@ -388,7 +435,7 @@ def export_only():
                 lgbm_models.append(None)
         valid_lgbm = [(m, l) for m, l in zip(lgbm_models, labels) if m is not None]
         print(f"[LightGBM] Loaded {len(valid_lgbm)}/{len(labels)} models dari disk")
-        export_onnx_lgbm([m for m, _ in valid_lgbm], [l for _, l in valid_lgbm])
+        export_onnx_lgbm([m for m, _ in valid_lgbm], [l for _, l in valid_lgbm], n_features)
 
     print("\n" + "=" * 60)
     print("EXPORT SELESAI")

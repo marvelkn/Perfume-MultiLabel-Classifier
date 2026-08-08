@@ -35,7 +35,7 @@ class FingerprintRequest(BaseModel):
 class FingerprintResponse(BaseModel):
     smiles: str
     compound_name: str
-    fingerprint: list[int]
+    fingerprint: list[float]
     predictions: dict[str, dict[str, float | int]]
     iupac_name: str | None = None
     molecular_formula: str | None = None
@@ -84,7 +84,7 @@ class OnnxPredictor:
             if fname.exists():
                 self.sessions[label] = ort.InferenceSession(str(fname), sess_options=opts)
 
-    def predict(self, fingerprint: list[int]) -> dict:
+    def predict(self, fingerprint: list[float]) -> dict:
         if not self.sessions:
             return {}
             
@@ -141,13 +141,24 @@ def name_to_smiles(name: str) -> dict:
         "molecular_weight": data.get("MolecularWeight"),
     }
 
-def compute_fingerprint(smiles: str) -> list[int]:
+def compute_fingerprint(smiles: str) -> list[float]:
     Chem, AllChem = get_rdkit()
+    from rdkit.Chem import Descriptors
     mol = Chem.MolFromSmiles(smiles)
     if mol is None:
         raise HTTPException(400, f"SMILES tidak valid: {smiles}")
+        
     fp = AllChem.GetMorganFingerprintAsBitVect(mol, radius=2, nBits=2048)
-    return list(fp)
+    fp_array = list(fp)
+    
+    wt = float(Descriptors.MolWt(mol))
+    logp = float(Descriptors.MolLogP(mol))
+    hdon = float(Descriptors.NumHDonors(mol))
+    hacc = float(Descriptors.NumHAcceptors(mol))
+    tpsa = float(Descriptors.TPSA(mol))
+    
+    fp_array.extend([wt, logp, hdon, hacc, tpsa])
+    return fp_array
 
 @app.get("/")
 def root():

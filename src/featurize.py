@@ -8,7 +8,7 @@ from typing import Iterable, Optional
 
 import numpy as np
 from rdkit import Chem, RDLogger
-from rdkit.Chem import rdFingerprintGenerator
+from rdkit.Chem import Descriptors, rdFingerprintGenerator
 
 from .config import CONFIG
 
@@ -35,14 +35,28 @@ def canonical_smiles(smiles: str) -> Optional[str]:
     return Chem.MolToSmiles(mol, isomericSmiles=_PRESERVE_STEREO)
 
 
-def morgan_fingerprint(smiles: str) -> Optional[np.ndarray]:
-    """Return a (n_bits,) uint8 Morgan fingerprint, or None if SMILES is invalid."""
+def extract_features(smiles: str) -> Optional[np.ndarray]:
+    """Return a (n_bits + 5,) float32 fingerprint array (Morgan + RDKit Physical)."""
     if not isinstance(smiles, str) or not smiles.strip():
         return None
     mol = Chem.MolFromSmiles(smiles)
     if mol is None:
         return None
-    return _GEN.GetFingerprintAsNumPy(mol).astype(np.uint8)
+    
+    # 2048-bit Morgan Fingerprint
+    fp = _GEN.GetFingerprintAsNumPy(mol).astype(np.float32)
+    
+    # 5 Physical RDKit Descriptors
+    wt = Descriptors.MolWt(mol)
+    logp = Descriptors.MolLogP(mol)
+    hdon = Descriptors.NumHDonors(mol)
+    hacc = Descriptors.NumHAcceptors(mol)
+    tpsa = Descriptors.TPSA(mol)
+    
+    phys_desc = np.array([wt, logp, hdon, hacc, tpsa], dtype=np.float32)
+    
+    # Combine them (length: 2053)
+    return np.concatenate((fp, phys_desc))
 
 
 def fingerprint_matrix(smiles_list: Iterable[str]):
@@ -53,9 +67,9 @@ def fingerprint_matrix(smiles_list: Iterable[str]):
     """
     rows, mask = [], []
     for smi in smiles_list:
-        fp = morgan_fingerprint(smi)
+        fp = extract_features(smi)
         mask.append(fp is not None)
         if fp is not None:
             rows.append(fp)
-    X = np.vstack(rows) if rows else np.empty((0, _N_BITS), dtype=np.uint8)
+    X = np.vstack(rows) if rows else np.empty((0, _N_BITS + 5), dtype=np.float32)
     return X, np.asarray(mask, dtype=bool)
