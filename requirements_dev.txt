@@ -22,6 +22,7 @@ matplotlib>=3.5
 # --- Testing (YOUR phase) ---
 pytest>=7.0
 httpx>=0.24
+torch>=2.0
 # --- ONNX export + desktop runtime parity check (YOUR phase) ---
 skl2onnx>=1.16
 onnxmltools>=1.12

@@ -256,10 +256,21 @@ def build():
 
     col_pos = Y.sum(axis=0)
     blocklist = {normalize(b) for b in CONFIG["labels"].get("blocklist", [])}
-    keep = (col_pos >= min_pos) & np.array([t not in blocklist for t in taxonomy])
-    taxonomy_kept = [t for t, k in zip(taxonomy, keep) if k]
-    Y = Y[:, keep]
-    print(f"[5/6] Label floor (>= {min_pos}) & blocklist: kept {len(taxonomy_kept)}/{len(taxonomy)} labels")
+    
+    # Filter 1: Min positive count & blocklist
+    keep_mask = (col_pos >= min_pos) & np.array([t not in blocklist for t in taxonomy])
+    
+    # Filter 2: Strictly TOP 25 labels (for thesis scope)
+    valid_indices = np.where(keep_mask)[0]
+    valid_sums = col_pos[valid_indices]
+    top_25_indices = valid_indices[np.argsort(valid_sums)[::-1][:25]]
+    
+    final_keep = np.zeros(len(taxonomy), dtype=bool)
+    final_keep[top_25_indices] = True
+    
+    taxonomy_kept = [t for t, k in zip(taxonomy, final_keep) if k]
+    Y = Y[:, final_keep]
+    print(f"[5/6] Label floor (>= {min_pos}) & Top-25 Constraint: kept {len(taxonomy_kept)}/{len(taxonomy)} labels")
 
     row_has = Y.sum(axis=1) > 0
     X, Y = X[row_has], Y[row_has]
