@@ -58,3 +58,22 @@ tests/test_featurize.py
 The data layer ends at the saved 80/20 split. Your work begins at **class-imbalance
 handling** (ML-SMOTE on train only) and **model training** — see `notebooks/02_modeling.ipynb`
 and the plan at `~/.claude/plans/`.
+
+---
+
+## 🌐 Server Deployment (Railway API)
+This repository also serves as the **backend API** deployed on Railway. 
+The mobile app (React Native) uses this API solely to compute the **Morgan Fingerprint (RDKit)** and 5 physical descriptors of a given SMILES string.
+
+**Kenapa harus di-host di Railway?**
+Karena *RDKit* (pustaka kemoinformatika yang diperlukan untuk memproses SMILES ke dalam *fingerprint*) ditulis dalam bahasa C++ & Python dan tidak dapat dieksekusi secara native/lokal di dalam *React Native/JavaScript*.
+
+**File Relevan untuk Deployment:**
+- `api.py`: FastAPI server yang terekspos ke internet. Menerima request berisi `smiles` dan merespon dengan vektor numerik (fingerprint).
+- `Procfile`: Command untuk menjalankan Gunicorn + Uvicorn di Railway.
+- `requirements.txt`: Dependensi production (FastAPI, RDKit, dll).
+
+## 📱 Mobile App (Essenza)
+Aplikasi *mobile* React Native yang mengkonsumsi API ini dan menjalankan model ONNX secara on-device berada di repository **[Essenza_Frontend](../Essenza_Frontend)**. 
+
+*(AromaML sebelumnya digunakan sebagai tempat riset, tetapi sekarang seluruh fiturnya sudah diintegrasikan ke Essenza_Frontend).*
