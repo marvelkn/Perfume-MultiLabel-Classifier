@@ -79,26 +79,30 @@ def evaluate(Y_true, Y_pred_binary, Y_pred_proba, label_names):
     }
 
 
-def optimize_xgboost(X_tr, Y_tr, X_val, Y_val, labels, n_trials=20):
+def optimize_xgboost(X_tr, Y_tr, X_val, Y_val, labels, n_trials=30):
     from xgboost import XGBClassifier
     import random
     
-    # Pick 5 random labels to optimize globally to save time
+    # Sample 8 representative labels for more stable optimization
     random.seed(42)
-    sample_indices = random.sample(range(len(labels)), min(5, len(labels)))
+    sample_indices = random.sample(range(len(labels)), min(8, len(labels)))
     
     def objective(trial):
         params = {
-            "n_estimators": trial.suggest_int("n_estimators", 100, 500, step=100),
-            "max_depth": trial.suggest_int("max_depth", 3, 9),
-            "learning_rate": trial.suggest_float("learning_rate", 0.01, 0.2, log=True),
-            "subsample": trial.suggest_float("subsample", 0.5, 1.0),
-            "colsample_bytree": trial.suggest_float("colsample_bytree", 0.5, 1.0),
-            "tree_method": "hist",
-            "eval_metric": "logloss",
+            "n_estimators":     trial.suggest_int("n_estimators", 100, 600, step=100),
+            "max_depth":        trial.suggest_int("max_depth", 3, 10),
+            "learning_rate":    trial.suggest_float("learning_rate", 0.005, 0.3, log=True),
+            "subsample":        trial.suggest_float("subsample", 0.5, 1.0),
+            "colsample_bytree": trial.suggest_float("colsample_bytree", 0.4, 1.0),
+            # L1 & L2 regularization — critical for sparse 2053-dim fingerprint vectors
+            "reg_alpha":        trial.suggest_float("reg_alpha", 1e-4, 10.0, log=True),
+            "reg_lambda":       trial.suggest_float("reg_lambda", 1e-4, 10.0, log=True),
+            "min_child_weight": trial.suggest_int("min_child_weight", 1, 10),
+            "tree_method":      "hist",
+            "eval_metric":      "logloss",
             "use_label_encoder": False,
-            "verbosity": 0,
-            "random_state": 42,
+            "verbosity":        0,
+            "random_state":     42,
         }
         
         f1_scores = []
@@ -119,9 +123,10 @@ def optimize_xgboost(X_tr, Y_tr, X_val, Y_val, labels, n_trials=20):
             
         return np.mean(f1_scores)
 
-    print("\n[Optuna] Mencari hyperparameter XGBoost terbaik...")
+    print("\n[Optuna] Mencari hyperparameter XGBoost terbaik (30 trials, 8 labels)...")
     optuna.logging.set_verbosity(optuna.logging.WARNING)
-    study = optuna.create_study(direction="maximize")
+    study = optuna.create_study(direction="maximize",
+                                sampler=optuna.samplers.TPESampler(seed=42))
     study.optimize(objective, n_trials=n_trials)
     print(f"  Best F1: {study.best_value:.4f}")
     print(f"  Best Params: {study.best_params}")
@@ -323,10 +328,10 @@ def run():
 
     # 3. ML-SMOTE pada training portion only
     print("\n[3/7] Applying ML-SMOTE pada training set ...")
-    X_tr_res, Y_tr_res = ml_smote(X_tr, Y_tr, k=5, sampling_ratio=0.5, seed=42)
+    X_tr_res, Y_tr_res = ml_smote(X_tr, Y_tr, k=5, sampling_ratio=0.8, seed=42)
 
     # 4. Train XGBoost
-    xgb_params = optimize_xgboost(X_tr_res, Y_tr_res, X_val, Y_val, labels, n_trials=10)
+    xgb_params = optimize_xgboost(X_tr_res, Y_tr_res, X_val, Y_val, labels, n_trials=30)
     xgb_models, xgb_thresholds, xgb_proba, xgb_pred = train_xgboost(
         X_tr_res, Y_tr_res, X_val, Y_val, X_test, labels, xgb_params
     )

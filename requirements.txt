@@ -9,3 +9,4 @@ scikit-learn>=1.3
 onnxruntime>=1.17
 rdkit>=2023.9.1
 requests>=2.20
+umap-learn>=0.5.6
