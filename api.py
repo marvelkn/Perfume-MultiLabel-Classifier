@@ -152,13 +152,16 @@ def compute_fingerprint(smiles: str) -> list[float]:
     fp = AllChem.GetMorganFingerprintAsBitVect(mol, radius=2, nBits=2048)
     fp_array = list(fp)
     
-    wt = float(Descriptors.MolWt(mol))
+    # Hitung berat molekul per komponen (untuk mixology)
+    frags = Chem.GetMolFrags(mol, asMols=True)
+    max_wt = max(float(Descriptors.MolWt(f)) for f in frags)
+    
     logp = float(Descriptors.MolLogP(mol))
     hdon = float(Descriptors.NumHDonors(mol))
     hacc = float(Descriptors.NumHAcceptors(mol))
     tpsa = float(Descriptors.TPSA(mol))
     
-    fp_array.extend([wt, logp, hdon, hacc, tpsa])
+    fp_array.extend([max_wt, logp, hdon, hacc, tpsa])
     return fp_array
 
 @app.get("/")
