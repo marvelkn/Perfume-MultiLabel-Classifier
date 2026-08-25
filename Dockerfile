@@ -36,7 +36,7 @@ COPY models/ ./models/
 COPY mobile_assets/ ./mobile_assets/
 COPY dataset/ ./dataset/
 
-# Hugging Face Spaces runs on port 7860 by default
+# Hugging Face Spaces default port is 7860; Render injects $PORT
 ENV PORT=7860
 EXPOSE 7860
 
@@ -44,4 +44,5 @@ EXPOSE 7860
 RUN useradd -m -u 1000 appuser && chown -R appuser:appuser /app
 USER appuser
 
-CMD ["uvicorn", "api:app", "--host", "0.0.0.0", "--port", "7860"]
+# Use api_light (fingerprint-only, no ONNX model loading) for minimal RAM usage
+CMD ["sh", "-c", "uvicorn api_light:app --host 0.0.0.0 --port ${PORT:-7860}"]
