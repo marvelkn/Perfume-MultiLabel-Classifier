@@ -3,39 +3,36 @@ title: Essenza Fingerprint API
 emoji: 🧪
 colorFrom: green
 colorTo: yellow
-sdk: docker
-app_port: 7860
+sdk: gradio
+sdk_version: "5.0.0"
+app_file: app.py
 pinned: false
+license: mit
+short_description: RDKit Morgan Fingerprint API for Essenza mobile app
 ---
 
 # 🧪 Essenza Fingerprint API
 
-FastAPI backend untuk aplikasi mobile **Essenza** — sistem prediksi profil aroma parfum berbasis XGBoost + ONNX.
+FastAPI + Gradio backend untuk aplikasi mobile **Essenza** — sistem prediksi profil aroma parfum berbasis XGBoost + ONNX.
 
-## Endpoints
+## Endpoint
 
 | Method | Path | Deskripsi |
 |---|---|---|
 | `GET` | `/` | Health check |
-| `POST` | `/fingerprint` | Konversi SMILES → Morgan Fingerprint [2053] |
-| `POST` | `/recommend` | Rekomendasi parfum via cosine similarity |
+| `POST` | `/fingerprint` | SMILES → Morgan Fingerprint [2053] |
+| `GET` | `/ui` | Gradio UI untuk testing manual |
 
-## Contoh Request `/fingerprint`
+## Contoh Request
 
 ```bash
-curl -X POST https://marvelkn-essenza-api.hf.space/fingerprint \
+curl -X POST https://marvelkn-essenza-fingerprint-api.hf.space/fingerprint \
   -H "Content-Type: application/json" \
   -d '{"smiles": "O=Cc1ccc(O)c(OC)c1"}'
 ```
 
 ## Teknologi
 
-- **FastAPI** + **Uvicorn** — web framework & ASGI server  
-- **RDKit** — komputasi Morgan Fingerprint dari SMILES  
-- **ONNX Runtime** — inferensi 25 model XGBoost Binary Relevance  
-- **Pandas + NumPy** — data manipulation  
-
-## Catatan Mixology
-
-API mendukung **SMILES campuran** (dot-notation): `mol1.mol2.mol3`  
-Validasi MW dilakukan **per-fragmen** (bukan total), sehingga campuran 3 senyawa kecil tetap bisa diproses.
+- **FastAPI** + **Uvicorn** — web framework & ASGI server
+- **RDKit** — komputasi Morgan Fingerprint dari SMILES
+- **Gradio** — UI untuk testing + HF Spaces compatibility
