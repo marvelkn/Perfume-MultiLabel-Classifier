@@ -15,6 +15,13 @@ data/raw/
 
 # Jupyter Notebook checkpoints
 .ipynb_checkpoints/
+runs/
+.pytest_cache/
+data/snapshots/
+data/builds/
+*.db-journal
+*.db-wal
+*.db-shm
 
 # OS generated files
 .DS_Store

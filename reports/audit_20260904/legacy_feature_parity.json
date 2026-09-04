@@ -1,0 +1,9 @@
+{
+  "historical_X_sha256": "f9fc6759951c42f4e9f060eb7404bcbd4cac4639496cfc95eea12cae062dce73",
+  "seed": 42,
+  "sampled": 128,
+  "compared": 122,
+  "single_fragment_exclusions": 6,
+  "max_abs_error": 1.0,
+  "scope": "Legacy feature compatibility only; not model quality or new-training evidence."
+}

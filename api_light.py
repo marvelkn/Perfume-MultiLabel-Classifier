@@ -1,169 +1,67 @@
-"""
-Essenza Fingerprint API — Lightweight Edition
-Hanya menghitung Morgan Fingerprint (RDKit) + 5 physical descriptors.
-ONNX inference dilakukan on-device di HP (mobile app), bukan di server ini.
-
-Dioptimasi untuk deployment di Render Free Tier (512MB RAM):
-- Tidak load ONNX models (hemat ~300MB RAM)
-- Tidak load SQLite database parfum
-- Hanya rdkit + fastapi = ~200MB RAM
-"""
-from fastapi import FastAPI, HTTPException
-from fastapi.middleware.cors import CORSMiddleware
-from pydantic import BaseModel
+"""Versioned CPU fingerprint service; shares featurization with training."""
+import json
+import os
+from pathlib import Path
+from urllib.parse import quote
 import requests
+from fastapi import FastAPI, HTTPException
+from pydantic import BaseModel, Field
+from src.featurize import FeatureSpec, MoleculeError, features_and_metadata
 
-app = FastAPI(
-    title="Essenza Fingerprint API",
-    description="Lightweight fingerprint API for Essenza mobile app",
-    version="2.0.0"
-)
-
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
-
-
-# ── Schemas ────────────────────────────────────────────────────
+SPEC_PATH = Path(os.environ.get("ESSENZA_FEATURE_SPEC", Path(__file__).with_name("feature_spec.json")))
+SPEC = FeatureSpec.from_dict(json.loads(SPEC_PATH.read_text(encoding="utf-8")))
+app = FastAPI(title="Essenza Fingerprint API",version="3.0.0")
 
 class FingerprintRequest(BaseModel):
-    smiles: str | None = None
-    compound_name: str | None = None
+    smiles: str | None = Field(default=None,max_length=10000)
+    compound_name: str | None = Field(default=None,max_length=200)
+    feature_schema_id: str | None = None
 
+def name_to_smiles(name):
+    url = f"https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/{quote(name,safe='')}/property/SMILES,IUPACName/JSON"
+    try:
+        response = requests.get(url,timeout=(5,10))
+        if response.status_code == 404:
+            raise MoleculeError("COMPOUND_NOT_FOUND","Compound name was not found.")
+        response.raise_for_status()
+        records = response.json()["PropertyTable"]["Properties"]
+        if len(records) != 1:
+            raise MoleculeError("AMBIGUOUS_COMPOUND","Use a verified SMILES for this ambiguous name.")
+        record = records[0]
+        smiles = record.get("SMILES") or record.get("IsomericSMILES")
+        if not smiles:
+            raise ValueError("SMILES missing")
+        return {"smiles":smiles,"iupac_name":record.get("IUPACName")}
+    except MoleculeError:
+        raise
+    except (requests.RequestException,KeyError,ValueError) as exc:
+        raise MoleculeError("LOOKUP_UNAVAILABLE","Compound lookup is unavailable. You can enter SMILES directly.") from exc
 
-class FingerprintResponse(BaseModel):
-    smiles: str
-    compound_name: str
-    fingerprint: list[float]
-    predictions: dict   # selalu {} — inference dilakukan on-device
-    iupac_name: str | None = None
-    molecular_formula: str | None = None
-    molecular_weight: float | None = None
-    warning: str | None = None
+def compute_fingerprint(smiles):
+    return features_and_metadata(smiles,SPEC)[0].tolist()
 
-
-# ── Helpers ────────────────────────────────────────────────────
-
-def get_rdkit():
-    """Lazy import rdkit agar startup cepat dan tidak buang RAM di import."""
-    from rdkit import Chem
-    from rdkit.Chem import AllChem
-    return Chem, AllChem
-
-
-def name_to_smiles(name: str) -> dict:
-    """Cari SMILES dari nama senyawa via PubChem REST API."""
-    url = (
-        f"https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/"
-        f"{requests.utils.quote(name)}/property/"
-        f"IsomericSMILES,IUPACName,MolecularFormula,MolecularWeight/JSON"
-    )
-    resp = requests.get(url, timeout=10)
-    if resp.status_code != 200:
-        raise HTTPException(404, f"Senyawa '{name}' tidak ditemukan di PubChem.")
-    data = resp.json()["PropertyTable"]["Properties"][0]
-    return {
-        "smiles": data.get("IsomericSMILES", ""),
-        "iupac_name": data.get("IUPACName"),
-        "molecular_formula": data.get("MolecularFormula"),
-        "molecular_weight": data.get("MolecularWeight"),
-    }
-
-
-def compute_fingerprint(smiles: str) -> list[float]:
-    """
-    Konversi SMILES → Morgan Fingerprint (2048-bit) + 5 RDKit physical descriptors.
-    Total output: 2053 float values.
-
-    Untuk campuran (Scent Mixology dengan dot-notation mol1.mol2.mol3):
-    - Morgan FP dihitung dari keseluruhan disconnected graph
-    - MW dicek per-fragmen (max MW), bukan total MW semua fragmen
-    """
-    Chem, AllChem = get_rdkit()
-    from rdkit.Chem import Descriptors
-
-    mol = Chem.MolFromSmiles(smiles)
-    if mol is None:
-        raise HTTPException(400, f"SMILES tidak valid: {smiles}")
-
-    # Morgan Fingerprint (2048 bit, radius=2)
-    fp = AllChem.GetMorganFingerprintAsBitVect(mol, radius=2, nBits=2048)
-    fp_array = list(fp)
-
-    # Cek MW per komponen (fix untuk Scent Mixology — jangan jumlahkan semua)
-    frags = Chem.GetMolFrags(mol, asMols=True)
-    max_wt = max(float(Descriptors.MolWt(f)) for f in frags)
-
-    # 5 Physical Descriptors
-    logp = float(Descriptors.MolLogP(mol))
-    hdon = float(Descriptors.NumHDonors(mol))
-    hacc = float(Descriptors.NumHAcceptors(mol))
-    tpsa = float(Descriptors.TPSA(mol))
-
-    fp_array.extend([max_wt, logp, hdon, hacc, tpsa])
-    return fp_array
-
-
-# ── Endpoints ──────────────────────────────────────────────────
+def fingerprint_result(smiles="",compound_name="",feature_schema_id=None):
+    smiles,compound_name = (smiles or "").strip(), (compound_name or "").strip()
+    if feature_schema_id and feature_schema_id != SPEC.schema_id:
+        raise MoleculeError("FEATURE_SCHEMA_MISMATCH","The app model and feature service use different versions.")
+    if len(smiles) > 10000 or len(compound_name) > 200:
+        raise MoleculeError("INVALID_INPUT","Input exceeds the supported length.")
+    iupac = None
+    if not smiles and compound_name:
+        found = name_to_smiles(compound_name)
+        smiles,iupac = found["smiles"],found["iupac_name"]
+    vector,meta = features_and_metadata(smiles,SPEC)
+    return {"status":"ok",**meta,"compound_name":compound_name or None,"fingerprint":vector.tolist(),
+            "iupac_name":iupac,"warning":None}
 
 @app.get("/")
 def root():
-    return {"status": "ok", "version": "2.0.0", "message": "Essenza Fingerprint API berjalan!"}
+    return {"status":"ok","version":"3.0.0","feature_schema_id":SPEC.schema_id}
 
-
-@app.post("/fingerprint", response_model=FingerprintResponse)
-def get_fingerprint(req: FingerprintRequest):
-    if not req.smiles and not req.compound_name:
-        raise HTTPException(400, "Berikan 'smiles' atau 'compound_name'.")
-
-    meta = {"iupac_name": None, "molecular_formula": None, "molecular_weight": None}
-    name = req.compound_name or "Unknown"
-
-    if req.compound_name and not req.smiles:
-        result = name_to_smiles(req.compound_name)
-        smiles = result["smiles"]
-        name = req.compound_name
-        meta = {k: result[k] for k in ["iupac_name", "molecular_formula", "molecular_weight"]}
-    else:
-        smiles = req.smiles
-
-    fp = compute_fingerprint(smiles)
-
-    # Filter volatilitas: cek MW fragmen terbesar
-    wt = fp[-5]
-    if wt > 400:
-        raise HTTPException(
-            400,
-            f"Senyawa terlalu berat ({wt:.2f} g/mol) dan tidak mudah menguap. "
-            f"Kemungkinan besar bukan wewangian."
-        )
-
-    return FingerprintResponse(
-        smiles=smiles,
-        compound_name=name,
-        fingerprint=fp,
-        predictions={},  # Inference dilakukan on-device, bukan di server
-        warning=None,
-        **meta,
-    )
-
-
-# ── Entry Point ────────────────────────────────────────────────
-
-if __name__ == "__main__":
-    import uvicorn
-    import socket
-
-    hostname = socket.gethostname()
-    local_ip = socket.gethostbyname(hostname)
-    print(f"\n{'='*50}")
-    print(f"  Essenza Fingerprint API (Lightweight)")
-    print(f"  Akses dari laptop : http://localhost:8000")
-    print(f"  Akses dari HP     : http://{local_ip}:8000")
-    print(f"  Dokumentasi API   : http://localhost:8000/docs")
-    print(f"{'='*50}\n")
-
-    uvicorn.run("api_light:app", host="0.0.0.0", port=8000, reload=True)
+@app.post("/fingerprint")
+def fingerprint(req: FingerprintRequest):
+    try:
+        return fingerprint_result(req.smiles,req.compound_name,req.feature_schema_id)
+    except MoleculeError as exc:
+        status = 503 if exc.code == "LOOKUP_UNAVAILABLE" else 422
+        raise HTTPException(status,detail={"code":exc.code,"message":str(exc)}) from exc

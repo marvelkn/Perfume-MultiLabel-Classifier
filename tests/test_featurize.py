@@ -1,40 +1,32 @@
-"""Unit tests for the featurization layer (no network required)."""
 import numpy as np
+import pytest
+from src.featurize import FeatureSpec, features_and_metadata, canonical_smiles, fingerprint_matrix, MoleculeError
+from api_light import fingerprint_result, SPEC
 
-from src.config import CONFIG
-from src.featurize import canonical_smiles, fingerprint_matrix, morgan_fingerprint
+def test_api_training_features_and_metadata_identical():
+    X, metadata = features_and_metadata("OCC", SPEC)
+    response = fingerprint_result("CCO")
+    np.testing.assert_array_equal(X, response["fingerprint"])
+    assert X.dtype == np.float32 and X.shape == (2053,)
+    assert set(X[:2048]) <= {0,1}
+    assert response["molecular_formula"] == "C2H6O"
+    assert abs(response["molecular_weight"]-46.069) < .001
 
-N_BITS = CONFIG["fingerprint"]["n_bits"]
+@pytest.mark.parametrize("smiles,code",[("", "INVALID_SMILES"),("bad!", "INVALID_SMILES"),("CCO.O","UNSUPPORTED_MIXTURE")])
+def test_invalid_inputs(smiles,code):
+    with pytest.raises(MoleculeError) as exc:
+        features_and_metadata(smiles)
+    assert exc.value.code == code
+    assert canonical_smiles(smiles) is None
 
+def test_stereoisomers_and_schema_identity():
+    left,right = "CC1=CC[C@@H](CC1=O)C(=C)C","CC1=CC[C@H](CC1=O)C(=C)C"
+    assert canonical_smiles(left) != canonical_smiles(right)
+    old,new = FeatureSpec(),FeatureSpec(include_chirality=True)
+    assert old.schema_id != new.schema_id
+    np.testing.assert_array_equal(features_and_metadata(left,old)[0],features_and_metadata(right,old)[0])
+    assert not np.array_equal(features_and_metadata(left,new)[0],features_and_metadata(right,new)[0])
 
-def test_canonical_smiles_roundtrip():
-    # Two equivalent inputs for benzaldehyde must canonicalize identically.
-    assert canonical_smiles("O=Cc1ccccc1") == canonical_smiles("c1ccccc1C=O")
-
-
-def test_invalid_smiles_returns_none():
-    assert canonical_smiles("not_a_smiles") is None
-    assert morgan_fingerprint("not_a_smiles") is None
-    assert canonical_smiles("") is None
-
-
-def test_fingerprint_shape_and_dtype():
-    fp = morgan_fingerprint("CCO")  # ethanol
-    assert fp is not None
-    assert fp.shape == (N_BITS,)
-    assert fp.dtype == np.uint8
-    assert set(np.unique(fp)).issubset({0, 1})
-
-
-def test_carvone_enantiomers_stay_distinct():
-    # R- and S-carvone smell different (spearmint vs caraway) -> must NOT collapse.
-    r = canonical_smiles("CC1=CC[C@@H](CC1=O)C(=C)C")
-    s = canonical_smiles("CC1=CC[C@H](CC1=O)C(=C)C")
-    assert r is not None and s is not None
-    assert r != s
-
-
-def test_fingerprint_matrix_filters_invalid():
-    X, mask = fingerprint_matrix(["CCO", "garbage", "c1ccccc1"])
-    assert mask.tolist() == [True, False, True]
-    assert X.shape == (2, N_BITS)
+def test_invalid_row_mask():
+    X,mask = fingerprint_matrix(["CCO","bad!","c1ccccc1"])
+    assert X.shape == (2,2053) and mask.tolist() == [True,False,True]

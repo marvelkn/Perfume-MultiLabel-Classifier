@@ -1,0 +1,74 @@
+{
+  "dataset_id": "5c0b0e7c9a56eb60fbc344fc3b6629a160dfa723fdb7b6ba398e621870f2f558",
+  "source_revision": "8054ea98ed675005ec10e67359902f500e4911b0",
+  "n_train": 5383,
+  "n_test": 1320,
+  "n_labels": 25,
+  "n_features": 2053,
+  "identity_overlap": 0,
+  "test_rows_with_scaffold_seen_in_train": 1231,
+  "scaffold_note": "Murcko scaffold, chirality retained; all acyclic molecules share the empty scaffold. This is a diagnostic, not measured generalization performance.",
+  "train_rows_without_target_labels": 381,
+  "train_positives": {
+    "apple": 309,
+    "balsamic": 399,
+    "citrus": 396,
+    "earthy": 374,
+    "ethereal": 332,
+    "fatty": 610,
+    "floral": 1360,
+    "fresh": 458,
+    "fruity": 1942,
+    "green": 1593,
+    "herbal": 986,
+    "meaty": 258,
+    "mint": 267,
+    "musty": 233,
+    "nutty": 342,
+    "oily": 532,
+    "rose": 394,
+    "spicy": 509,
+    "sulfurous": 329,
+    "sweet": 1259,
+    "tropical": 320,
+    "vegetable": 262,
+    "waxy": 454,
+    "winey": 238,
+    "woody": 821
+  },
+  "source_audit": {
+    "goodscents": {
+      "rows": 4626,
+      "unmapped_identity": 0,
+      "invalid_or_multifragment": 183,
+      "accepted": 4259
+    },
+    "leffingwell": {
+      "rows": 3522,
+      "unmapped_identity": 0,
+      "invalid_or_multifragment": 0,
+      "accepted": 3522
+    },
+    "arctander": {
+      "rows": 3102,
+      "unmapped_identity": 278,
+      "invalid_or_multifragment": 102,
+      "accepted": 2433
+    },
+    "flavornet": {
+      "rows": 716,
+      "unmapped_identity": 0,
+      "invalid_or_multifragment": 0,
+      "accepted": 483
+    },
+    "sigma": {
+      "rows": 941,
+      "unmapped_identity": 204,
+      "invalid_or_multifragment": 0,
+      "accepted": 704
+    }
+  },
+  "label_missingness": "Unrecorded descriptors are treated as negatives; absence is not experimentally verified.",
+  "evaluation_status": "New split of partly historical molecules; not an independent external test.",
+  "feature_schema_id": "a1dce64f7591f9b40f5f2332d805b7f1c7f91f24d9af0dcd0964cda7c231c018"
+}

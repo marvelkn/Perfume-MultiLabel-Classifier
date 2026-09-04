@@ -1,3 +1,6 @@
+if __name__ == "__main__":
+    raise SystemExit("Historical script retired. Use the versioned pipeline in README.md; legacy outputs are not current evidence.")
+
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns

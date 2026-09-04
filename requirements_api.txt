@@ -1,0 +1,11 @@
+numpy==1.26.4
+rdkit==2026.3.4
+PyYAML==6.0.2
+requests==2.32.5
+fastapi==0.115.14
+uvicorn==0.35.0
+gradio==5.49.1
+pydantic==2.11.10
+starlette==0.46.2
+gradio_client==1.13.3
+huggingface_hub==1.30.0

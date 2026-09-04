@@ -1,78 +1,43 @@
-"""Load GoodScents, Leffingwell, Arctander, Sigma, and Flavornet archives.
-
-Priority order for loading each file:
-  1. Local dataset folder (dataset/pyrfume-data-main/pyrfume-data-main/)
-  2. pyrfume library
-  3. Raw GitHub fallback
-
-Saves a flat copy of each file into data/raw/ for inspection.
-"""
-from __future__ import annotations
-
+"""Read a pinned Pyrfume revision; retain byte-identical source snapshots."""
+import io
+import re
 from pathlib import Path
-
 import pandas as pd
-
+import requests
 from .config import CONFIG, path
+from .artifacts import digest, write_json
 
-_RAW_BASE = "https://raw.githubusercontent.com/pyrfume/pyrfume-data/main"
-
-# Map config source keys to the actual local subfolder names
-_LOCAL_FOLDER_MAP = {
-    "arctander_1960/molecules.csv":         "arctander_1960/molecules.csv",
-    "arctander_1960/behavior_1_sparse.csv": "arctander_1960/behavior_1_sparse.csv",
-    "arctander_1960/stimuli.csv":           "arctander_1960/stimuli.csv",
-    "sigma_2014/molecules.csv":             "sigma_2014/molecules.csv",
-    "sigma_2014/behavior.csv":              "sigma_2014/behavior.csv",
-    "sigma_2014/stimuli.csv":               "sigma_2014/stimuli.csv",
-    "flavornet/molecules.csv":              "flavornet/molecules.csv",
-    "flavornet/behavior.csv":               "flavornet/behavior.csv",
-    "flavornet/stimuli.csv":                "flavornet/stimuli.csv",
-}
-
-_LOCAL_BASE = Path("dataset/pyrfume-data-main/pyrfume-data-main")
-
-
-def _load_one(rel: str) -> pd.DataFrame:
-    """Load a single archive file. Try local folder first, then pyrfume, then GitHub."""
-    df = None
-    
-    # 1. Try local dataset folder (already downloaded)
-    local_path = _LOCAL_BASE / rel
-    if local_path.exists():
-        df = pd.read_csv(local_path)
-    else:
-        # 2. Try pyrfume library
-        try:
-            import pyrfume
-            df = pyrfume.load_data(rel)
-        except Exception as exc:  # noqa: BLE001
-            print(f"      pyrfume.load_data({rel!r}) failed ({exc!r}); using raw GitHub")
-            # 3. Fallback: raw GitHub
-            df = pd.read_csv(f"{_RAW_BASE}/{rel}", index_col=0)
-            
-    # Pandas 3.0 compatibility: if index has a name, it must be a column to be accessed as df["name"]
-    if df is not None and df.index.name is not None:
-        df = df.reset_index()
-        
-    return df
-
-
-def load_all(save_raw: bool = True) -> dict[str, pd.DataFrame]:
-    """Load all configured source files. Keys look like 'goodscents_molecules'."""
-    out: dict[str, pd.DataFrame] = {}
-    for source, files in CONFIG["sources"].items():
+def load_all(save_raw=True, *, config=None):
+    cfg = config or CONFIG
+    revision = cfg["data_revision"]
+    if not re.fullmatch(r"[0-9a-f]{40}", revision):
+        raise ValueError("data_revision must be a full Git commit SHA")
+    snapshot = Path(cfg["paths"]["data_raw"]) / revision
+    out, manifest = {}, {}
+    for source, files in cfg["sources"].items():
         for kind, rel in files.items():
-            df = _load_one(rel)
-            out[f"{source}_{kind}"] = df
-            if save_raw:
-                df.to_csv(path("data_raw") / rel.replace("/", "__"))
-            print(f"      {rel:<40} rows={len(df):>6}  cols={list(df.columns)[:6]}")
-    return out
-
-
-if __name__ == "__main__":
-    print("Loading all sources ...")
-    load_all(save_raw=True)
-    print("Done. Raw copies in", path("data_raw"))
-
+            target = snapshot / rel
+            url = f"https://raw.githubusercontent.com/pyrfume/pyrfume-data/{revision}/{rel}"
+            if target.exists():
+                content = target.read_bytes()
+            else:
+                response = requests.get(url, timeout=(10, 60))
+                response.raise_for_status()
+                content = response.content
+                if save_raw:
+                    target.parent.mkdir(parents=True, exist_ok=True)
+                    target.write_bytes(content)
+            import hashlib
+            manifest[rel] = {"sha256": hashlib.sha256(content).hexdigest(), "url": url}
+            # Identifiers stay strings, never implicit RangeIndex or floats.
+            out[f"{source}_{kind}"] = pd.read_csv(io.BytesIO(content), dtype=str)
+    if save_raw:
+        manifest_path = snapshot / "manifest.json"
+        if manifest_path.exists():
+            import json
+            old = json.loads(manifest_path.read_text())
+            if old != manifest:
+                raise ValueError("Source snapshot checksum mismatch")
+        else:
+            write_json(manifest_path, manifest)
+    return out, manifest

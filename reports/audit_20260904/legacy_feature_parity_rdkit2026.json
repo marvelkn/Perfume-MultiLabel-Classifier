@@ -1,0 +1,9 @@
+{
+  "rdkit": "2026.03.4",
+  "historical_X_sha256": "f9fc6759951c42f4e9f060eb7404bcbd4cac4639496cfc95eea12cae062dce73",
+  "compared": 5091,
+  "single_fragment_exclusions": 170,
+  "max_abs_error": 0.0,
+  "mismatches": [],
+  "scope": "All supported historical training rows; feature compatibility only, not prediction accuracy."
+}

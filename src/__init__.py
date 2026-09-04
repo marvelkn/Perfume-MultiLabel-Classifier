@@ -1,6 +1,4 @@
-"""Perfume aroma-profile prediction — shared data layer (Marvel Kevin Nathanael's thesis).
-
-Pipeline: SMILES (GoodScents + Leffingwell) -> canonicalize/dedupe -> harmonize labels
-to the Leffingwell taxonomy -> Morgan fingerprint (r=2, 2048-bit) -> iterative-stratified
-80/20 split. Modeling (XGBoost/LightGBM, Binary Relevance) starts downstream of this layer.
-"""
+"""Essenza molecular ML pipeline. Limit native parallelism before importing NumPy."""
+import os
+for _name in ("OMP_NUM_THREADS", "OPENBLAS_NUM_THREADS", "MKL_NUM_THREADS", "NUMEXPR_NUM_THREADS"):
+    os.environ[_name] = os.environ.get("ESSENZA_THREADS", "2")

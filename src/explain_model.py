@@ -1,81 +1,62 @@
-"""
-Explainable AI (XAI) menggunakan SHAP untuk menjelaskan prediksi XGBoost.
-Jalankan: python -m src.explain_model
-"""
+"""All-label native TreeSHAP on held-out development examples, in raw-margin units."""
+import argparse
+import json
+from pathlib import Path
+import joblib
 import numpy as np
 import pandas as pd
-import shap
-import matplotlib.pyplot as plt
-import joblib
-from pathlib import Path
+from .artifacts import digest, write_json
+from .experiments import context
+from .featurize import FeatureSpec, DESCRIPTORS
+from .runtime import ResourceGuard
 
-from .train_and_evaluate import load_data
-
-REPORTS = Path("reports")
-MODELS = Path("models")
-
-def run_shap():
-    print("=" * 60)
-    print("EXPLAINABLE AI (SHAP)")
-    print("=" * 60)
-    
-    # 1. Load Data
-    _, X_test, _, _, labels = load_data()
-    
-    # Generate feature names
-    # Morgan bits: 0 to 2047
-    feature_names = [f"Morgan_Bit_{i}" for i in range(2048)]
-    # 5 Physical features
-    feature_names.extend(["MolWt", "MolLogP", "NumHDonors", "NumHAcceptors", "TPSA"])
-    
-    X_test_df = pd.DataFrame(X_test, columns=feature_names)
-    
-    # Ambil 3 label paling populer untuk dijelaskan
-    # Cari modelnya di folder
-    xgb_model_dir = MODELS / "xgb_models"
-    
-    if not xgb_model_dir.exists():
-        print("Folder model tidak ditemukan. Jalankan training terlebih dahulu.")
-        return
-        
-    # Contoh label: "floral", "citrus", "woody"
-    target_labels = ["floral", "citrus", "woody"]
-    
-    for label in target_labels:
-        if label not in labels:
-            continue
-            
-        print(f"\nMenghitung SHAP values untuk aroma: {label.upper()}...")
-        safe_label = label.replace(" ", "_").replace("/", "-")
-        pkl_path = xgb_model_dir / f"xgb_{safe_label}.pkl"
-        
-        if not pkl_path.exists():
-            print(f"Model untuk {label} tidak ditemukan.")
-            continue
-            
-        model = joblib.load(pkl_path)
-        
-        # Ambil sampel 200 data untuk mempercepat kalkulasi
-        X_sample = X_test_df.sample(n=min(200, len(X_test_df)), random_state=42)
-        
-        # XGBoost 2.0+ workaround: Gunakan native pred_contribs dari booster
+def contributions(model, algorithm, X):
+    if algorithm == "xgb":
         import xgboost as xgb
-        dm = xgb.DMatrix(X_sample)
-        contribs = model.get_booster().predict(dm, pred_contribs=True)
-        shap_values = contribs[:, :-1] # kolom terakhir adalah bias/base_value
-        
-        # Buat summary plot
-        plt.figure(figsize=(10, 8))
-        shap.summary_plot(shap_values, X_sample, show=False)
-        
-        out_path = REPORTS / f"shap_summary_{safe_label}.png"
-        plt.tight_layout()
-        plt.savefig(out_path, dpi=300, bbox_inches='tight')
-        plt.close()
-        
-        print(f"Grafik SHAP berhasil disimpan di: {out_path}")
+        matrix=xgb.DMatrix(X)
+        values=model.get_booster().predict(matrix,pred_contribs=True)
+        margin=model.get_booster().predict(matrix,output_margin=True)
+    elif algorithm == "lgbm":
+        values=model.booster_.predict(X,pred_contrib=True)
+        margin=model.booster_.predict(X,raw_score=True)
+    else:
+        raise ValueError("Unknown learner")
+    np.testing.assert_allclose(values.sum(axis=1),margin,rtol=1e-4,atol=1e-5)
+    return np.asarray(values[:,:-1])
 
-    print("\nSelesai! Buka folder reports/ untuk melihat grafik penjelasan AI.")
+def explain(run, algorithm, output, samples=64, temperature_file=None):
+    run,cfg,X,_,dataset=context(run)
+    output=Path(output)
+    if output.exists(): raise FileExistsError("Choose a fresh explanation directory")
+    if samples < 1 or samples > 256: raise ValueError("Use 1 to 256 development samples")
+    guard=ResourceGuard(cfg["resources"],temperature_file);guard.check(force=True)
+    source=run/algorithm
+    manifest=json.loads((source/"model_manifest.json").read_text())
+    if manifest["dataset_id"] != dataset["dataset_id"]: raise ValueError("Dataset/model mismatch")
+    if [m["label"] for m in manifest["models"]] != manifest["labels"]: raise ValueError("Label order mismatch")
+    indices=np.random.default_rng(cfg["seed"]).permutation(cfg["splits"]["threshold"])[:samples]
+    matrix=[]
+    for item in manifest["models"]:
+        guard.check(force=True)
+        if Path(item["filename"]).name != item["filename"] or digest(source/item["filename"]) != item["sha256"]:
+            raise ValueError("Model integrity failure")
+        model=joblib.load(source/item["filename"])
+        values=contributions(model,algorithm,X[indices])
+        matrix.append(np.abs(values).mean(axis=0))
+        del model
+    output.mkdir(parents=True)
+    spec=FeatureSpec.from_dict(manifest["feature_spec"])
+    names=[f"Morgan_bit_{i}" for i in range(spec.n_bits)] + (list(DESCRIPTORS) if spec.use_descriptors else [])
+    pd.DataFrame(matrix,index=manifest["labels"],columns=names).to_csv(output/"mean_absolute_shap.csv")
+    write_json(output/"explanation_manifest.json",{"algorithm":algorithm,"dataset_id":dataset["dataset_id"],
+        "model_manifest_sha256":digest(source/"model_manifest.json"),"sample_indices":indices.tolist(),
+        "sample_partition":"development threshold holdout","units":"raw model margin (log odds), not probability",
+        "interpretation":"Model feature contributions; Morgan bits can collide and are not unique causal chemical substructures."})
+    return output
 
-if __name__ == "__main__":
-    run_shap()
+def main():
+    p=argparse.ArgumentParser()
+    p.add_argument("--run",required=True);p.add_argument("--model",choices=["xgb","lgbm"],required=True)
+    p.add_argument("--output",required=True);p.add_argument("--samples",type=int,default=64);p.add_argument("--temperature-file")
+    a=p.parse_args();print(explain(a.run,a.model,a.output,a.samples,a.temperature_file))
+if __name__=="__main__": main()

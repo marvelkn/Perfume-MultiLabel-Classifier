@@ -1,75 +1,102 @@
-"""SMILES -> canonical SMILES and Morgan fingerprints (RDKit).
+"""One feature implementation for training, REST, and Gradio.
 
-Uses the modern, non-deprecated rdFingerprintGenerator API.
+Chirality and descriptor choices are explicit and included in the schema ID.
+Multi-fragment SMILES are outside the validated single-molecule task.
 """
-from __future__ import annotations
-
-from typing import Iterable, Optional
-
+from dataclasses import dataclass, asdict
+from functools import lru_cache
 import numpy as np
-from rdkit import Chem, RDLogger
-from rdkit.Chem import Descriptors, rdFingerprintGenerator
+from rdkit import Chem, rdBase
+from rdkit.Chem import Descriptors, rdFingerprintGenerator, rdMolDescriptors
+from .artifacts import json_hash
 
-from .config import CONFIG
+DESCRIPTORS = ("MolWt", "MolLogP", "NumHDonors", "NumHAcceptors", "TPSA")
 
-# We track parse failures ourselves; silence RDKit's per-molecule console spam.
-RDLogger.DisableLog("rdApp.*")
+@dataclass(frozen=True)
+class FeatureSpec:
+    radius: int = 2
+    n_bits: int = 2048
+    include_chirality: bool = False
+    use_descriptors: bool = True
+    fragment_policy: str = "single"
+    dtype: str = "float32"
+    version: int = 1
+    rdkit_version: str = "2026.03.4"
 
-_FP = CONFIG["fingerprint"]
-_N_BITS = int(_FP["n_bits"])
-_PRESERVE_STEREO = bool(_FP["preserve_stereo"])
-_GEN = rdFingerprintGenerator.GetMorganGenerator(radius=int(_FP["radius"]), fpSize=_N_BITS)
+    def __post_init__(self):
+        if self.rdkit_version != rdBase.rdkitVersion:
+            raise ValueError(f"Feature schema requires RDKit {self.rdkit_version}; installed {rdBase.rdkitVersion}")
+        if self.radius < 1 or self.n_bits < 8 or self.fragment_policy != "single" or self.dtype != "float32":
+            raise ValueError("Unsupported feature specification")
 
+    @property
+    def n_features(self):
+        return self.n_bits + (len(DESCRIPTORS) if self.use_descriptors else 0)
 
-def canonical_smiles(smiles: str) -> Optional[str]:
-    """Return RDKit-canonical SMILES, or None if the string cannot be parsed.
+    def to_dict(self):
+        return asdict(self)
 
-    Stereochemistry is preserved by default (isomericSmiles=True): carvone
-    enantiomers smell different (spearmint vs caraway), so we must NOT collapse them.
-    """
+    @property
+    def schema_id(self):
+        return json_hash(self.to_dict())
+
+    @classmethod
+    def from_dict(cls, value):
+        return cls(**{k: v for k, v in value.items() if k in cls.__dataclass_fields__})
+
+class MoleculeError(ValueError):
+    def __init__(self, code, message):
+        super().__init__(message)
+        self.code = code
+
+def parse_molecule(smiles):
     if not isinstance(smiles, str) or not smiles.strip():
+        raise MoleculeError("INVALID_SMILES", "Enter a non-empty SMILES string.")
+    mol = Chem.MolFromSmiles(smiles.strip())
+    if mol is None or mol.GetNumAtoms() == 0:
+        raise MoleculeError("INVALID_SMILES", "The SMILES string cannot be parsed.")
+    if len(Chem.GetMolFrags(mol)) != 1:
+        raise MoleculeError("UNSUPPORTED_MIXTURE", "Prediction supports one connected molecule. Mixture odor has not been validated.")
+    return mol
+
+def canonical_smiles(smiles):
+    try:
+        return Chem.MolToSmiles(parse_molecule(smiles), isomericSmiles=True)
+    except MoleculeError:
         return None
-    mol = Chem.MolFromSmiles(smiles)
-    if mol is None:
+
+@lru_cache(maxsize=16)
+def _generator(spec):
+    return rdFingerprintGenerator.GetMorganGenerator(
+        radius=spec.radius, fpSize=spec.n_bits, includeChirality=spec.include_chirality)
+
+def features_and_metadata(smiles, spec=None):
+    spec = spec or FeatureSpec()
+    mol = parse_molecule(smiles)
+    vector = _generator(spec).GetFingerprintAsNumPy(mol).astype(np.float32)
+    descriptor_values = [getattr(Descriptors, name)(mol) for name in DESCRIPTORS]
+    if spec.use_descriptors:
+        vector = np.concatenate([vector, np.asarray(descriptor_values, dtype=np.float32)])
+    if vector.shape != (spec.n_features,) or not np.isfinite(vector).all():
+        raise MoleculeError("INVALID_FEATURES", "Molecular features are not finite.")
+    return vector, {"smiles": Chem.MolToSmiles(mol, isomericSmiles=True),
+                    "molecular_formula": rdMolDescriptors.CalcMolFormula(mol),
+                    "molecular_weight": float(descriptor_values[0]),
+                    "feature_schema_id": spec.schema_id,
+                    "feature_spec": spec.to_dict()}
+
+def extract_features(smiles, spec=None):
+    try:
+        return features_and_metadata(smiles, spec)[0]
+    except MoleculeError:
         return None
-    return Chem.MolToSmiles(mol, isomericSmiles=_PRESERVE_STEREO)
 
-
-def extract_features(smiles: str) -> Optional[np.ndarray]:
-    """Return a (n_bits + 5,) float32 fingerprint array (Morgan + RDKit Physical)."""
-    if not isinstance(smiles, str) or not smiles.strip():
-        return None
-    mol = Chem.MolFromSmiles(smiles)
-    if mol is None:
-        return None
-    
-    # 2048-bit Morgan Fingerprint
-    fp = _GEN.GetFingerprintAsNumPy(mol).astype(np.float32)
-    
-    # 5 Physical RDKit Descriptors
-    wt = Descriptors.MolWt(mol)
-    logp = Descriptors.MolLogP(mol)
-    hdon = Descriptors.NumHDonors(mol)
-    hacc = Descriptors.NumHAcceptors(mol)
-    tpsa = Descriptors.TPSA(mol)
-    
-    phys_desc = np.array([wt, logp, hdon, hacc, tpsa], dtype=np.float32)
-    
-    # Combine them (length: 2053)
-    return np.concatenate((fp, phys_desc))
-
-
-def fingerprint_matrix(smiles_list: Iterable[str]):
-    """Featurize many SMILES.
-
-    Returns (X, mask): X is (n_valid, n_bits) uint8; mask is a bool array over the
-    input marking which SMILES produced a fingerprint (others were unparseable).
-    """
+def fingerprint_matrix(smiles_list, spec=None):
+    spec = spec or FeatureSpec()
     rows, mask = [], []
-    for smi in smiles_list:
-        fp = extract_features(smi)
-        mask.append(fp is not None)
-        if fp is not None:
-            rows.append(fp)
-    X = np.vstack(rows) if rows else np.empty((0, _N_BITS + 5), dtype=np.float32)
-    return X, np.asarray(mask, dtype=bool)
+    for smiles in smiles_list:
+        vector = extract_features(smiles, spec)
+        mask.append(vector is not None)
+        if vector is not None:
+            rows.append(vector)
+    return (np.vstack(rows) if rows else np.empty((0, spec.n_features), dtype=np.float32)), np.asarray(mask, dtype=bool)

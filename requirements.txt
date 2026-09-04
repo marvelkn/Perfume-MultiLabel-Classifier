@@ -1,11 +1,1 @@
-# Requirements untuk Hugging Face Spaces (Gradio 4.44.0)
-#
-# CATATAN PENTING:
-# Jangan tambahkan fastapi, uvicorn, starlette, atau pydantic di sini!
-# Gradio 4.44.0 sudah include dependency tersebut dalam versi yang kompatibel.
-# Menambahkan fastapi>=0.100 akan meng-upgrade starlette ke 1.6.0 yang
-# tidak kompatibel dengan Gradio 4.x (TemplateResponse API mismatch).
-
-numpy>=1.24,<2.0
-rdkit>=2023.9.1
-requests>=2.20
+-r requirements_api.txt

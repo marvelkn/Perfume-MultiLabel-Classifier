@@ -1,4 +1,7 @@
-﻿"""
+if __name__ == "__main__":
+    raise SystemExit("Historical script retired. Use the versioned pipeline in README.md; legacy outputs are not current evidence.")
+
+"""
 etl_pipeline.py  —  Builds perfume_db.sqlite for the /recommend endpoint.
 
 Strategy: Uses an embedded curated dataset of 60 well-known perfumes with

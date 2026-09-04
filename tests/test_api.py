@@ -1,52 +1,38 @@
-import pytest
 from fastapi.testclient import TestClient
-from api import app
+import pytest
+import requests
+import api_light
+from app import fingerprint_fn, demo
 
-@pytest.fixture
-def client():
-    with TestClient(app) as c:
-        yield c
+client = TestClient(api_light.app)
 
-def test_root(client):
-    response = client.get("/")
-    assert response.status_code == 200
-    assert response.json() == {"status": "ok", "message": "AromaML B2B API berjalan!"}
+def test_rest_schema_and_gradio_adapter():
+    result = client.post("/fingerprint",json={"smiles":"CCO"})
+    assert result.status_code == 200
+    assert result.json() == fingerprint_fn("CCO")
+    assert client.get("/").json()["feature_schema_id"] == result.json()["feature_schema_id"]
+    assert demo.config["api_prefix"] == "/gradio_api"
+    assert any(d["api_name"] == "predict" for d in demo.config["dependencies"])
 
-def test_fingerprint_valid_smiles(client):
-    # Linalool (a common perfume ingredient)
-    response = client.post("/fingerprint", json={"smiles": "CC(=CCCC(C)(C=C)O)C"})
-    assert response.status_code == 200
-    data = response.json()
-    assert data["smiles"] == "CC(=CCCC(C)(C=C)O)C"
-    assert "fingerprint" in data
-    # Check if length is 2053 (2048 Morgan + 5 Physical)
-    assert len(data["fingerprint"]) == 2053
-    assert "predictions" in data
+@pytest.mark.parametrize("smiles,code",[("invalid!","INVALID_SMILES"),("CC.O","UNSUPPORTED_MIXTURE"),("","INVALID_SMILES")])
+def test_structured_errors(smiles,code):
+    result = client.post("/fingerprint",json={"smiles":smiles})
+    assert result.status_code == 422 and result.json()["detail"]["code"] == code
+    assert fingerprint_fn(smiles)["error"]["code"] == code
 
-def test_fingerprint_heavy_molecule(client):
-    # A molecule with weight > 400 (e.g. Brevetoxin or large polymer)
-    # Let's use a long alkane C30H62 (MolWt ~422)
-    response = client.post("/fingerprint", json={"smiles": "CCCCCCCCCCCCCCCCCCCCCCCCCCCCCC"})
-    assert response.status_code == 400
-    assert "Senyawa terlalu berat" in response.json()["detail"]
+def test_version_mismatch_rejected():
+    result=client.post("/fingerprint",json={"smiles":"CC","feature_schema_id":"wrong"})
+    assert result.status_code == 422
+    assert result.json()["detail"]["code"] == "FEATURE_SCHEMA_MISMATCH"
 
-def test_fingerprint_invalid_smiles(client):
-    response = client.post("/fingerprint", json={"smiles": "invalid_smiles_string"})
-    assert response.status_code == 400
+def test_molecular_weight_is_not_volatility_rule():
+    result=client.post("/fingerprint",json={"smiles":"C"*30})
+    assert result.status_code == 200
+    assert result.json()["molecular_weight"] > 400
 
-def test_recommend_empty(client):
-    response = client.post("/recommend", json={"label_probabilities": {}})
-    assert response.status_code == 200
-    assert response.json() == []
-
-def test_recommend_valid(client):
-    response = client.post("/recommend", json={
-        "label_probabilities": {"floral": 0.9, "citrus": 0.8},
-        "top_k": 2
-    })
-    # If the database exists, it should return 200.
-    if response.status_code == 200:
-        assert isinstance(response.json(), list)
-    elif response.status_code == 500:
-        # DB not found case
-        assert "Database parfum belum siap" in response.json()["detail"]
+def test_smiles_does_not_require_pubchem(monkeypatch):
+    def unavailable(*args,**kwargs): raise requests.Timeout()
+    monkeypatch.setattr(api_light.requests,"get",unavailable)
+    assert client.post("/fingerprint",json={"smiles":"CCO"}).status_code == 200
+    result=client.post("/fingerprint",json={"compound_name":"ethanol"})
+    assert result.status_code == 503 and result.json()["detail"]["code"] == "LOOKUP_UNAVAILABLE"
