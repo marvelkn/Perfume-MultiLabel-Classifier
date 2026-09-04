@@ -1,6 +1,6 @@
 ---
 title: Essenza Fingerprint API
-emoji: ðŸ§ª
+emoji: 🧪
 colorFrom: green
 colorTo: yellow
 sdk: gradio
@@ -20,7 +20,7 @@ Laporan skripsi belum diperbarui. Tidak ada hasil tuning baru yang diklaim.
 
 ## Arsitektur
 
-Pyrfume pada revision tetap â†’ join Stimulus/CID/CAS yang divalidasi â†’ canonical single-molecule SMILES â†’ harmonisasi label â†’ pembagian data â†’ Morgan radius 2, 2.048 bit + lima descriptor float32 â†’ Binary Relevance XGBoost/LightGBM â†’ threshold per label â†’ ekspor ONNX dengan pemeriksaan kesesuaian prediksi â†’ bundle aplikasi.
+Pyrfume pada revision tetap → join Stimulus/CID/CAS yang divalidasi → canonical single-molecule SMILES → harmonisasi label → pembagian data → Morgan radius 2, 2.048 bit + lima descriptor float32 → Binary Relevance XGBoost/LightGBM → threshold per label → ekspor ONNX dengan pemeriksaan kesesuaian prediksi → bundle aplikasi.
 
 API menghitung fitur menggunakan fungsi yang sama dengan training. Aplikasi meminta fitur melalui internet, lalu menjalankan seluruh model ONNX di perangkat. Explorer memakai katalog JSON dan AsyncStorage secara lokal. Accord katalog berbeda dari label prediksi molekul.
 
@@ -59,9 +59,9 @@ Sensitivitas scaffold tersedia melalui --split scaffold saat build. Pemisahan de
 
 Unrecorded odor dianggap negatif karena sumber tidak menyediakan verifikasi negatif lengkap. Molekul yang sudah pernah dipakai dalam eksperimen lama dapat muncul dalam split baru: hasilnya bukan validasi eksternal independen.
 
-## Training terkendali â€” belum dijalankan pada data nyata
+## Training terkendali — belum dijalankan pada data nyata
 
-Default: CPU, dua thread, satu trial sekaligus; sesi 30 menit; RAM tersedia minimal 4 GiB; RSS proses beserta anak maksimal 4 GiB. Suhu CPU >=90Â°C selama 30 detik menghentikan proses. Ini batas operasional konservatif proyek, bukan ambang kerusakan pabrikan. Pemeriksaan berlangsung pada callback; tidak menjamin batas RAM keras dari OS atau ketiadaan lonjakan di antara pemeriksaan.
+Default: CPU, dua thread, satu trial sekaligus; sesi 30 menit; RAM tersedia minimal 4 GiB; RSS proses beserta anak maksimal 4 GiB. Suhu CPU >=90°C selama 30 detik menghentikan proses. Ini batas operasional konservatif proyek, bukan ambang kerusakan pabrikan. Pemeriksaan berlangsung pada callback; tidak menjamin batas RAM keras dari OS atau ketiadaan lonjakan di antara pemeriksaan.
 
 Pada Windows, training membutuhkan sensor CPU yang benar-benar terhubung. --temperature-file menerima JSON yang diperbarui oleh pembaca sensor nyata:
 
@@ -84,13 +84,22 @@ Setelah sensor tersedia, perintah berikut adalah **tahap terpisah**, bukan satu 
 
 Tiga kandidat default: tanpa resampling, class weighting, dan random oversampling. --include-mlsmote menambahkan adaptasi MLSMOTE sebagai ablation eksperimental. Bit sintetis menggunakan voting biner; descriptor numerik diinterpolasi. Molekul sintetis yang valid tidak dijamin; strategi ini tidak dianggap lebih baik sebelum dibuktikan pada validation.
 
-| XGBoost | LightGBM |
-|---|---|
-| depth 3â€“8; min_child_weight 1â€“30 log | depth 4â€“12; num_leaves 8â€“min(128,2^depth); min_child_samples 10â€“150 |
-| learning_rate .01â€“.2 log; gamma 0â€“5 | learning_rate .005â€“.15 log; min_split_gain 0â€“1 |
-| subsample .6â€“1; colsample .4â€“1 | subsample .6â€“1; subsample_freq 1â€“7 aktif; colsample .5â€“1 |
-| L1 opsional; L2 .001â€“100 log | L1 opsional; L2 .001â€“50 log; max_bin 63/127/255 |
-| hist; batas 2.000 boosting rounds | gbdt; batas 3.000 boosting rounds |
+| Parameter | XGBoost | LightGBM |
+| --- | --- | --- |
+| `max_depth` | 3–8 | 4–12 |
+| `min_child_weight` | 1–30 (log) | Tidak digunakan |
+| `num_leaves` | Tidak digunakan | 8 sampai `min(128, 2^max_depth)` |
+| `min_child_samples` | Tidak digunakan | 10–150 |
+| `learning_rate` | 0.01–0.2 (log) | 0.005–0.15 (log) |
+| `gamma` / `min_split_gain` | `gamma`: 0–5 | `min_split_gain`: 0–1 |
+| `subsample` | 0.6–1 | 0.6–1 |
+| `subsample_freq` | Tidak digunakan | 1–7 (bagging aktif) |
+| `colsample_bytree` | 0.4–1 | 0.5–1 |
+| Regularisasi L1 (`reg_alpha`) | Opsional | Opsional |
+| Regularisasi L2 (`reg_lambda`) | 0.001–100 (log) | 0.001–50 (log) |
+| `max_bin` | Default | 63, 127, atau 255 |
+| Metode | `tree_method="hist"` | `boosting_type="gbdt"` |
+| Batas boosting rounds | 2.000 | 3.000 |
 
 Keduanya memakai logloss untuk early stopping (patience 50), kemudian macro AP untuk peringkat trial. Ruang dan batas di atas merupakan hipotesis eksperimen sesuai kontrol masing-masing learner, bukan rentang optimal yang dibuktikan untuk dataset ini.
 
@@ -122,8 +131,9 @@ TreeSHAP memakai sampel development dan seluruh label, memeriksa penjumlahan kon
 
 ## API dan katalog
 
-REST lokal: .venv\\Scripts\\python.exe -m uvicorn api_light:app --host 127.0.0.1 --port 8000.
-Gradio lokal: .venv\\Scripts\\python.exe app.py.
+- REST lokal: `.\.venv\Scripts\python.exe -m uvicorn api_light:app --host 127.0.0.1 --port 8000`.
+- Gradio lokal: `.\.venv\Scripts\python.exe app.py`.
+
 Docker menjalankan REST pada port 7860; Hugging Face Gradio menjalankan app.py.
 
 REST GET / memberi schema ID; POST /fingerprint menerima smiles, compound_name opsional, dan feature_schema_id opsional. Gradio 5 memakai /gradio_api/call/predict. Keduanya mengembalikan schema ID, fitur, canonical SMILES, formula, MW, dan error terstruktur. SMILES langsung tidak membutuhkan PubChem. Tidak ada aturan MW>400 sebagai kepastian senyawa tidak volatil; tidak ada prediksi campuran.
@@ -136,6 +146,6 @@ Katalog baru harus berasal dari snapshot eksplisit:
 .\.venv\Scripts\python.exe -m src.export_catalog --input normalized-catalog.csv --output catalog-build --source-url https://source.example/catalog --source-version snapshot-id
 ```
 
-CSV membutuhkan pid,brand,name,gender,rating,accords; accords berupa JSON object dengan bobot 0â€“1 yang berasal dari sumber. Tidak ada tebakan bobot dari nama notes. Katalog 2.029 parfum yang sedang dibundel dipertahankan dengan hash; raw export/provenance aslinya masih belum ditemukan.
+CSV membutuhkan pid,brand,name,gender,rating,accords; accords berupa JSON object dengan bobot 0–1 yang berasal dari sumber. Tidak ada tebakan bobot dari nama notes. Katalog 2.029 parfum yang sedang dibundel dipertahankan dengan hash; raw export/provenance aslinya masih belum ditemukan.
 
 Notebook 01_eda dan 02_modeling serta plot/ETL lama adalah arsip. Struktur notebook divalidasi; eksekusi historis sengaja diblokir agar tidak menimpa artefak atau memakai evaluasi lama.
