@@ -68,6 +68,8 @@ Koneksi internet diperlukan ketika aplikasi meminta fitur ke API. Setelah fitur 
 | Bagian | Status |
 | --- | --- |
 | Pengolahan data | Dataset versi terbaru sudah dibangun dan diaudit: 6.703 molekul, 25 label. |
+| Pengaman runtime | Step 2: 90 tes ML lulus. Step 4 STOP sebelum smoke: rekaman 610 detik masih 76,625–85,125°C; syarat mulai <75°C. [Bukti](reports/step4_20260908/README.md). |
+| Protokol eksperimen | Step 3 GO: [praregistrasi](PREREGISTRATION.md) dan [audit](reports/step3_20260908/README.md) terkunci; cap tuning 4 jam/model, jumlah trial menunggu pengukuran resource. |
 | Pelatihan | Kode baseline, tuning terpisah, dan evaluasi tersedia. Eksperimen dengan protokol terbaru belum dijalankan pada data nyata. |
 | Model aplikasi | Masih menggunakan 25 model XGBoost dari eksperimen sebelumnya. |
 | API | REST dan Gradio tersedia untuk dijalankan lokal. Deployment layanan yang diperbarui masih menunggu. |
@@ -82,7 +84,9 @@ src/                      Pengolahan data, fitur, eksperimen, dan evaluasi
 tests/                    Pengujian otomatis
 app.py                    Antarmuka Gradio dan endpoint untuk aplikasi
 api_light.py              REST API untuk menghitung fitur molekul
-config.yaml               Pengaturan data, fitur, pembagian data, dan training
+config.yaml               Konfigurasi dasar/historis; bukan profil training operasional
+config.safe-smoke.yaml     Profil smoke 1 thread, 5 menit
+config.safe-training.yaml  Profil training 2 thread, 20 menit
 feature_spec.json         Spesifikasi fitur untuk model aplikasi yang lama
 export_for_mobile.py      Ekspor model terlatih ke ONNX
 requirements_api.txt      Dependency untuk menjalankan API
@@ -193,7 +197,7 @@ Daftar label dipilih berdasarkan frekuensi pada data development. Jika sumber, s
 
 ## Menjalankan eksperimen
 
-Bagian ini ditujukan untuk pembaca yang ingin melatih dan mengevaluasi model. Jalankan setiap tahap secara terpisah agar hasilnya dapat diperiksa sebelum melanjutkan.
+Perintah di bawah adalah panduan untuk tahap yang sudah diizinkan pada [SAFE_EXECUTION_PLAN.md](SAFE_EXECUTION_PLAN.md). Jalankan satu step per persetujuan. Per 8 September 2026, Step 0–3 selesai. Step 4 telah diizinkan tetapi STOP sebelum smoke karena syarat termal belum terpenuhi. Training penelitian belum dimulai; run final baru hanya dibuat pada Step 5 setelah izin terpisah.
 
 Pasang dependency lengkap untuk training, pengujian, dan visualisasi:
 
@@ -205,7 +209,11 @@ Untuk training dan ekspor tanpa pengujian atau plot, tersedia `requirements_trai
 
 ### 1. Siapkan dataset dan folder eksperimen
 
+Pilih profil sebelum proses Python dijalankan. Contoh berikut untuk run final setelah Step 5 diizinkan; smoke pada Step 4 memakai `config.safe-smoke.yaml` dan folder run terpisah.
+
 ```powershell
+$env:ESSENZA_CONFIG = (Resolve-Path .\config.safe-training.yaml).Path
+$env:ESSENZA_THREADS = '2'
 .\.venv\Scripts\python.exe -m src.build_dataset --output data/builds/experiment-01
 .\.venv\Scripts\python.exe -m src.audit_dataset --dataset data/builds/experiment-01 --output reports/experiment-01-audit.json
 .\.venv\Scripts\python.exe -m src.train_and_evaluate init --dataset data/builds/experiment-01 --run runs/experiment-01
@@ -215,32 +223,25 @@ Gunakan nama folder baru untuk setiap build dan eksperimen. Perintah `init` meny
 
 Nama `X_train.npz` pada hasil build merujuk pada seluruh data development. Sebanyak 15% dari development disisihkan untuk memilih threshold. Sisanya dibagi menjadi tiga fold untuk validasi silang. Di dalam setiap fold, data untuk melatih model, menentukan kapan training berhenti, dan menghitung skor dipisahkan.
 
-Test disimpan untuk evaluasi akhir. Jika ingin memeriksa pengaruh pembagian berdasarkan kerangka molekul, tambahkan `--split scaffold` saat build. Opsi `--seed` tersedia untuk membangun pembagian lain. Tetapkan percobaan tambahan ini sebelum melihat hasil test.
+Test disimpan untuk evaluasi akhir. Untuk protokol aktif gunakan dataset audit v2 yang sudah dibekukan. Sensitivitas memakai partisi development pada [PREREGISTRATION.md](PREREGISTRATION.md); jangan memakai `--split scaffold` atau `--seed` untuk membangun ulang outer test protokol ini. Opsi build tersebut tersedia untuk rancangan eksperimen terpisah.
 
 ### 2. Siapkan pemantauan komputer
 
-Pengaturan awal di `config.yaml` membatasi beban training:
+Profil operasional terpisah menjaga konfigurasi dan bukti run lama tetap utuh:
 
-| Pengaturan | Nilai awal |
-| --- | --- |
-| Perangkat komputasi | CPU, 2 thread |
-| Trial bersamaan | 1 |
-| Waktu per sesi | 30 menit |
-| RAM yang harus masih tersedia | Minimal 4 GiB |
-| Batas pemakaian RAM proses dan proses anak | 4 GiB |
-| Penghentian karena suhu | Suhu CPU minimal 90°C selama 30 detik |
+| Pengaturan | safe-smoke | safe-training |
+| --- | --- | --- |
+| Thread learner | 1 | 2 |
+| RAM proses dan anak | 3 GiB | 4 GiB |
+| Waktu per sesi | 5 menit | 20 menit |
+| Suhu untuk mulai | <75°C | <80°C |
+| Stop suhu berkelanjutan | ≥80°C selama 5 detik | ≥85°C selama 10 detik |
 
-Pengaturan ini diperiksa secara berkala selama training. Batas tersebut membantu mengendalikan beban, tetapi tidak menggantikan perlindungan suhu bawaan laptop atau menjadi batas RAM keras dari sistem operasi.
+Kedua profil mensyaratkan minimal 4 GiB RAM bebas, telemetry maksimal 10 detik, dan stop pada pembacaan ≥90°C tanpa toleransi durasi. Batas diperiksa secara kooperatif: sebelum/sesudah pemuatan data, antarlabel/fold, pada callback boosting, dan saat sesi ditutup. Operasi native yang sedang berjalan tidak dapat diputus di tengah oleh guard ini; interval pemeriksaan 1 detik bukan jaminan latensi penghentian 1 detik.
 
-Pada Windows, sediakan pembaca sensor CPU yang menulis suhu terbaru ke file JSON. Repository ini **belum menyediakan program pembaca sensor tersebut**. Format yang dibaca:
+Pembaca sensor Windows kini tersedia melalui adapter LibreHardwareMonitor pada [SENSOR_SETUP.md](SENSOR_SETUP.md). Gunakan sensor nyata yang aktif; contoh JSON atau file berstatus STOP tidak dapat dipakai untuk menjalankan training.
 
-```json
-{"timestamp": 1788500000.0, "cpu_c": 72.5}
-```
-
-`timestamp` adalah waktu Unix dalam detik dan `cpu_c` adalah hasil pengukuran suhu CPU. Contoh di atas hanya menunjukkan format. File harus diperbarui dari sensor nyata dengan umur pembacaan maksimal 10 detik. Jika suhu tidak tersedia atau datanya terlalu lama, training berhenti.
-
-Perintah selanjutnya menggunakan `C:\sensors\cpu.json` sebagai contoh lokasi file sensor. Ganti dengan lokasi pembacaan di komputer Anda. Sebaiknya jalankan training tanpa build Android bersamaan.
+Perintah berikut memakai `C:\sensors\cpu.json` sebagai contoh lokasi. Ganti sesuai telemetry aktif. Rincian konfigurasi, log, cooldown, dan resume ada di [RUNTIME_SAFETY.md](RUNTIME_SAFETY.md).
 
 ### 3. Jalankan baseline dan tuning
 
@@ -251,11 +252,13 @@ Baseline memberi pembanding sebelum pencarian parameter. Masing-masing algoritme
 .\.venv\Scripts\python.exe -m src.train_and_evaluate baseline --run runs/experiment-01 --model lgbm --temperature-file C:\sensors\cpu.json
 ```
 
+Baseline menyimpan prediksi validasi per strategi/fold/label beserta checksum. Setelah pendinginan dan pemeriksaan kondisi, jalankan perintah yang sama untuk melanjutkan; label yang terputus dikerjakan ulang. Checkpoint yang selesai dipakai kembali dan skor dihitung ulang dari prediksinya.
+
 Setelah itu, Optuna mencari kombinasi parameter dan cara penanganan kelas yang memberikan skor validasi terbaik:
 
 ```powershell
-.\.venv\Scripts\python.exe -m src.train_and_evaluate tune --run runs/experiment-01 --model xgb --trials 20 --temperature-file C:\sensors\cpu.json
-.\.venv\Scripts\python.exe -m src.train_and_evaluate tune --run runs/experiment-01 --model lgbm --trials 20 --temperature-file C:\sensors\cpu.json
+.\.venv\Scripts\python.exe -m src.train_and_evaluate tune --run runs/experiment-01 --model xgb --trials 1 --temperature-file C:\sensors\cpu.json
+.\.venv\Scripts\python.exe -m src.train_and_evaluate tune --run runs/experiment-01 --model lgbm --trials 1 --temperature-file C:\sensors\cpu.json
 ```
 
 XGBoost dan LightGBM mempunyai studi terpisah. Ruang pencariannya mengikuti parameter masing-masing algoritme:
@@ -281,7 +284,7 @@ XGBoost dan LightGBM mempunyai studi terpisah. Ruang pencariannya mengikuti para
 
 Kedua algoritme memakai *early stopping* ketika logloss tidak membaik selama 50 putaran. Peringkat trial ditentukan oleh **macro average precision (AP)**: skor dihitung untuk setiap label, lalu dirata-ratakan agar semua label ikut dinilai. Optuna memakai TPE dengan 10 trial awal dan MedianPruner untuk menghentikan trial yang kurang menjanjikan setelah penilaian fold.
 
-`--trials 20` berarti menambah hingga 20 trial pada pemanggilan itu. Waktu pengerjaan kedua algoritme bisa berbeda. Riwayat disimpan di `runs/experiment-01/studies.sqlite3` dan file CSV per algoritme. Jalankan kembali perintah `tune` untuk melanjutkan studi; trial yang sudah selesai tetap tersimpan, sedangkan trial yang terputus tidak dilanjutkan dari tengah.
+`--trials 1` berarti menambah satu trial pada pemanggilan itu, bukan total budget penelitian. Budget final ditetapkan di Step 5 berdasarkan resource smoke test setelah aturan dipraregistrasikan di Step 3. Waktu pengerjaan kedua algoritme bisa berbeda. Riwayat disimpan di `runs/experiment-01/studies.sqlite3` dan file CSV per algoritme. Jalankan kembali perintah `tune` untuk melanjutkan studi; trial yang sudah selesai tetap tersimpan, sedangkan trial yang terputus tidak dilanjutkan dari tengah.
 
 Opsi `--include-mlsmote` menambahkan percobaan MLSMOTE yang diadaptasi untuk fitur biner dan numerik. Pilihan ini masih eksperimental: fitur sintetis yang dihasilkan belum tentu mewakili molekul nyata. Seluruh resampling dilakukan hanya pada bagian data training.
 
@@ -377,7 +380,7 @@ Pengujian mencakup pencocokan data, kesesuaian fitur API/training, pembagian dat
 | Masalah | Yang perlu diperiksa |
 | --- | --- |
 | `CPU temperature unavailable` atau data sensor terlalu lama | Pastikan pembaca sensor berjalan dan file suhu terus diperbarui. |
-| Training berhenti karena waktu atau RAM | Baca pesan penghentiannya. Setelah kondisi memungkinkan, lanjutkan `tune` atau `fit` dengan run yang sama. |
+| Training berhenti karena waktu atau RAM | Baca pesan penghentiannya. Periksa log `sessions/`, lakukan cooldown sesuai plan, lalu lanjutkan `baseline`, `tune`, atau `fit` dengan run yang sama. |
 | `FEATURE_SCHEMA_MISMATCH` atau versi RDKit berbeda | Cocokkan versi RDKit, file spesifikasi API, dan bundle aplikasi. |
 | `UNSUPPORTED_MIXTURE` | Gunakan SMILES satu molekul yang terhubung; input beberapa fragmen tidak didukung. |
 | Pencarian nama gagal dengan `LOOKUP_UNAVAILABLE` | Periksa koneksi ke PubChem atau masukkan SMILES yang sudah diketahui. |
@@ -385,7 +388,7 @@ Pengujian mencakup pencocokan data, kesesuaian fitur API/training, pembagian dat
 | `Study protocol/code differs` | Buat run baru jika kode, dependency, atau protokol eksperimen berubah. |
 | Ekspor ONNX gagal setelah mengubah dependency | Gunakan versi pada requirements; pasangan eksportir yang diuji memakai `protobuf==5.29.5`. |
 
-Konfigurasi utama ada di `config.yaml`. Jika memakai konfigurasi terpisah, arahkan environment variable `ESSENZA_CONFIG` ke file tersebut sebelum menjalankan perintah. Run menyimpan pengaturannya sendiri agar eksperimen yang sudah dimulai tetap dapat ditelusuri.
+`config.yaml` dipertahankan sebagai konfigurasi dasar/historis. Inisialisasi run operasional wajib memilih profil aman melalui `ESSENZA_CONFIG` sebelum menjalankan Python. `baseline`, `tune`, `fit`, dan `explain` memvalidasi profil dari `run.json`; mengganti environment variable tidak mengubah run yang sudah ada. Arsip pada `runs/_reference/` tidak boleh dijalankan.
 
 ## Batasan dan referensi
 

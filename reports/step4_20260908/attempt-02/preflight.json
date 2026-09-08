@@ -1,0 +1,12 @@
+{
+  "step": 4,
+  "attempt": 2,
+  "started_at": "2026-09-08T12:35:15.7340784+07:00",
+  "authorization": "User oke lanjut after Step 4 thermal STOP; retry Step 4 only",
+  "monitor_pid": 24212,
+  "monitor_started_at": "2026-09-08T12:35:15.6736009+07:00",
+  "profile": "safe-smoke",
+  "probe_active_seconds_cap": 300,
+  "probe_started": false,
+  "step5_authorized": false
+}

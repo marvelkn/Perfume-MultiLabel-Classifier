@@ -1,0 +1,14 @@
+{
+  "timestamp": "2026-09-08T12:37:03.147905+07:00",
+  "dataset_loaded": false,
+  "model_fit_started": false,
+  "status": "STOP",
+  "reason": "CPU too hot to start; wait for cooling below the start threshold",
+  "snapshot": {
+    "measured_timestamp": 1788845823.1569047,
+    "cpu_c": 77.12501,
+    "sensor_age_seconds": 1.156904697418213,
+    "process_tree_rss_bytes": 20049920,
+    "system_available_ram_bytes": 11023872000
+  }
+}

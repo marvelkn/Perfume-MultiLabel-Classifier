@@ -1,0 +1,13 @@
+{
+  "timestamp": 1788785653.1760392,
+  "exit_code": 1,
+  "duration_seconds": 10.259424300005776,
+  "peak_test_process_working_set_bytes": 309358592,
+  "minimum_memory_scope": "peak of pytest process only, not entire Step 2",
+  "system_available_ram_bytes": 12258971648,
+  "cpu_temperature_c": null,
+  "real_data_training": false,
+  "synthetic_fixtures_only": true,
+  "test_dataset_arrays_opened": false,
+  "basetemp": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\.local-tools\\pytest-step2-9de2d05ea73b4685a15cf0a7eaf8a43a"
+}

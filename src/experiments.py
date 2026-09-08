@@ -1,5 +1,8 @@
 """Training-only selection with separate Optuna studies and all-label fold scores."""
 import copy
+from contextlib import contextmanager
+from uuid import uuid4
+from threadpoolctl import threadpool_limits
 import json
 import pickle
 import time
@@ -14,7 +17,8 @@ from .featurize import FeatureSpec
 from .splits import development_partitions, scaffold_groups
 from .resampling import resample
 from .metrics import average_precision, evaluate, thresholds_for
-from .runtime import ResourceGuard
+from .runtime import ResourceGuard, validate_training_resources, exclusive_run
+from .baseline_checkpoint import BaselineCheckpoint
 
 def load_dataset(directory, partition="train"):
     directory = Path(directory)
@@ -36,6 +40,7 @@ def load_dataset(directory, partition="train"):
     return X, Y, manifest
 
 def initialize(dataset, run):
+    validate_training_resources(CONFIG["resources"])
     X, Y, manifest = load_dataset(dataset)
     run = Path(run).resolve()
     if run.exists():
@@ -69,6 +74,26 @@ def context(run):
     if cfg["dataset_id"] != manifest["dataset_id"]:
         raise ValueError("Run and dataset differ")
     return run, cfg, X, Y, manifest
+
+@contextmanager
+def guarded_context(run, operation, algorithm, temperature_file=None):
+    run = Path(run)
+    if algorithm not in {"xgb", "lgbm"} or operation not in {"baseline", "tune", "fit", "explain"}:
+        raise ValueError("Unknown resource session operation or algorithm")
+    if "_reference" in run.resolve().parts:
+        raise ValueError("Archived reference runs must never be executed")
+    cfg = json.loads((run / "run.json").read_text(encoding="utf-8"))
+    validate_training_resources(cfg["resources"])
+    log = run / "sessions" / f"{operation}-{algorithm}-{uuid4().hex}.jsonl"
+    with exclusive_run(run):
+        with ResourceGuard(cfg["resources"], temperature_file, log_path=log,
+                           metadata={"operation": operation, "algorithm": algorithm}) as guard:
+            with threadpool_limits(limits=cfg["resources"]["threads"]):
+                loaded = context(run)
+                guard.check(force=True)
+                yield (*loaded, guard)
+                guard.check(force=True)
+
 
 def suggest_parameters(trial, algorithm):
     # Separate spaces follow each learner's complexity controls. Ranges are initial hypotheses.
@@ -142,28 +167,43 @@ def fit_binary(algorithm, params, X, y, *, stop=None, threads=2, seed=42, weight
         raise ValueError("Unknown algorithm")
     return model, int(best)
 
-def score_recipe(algorithm, params, strategy, X, Y, splits, spec, cfg, guard, trial=None):
+def score_recipe(algorithm, params, strategy, X, Y, splits, spec, cfg, guard, trial=None, checkpoint=None):
     scores, iterations = [], []
     for number, fold in enumerate(splits["folds"]):
         guard.check(force=True)
-        train, stop, score = (fold[k] for k in ("train","stop","score"))
-        xr,yr = resample(X[train],Y[train],strategy,seed=cfg["seed"]+number,n_bits=spec.n_bits)
-        predictions = np.zeros((len(score),Y.shape[1]))
+        train, stop, score = (fold[k] for k in ("train", "stop", "score"))
+        xr = yr = None
+        predictions = np.zeros((len(score), Y.shape[1]))
         fold_iterations = []
         for j in range(Y.shape[1]):
-            model, rounds = fit_binary(algorithm,params,xr,yr[:,j],stop=(X[stop],Y[stop,j]),
-                                       threads=cfg["resources"]["threads"],seed=cfg["seed"],weighting=strategy=="class_weight",guard=guard)
-            predictions[:,j] = model.predict_proba(X[score])[:,1]
+            guard.check(force=True)
+            key = f"{strategy}/{number}/{j}"
+            cached = checkpoint.load(key) if checkpoint is not None else None
+            if cached is None:
+                if xr is None:
+                    xr, yr = resample(X[train], Y[train], strategy,
+                                      seed=cfg["seed"] + number, n_bits=spec.n_bits)
+                model, rounds = fit_binary(algorithm, params, xr, yr[:, j], stop=(X[stop], Y[stop, j]),
+                                           threads=cfg["resources"]["threads"], seed=cfg["seed"],
+                                           weighting=strategy == "class_weight", guard=guard)
+                probabilities = model.predict_proba(X[score])[:, 1]
+                del model
+                if checkpoint is not None:
+                    checkpoint.save(key, probabilities, rounds)
+            else:
+                probabilities, rounds = cached
+            predictions[:, j] = probabilities
             fold_iterations.append(rounds)
-            del model
+        guard.check(force=True)
         iterations.append(fold_iterations)
-        scores.append(average_precision(Y[score],predictions))
+        scores.append(average_precision(Y[score], predictions))
         if trial:
             trial.report(float(np.mean(scores)), step=number)
             if trial.should_prune():
-                trial.set_user_attr("fold_scores",scores)
+                trial.set_user_attr("fold_scores", scores)
                 raise optuna.TrialPruned()
     return scores, iterations
+
 
 def require_selection_open(run):
     if (Path(run)/"selection_frozen.json").exists() or any(Path(run).glob("*/test_metrics.json")):
@@ -178,121 +218,124 @@ def study_signature(manifest, cfg, algorithm, strategies):
 def tune(run, algorithm, n_trials, temperature_file=None, strategies=("none","class_weight","random_oversample")):
     if n_trials < 1:
         raise ValueError("Trial count must be positive")
-    run,cfg,X,Y,manifest = context(run)
-    guard = ResourceGuard(cfg["resources"],temperature_file)
-    guard.check(force=True)  # Never start unmonitored real-data training by default.
-    spec = FeatureSpec.from_dict(manifest["feature_spec"])
-    require_selection_open(run)
-    signature = study_signature(manifest,cfg,algorithm,strategies)
-    storage = f"sqlite:///{(run/'studies.sqlite3').resolve().as_posix()}"
-    sampler_file = run / f"{algorithm}_sampler.pkl"
-    sampler = pickle.loads(sampler_file.read_bytes()) if sampler_file.exists() else optuna.samplers.TPESampler(seed=cfg["seed"],n_startup_trials=10)
-    study = optuna.create_study(storage=storage,study_name=algorithm,direction="maximize",load_if_exists=True,
-                                sampler=sampler,pruner=optuna.pruners.MedianPruner(n_startup_trials=10,n_warmup_steps=1))
-    if study.user_attrs.get("signature",signature) != signature:
-        raise ValueError("Study protocol/code differs; create a new run")
-    if (run / algorithm / "model_manifest.json").exists():
-        raise ValueError("This algorithm is finalized; create a new run to tune further")
-    study.set_user_attr("signature",signature)
-    study.set_user_attr("strategies",list(strategies))
-    def objective(trial):
-        strategy = trial.suggest_categorical("imbalance",list(strategies))
-        params = suggest_parameters(trial,algorithm)
-        trial.set_user_attr("model_params",params)
-        trial.set_user_attr("imbalance",strategy)
-        start = time.monotonic()
-        scores, rounds = score_recipe(algorithm,params,strategy,X,Y,cfg["splits"],spec,cfg,guard,trial)
-        trial.set_user_attr("fold_scores",scores)
-        trial.set_user_attr("best_iterations",rounds)
-        trial.set_user_attr("seconds",time.monotonic()-start)
-        return float(np.mean(scores))
-    def checkpoint(study, trial):
-        temporary = sampler_file.with_suffix(".tmp")
-        temporary.write_bytes(pickle.dumps(study.sampler))
-        temporary.replace(sampler_file)
-        study.trials_dataframe().to_csv(run/f"{algorithm}_trials.csv",index=False)
-    try:
-        study.optimize(objective,n_trials=n_trials,n_jobs=1,gc_after_trial=True,callbacks=[checkpoint])
-    finally:
-        checkpoint(study,None)
-    return study
+    with guarded_context(run, "tune", algorithm, temperature_file) as (run, cfg, X, Y, manifest, guard):
+        spec = FeatureSpec.from_dict(manifest["feature_spec"])
+        require_selection_open(run)
+        signature = study_signature(manifest,cfg,algorithm,strategies)
+        storage = f"sqlite:///{(run/'studies.sqlite3').resolve().as_posix()}"
+        sampler_file = run / f"{algorithm}_sampler.pkl"
+        sampler = pickle.loads(sampler_file.read_bytes()) if sampler_file.exists() else optuna.samplers.TPESampler(seed=cfg["seed"],n_startup_trials=10)
+        study = optuna.create_study(storage=storage,study_name=algorithm,direction="maximize",load_if_exists=True,
+                                    sampler=sampler,pruner=optuna.pruners.MedianPruner(n_startup_trials=10,n_warmup_steps=1))
+        if study.user_attrs.get("signature",signature) != signature:
+            raise ValueError("Study protocol/code differs; create a new run")
+        if (run / algorithm / "model_manifest.json").exists():
+            raise ValueError("This algorithm is finalized; create a new run to tune further")
+        study.set_user_attr("signature",signature)
+        study.set_user_attr("strategies",list(strategies))
+        def objective(trial):
+            strategy = trial.suggest_categorical("imbalance",list(strategies))
+            params = suggest_parameters(trial,algorithm)
+            trial.set_user_attr("model_params",params)
+            trial.set_user_attr("imbalance",strategy)
+            start = time.monotonic()
+            scores, rounds = score_recipe(algorithm,params,strategy,X,Y,cfg["splits"],spec,cfg,guard,trial)
+            trial.set_user_attr("fold_scores",scores)
+            trial.set_user_attr("best_iterations",rounds)
+            trial.set_user_attr("seconds",time.monotonic()-start)
+            return float(np.mean(scores))
+        def checkpoint(study, trial):
+            temporary = sampler_file.with_suffix(".tmp")
+            temporary.write_bytes(pickle.dumps(study.sampler))
+            temporary.replace(sampler_file)
+            study.trials_dataframe().to_csv(run/f"{algorithm}_trials.csv",index=False)
+        try:
+            study.optimize(objective,n_trials=n_trials,n_jobs=1,gc_after_trial=True,callbacks=[checkpoint])
+        finally:
+            checkpoint(study,None)
+        return study
 
 def baseline(run, algorithm, temperature_file=None):
-    run,cfg,X,Y,manifest = context(run)
-    require_selection_open(run)
-    target = run / f"{algorithm}_baselines.json"
-    if target.exists():
-        raise FileExistsError(target)
-    guard = ResourceGuard(cfg["resources"],temperature_file)
-    guard.check(force=True)
-    spec = FeatureSpec.from_dict(manifest["feature_spec"])
-    results = {}
-    for strategy in ("none","class_weight","random_oversample"):
-        scores,_ = score_recipe(algorithm,{},strategy,X,Y,cfg["splits"],spec,cfg,guard)
-        results[strategy] = {"fold_ap":scores,"mean_ap":float(np.mean(scores))}
-        write_json(run/f"{algorithm}_baseline_progress.json",results)
-    write_json(target,results)
-    return results
+    with guarded_context(run, "baseline", algorithm, temperature_file) as (run, cfg, X, Y, manifest, guard):
+        require_selection_open(run)
+        target = run / f"{algorithm}_baselines.json"
+        if target.exists():
+            raise FileExistsError(target)
+        spec = FeatureSpec.from_dict(manifest["feature_spec"])
+        strategies = ("none", "class_weight", "random_oversample")
+        signature = json_hash({"study": study_signature(manifest, cfg, algorithm, strategies),
+                               "seed": cfg["seed"], "labels": manifest["labels"],
+                               "feature_spec": manifest["feature_spec"], "model_params": {}})
+        checkpoint = BaselineCheckpoint(run, algorithm, signature, strategies, cfg["splits"]["folds"], Y.shape[1])
+        results = {}
+        for strategy in strategies:
+            scores, _ = score_recipe(algorithm, {}, strategy, X, Y, cfg["splits"], spec, cfg, guard,
+                                     checkpoint=checkpoint)
+            results[strategy] = {"fold_ap": scores, "mean_ap": float(np.mean(scores))}
+            checkpoint.record_results(results)
+        guard.check(force=True)
+        write_json(target, results)
+        return results
+
 
 def finalize(run, algorithm, temperature_file=None):
-    import joblib
-    run,cfg,X,Y,manifest = context(run)
-    require_selection_open(run)
-    output = run/algorithm
-    if (output/"model_manifest.json").exists():
-        raise FileExistsError("This algorithm is already finalized")
-    guard = ResourceGuard(cfg["resources"],temperature_file)
-    guard.check(force=True)
-    study = optuna.load_study(storage=f"sqlite:///{(run/'studies.sqlite3').resolve().as_posix()}",study_name=algorithm)
-    signature=study_signature(manifest,cfg,algorithm,study.user_attrs.get("strategies",[]))
-    if study.user_attrs.get("signature") != signature:
-        raise ValueError("Study code/protocol differs; final fitting cannot proceed")
-    trial = study.best_trial
-    params, strategy = trial.user_attrs["model_params"], trial.user_attrs["imbalance"]
-    spec = FeatureSpec.from_dict(manifest["feature_spec"])
-    train, threshold = cfg["splits"]["fit"], cfg["splits"]["threshold"]
-    xr,yr = resample(X[train],Y[train],strategy,seed=cfg["seed"],n_bits=spec.n_bits)
-    rounds = np.median(np.asarray(trial.user_attrs["best_iterations"]),axis=0).astype(int)
-    probabilities = np.zeros((len(threshold),Y.shape[1]))
-    recipe=json_hash({"signature":signature,"trial":trial.number,"rounds":rounds.tolist()})
-    progress_path=output/"fit_progress.json"
-    models=[]
-    if output.exists():
-        if not progress_path.exists(): raise ValueError("Unrecognized partial fit directory")
-        progress=json.loads(progress_path.read_text())
-        if progress["recipe"] != recipe: raise ValueError("Cannot resume a different final-fitting recipe")
-        models=progress["models"]
-        if [m["label"] for m in models] != manifest["labels"][:len(models)]:
-            raise ValueError("Partial model order mismatch")
-    else:
-        output.mkdir()
-        write_json(progress_path,{"recipe":recipe,"models":[]})
-    for j,label in enumerate(manifest["labels"]):
-        guard.check(force=True)
-        if j < len(models):
-            item=models[j]
-            if Path(item["filename"]).name != item["filename"] or digest(output/item["filename"]) != item["sha256"]:
-                raise ValueError("Partial model integrity failure")
-            model=joblib.load(output/item["filename"])
+    with guarded_context(run, "fit", algorithm, temperature_file) as (run, cfg, X, Y, manifest, guard):
+        import joblib
+        require_selection_open(run)
+        output = run/algorithm
+        if (output/"model_manifest.json").exists():
+            raise FileExistsError("This algorithm is already finalized")
+        study = optuna.load_study(storage=f"sqlite:///{(run/'studies.sqlite3').resolve().as_posix()}",study_name=algorithm)
+        signature=study_signature(manifest,cfg,algorithm,study.user_attrs.get("strategies",[]))
+        if study.user_attrs.get("signature") != signature:
+            raise ValueError("Study code/protocol differs; final fitting cannot proceed")
+        trial = study.best_trial
+        params, strategy = trial.user_attrs["model_params"], trial.user_attrs["imbalance"]
+        spec = FeatureSpec.from_dict(manifest["feature_spec"])
+        train, threshold = cfg["splits"]["fit"], cfg["splits"]["threshold"]
+        xr,yr = resample(X[train],Y[train],strategy,seed=cfg["seed"],n_bits=spec.n_bits)
+        rounds = np.median(np.asarray(trial.user_attrs["best_iterations"]),axis=0).astype(int)
+        probabilities = np.zeros((len(threshold),Y.shape[1]))
+        recipe=json_hash({"signature":signature,"trial":trial.number,"rounds":rounds.tolist()})
+        progress_path=output/"fit_progress.json"
+        models=[]
+        if output.exists():
+            if not progress_path.exists(): raise ValueError("Unrecognized partial fit directory")
+            progress=json.loads(progress_path.read_text())
+            if progress["recipe"] != recipe: raise ValueError("Cannot resume a different final-fitting recipe")
+            models=progress["models"]
+            if [m["label"] for m in models] != manifest["labels"][:len(models)]:
+                raise ValueError("Partial model order mismatch")
         else:
-            model,_ = fit_binary(algorithm,params,xr,yr[:,j],threads=cfg["resources"]["threads"],seed=cfg["seed"],
-                                weighting=strategy=="class_weight",guard=guard,rounds=int(rounds[j]))
-            filename = f"{algorithm}_{j:03d}.pkl"
-            temporary=output/(filename+".tmp")
-            joblib.dump(model,temporary);temporary.replace(output/filename)
-            models.append({"label":label,"filename":filename,"sha256":digest(output/filename),"rounds":int(rounds[j])})
-            write_json(progress_path,{"recipe":recipe,"models":models})
-        probabilities[:,j] = model.predict_proba(X[threshold])[:,1]
-        del model
-    thresholds = thresholds_for(Y[threshold],probabilities)
-    for item,t in zip(models,thresholds):
-        item["threshold"] = float(t)
-    np.savez_compressed(output/"threshold_predictions.npz",probabilities=probabilities,truth=Y[threshold])
-    write_json(output/"model_manifest.json",{"algorithm":algorithm,"dataset_id":manifest["dataset_id"],"feature_spec":spec.to_dict(),
-               "feature_schema_id":spec.schema_id,"labels":manifest["labels"],"models":models,
-               "best_trial":trial.number,"cv_ap":trial.value,"model_params":params,"imbalance":strategy,
-               "threshold_source":"held-out development partition","environment":environment()})
-    return output
+            output.mkdir()
+            write_json(progress_path,{"recipe":recipe,"models":[]})
+        for j,label in enumerate(manifest["labels"]):
+            guard.check(force=True)
+            if j < len(models):
+                item=models[j]
+                if Path(item["filename"]).name != item["filename"] or digest(output/item["filename"]) != item["sha256"]:
+                    raise ValueError("Partial model integrity failure")
+                model=joblib.load(output/item["filename"])
+            else:
+                model,_ = fit_binary(algorithm,params,xr,yr[:,j],threads=cfg["resources"]["threads"],seed=cfg["seed"],
+                                    weighting=strategy=="class_weight",guard=guard,rounds=int(rounds[j]))
+                filename = f"{algorithm}_{j:03d}.pkl"
+                temporary=output/(filename+".tmp")
+                joblib.dump(model,temporary);temporary.replace(output/filename)
+                models.append({"label":label,"filename":filename,"sha256":digest(output/filename),"rounds":int(rounds[j])})
+                write_json(progress_path,{"recipe":recipe,"models":models})
+            probabilities[:,j] = model.predict_proba(X[threshold])[:,1]
+            del model
+        thresholds = thresholds_for(Y[threshold],probabilities)
+        for item,t in zip(models,thresholds):
+            item["threshold"] = float(t)
+        np.savez_compressed(output/"threshold_predictions.npz",probabilities=probabilities,truth=Y[threshold])
+        guard.check(force=True)
+        write_json(output/"model_manifest.json",{"algorithm":algorithm,"dataset_id":manifest["dataset_id"],"feature_spec":spec.to_dict(),
+                   "feature_schema_id":spec.schema_id,"labels":manifest["labels"],"models":models,
+                   "best_trial":trial.number,"cv_ap":trial.value,"model_params":params,"imbalance":strategy,
+                   "threshold_source":"held-out development partition","environment":environment()})
+        return output
 
 def evaluate_test(run, algorithm):
     import joblib

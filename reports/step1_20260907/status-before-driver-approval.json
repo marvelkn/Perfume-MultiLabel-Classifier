@@ -1,0 +1,23 @@
+{
+  "timestamp": "2026-09-07T13:57:02.3411757+07:00",
+  "status": "STOP",
+  "reason": "Automatic approval review rejected privileged PawnIO kernel driver installation; explicit user authorization required",
+  "rejected_action": "Start-Process PawnIO_setup.exe -ArgumentList -install -Verb RunAs -WindowStyle Hidden",
+  "driver_install_executed": false,
+  "driver_version": "2.1.0.0",
+  "driver_sha256": "a3a46226c5e2824f4cdd42be0eecbabfc672c86f7889710f5ab1e6ad385b47a0",
+  "driver_signature_status": "Valid",
+  "driver_signer": "E=admin@namazso.eu, CN=namazso.eu, O=namazso, L=Debrecen, C=HU",
+  "monitor_executed": false,
+  "baseline_idle_seconds": 0,
+  "cpu_temperature_c": null,
+  "adapter_tests_passed": 17,
+  "adapter_lint": "passed",
+  "test_duration_seconds": 0.48399999999674037,
+  "peak_test_process_working_set_bytes": 46526464,
+  "memory_scope": "adapter/runtime pytest process only, not entire Step 1",
+  "training_started": false,
+  "test_arrays_deserialized": false,
+  "next_action": "Obtain explicit authorization for PawnIO driver installation, then verify actual CPU sensor and record at least 10 minutes idle",
+  "step2_authorized": false
+}

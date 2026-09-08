@@ -1,0 +1,15 @@
+{
+  "timestamp": "2026-09-08T11:42:19.0476313+07:00",
+  "cpu": {
+    "Name": "AMD Ryzen 5 5500U with Radeon Graphics         ",
+    "NumberOfCores": 6,
+    "NumberOfLogicalProcessors": 12
+  },
+  "active_power_scheme": "Power Scheme GUID: ae98d46f-516f-4711-98ec-7c574478e330  (Acer)",
+  "monitor_pid": 30336,
+  "monitor_name": "LibreHardwareMonitor",
+  "monitor_started_at": "2026-09-08T11:32:08.0500805+07:00",
+  "monitor_rss_bytes_at_observation": 59858944,
+  "monitor_ram_is_peak": false,
+  "settings_modified": false
+}

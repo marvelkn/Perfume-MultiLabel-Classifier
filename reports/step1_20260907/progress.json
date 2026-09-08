@@ -1,0 +1,11 @@
+{
+  "timestamp": 1788764752.5596154,
+  "elapsed_recording_seconds": 135.58585953712463,
+  "samples": 136,
+  "min_c": 84.5,
+  "max_c": 85.875,
+  "latest_c": 85.375,
+  "max_age_seconds": 2.53884220123291,
+  "mean_cpu_percent": 20.802222222222223,
+  "power_plugged": true
+}

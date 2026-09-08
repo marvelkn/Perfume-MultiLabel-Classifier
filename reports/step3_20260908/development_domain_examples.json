@@ -1,0 +1,56 @@
+[
+  {
+    "development_index": 5327,
+    "smiles": "[He]",
+    "MolWt": 4.002999782562256,
+    "labels": []
+  },
+  {
+    "development_index": 5026,
+    "smiles": "O",
+    "MolWt": 18.014999389648438,
+    "labels": []
+  },
+  {
+    "development_index": 4371,
+    "smiles": "CN",
+    "MolWt": 31.058000564575195,
+    "labels": []
+  },
+  {
+    "development_index": 4379,
+    "smiles": "CO",
+    "MolWt": 32.04199981689453,
+    "labels": [
+      "ethereal"
+    ]
+  },
+  {
+    "development_index": 5307,
+    "smiles": "S",
+    "MolWt": 34.08300018310547,
+    "labels": [
+      "sulfurous"
+    ]
+  },
+  {
+    "development_index": 1449,
+    "smiles": "CC(C)CCCCCCCCCCCCCCC(=O)OCC(O)COCC(COC(=O)CCCCCCCCCCCCCCC(C)C)OC(=O)CCCCCCCCCCCCCCC(C)C",
+    "MolWt": 965.5800170898438,
+    "labels": [
+      "waxy"
+    ]
+  },
+  {
+    "development_index": 5291,
+    "smiles": "OC[C@H]1O[C@@H]2O[C@H]3C(O)[C@@H](O)[C@@H](O[C@H]4[C@H](O)[C@@H](O)[C@@H](O[C@H]5[C@H](O)[C@@H](O)[C@@H](O[C@H]6[C@H](O)[C@@H](O)[C@@H](O[C@H]7[C@H](O)[C@@H](O)[C@@H](O[C@H]8[C@H](O)[C@@H](O)[C@@H](O[C@H]1[C@H](O)[C@H]2O)O[C@@H]8CO)O[C@@H]7CO)O[C@@H]6CO)O[C@@H]5CO)O[C@@H]4CO)O[C@@H]3CO",
+    "MolWt": 1134.987060546875,
+    "labels": []
+  },
+  {
+    "development_index": 5267,
+    "smiles": "OCC1OC2OC3C(CO)OC(OC4C(CO)OC(OC5C(CO)OC(OC6C(CO)OC(OC7C(CO)OC(OC8C(CO)OC(OC9C(CO)OC(OC1C(O)C2O)C(O)C9O)C(O)C8O)C(O)C7O)C(O)C6O)C(O)C5O)C(O)C4O)C(O)C3O",
+    "MolWt": 1297.1280517578125,
+    "labels": []
+  }
+]

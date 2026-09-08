@@ -1,0 +1,11 @@
+{
+  "timestamp": 1788763904.2316468,
+  "exit_code": 1,
+  "duration_seconds": 3.797000000005937,
+  "peak_test_process_working_set_bytes": 63062016,
+  "memory_scope": "adapter/runtime pytest process only, not entire Step 1",
+  "cpu_temperature_c": null,
+  "real_sensor_validated": false,
+  "synthetic_fixtures_only": true,
+  "training_started": false
+}

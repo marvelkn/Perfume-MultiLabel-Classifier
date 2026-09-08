@@ -1,0 +1,302 @@
+{
+  "status": "PASS_DATASET_INTEGRITY",
+  "dataset_id": "5c0b0e7c9a56eb60fbc344fc3b6629a160dfa723fdb7b6ba398e621870f2f558",
+  "dataset_manifest_sha256": "e396402567dc38dc8c5ab939451cafbb14a07c990b5c7dd882771c39a65cf619",
+  "feature_schema_id": "a1dce64f7591f9b40f5f2332d805b7f1c7f91f24d9af0dcd0964cda7c231c018",
+  "source_revision": "8054ea98ed675005ec10e67359902f500e4911b0",
+  "artifact_hash_checks": 29,
+  "profile": {
+    "development_rows": 5383,
+    "features": 2053,
+    "labels": 25,
+    "nonfinite_feature_values": 0,
+    "duplicate_development_smiles": 0,
+    "rows_without_target_labels": 381,
+    "positive_counts": {
+      "apple": 309,
+      "balsamic": 399,
+      "citrus": 396,
+      "earthy": 374,
+      "ethereal": 332,
+      "fatty": 610,
+      "floral": 1360,
+      "fresh": 458,
+      "fruity": 1942,
+      "green": 1593,
+      "herbal": 986,
+      "meaty": 258,
+      "mint": 267,
+      "musty": 233,
+      "nutty": 342,
+      "oily": 532,
+      "rose": 394,
+      "spicy": 509,
+      "sulfurous": 329,
+      "sweet": 1259,
+      "tropical": 320,
+      "vegetable": 262,
+      "waxy": 454,
+      "winey": 238,
+      "woody": 821
+    },
+    "bit_density": 0.011334057304244844,
+    "descriptor_ranges": {
+      "MolWt": {
+        "min": 4.002999782562256,
+        "max": 1297.1280517578125
+      },
+      "MolLogP": {
+        "min": -17.406400680541992,
+        "max": 17.71430015563965
+      },
+      "NumHDonors": {
+        "min": 0.0,
+        "max": 24.0
+      },
+      "NumHAcceptors": {
+        "min": 0.0,
+        "max": 40.0
+      },
+      "TPSA": {
+        "min": 0.0,
+        "max": 633.2000122070312
+      }
+    }
+  },
+  "primary_partitions": [
+    {
+      "fold": 0,
+      "sizes": {
+        "train": 2592,
+        "stop": 458,
+        "score": 1525
+      },
+      "missing_class_labels": {
+        "train": [],
+        "stop": [],
+        "score": []
+      }
+    },
+    {
+      "fold": 1,
+      "sizes": {
+        "train": 2592,
+        "stop": 458,
+        "score": 1525
+      },
+      "missing_class_labels": {
+        "train": [],
+        "stop": [],
+        "score": []
+      }
+    },
+    {
+      "fold": 2,
+      "sizes": {
+        "train": 2592,
+        "stop": 458,
+        "score": 1525
+      },
+      "missing_class_labels": {
+        "train": [],
+        "stop": [],
+        "score": []
+      }
+    }
+  ],
+  "fit_rows": 4575,
+  "threshold_rows": 808,
+  "primary_split_sha256": "92cdc377dcfc37d5c1f930769d4fbe510326f7c0fcaf905e9ec213c69e0c810e",
+  "sensitivity_partitions": {
+    "random_seed_123": [
+      {
+        "fold": 0,
+        "sizes": {
+          "train": 2592,
+          "stop": 458,
+          "score": 1525
+        },
+        "missing_class_labels": {
+          "train": [],
+          "stop": [],
+          "score": []
+        }
+      },
+      {
+        "fold": 1,
+        "sizes": {
+          "train": 2592,
+          "stop": 458,
+          "score": 1525
+        },
+        "missing_class_labels": {
+          "train": [],
+          "stop": [],
+          "score": []
+        }
+      },
+      {
+        "fold": 2,
+        "sizes": {
+          "train": 2592,
+          "stop": 458,
+          "score": 1525
+        },
+        "missing_class_labels": {
+          "train": [],
+          "stop": [],
+          "score": []
+        }
+      }
+    ],
+    "random_seed_2026": [
+      {
+        "fold": 0,
+        "sizes": {
+          "train": 2592,
+          "stop": 458,
+          "score": 1525
+        },
+        "missing_class_labels": {
+          "train": [],
+          "stop": [],
+          "score": []
+        }
+      },
+      {
+        "fold": 1,
+        "sizes": {
+          "train": 2592,
+          "stop": 458,
+          "score": 1525
+        },
+        "missing_class_labels": {
+          "train": [],
+          "stop": [],
+          "score": []
+        }
+      },
+      {
+        "fold": 2,
+        "sizes": {
+          "train": 2592,
+          "stop": 458,
+          "score": 1525
+        },
+        "missing_class_labels": {
+          "train": [],
+          "stop": [],
+          "score": []
+        }
+      }
+    ],
+    "scaffold_seed_42": [
+      {
+        "fold": 0,
+        "sizes": {
+          "train": 1897,
+          "stop": 176,
+          "score": 2502
+        },
+        "missing_class_labels": {
+          "train": [],
+          "stop": [],
+          "score": []
+        }
+      },
+      {
+        "fold": 1,
+        "sizes": {
+          "train": 2910,
+          "stop": 125,
+          "score": 1540
+        },
+        "missing_class_labels": {
+          "train": [],
+          "stop": [
+            "apple",
+            "winey"
+          ],
+          "score": []
+        }
+      },
+      {
+        "fold": 2,
+        "sizes": {
+          "train": 3855,
+          "stop": 187,
+          "score": 533
+        },
+        "missing_class_labels": {
+          "train": [],
+          "stop": [],
+          "score": []
+        }
+      }
+    ]
+  },
+  "scaffold_profile": {
+    "development_scaffold_groups": 606,
+    "largest_group_rows": 2303,
+    "acyclic_rows": 2303,
+    "group_definition": "Murcko scaffold with chirality retained; empty scaffold remains one group",
+    "scope": "development only; threshold excluded from all sensitivity fitting/scoring",
+    "historical_test_scaffold_overlap": {
+      "rows": 1231,
+      "denominator": 1320,
+      "recomputed": false
+    }
+  },
+  "source_record_audit": {
+    "goodscents": {
+      "rows": 4626,
+      "unmapped_identity": 0,
+      "invalid_or_multifragment": 183,
+      "accepted": 4259,
+      "accepted_fraction": 0.9206658019887591,
+      "valid_identity_without_mapped_labels": 184
+    },
+    "leffingwell": {
+      "rows": 3522,
+      "unmapped_identity": 0,
+      "invalid_or_multifragment": 0,
+      "accepted": 3522,
+      "accepted_fraction": 1.0,
+      "valid_identity_without_mapped_labels": 0
+    },
+    "arctander": {
+      "rows": 3102,
+      "unmapped_identity": 278,
+      "invalid_or_multifragment": 102,
+      "accepted": 2433,
+      "accepted_fraction": 0.7843326885880078,
+      "valid_identity_without_mapped_labels": 289
+    },
+    "flavornet": {
+      "rows": 716,
+      "unmapped_identity": 0,
+      "invalid_or_multifragment": 0,
+      "accepted": 483,
+      "accepted_fraction": 0.6745810055865922,
+      "valid_identity_without_mapped_labels": 233
+    },
+    "sigma": {
+      "rows": 941,
+      "unmapped_identity": 204,
+      "invalid_or_multifragment": 0,
+      "accepted": 704,
+      "accepted_fraction": 0.7481402763018066,
+      "valid_identity_without_mapped_labels": 33
+    }
+  },
+  "historical_identity_overlap": {
+    "count": 0,
+    "recomputed": false
+  },
+  "label_missingness": "Unrecorded descriptors are treated as negatives; absence is not experimentally verified.",
+  "evaluation_status": "New split of partly historical molecules; not an independent external test.",
+  "test_arrays_deserialized": false,
+  "test_smiles_parsed": false,
+  "training_started": false,
+  "audit_compute_seconds": 4.312000000005355
+}

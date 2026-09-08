@@ -1,0 +1,49 @@
+{
+  "timestamp": "2026-09-08T12:37:20.060924+07:00",
+  "sample_seconds": 15.0,
+  "system_cpu_percent": 14.1,
+  "top_processes": [
+    {
+      "pid": 5748,
+      "name": "rsEngineSvc.exe",
+      "cpu_percent_total_capacity": 8.88888888888889
+    },
+    {
+      "pid": 14808,
+      "name": "chrome.exe",
+      "cpu_percent_total_capacity": 2.0572916666666665
+    },
+    {
+      "pid": 17888,
+      "name": "python.exe",
+      "cpu_percent_total_capacity": 0.564236111111111
+    },
+    {
+      "pid": 5820,
+      "name": "chrome.exe",
+      "cpu_percent_total_capacity": 0.4600694444444445
+    },
+    {
+      "pid": 31544,
+      "name": "chrome.exe",
+      "cpu_percent_total_capacity": 0.4166666666666667
+    },
+    {
+      "pid": 4,
+      "name": "System",
+      "cpu_percent_total_capacity": 0.2777777777777778
+    },
+    {
+      "pid": 22524,
+      "name": "SearchIndexer.exe",
+      "cpu_percent_total_capacity": 0.2517361111111111
+    },
+    {
+      "pid": 22724,
+      "name": "dwm.exe",
+      "cpu_percent_total_capacity": 0.20833333333333334
+    }
+  ],
+  "settings_modified": false,
+  "thermal_cause_determined": false
+}

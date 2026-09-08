@@ -1,0 +1,373 @@
+{
+  "protocol_id": "essenza-ml-v1-20260908",
+  "version": 1,
+  "status": "FROZEN_PRETRAINING_RULES",
+  "registration_type": "local timestamped preregistration; not a public registry",
+  "authorization": {
+    "step3": "oke lanjut after Step 2",
+    "optuna_budget": "4 hours active computation per model; explicitly selected by user",
+    "training_authorized": false
+  },
+  "research": {
+    "unit": "one canonical single-fragment molecule",
+    "task": "25-label Binary Relevance aroma classification",
+    "algorithms": [
+      "xgb",
+      "lgbm"
+    ],
+    "claims_excluded": [
+      "mixture prediction",
+      "sensory intensity or calibrated human perception probabilities",
+      "global hyperparameter optimum",
+      "statistical significance from three CV folds",
+      "independent external validation"
+    ]
+  },
+  "dataset": {
+    "path": "data/builds/audited-20260904-v2",
+    "outer_split_seed": 42,
+    "outer_split_strategy": "iterative multilabel stratification",
+    "development_rows": 5383,
+    "test_rows": 1320,
+    "features": 2053,
+    "labels": 25,
+    "label_selection": "fixed development-frequency-only top 25; min support 30; existing selection preserved",
+    "unrecorded_labels": "negative operationally, not confirmed absence",
+    "zero_target_rows": "retain all 381 development rows; do not filter based on scores",
+    "test_access": "byte hashing and historical aggregate diagnostics only until Step 12",
+    "dataset_id": "5c0b0e7c9a56eb60fbc344fc3b6629a160dfa723fdb7b6ba398e621870f2f558",
+    "feature_schema_id": "a1dce64f7591f9b40f5f2332d805b7f1c7f91f24d9af0dcd0964cda7c231c018",
+    "feature_spec": {
+      "radius": 2,
+      "n_bits": 2048,
+      "include_chirality": true,
+      "use_descriptors": true,
+      "fragment_policy": "single",
+      "dtype": "float32",
+      "version": 1,
+      "rdkit_version": "2026.03.4"
+    },
+    "source_revision": "8054ea98ed675005ec10e67359902f500e4911b0",
+    "label_order": [
+      "apple",
+      "balsamic",
+      "citrus",
+      "earthy",
+      "ethereal",
+      "fatty",
+      "floral",
+      "fresh",
+      "fruity",
+      "green",
+      "herbal",
+      "meaty",
+      "mint",
+      "musty",
+      "nutty",
+      "oily",
+      "rose",
+      "spicy",
+      "sulfurous",
+      "sweet",
+      "tropical",
+      "vegetable",
+      "waxy",
+      "winey",
+      "woody"
+    ],
+    "manifest_sha256": "e396402567dc38dc8c5ab939451cafbb14a07c990b5c7dd882771c39a65cf619"
+  },
+  "selection": {
+    "primary_metric": "macro_average_precision",
+    "objective": "arithmetic mean over 3 folds of arithmetic mean of AP over all 25 labels",
+    "direction": "maximize",
+    "ap_definition": "non-interpolated sklearn average_precision_score; zero positive support -> AP 0, label retained",
+    "candidate": "highest finite objective among COMPLETE Optuna trials, all 3 folds and 25 labels present",
+    "trial_exact_tie": "lowest trial.number; verify explicitly before final fitting",
+    "algorithm_exact_tie": "xgb (deterministic administrative tie-break only)",
+    "baseline_role": "three fixed reference strategies per learner, reported separately; not added retrospectively to the final tuned-candidate pool",
+    "no_gain_policy": "If tuned CV is below baseline, report no observed tuning benefit; no extra trials or search-space expansion based on that result",
+    "final_algorithm": "compare the two selected tuned candidates by primary CV only; freeze both manifests before final test",
+    "threshold": "per-label F1 on fixed 808-row development holdout; unique predictions plus nextafter(max,+inf); ties atol 1e-12 -> higher threshold; positive if score >= threshold"
+  },
+  "partitions": {
+    "primary": "reports/step3_20260908/development_partitions.json",
+    "fit_rows": 4575,
+    "threshold_rows": 808,
+    "folds": 3,
+    "fold_train_rows": 2592,
+    "fold_stop_rows": 458,
+    "fold_score_rows": 1525,
+    "early_stop_fraction": 0.15,
+    "threshold_fraction": 0.15,
+    "initialization_gate": "Step 5 regenerated primary splits must equal frozen indices exactly"
+  },
+  "imbalance": {
+    "allowed": [
+      "none",
+      "class_weight",
+      "random_oversample"
+    ],
+    "mlsmote_enabled": false,
+    "weighting": "per-label negative/positive ratio computed on current training subset only",
+    "random_oversample": "whole multilabel rows; up to floor(0.5*n_training) extras; minority labels have imbalance ratio above mean present-label ratio; sample minority label then positive row; seed=primary_seed+fold",
+    "forbidden": "No resampling or fitted transformations on score/threshold/test"
+  },
+  "optimization": {
+    "sampler": "TPESampler",
+    "sampler_seed": 42,
+    "n_startup_trials": 10,
+    "n_jobs": 1,
+    "gc_after_trial": true,
+    "pruner": {
+      "name": "MedianPruner",
+      "n_startup_trials": 10,
+      "n_warmup_steps": 1,
+      "interval_steps": 1,
+      "n_min_trials": 1,
+      "reporting": "cumulative mean macro AP after each complete all-label fold; step numbers 0,1,2"
+    },
+    "early_stopping": {
+      "metric": "binary logloss",
+      "patience_rounds": 50,
+      "holdout": "fold stop only"
+    },
+    "shared_parameters_across_labels": true,
+    "max_rounds": {
+      "xgb": 2000,
+      "lgbm": 3000
+    },
+    "search_space_source": "src/experiments.py::suggest_parameters; exact source snapshot and hash saved with protocol",
+    "baseline_parameters": "empty override dictionary, pinned learner defaults; baseline values may lie outside the tuning space",
+    "source_dependencies_frozen": true,
+    "search_space_snapshot": "protocols/essenza_v1_20260908/search_space_source.py.txt",
+    "search_space_snapshot_sha256": "14d7c411f6e37841c7f7963d30e0e6a980e3501212553381a9f1606a1a7d9391"
+  },
+  "budget": {
+    "active_seconds_per_algorithm": 14400,
+    "user_authorized": true,
+    "scope_included": [
+      "all tune session overhead",
+      "COMPLETE trial time",
+      "PRUNED trial time",
+      "FAIL and interrupted trial time"
+    ],
+    "scope_excluded": [
+      "cooldown",
+      "baseline",
+      "final fitting",
+      "sensitivity",
+      "smoke"
+    ],
+    "counting": "N counts attempted trials including COMPLETE/PRUNED/FAIL. A killed RUNNING trial must be inspected and marked FAIL, never silently removed.",
+    "paired_trial_count": true,
+    "trial_count_final": null,
+    "minimum_planned_attempts": 20,
+    "maximum_planned_attempts": 50,
+    "time_reserve_fraction": 0.2,
+    "estimation_factor": 1.5,
+    "estimate_formula": "t_hat[m] = 1.5 * (max_load_seconds[m] + 3 * (max_resample_seconds[m] + 25 * max_completed_fit_predict_seconds[m]))",
+    "freeze_formula": "N = min(50, floor(0.8 * 14400 / max(t_hat[xgb], t_hat[lgbm])))",
+    "minimum_rationale": "10 startup trials plus room for at least 10 further attempts; engineering floor, not a proof of convergence",
+    "step5_gate": "Require both valid smoke estimates, N>=20, t_hat for each learner <=960 seconds, and thermal smoke GO; otherwise STOP and record a resource-only amendment before tuning",
+    "runtime_stop_rule": "Stop at N attempts or 14400 active seconds, whichever first; do not increase caps based on CV/test. Both targets must be reached for a complete equal-attempt comparison; otherwise report resource-truncated comparison.",
+    "session_rule": "one additional trial per invocation; max 20 min; max 2 only after resource review; guard stop ends session",
+    "failure_rule": "Never extend N/time to replace failures automatically. Two consecutive resource-interrupted trials -> STOP to investigate; no automatic restart loop.",
+    "adequacy_reporting": [
+      "best-so-far trajectory vs attempts and active time",
+      "COMPLETE/PRUNED/FAIL counts",
+      "all fold scores for complete trials",
+      "baseline differences",
+      "whether best parameters touch bounds",
+      "no global-optimum claim; a plateau is descriptive, not proof"
+    ]
+  },
+  "smoke_measurement": {
+    "step": 4,
+    "authorized_now": false,
+    "total_active_limit_seconds": 300,
+    "learner_order": [
+      "xgb",
+      "lgbm"
+    ],
+    "profile": "safe-smoke",
+    "threads": 1,
+    "fold": 0,
+    "label_rule": "development prevalence ranks 1,13,25; sort by (positive_count,label); fixed before smoke",
+    "strategies": [
+      "none",
+      "class_weight",
+      "random_oversample"
+    ],
+    "full_fold_training": true,
+    "full_features": true,
+    "early_stopping": "same primary fold stop, patience 50 and full learner round ceilings; fixed probe parameters",
+    "score_usage": "measure predict duration only; no AP/F1 or parameter/model selection from smoke scores",
+    "required": "nine completed label fits per learner within the shared smoke cap; interrupted/censored measurements do not yield a valid estimate",
+    "probe_params": {
+      "xgb": {
+        "max_depth": 8,
+        "min_child_weight": 1,
+        "learning_rate": 0.01,
+        "gamma": 0,
+        "subsample": 1,
+        "colsample_bytree": 1,
+        "reg_alpha": 0,
+        "reg_lambda": 0.001
+      },
+      "lgbm": {
+        "max_depth": 12,
+        "num_leaves": 128,
+        "min_child_samples": 10,
+        "learning_rate": 0.005,
+        "min_split_gain": 0,
+        "subsample": 1,
+        "subsample_freq": 1,
+        "colsample_bytree": 1,
+        "reg_alpha": 0,
+        "reg_lambda": 0.001,
+        "max_bin": 255
+      }
+    },
+    "estimate_limitations": "Planning estimate, not an upper-bound proof; no assumed 2x speedup from 1 to 2 threads. Cumulative/session guards still required.",
+    "labels": [
+      "musty",
+      "citrus",
+      "fruity"
+    ]
+  },
+  "sensitivity": {
+    "step": 11,
+    "partition_file": "reports/step3_20260908/sensitivity_execution_partitions.json",
+    "variant_order": [
+      "random_seed_42",
+      "random_seed_123",
+      "random_seed_2026",
+      "scaffold_seed_42"
+    ],
+    "primary_seed": 42,
+    "additional_seeds": [
+      123,
+      2026
+    ],
+    "outer_test_fixed": true,
+    "threshold_holdout_fixed_and_excluded": true,
+    "feature_and_label_contract_fixed": true,
+    "parameters": "primary selected trial frozen for each learner",
+    "rounds": "per-label integer median primary best_iterations, same as final fitting",
+    "early_stopping": false,
+    "retune": false,
+    "preprocessing": "same primary selected imbalance recipe; current sensitivity training subset only",
+    "randomness": "variant seed for learner and seed+fold for resampling",
+    "scaffold_groups": "Murcko with chirality; empty scaffold is one group; train/score groups disjoint; GroupKFold 3 folds shuffle=True seed=42",
+    "scaffold_resolution": "initial grouped early-stop holdout lacked apple/winey support; all sensitivities use merged train+stop with fixed rounds, including a new random-42 control",
+    "metrics": [
+      "mean of fold macro AP",
+      "each fold macro AP and support",
+      "pooled out-of-fold macro AP over the same 4575 molecules"
+    ],
+    "summary": "mean and sample SD over three random seeds; paired descriptive differences per seed; scaffold contrasted with fixed-round random-42 control, not primary early-stopped CV",
+    "interpretation": "conditional robustness of a selected recipe, not unbiased nested CV or unseen-scaffold external validation",
+    "failure_policy": "No seed hunting, empty-scaffold splitting, label dropping, or selective reporting. Resource/code failures documented per variant before final-test access; unfinished variants receive no aggregate score."
+  },
+  "final_evaluation": {
+    "step": 12,
+    "repeat": false,
+    "selection_uses_test": false,
+    "metrics": [
+      "average_precision_macro",
+      "average_precision_micro",
+      "f1_macro",
+      "f1_micro",
+      "precision_macro",
+      "recall_macro",
+      "hamming_loss",
+      "subset_accuracy",
+      "roc_auc_macro",
+      "roc_auc_valid_labels",
+      "per-label positive support/AP/F1/precision/recall/ROC-AUC"
+    ],
+    "undefined_auc": "null; valid-label count reported",
+    "uncertainty": "CV/seed variation descriptive; no p-value or significance claim from overlapping CV folds or three seeds",
+    "report_both_models": true,
+    "test_influenced_retuning_forbidden": true
+  },
+  "runtime": {
+    "training_profile": "config.safe-training.yaml",
+    "smoke_profile": "config.safe-smoke.yaml",
+    "thermal_readiness": "STOP until verified cool remeasurement and Step 4 GO",
+    "guard_type": "cooperative callbacks; no independent OS watchdog",
+    "cooldown": "per SAFE_EXECUTION_PLAN; not counted as active compute"
+  },
+  "amendments": {
+    "rule": "New version plus reason/time and before/after hashes; preserve v1. Methodology must not be amended based on final-test results.",
+    "after_smoke": "Only resource-derived numeric N and resource feasibility are deferred to Step 5; selection metric/labels/seeds/spaces/sensitivity rules are already fixed.",
+    "local_freeze_limits": "SHA-256 makes changes detectable, not physically impossible. No public-registry timestamp is claimed."
+  },
+  "frozen_at": "2026-09-08T09:37:37.495307+07:00",
+  "environment": {
+    "python": "3.12.14",
+    "packages": {
+      "numpy": "1.26.4",
+      "pandas": "2.2.3",
+      "rdkit": "2026.3.4",
+      "scikit-learn": "1.6.1",
+      "xgboost": "2.1.4",
+      "lightgbm": "4.6.0",
+      "optuna": "4.5.0",
+      "onnxmltools": "1.14.0",
+      "onnxruntime": "1.19.2",
+      "onnx": "1.17.0",
+      "protobuf": "5.29.5",
+      "joblib": "1.6.0",
+      "scipy": "1.15.3",
+      "iterative-stratification": "0.1.9"
+    },
+    "commit": "0ac81ba711159d362b162919d06d2c52692b0ac9",
+    "source_sha256": "5ec830e71f80ccf921c588f6bc10fc86a3ca2c3f6f4031b2f95063a47521f4d9",
+    "source_files": {
+      "api.py": "63f2edfc2dc0858a2d35d98f0e7f1c1ce514d017834afdcd58f8d0df9e6df9c8",
+      "api_light.py": "8b8bf603f5bc908876c6d17fe0ea041ce9341a98d3d4d69784731ff0911c5ee0",
+      "app.py": "d4de68b6621fde2026e837f111d1773df40a8821545c8e0fdd1cf4a4f2837f52",
+      "config.safe-smoke.yaml": "41dcaab71cb0c51c95d7d0fd2e1575ed95459b79dae3202156bcfad37807e3a6",
+      "config.safe-training.yaml": "09ef8ee773a0f12c2ccab4940b97b520eba419384f10b483895deec59f11e134",
+      "config.yaml": "644f2baaeee01d6401e7807bac91737b440f036610ba4d478975d8c8fa5fc422",
+      "conftest.py": "bda598a51bc1ccf4fcc9f23c5e231b46ea137a3a341064b079079c343b6b3495",
+      "etl_pipeline.py": "05088ea5d8d87e847a35960b7cfccc20211d1dce242c874dcc215be2e8e62b03",
+      "export_for_mobile.py": "faa7a965da16e8be4e68ce88017f022fac00e85bc7f09b1003ad6bd32ac73216",
+      "generate_plot.py": "f51e1e4cce6edf8043c0ec09e124cc74850253a933e06da2d2bf829dd1a7abe3",
+      "inspect_params.py": "b3a9c121a6e7d0460f8c64699996b1ebfa6455f2294e2063b1ac87b823ac0108",
+      "requirements.txt": "aa06bc421d8bbdc521f5506b1a35b45d5013a03dd276d7c4db2ed0b950000fd5",
+      "requirements_api.txt": "3c412fb03b503d77392b3e0bce46bb504bddcd3de8d1d7652608b7d6d61670a8",
+      "requirements_dev.txt": "b0adb82a53b94c58b7767c3fff808f1c04fdbc9c548a7a07b88f50ca4d12e2bb",
+      "requirements_lock.txt": "1f3d11684f6c9ecadd07d637fed86318119d82bbfc45348808be787a0f3ece48",
+      "requirements_render.txt": "98ebc9f6d98ecc5d56cc6660bdfe7c590bf8fbabda645d24bbf948f3e1f8e699",
+      "requirements_training.txt": "bc21ac1421033e02dc8381a7ae00d560d09dde0373fbcac35574196e342530a7",
+      "src/__init__.py": "8269ad835bd27eb731397e6aa434691d2dcbd99ca78cc479f0840f660869a1e7",
+      "src/artifacts.py": "95712ad854d39b4c00d2599840c7d05dd36996b51630979ac42950f0850ff427",
+      "src/audit_dataset.py": "b8db3cf86c0b675ea5da901591d39ff8c29b0bb765e6a7daa61e9ac4d9889caa",
+      "src/baseline_checkpoint.py": "32aa7149200dee8a90695cdeeb13c2ae66b85f6b3dc32f6da0a0336ae0283b5f",
+      "src/benchmark_onnx.py": "a34040fcf783f08118002d1ec8fec5fd708561973f6edf0f685d373366410aeb",
+      "src/build_dataset.py": "3e7681a15b7666cba2e703b6a6a5c8bf8fb73784373ae900634a3bead639ae49",
+      "src/build_perfume_db.py": "010d663ea6391bb905c035d52a7ca93e330e1a722d3ec7c43cfb357f7e5a7cf9",
+      "src/config.py": "7d00b652a21cc961880049d3602f37cb84f4f5ff1ed440663236fd205ce66652",
+      "src/cpu_telemetry.py": "3edff799694f1793c587789f826e99eb00fb5252143f73d0638ac6135de838e8",
+      "src/cross_validate.py": "869320c69fccdf65082a525911a6e424a8239a4acd50cd6d200fec4579840061",
+      "src/data_acquisition.py": "1106ef0f979837cde45ea6bd4457fa159940ea4b672c41404833291faba77a34",
+      "src/experiments.py": "b735cd0cbc25125213686ab6d6a00034de6b87f248c1683aed3f30234885a694",
+      "src/explain_model.py": "029419e760bc7b1b8a81e9474e0013b2ee879ff45b7c4c7c3dfec7baef3c9f8f",
+      "src/export_catalog.py": "aef83c67ab8395781f5ae8955eab81f79fb4c2afe22950a25aa8981669b34c7f",
+      "src/featurize.py": "deba521d8000944c7a7f9df6c55cddc655fcfb14a763d00deb46cfb540de5a9a",
+      "src/label_distance_viz.py": "fdaa4f3e0c76cc5a5e0efd217cefc6dbccbd03f02195ca4581122dd03abe18a2",
+      "src/label_harmonization.py": "34679962e49a5a89ee2909581e02581a1dde4eec24a2e84e4df1d8198c1bbe0b",
+      "src/metrics.py": "13b90450e1ee48b8518e200553e587bd0b687dbbfdde2c22e591720ad8dd37bb",
+      "src/resampling.py": "8d6f94a566821071dba11775d885285a2d31c74f05a83252cc5c297fca7ff40c",
+      "src/runtime.py": "573c077052205a1f6201c46043ebbf8eca79ee171b1407e27ddd4dc2e4a42ff3",
+      "src/splits.py": "9a44eb52c20ad0d4c713a95751ce7aaea4d13bae48a21e647ac44f90e342253b",
+      "src/train_and_evaluate.py": "aabb6ef584b55b122b54b87d2f89d6e88b770c8cf29ec56b73333312587c7d80",
+      "test_recommend.py": "7c196ee1666dd0e880b63572fb65687ff688a50668f72d804ef0e17689fd00c7"
+    },
+    "working_tree_diff_sha256": "eae4a7ca84d918458ddfd26d7b3f820e97c6874bf116d1a2e8669090a1f4435b",
+    "timestamp_utc": "2026-09-08T02:37:37.688903+00:00"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "timestamp": "2026-09-07T14:09:53.7676294+07:00",
+  "processor": [
+    {
+      "Name": "AMD Ryzen 5 5500U with Radeon Graphics         ",
+      "NumberOfLogicalProcessors": 12
+    }
+  ],
+  "power_scheme": "Power Scheme GUID: ae98d46f-516f-4711-98ec-7c574478e330  (Acer)",
+  "background_service_observed": [
+    {
+      "Name": "rsEngineSvc",
+      "DisplayName": "Reason Security Engine Service",
+      "State": "Running"
+    }
+  ],
+  "service_changed": false,
+  "initial_hot_state": "84-86 C with approximately 20 percent CPU load; no training",
+  "baseline_conditions_user_response": "Confirmed; see idle-readiness.json. Heavy user activity stopped; background services remained active."
+}

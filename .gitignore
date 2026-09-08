@@ -26,3 +26,11 @@ data/builds/
 # OS generated files
 .DS_Store
 Thumbs.db
+
+# Local recovery copies and installation logs
+.local-backups/
+reports/step0_*/pip-install.*.log
+
+# Local sensor utilities and live telemetry
+.local-tools/
+telemetry/

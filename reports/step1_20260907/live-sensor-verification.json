@@ -1,0 +1,16 @@
+{
+  "timestamp": 1788764694.6817043,
+  "cpu_c_from_live_file": 85.375,
+  "source_timestamp": 1788764693.0,
+  "age_seconds": 1.6817042827606201,
+  "resource_guard_temperature_c": 85.375,
+  "sensor_id": "/amdcpu/0/temperature/2",
+  "sensor_name": "Core (Tctl/Tdie)",
+  "visual_observation": {
+    "application": "Libre Hardware Monitor 0.9.6",
+    "observed_display_c": 85.8,
+    "corresponding_log_c": 85.75,
+    "comparison": "agrees after rounding to one decimal at observation around 14:04:20 WIB; values may advance between captures"
+  },
+  "training_started": false
+}

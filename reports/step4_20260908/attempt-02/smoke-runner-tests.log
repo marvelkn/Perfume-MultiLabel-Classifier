@@ -1,0 +1,21 @@
+test_all_frozen_units_and_estimate (__main__.SmokeTests.test_all_frozen_units_and_estimate) ... ok
+test_deadline_shared_across_learners (__main__.SmokeTests.test_deadline_shared_across_learners) ... ok
+test_existing_run_is_never_overwritten (__main__.SmokeTests.test_existing_run_is_never_overwritten) ... ok
+test_failed_learner_keeps_partial_evidence_without_estimate (__main__.SmokeTests.test_failed_learner_keeps_partial_evidence_without_estimate) ... FAIL
+test_hot_preflight_never_loads_backend (__main__.SmokeTests.test_hot_preflight_never_loads_backend) ... ok
+test_invalid_predictions_cannot_complete_unit (__main__.SmokeTests.test_invalid_predictions_cannot_complete_unit) ... ok
+test_non_smoke_run_is_rejected (__main__.SmokeTests.test_non_smoke_run_is_rejected) ... ok
+test_wrong_dataset_rejected_before_fit (__main__.SmokeTests.test_wrong_dataset_rejected_before_fit) ... ok
+
+======================================================================
+FAIL: test_failed_learner_keeps_partial_evidence_without_estimate (__main__.SmokeTests.test_failed_learner_keeps_partial_evidence_without_estimate)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\ACER\Documents\Marvel\Skripsi\Project Skripsi\Perfume-MultiLabel-Classifier\reports\step4_20260908\test_smoke_probe.py", line 227, in test_failed_learner_keeps_partial_evidence_without_estimate
+    self.assertEqual(len(result["measurements"]["xgb"]["units"]), 9)
+AssertionError: 2 != 9
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.210s
+
+FAILED (failures=1)

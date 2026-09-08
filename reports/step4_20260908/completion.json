@@ -1,0 +1,54 @@
+{
+  "step": 4,
+  "status": "STOP",
+  "closed_at": "2026-09-08T11:49:04.415733+07:00",
+  "reason": "All 306 unique CPU temperature samples remained above the safe-smoke start threshold of 75 C",
+  "scope_completed": [
+    "Step 3 administrative closure",
+    "fresh 610-second thermal recording",
+    "live guard preflight rejection",
+    "read-only background CPU diagnostics",
+    "evidence archival and cleanup"
+  ],
+  "scope_not_executed": [
+    "real-data smoke probe",
+    "run creation",
+    "trial duration estimation",
+    "Step 5 budget freeze"
+  ],
+  "thermal_validation": "thermal-validation.json",
+  "validation": "validation.json",
+  "probe_active_seconds": 0,
+  "probe_fits_completed": {
+    "xgb": 0,
+    "lgbm": 0
+  },
+  "trial_count_final": null,
+  "trial_duration_estimates": null,
+  "tuning_budget_seconds_per_model": 14400,
+  "final_test_loaded": false,
+  "production_code_changed": false,
+  "frontend_changed": false,
+  "latex_changed": false,
+  "system_security_or_power_settings_changed": false,
+  "collector_exit_code": 0,
+  "monitor_stopped": true,
+  "resume_condition": "Repeat thermal preflight with fresh valid sensor and adequate margin below 75 C, then run only Step 4 probe; do not increase thermal limits",
+  "step5_authorized": false,
+  "evidence_hashes": {
+    "analyze_thermal_preflight.py": "7aca1b4c698c9b3e3a4db1dc3c3e072e9701d8c31525694b69bb20743973fc0f",
+    "background-load-01.json": "f7a1d2a22d65cb8a38af6b4fad875eefaf8498798ec177ab7963108afbe64455",
+    "background-load-02.json": "e434d531c075c0449f3032a35658bfdb9c2b5adefa17cf990e923006d01001fd",
+    "guard-preflight-01.json": "5bab7b7f039a3ce3c6095865d43aa2682464368eb0254c2bcef4e071dd5f265c",
+    "guard-preflight-01.jsonl": "12b1837c445cd680762353b1a9cd6eee1c80e48c14809c44e357dbed82bf548f",
+    "host-observation.json": "6fd75929f1c77934fbc7fd5e6f1f4b130c63907c48b8e65fdc53c4013c245cf3",
+    "monitor-shutdown.json": "c50819f49b04c44da6e393e06764e60711d2615dee0e6f5519ce484b835675e3",
+    "pre-smoke-idle-01.jsonl": "1f5744f87aefd8a238b5c1a9eecbd9ae26b568d0e1190c4143cf03307fcfc1a5",
+    "pre-smoke-idle-01.summary.json": "c1065c336cc53551a253642c74ac5ebd69becd840f2f23fb4ed58ab621c4d57d",
+    "preflight.json": "208fbdd1245c99bf34d654a2ae19501b43d859ed91682fff0308974d0ea0e068",
+    "sensor-source-20260908.csv": "0dc2160d15ba5a4730138b2a778b035480f11b22f4a090731edb6f312eeaa21c",
+    "thermal-validation.json": "08bb7e377fad32d62e99b80f91e46c4650d3fa9859391e9b07e8a2cd31457428",
+    "top-process-identity.json": "efd6f41a9ec20e4bca7d7f72a1c4d937bc79f02d4a6fda55c7b985336493e4b8",
+    "validation.json": "02b0abcad22e91cecb6fd22769a2fcea4e11fc46091749ce625923c0cb711396"
+  }
+}

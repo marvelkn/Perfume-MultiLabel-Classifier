@@ -1,0 +1,23 @@
+{
+  "checked_at": "2026-09-08T11:49:04.415733+07:00",
+  "status": "PASS",
+  "raw_csv_matches_all_history_observations": true,
+  "history_observation_count": 608,
+  "frozen_protocol": {
+    "status": "PASS",
+    "protocol_id": "essenza-ml-v1-20260908",
+    "verified_files": 85,
+    "test_arrays_deserialized": false,
+    "training_started": false,
+    "final_trial_count": "pending Step 5 smoke-derived freeze"
+  },
+  "source_tests_yaml_unchanged": true,
+  "preserved_report_source_files": 53,
+  "frontend_git_status": "",
+  "operational_run_files": [],
+  "finished_telemetry_rejected": true,
+  "monitor_stopped": true,
+  "analysis_lint": "PASS; --no-cache after cache permission issue; pairwise lint corrected",
+  "model_tests_rerun": false,
+  "model_tests_reason": "Production source and existing tests match Step 3 preflight; no model implementation changes"
+}

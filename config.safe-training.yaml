@@ -1,0 +1,60 @@
+# Separate profile for new runs; never rewrite an existing run snapshot.
+seed: 42
+data_revision: 8054ea98ed675005ec10e67359902f500e4911b0
+fingerprint:
+  rdkit_version: 2026.03.4
+  radius: 2
+  n_bits: 2048
+  include_chirality: true
+  use_descriptors: true
+  fragment_policy: single
+split:
+  test_size: 0.2
+  threshold_size: 0.15
+  early_stopping_size: 0.15
+  n_folds: 3
+labels:
+  min_positive_count: 30
+  max_labels: 25
+  blocklist:
+  - stimulus
+resources:
+  profile: safe-training
+  threads: 2
+  min_available_ram_gb: 4
+  max_process_ram_gb: 4
+  session_minutes: 20
+  require_temperature: true
+  start_temperature_c: 80
+  stop_temperature_c: 85
+  hot_seconds: 10
+  hard_temperature_c: 90
+  temperature_max_age_seconds: 10
+  check_interval_seconds: 1
+sources:
+  goodscents:
+    molecules: goodscents/molecules.csv
+    behavior: goodscents/behavior.csv
+    stimuli: goodscents/stimuli.csv
+  leffingwell:
+    molecules: leffingwell/molecules.csv
+    behavior: leffingwell/behavior.csv
+    stimuli: leffingwell/stimuli.csv
+  arctander:
+    molecules: arctander_1960/molecules.csv
+    behavior: arctander_1960/behavior_1_sparse.csv
+    stimuli: arctander_1960/stimuli.csv
+  sigma:
+    molecules: sigma_2014/molecules.csv
+    behavior: sigma_2014/behavior.csv
+    stimuli: sigma_2014/stimuli.csv
+  flavornet:
+    molecules: flavornet/molecules.csv
+    behavior: flavornet/behavior.csv
+    stimuli: flavornet/stimuli.csv
+paths:
+  data_raw: data/snapshots
+  data_interim: data/interim
+  data_processed: data/processed
+  reports_figures: reports/figures
+  runs: runs

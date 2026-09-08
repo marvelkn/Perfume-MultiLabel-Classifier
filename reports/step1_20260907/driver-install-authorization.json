@@ -1,0 +1,9 @@
+{
+  "timestamp": "2026-09-07T13:59:03.9642916+07:00",
+  "user_authorization": "User replied boleh to explicit PawnIO kernel driver installation request",
+  "installer": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\.local-tools\\LibreHardwareMonitor-0.9.6\\PawnIO_setup.exe",
+  "signature_status": "Valid",
+  "sha256": "a3a46226c5e2824f4cdd42be0eecbabfc672c86f7889710f5ab1e6ad385b47a0",
+  "arguments": "-install",
+  "windows_uac_required": true
+}

@@ -1,0 +1,16 @@
+{
+  "verified_at": "2026-09-07T13:43:43.7866915+07:00",
+  "status": "GO",
+  "scope": "backend and report; frontend read-only",
+  "head": "0ac81ba711159d362b162919d06d2c52692b0ac9",
+  "branch": "main",
+  "unchanged_preexisting_report_files": 53,
+  "copied_artifacts_hash_verified": 29,
+  "report_backup_hash_verified": true,
+  "new_environment_evidence": "environment_validation.json",
+  "historical_operational_run_absent": true,
+  "training_started": false,
+  "test_arrays_deserialized": false,
+  "cpu_temperature_c": null,
+  "limitation": "CPU temperature unavailable in Step 0; import probe memory is not whole-step peak; interruption excluded from compute duration"
+}

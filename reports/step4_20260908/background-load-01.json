@@ -1,0 +1,85 @@
+{
+  "timestamp": "2026-09-08T11:35:48.730267+07:00",
+  "sample_seconds": 11.01500000001397,
+  "logical_cpus": 12,
+  "system_cpu_percent": 25.2,
+  "available_ram_bytes": 11868798976,
+  "power_plugged": true,
+  "battery_percent": 94,
+  "top_cpu_processes": [
+    {
+      "pid": 5748,
+      "name": "rsEngineSvc.exe",
+      "cpu_percent_total_capacity": 16.135667271881488,
+      "rss_bytes": 525697024
+    },
+    {
+      "pid": 20308,
+      "name": "svchost.exe",
+      "cpu_percent_total_capacity": 2.2341693145682058,
+      "rss_bytes": 430280704
+    },
+    {
+      "pid": 18416,
+      "name": "ChatGPT.exe",
+      "cpu_percent_total_capacity": 1.0047851414724736,
+      "rss_bytes": 185487360
+    },
+    {
+      "pid": 2240,
+      "name": "svchost.exe",
+      "cpu_percent_total_capacity": 0.815649114842361,
+      "rss_bytes": 19664896
+    },
+    {
+      "pid": 22032,
+      "name": "python.exe",
+      "cpu_percent_total_capacity": 0.7447231048560686,
+      "rss_bytes": 20357120
+    },
+    {
+      "pid": 4,
+      "name": "System",
+      "cpu_percent_total_capacity": 0.6856180965341584,
+      "rss_bytes": 147456
+    },
+    {
+      "pid": 12384,
+      "name": "ChatGPT.exe",
+      "cpu_percent_total_capacity": 0.567408079890338,
+      "rss_bytes": 457310208
+    },
+    {
+      "pid": 22724,
+      "name": "dwm.exe",
+      "cpu_percent_total_capacity": 0.4728400665752817,
+      "rss_bytes": 121577472
+    },
+    {
+      "pid": 1304,
+      "name": "lsass.exe",
+      "cpu_percent_total_capacity": 0.2600620366164049,
+      "rss_bytes": 38764544
+    },
+    {
+      "pid": 5536,
+      "name": "Zoom.exe",
+      "cpu_percent_total_capacity": 0.08274701165067429,
+      "rss_bytes": 167841792
+    },
+    {
+      "pid": 20428,
+      "name": "ChatGPT.exe",
+      "cpu_percent_total_capacity": 0.08274701165067429,
+      "rss_bytes": 239226880
+    },
+    {
+      "pid": 24832,
+      "name": "Discord.exe",
+      "cpu_percent_total_capacity": 0.08274701165067429,
+      "rss_bytes": 400244736
+    }
+  ],
+  "thermal_cause_determined": false,
+  "processes_stopped": false
+}

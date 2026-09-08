@@ -1,0 +1,6 @@
+{
+  "timestamp": "2026-09-07T19:30:25.4633461+07:00",
+  "monitor_pid_from_session": 2516,
+  "monitor_process_present": false,
+  "note": "Monitor process no longer present at final verification; exact closure time not observed. Collector ended automatically at 14:22:14 WIB."
+}

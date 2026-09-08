@@ -1,0 +1,20 @@
+{
+  "cpuMenuItem": "true",
+  "mainboardMenuItem": "false",
+  "ramMenuItem": "false",
+  "gpuMenuItem": "false",
+  "powerMonitorMenuItem": "false",
+  "fanControllerMenuItem": "false",
+  "hddMenuItem": "false",
+  "nicMenuItem": "false",
+  "psuMenuItem": "false",
+  "batteryMenuItem": "false",
+  "logSensorsMenuItem": "true",
+  "loggingInterval": "1",
+  "logger.fileRotation": "1",
+  "updateIntervalMenuItem": "2",
+  "runWebServerMenuItem": "false",
+  "startMinMenuItem": "false",
+  "minMenuItem": "true",
+  "maxMenuItem": "true"
+}

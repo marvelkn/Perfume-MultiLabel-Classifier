@@ -1,0 +1,15 @@
+{
+  "step": 4,
+  "started_at": "2026-09-08T11:33:58.604257+07:00",
+  "authorization": "User oke lanjut after proposal to close Step 3 and execute Step 4 only",
+  "root": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier",
+  "protocol_id": "essenza-ml-v1-20260908",
+  "freeze_manifest_sha256": "6076d5d41b3db66169505669e0953729af481aac7523dd4396605bc29d5db7c3",
+  "monitor_pid": 30336,
+  "monitor_started_at": "2026-09-08T11:32:08.1008116+07:00",
+  "sensor_id": "/amdcpu/0/temperature/2",
+  "probe_active_seconds_cap": 300,
+  "thermal_state": "pending fresh measurement",
+  "probe_started": false,
+  "final_training_authorized": false
+}

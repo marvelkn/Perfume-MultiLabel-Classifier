@@ -1,3 +1,4 @@
+from contextlib import contextmanager
 import json
 from types import SimpleNamespace
 import numpy as np
@@ -16,7 +17,10 @@ def test_interrupted_final_fit_resumes_without_retraining_completed_label(tmp_pa
     spec=FeatureSpec(n_bits=8)
     meta={"dataset_id":"synthetic","labels":["a","b"],"feature_spec":spec.to_dict()}
     monkeypatch.setattr(experiments,"context",lambda run:(tmp_path,cfg,X,Y,meta))
-    monkeypatch.setattr(experiments,"ResourceGuard",lambda *a:SimpleNamespace(check=lambda **kw:None))
+    @contextmanager
+    def fake_guarded_context(run, *args):
+        yield tmp_path, cfg, X, Y, meta, SimpleNamespace(check=lambda **kw: None)
+    monkeypatch.setattr(experiments, "guarded_context", fake_guarded_context)
     study=optuna.create_study(storage=f"sqlite:///{(tmp_path/'studies.sqlite3').as_posix()}",study_name="xgb",direction="maximize")
     study.set_user_attr("strategies",["none"])
     study.set_user_attr("signature",experiments.study_signature(meta,cfg,"xgb",["none"]))

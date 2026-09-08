@@ -1,0 +1,71 @@
+def suggest_parameters(trial, algorithm):
+    # Separate spaces follow each learner's complexity controls. Ranges are initial hypotheses.
+    if algorithm == "xgb":
+        return {"max_depth": trial.suggest_int("max_depth",3,8),
+                "min_child_weight": trial.suggest_float("min_child_weight",1,30,log=True),
+                "learning_rate": trial.suggest_float("learning_rate",.01,.2,log=True),
+                "gamma": trial.suggest_float("gamma",0,5),
+                "subsample": trial.suggest_float("subsample",.6,1),
+                "colsample_bytree": trial.suggest_float("colsample_bytree",.4,1),
+                "reg_alpha": trial.suggest_float("reg_alpha",1e-5,10,log=True) if trial.suggest_categorical("use_l1",[False,True]) else 0.,
+                "reg_lambda": trial.suggest_float("reg_lambda",1e-3,100,log=True)}
+    if algorithm == "lgbm":
+        depth = trial.suggest_int("max_depth",4,12)
+        return {"max_depth": depth, "num_leaves": trial.suggest_int("num_leaves",8,min(128,2**depth)),
+                "min_child_samples": trial.suggest_int("min_child_samples",10,150),
+                "learning_rate": trial.suggest_float("learning_rate",.005,.15,log=True),
+                "min_split_gain": trial.suggest_float("min_split_gain",0,1),
+                "subsample": trial.suggest_float("subsample",.6,1), "subsample_freq": trial.suggest_int("subsample_freq",1,7),
+                "colsample_bytree": trial.suggest_float("colsample_bytree",.5,1),
+                "reg_alpha": trial.suggest_float("reg_alpha",1e-5,10,log=True) if trial.suggest_categorical("use_l1",[False,True]) else 0.,
+                "reg_lambda": trial.suggest_float("reg_lambda",1e-3,50,log=True),
+                "max_bin": trial.suggest_categorical("max_bin",[63,127,255])}
+    raise ValueError("Unknown algorithm")
+
+def fit_binary(algorithm, params, X, y, *, stop=None, threads=2, seed=42, weighting=False, guard=None, rounds=None):
+    if np.unique(y).size != 2:
+        raise ValueError("Both classes must be present in a training label")
+    if guard:
+        guard.check(force=True)
+    params = dict(params)
+    weight = float((len(y)-y.sum())/y.sum()) if weighting else 1.
+    if algorithm == "xgb":
+        import xgboost as xgb
+        callbacks = []
+        if guard:
+            class Budget(xgb.callback.TrainingCallback):
+                def after_iteration(self, model, epoch, history):
+                    guard.check()
+                    return False
+            callbacks.append(Budget())
+        # logloss controls early stopping; study ranking uses sklearn AP separately.
+        model = xgb.XGBClassifier(**params, n_estimators=rounds or 2000, tree_method="hist", device="cpu",
+                                  n_jobs=threads, random_state=seed, scale_pos_weight=weight,
+                                  eval_metric="logloss", early_stopping_rounds=50 if stop else None, callbacks=callbacks)
+        model.fit(X,y,eval_set=[stop] if stop else None,verbose=False)
+        # Runtime callbacks are training-only and contain live process/sensor state.
+        model.set_params(callbacks=None)
+        if stop:
+            best = model.best_iteration + 1
+            # Slice the booster so exported native and ONNX inference use the same trees.
+            model._Booster = model.get_booster()[:best]
+        else:
+            best = rounds or 2000
+    elif algorithm == "lgbm":
+        import lightgbm as lgb
+        callbacks = [lgb.log_evaluation(0)]
+        if stop:
+            callbacks.append(lgb.early_stopping(50, verbose=False))
+        if guard:
+            def budget(env):
+                guard.check()
+            budget.order = 5
+            callbacks.append(budget)
+        model = lgb.LGBMClassifier(**params, n_estimators=rounds or 3000, device_type="cpu", n_jobs=threads,
+                                   random_state=seed, scale_pos_weight=weight, verbosity=-1,
+                                   deterministic=True, force_col_wise=True)
+        model.fit(X,y,eval_set=[stop] if stop else None,eval_metric="binary_logloss",callbacks=callbacks)
+        best = model.best_iteration_ if stop else (rounds or 3000)
+    else:
+        raise ValueError("Unknown algorithm")
+    return model, int(best)

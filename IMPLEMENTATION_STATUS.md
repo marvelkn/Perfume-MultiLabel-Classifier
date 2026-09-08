@@ -1,4 +1,24 @@
-# Status implementasi â€” 4 September 2026
+# Status implementasi — 8 September 2026
+
+Pekerjaan sesi ini berlangsung langsung di checkout ML asli pada `C:\Users\ACER\Documents\Marvel\Skripsi\Project Skripsi\Perfume-MultiLabel-Classifier`. Frontend hanya referensi. Source LaTeX tetap pada folder laporan asli; isi bab belum diubah oleh Step 0–4.
+
+| Tahap terbaru | Status dan bukti |
+| --- | --- |
+| Step 0 | GO: environment, rekonsiliasi 29 artefak, serta backup 53 berkas laporan terverifikasi. |
+| Step 1 | GO sensor/baseline: 610 detik, suhu 80,125–85,875°C. Kesiapan termal training STOP. |
+| Step 2 | GO: profil aman, log resource, lock per run, dan resume baseline tersedia; 90 tes ML sintetis lulus. |
+| Step 3 | GO: audit dan [praregistrasi](PREREGISTRATION.md), 85 checksum, tujuh sel notebook dan sembilan pemeriksaan verifier lulus. |
+| Step 4 | STOP sebelum smoke: 610 detik, CPU 76,625–85,125°C; 0 label-fit, guard menolak mulai. [Bukti](reports/step4_20260908/README.md). |
+| Training protokol terbaru | Belum dimulai; belum ada hasil model atau test baru. |
+| Berikutnya | Ulangi Step 4 ketika suhu memenuhi syarat mulai <75°C. Estimasi runtime dan jumlah trial final masih menunggu; Step 5 belum diizinkan. |
+
+Profil aktif yang dapat dipilih adalah smoke 1 thread/3 GiB/5 menit/80°C selama 5 detik dan training 2 thread/4 GiB/20 menit/85°C selama 10 detik. Keduanya memerlukan sensor valid dan kondisi mulai yang lebih dingin. Penghentian bersifat kooperatif, sehingga unit test belum membuktikan batas termal pada workload nyata.
+
+Rincian operasional: [SAFE_EXECUTION_PLAN.md](SAFE_EXECUTION_PLAN.md), [RUNTIME_SAFETY.md](RUNTIME_SAFETY.md), [SENSOR_SETUP.md](SENSOR_SETUP.md), dan [bukti Step 2](reports/step2_20260907/README.md). Konfigurasi historis `config.yaml` tidak diubah; arsip `runs/_reference/` tidak dieksekusi. Belum commit/push.
+
+## Catatan historis — 4 September 2026
+
+Bagian berikut mempertahankan keadaan saat audit awal. Angka tes, lokasi worktree, status sensor, dan daftar pekerjaan di bawah merupakan catatan **4 September**, bukan status saat ini. Urutan eksekusi terbaru mengikuti SAFE_EXECUTION_PLAN.
 
 Perubahan dikerjakan pada branch codex/project-reliability di worktree terpisah. Frontend berbasis origin/marvel (775b123); ML berbasis a0d96cc. Checkout asli dan laporan LaTeX tidak diubah. Publikasi perubahan project diminta setelah review implementasi: ML ke main, frontend ke marvel di repository yogawyas/Essenza_Frontend. Deployment aplikasi/API dan tuning pada data nyata belum dijalankan.
 

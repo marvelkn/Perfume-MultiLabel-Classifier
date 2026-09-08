@@ -1,0 +1,26 @@
+{
+  "status": "PASS",
+  "verified_at": "2026-09-08T09:50:34.456590+07:00",
+  "seconds": 0.10999999998603016,
+  "checks": [
+    "85 frozen checksums and partition invariants",
+    "paired trial count from 4-hour budget",
+    "trial cap 50",
+    "reject infeasible/invalid budget input",
+    "reject infeasible/invalid budget input",
+    "reject infeasible/invalid budget input",
+    "reject infeasible/invalid budget input",
+    "reject tampered expected hash or escaped path",
+    "reject tampered expected hash or escaped path"
+  ],
+  "check_count": 9,
+  "real_files_modified_for_negative_checks": false,
+  "verification": {
+    "status": "PASS",
+    "protocol_id": "essenza-ml-v1-20260908",
+    "verified_files": 85,
+    "test_arrays_deserialized": false,
+    "training_started": false,
+    "final_trial_count": "pending Step 5 smoke-derived freeze"
+  }
+}

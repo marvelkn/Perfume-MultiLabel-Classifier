@@ -1,0 +1,21 @@
+{
+  "started_at": "2026-09-07T19:39:58.0791221+07:00",
+  "step": 2,
+  "authorization": "User oke lanjut after proposal for Step 2 only",
+  "ml_root": "C:/Users/ACER/Documents/Marvel/Skripsi/Project Skripsi/Perfume-MultiLabel-Classifier",
+  "head": "0ac81ba711159d362b162919d06d2c52692b0ac9",
+  "backup": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\.local-backups\\step2-20260907-193957",
+  "before_sha256": {
+    "IMPLEMENTATION_STATUS.md": "d9c3ba239f4b14a46bf7f1512e1a133bfa57326bdc33bdabd5a2547ac9e1efb1",
+    "README.md": "68fb88d3dc480874a4b8bca0197573b3f1ff5b0b58ef4a92df15cbbdb72887fa",
+    "src\\explain_model.py": "7a7d505298ffc98e53b31cdf64453944673eac27cbd51c936abfd18b50a97349",
+    "tests\\test_resume.py": "d3905aa2ac72ae9489b5f3ac36f4931d8faf2d3bd5a4acecf99a6e12d9172b98",
+    "tests\\test_runtime.py": "1099ff1b0efcefb188e783dff37eaf4131a0cf50382df7990e31f88380361b35",
+    "config.yaml": "644f2baaeee01d6401e7807bac91737b440f036610ba4d478975d8c8fa5fc422",
+    "src\\runtime.py": "da732fe5a310f88d64f116e656ee00d6a064c42783ec02e5f91003bb9e51170f",
+    "SAFE_EXECUTION_PLAN.md": "9f3a2b25676ea4f66e93ebbc3ed0422986797a6616886c746380e60a9aa4bac8",
+    "src\\experiments.py": "7aefb8785eeb685ad6b1353fb12307a6a04c659b02d1dc23367edd5fcb598c95"
+  },
+  "training_allowed": false,
+  "frontend_read_only": true
+}

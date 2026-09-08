@@ -1,0 +1,13 @@
+{
+  "started_at": "2026-09-07T11:41:14.7932311+07:00",
+  "finished_at": "2026-09-07T11:43:55.9755778+07:00",
+  "seconds": 161.1826203,
+  "exit_code": 0,
+  "python": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\.venv\\Scripts\\python.exe",
+  "requirements": "requirements_lock.txt",
+  "requirements_sha256": "1f3d11684f6c9ecadd07d637fed86318119d82bbfc45348808be787a0f3ece48",
+  "observed_peak_pip_working_set_bytes": 4403200,
+  "cpu_temperature_c": null,
+  "temperature_note": "No validated CPU telemetry; dependency installation only. No training.",
+  "memory_scope": "Observed Windows venv launcher only; child pip memory was not recorded. Do not interpret as total installation peak."
+}

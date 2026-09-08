@@ -1,0 +1,51 @@
+{
+  "verified_at": "2026-09-07T19:30:25.409834+07:00",
+  "step1_status": "GO",
+  "scope": "CPU sensor identity, CSV/JSON/ResourceGuard compatibility and 610-second no-heavy-user-activity baseline; does not authorize training",
+  "training_readiness": "STOP: all baseline CPU samples exceed the planned safe-smoke stop threshold of 80 C",
+  "user_idle_conditions_confirmed": true,
+  "baseline_caveat": "Background services and the chat/monitoring application remained active; this is not a near-zero-CPU-load laboratory idle measurement. Desktop room temperature and fan speed were not measured.",
+  "started_at": "2026-09-07T14:12:04.685231+07:00",
+  "ended_at": "2026-09-07T14:22:14.685976+07:00",
+  "recording_duration_seconds": 610.0,
+  "source_span_seconds": 609.0,
+  "collector_observations": 608,
+  "unique_source_samples": 305,
+  "cpu_temperature_c": {
+    "initial": 83.875,
+    "minimum": 80.125,
+    "maximum": 85.875,
+    "mean": 83.65368852459017,
+    "median": 83.875,
+    "end": 81.0
+  },
+  "max_source_gap_seconds": 3.0,
+  "max_observer_gap_seconds": 1.014949083328247,
+  "max_observed_telemetry_age_seconds": 2.9941394329071045,
+  "system_cpu_percent": {
+    "mean": 17.230971993410215,
+    "minimum": 8.6,
+    "maximum": 45.2,
+    "last_60_observations_mean": 12.208333333333334
+  },
+  "peak_collector_rss_bytes": 22093824,
+  "minimum_system_available_ram_bytes": 10596073472,
+  "monitor_peak_ram_during_baseline": "not sampled; pre-baseline process observation is stored separately",
+  "stopped_live_files_rejected_by_guard": {
+    "cpu.json": true,
+    "idle-cpu.json": true
+  },
+  "training_started": false,
+  "test_arrays_deserialized": false,
+  "history_sha256": "c9d610ee6db00c4717e202f7fbc84bc471519d0c2a932bc892cb887a3ac9357a",
+  "test_evidence": "adapter-validation.json: 17 tests passed previously; no source changes after final test",
+  "artifacts": {
+    "src\\cpu_telemetry.py": "3edff799694f1793c587789f826e99eb00fb5252143f73d0638ac6135de838e8",
+    "tests\\test_cpu_telemetry.py": "b46c0131f282734839ac6993a603afd9e10c3f11ef686f25679a1528ae505abd",
+    "reports\\step1_20260907\\idle-attempt-01.jsonl": "c9d610ee6db00c4717e202f7fbc84bc471519d0c2a932bc892cb887a3ac9357a",
+    "reports\\step1_20260907\\idle-attempt-01.summary.json": "e117d36028dae94f8e523c2f4f6052886c56f442a1143745765c8187b85f6f77",
+    "reports\\step1_20260907\\sensor-monitor-observation.png": "18fede897c416b6b5bc1c75590e83086c53aaac49482908a6770ad1d33a82e3b",
+    "reports\\step1_20260907\\live-sensor-verification.json": "1c3da7faaec393fad03af833d6df6c207d6087e644fe4dc054a8f4081552ba1a",
+    "reports\\step1_20260907\\driver-install-result.json": "81c484d05dfd14a8e0018ec345b88cb2035a95f86bc696637525e33332443f66"
+  }
+}

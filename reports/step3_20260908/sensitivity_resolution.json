@@ -1,0 +1,68 @@
+{
+  "status": "FEASIBLE_FIXED_RECIPE_SENSITIVITY",
+  "reason": "Original grouped early-stop fold 1 lacks class support for apple/winey",
+  "rounds": "per-label median best_iterations from the primary selected trial, frozen before sensitivity",
+  "parameters": "same primary selected recipe for all variants; no retuning",
+  "threshold_holdout_reused": false,
+  "test_access": false,
+  "missing_train_or_score_classes": 0,
+  "partition_sizes": {
+    "random_seed_42": [
+      {
+        "train": 3050,
+        "score": 1525
+      },
+      {
+        "train": 3050,
+        "score": 1525
+      },
+      {
+        "train": 3050,
+        "score": 1525
+      }
+    ],
+    "random_seed_123": [
+      {
+        "train": 3050,
+        "score": 1525
+      },
+      {
+        "train": 3050,
+        "score": 1525
+      },
+      {
+        "train": 3050,
+        "score": 1525
+      }
+    ],
+    "random_seed_2026": [
+      {
+        "train": 3050,
+        "score": 1525
+      },
+      {
+        "train": 3050,
+        "score": 1525
+      },
+      {
+        "train": 3050,
+        "score": 1525
+      }
+    ],
+    "scaffold_seed_42": [
+      {
+        "train": 2073,
+        "score": 2502
+      },
+      {
+        "train": 3035,
+        "score": 1540
+      },
+      {
+        "train": 4042,
+        "score": 533
+      }
+    ]
+  },
+  "limitations": "Conditional sensitivity, not unbiased nested CV; primary selection previously used the fitting pool"
+}

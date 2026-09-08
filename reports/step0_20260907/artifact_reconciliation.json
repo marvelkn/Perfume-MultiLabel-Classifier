@@ -1,0 +1,174 @@
+{
+  "created_at": "2026-09-07T11:40:25.1767667+07:00",
+  "dataset_id": "5c0b0e7c9a56eb60fbc344fc3b6629a160dfa723fdb7b6ba398e621870f2f558",
+  "feature_schema_id": "a1dce64f7591f9b40f5f2332d805b7f1c7f91f24d9af0dcd0964cda7c231c018",
+  "dataset_manifest_verified": true,
+  "copies": [
+    {
+      "source": "C:\\Users\\ACER\\Documents\\ChatGPT\\Project Skripsi\\Perfume-MultiLabel-Classifier\\data\\builds\\audited-20260904-v2",
+      "destination": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\data\\builds\\audited-20260904-v2",
+      "files": [
+        {
+          "path": "dataset_manifest.json",
+          "bytes": 134615,
+          "sha256": "e396402567dc38dc8c5ab939451cafbb14a07c990b5c7dd882771c39a65cf619"
+        },
+        {
+          "path": "feature_spec.json",
+          "bytes": 201,
+          "sha256": "ddda188dd847931d78dbfd1a82c3aedd7a35ab5cec916666b08b27c3ebee343b"
+        },
+        {
+          "path": "label_names.json",
+          "bytes": 321,
+          "sha256": "31d71961be718e1bf0eb601c3e5442408032c96869444edb276d53153f18f067"
+        },
+        {
+          "path": "provenance.json",
+          "bytes": 2086594,
+          "sha256": "37a9c12734657db93514ef7c989e91fdd9f6fa216bb629d11bb2fd4c0cd9eaf3"
+        },
+        {
+          "path": "rejected_records.json",
+          "bytes": 78345,
+          "sha256": "ea3f44936bf21de9f3a203442c83138196cd10ca624f77b80fa3b472a0aa045e"
+        },
+        {
+          "path": "smiles_test.txt",
+          "bytes": 29325,
+          "sha256": "6f4c2ce73107be6fcbdcf07ee4b469b5a68ffdd1762da78c507a52d11bdd1c48"
+        },
+        {
+          "path": "smiles_train.txt",
+          "bytes": 119760,
+          "sha256": "e8eb425b93456c3c0ad3983da0535a0408f44817a53e07a3d4e65f6f4ce5af6f"
+        },
+        {
+          "path": "unmapped_descriptors.csv",
+          "bytes": 7742,
+          "sha256": "b9ac4288fbd7ae86288d1b43e15250a6bb77e9744322876682de3dcdb45308b2"
+        },
+        {
+          "path": "X_test.npz",
+          "bytes": 50622,
+          "sha256": "3648a70afb9f30b6074d1e8bf10d624ddde0c5899ff907ecf4c5b961ad70b2c2"
+        },
+        {
+          "path": "X_train.npz",
+          "bytes": 176704,
+          "sha256": "2578804e61b05c88c7c33e66071e9006e858014e39e7f5caa53326c98207865c"
+        },
+        {
+          "path": "Y_test.npz",
+          "bytes": 5751,
+          "sha256": "d11632e24c50bade68fa89228bd65805990d542d242b18f07f6998eabcfe1785"
+        },
+        {
+          "path": "Y_train.npz",
+          "bytes": 19066,
+          "sha256": "eb0ef103ca0bfc7a93f2342c1eeeace18ca190cee7026f9e5dcee68d7354df79"
+        }
+      ]
+    },
+    {
+      "source": "C:\\Users\\ACER\\Documents\\ChatGPT\\Project Skripsi\\Perfume-MultiLabel-Classifier\\data\\snapshots",
+      "destination": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\data\\snapshots",
+      "files": [
+        {
+          "path": "8054ea98ed675005ec10e67359902f500e4911b0/manifest.json",
+          "bytes": 3870,
+          "sha256": "78203446cc28585978160c56507b115ee22c9562ad148fba218d6537d890edfd"
+        },
+        {
+          "path": "8054ea98ed675005ec10e67359902f500e4911b0/arctander_1960/behavior_1_sparse.csv",
+          "bytes": 69782,
+          "sha256": "825bc5c902bfd420ece29a32cec6863c9ba8152e5c3f9144a31f4887158a0cf5"
+        },
+        {
+          "path": "8054ea98ed675005ec10e67359902f500e4911b0/arctander_1960/molecules.csv",
+          "bytes": 250820,
+          "sha256": "244f633d0ab62daf7b9de826712403e80be86672df66b206853219a08febcd5b"
+        },
+        {
+          "path": "8054ea98ed675005ec10e67359902f500e4911b0/arctander_1960/stimuli.csv",
+          "bytes": 116603,
+          "sha256": "ba66d9979e5e85cb72a37511ae79e08be4cbde407a89a6d500d78fac76e9512d"
+        },
+        {
+          "path": "8054ea98ed675005ec10e67359902f500e4911b0/flavornet/behavior.csv",
+          "bytes": 12738,
+          "sha256": "784983058da1c96faafe833c77a6e09f69d003d7c17d22663cbd91aa4cc4bfbf"
+        },
+        {
+          "path": "8054ea98ed675005ec10e67359902f500e4911b0/flavornet/molecules.csv",
+          "bytes": 60140,
+          "sha256": "0bd70e9097f55c06fe5e560da645a23f4f4e1ea8c75dead0d49a911291dccf25"
+        },
+        {
+          "path": "8054ea98ed675005ec10e67359902f500e4911b0/flavornet/stimuli.csv",
+          "bytes": 9173,
+          "sha256": "78488b7d62fefd7be78585920669f784b321133acd91c39d50daf43f6c7b48ef"
+        },
+        {
+          "path": "8054ea98ed675005ec10e67359902f500e4911b0/goodscents/behavior.csv",
+          "bytes": 198529,
+          "sha256": "18968aa66cab974ee2f942ad0abd0875ccf2bcc9501c1cb306a54bd639a22219"
+        },
+        {
+          "path": "8054ea98ed675005ec10e67359902f500e4911b0/goodscents/molecules.csv",
+          "bytes": 433942,
+          "sha256": "0d9bd38c54a40a051ae7b771d51f11ac1fcf021e0369fc53583e5f634e6e8bb4"
+        },
+        {
+          "path": "8054ea98ed675005ec10e67359902f500e4911b0/goodscents/stimuli.csv",
+          "bytes": 174606,
+          "sha256": "356cdd74a859ab1e8e061952dbb21587afc8981bb460cc670481d688afac923f"
+        },
+        {
+          "path": "8054ea98ed675005ec10e67359902f500e4911b0/leffingwell/behavior.csv",
+          "bytes": 820663,
+          "sha256": "afe0846b159ac00691ba4c07074829f7ff262b80fa32a3280661457153e70c41"
+        },
+        {
+          "path": "8054ea98ed675005ec10e67359902f500e4911b0/leffingwell/molecules.csv",
+          "bytes": 297936,
+          "sha256": "a06841a275c35b9db9253a24ac913ad97bf39f2c778e4f8a5c4df641e7dc0fa6"
+        },
+        {
+          "path": "8054ea98ed675005ec10e67359902f500e4911b0/leffingwell/stimuli.csv",
+          "bytes": 355713,
+          "sha256": "ff4be9ba6a66523bc5a165ded09eee125ccb79d4988090d682b323d9331a44c8"
+        },
+        {
+          "path": "8054ea98ed675005ec10e67359902f500e4911b0/sigma_2014/behavior.csv",
+          "bytes": 694026,
+          "sha256": "2365cab1b166b1c4298fdfe196cce5721045848e3f9b05254a86e3fca5bcf37c"
+        },
+        {
+          "path": "8054ea98ed675005ec10e67359902f500e4911b0/sigma_2014/molecules.csv",
+          "bytes": 71821,
+          "sha256": "0c61ea5683646e91070323e7c56a1225d831686e8d6e6960393b45a8d3e439da"
+        },
+        {
+          "path": "8054ea98ed675005ec10e67359902f500e4911b0/sigma_2014/stimuli.csv",
+          "bytes": 14665,
+          "sha256": "2e345eb1247de1dd10439ef2a3d7e850e331f54db0a61de857247175d9dbc156"
+        }
+      ]
+    },
+    {
+      "source": "C:\\Users\\ACER\\Documents\\ChatGPT\\Project Skripsi\\Perfume-MultiLabel-Classifier\\runs\\audited-20260904-v2",
+      "destination": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\runs\\_reference\\audited-20260904-v2",
+      "files": [
+        {
+          "path": "run.json",
+          "bytes": 304611,
+          "sha256": "d83f308e735213e574b1b37cb7adb059f9ec91012cc24bca8a84b08baef60760"
+        }
+      ]
+    }
+  ],
+  "reference_run_policy": "Archived byte-identical; retains historical absolute paths. Never execute this run; create a new run in Step 5.",
+  "test_arrays_deserialized": false,
+  "training_started": false
+}

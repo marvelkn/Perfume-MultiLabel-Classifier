@@ -1,0 +1,8 @@
+{
+  "timestamp": "2026-09-07T14:12:04.5078958+07:00",
+  "user_statement": "Bisa, saya hentikan aktivitas berat",
+  "conditions": "User confirmed no heavy activity, hard table and open ventilation",
+  "history": "idle-attempt-01.jsonl",
+  "output": "telemetry/idle-cpu.json",
+  "initial_observation": "observation-attempt-01.jsonl retained separately; its collector ends automatically on its existing deadline"
+}

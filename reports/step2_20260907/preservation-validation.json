@@ -1,0 +1,127 @@
+{
+  "verified_at": "2026-09-07T20:08:54.619066+07:00",
+  "unchanged_artifacts": [
+    {
+      "path": "data\\builds\\audited-20260904-v2\\dataset_manifest.json",
+      "sha256": "e396402567dc38dc8c5ab939451cafbb14a07c990b5c7dd882771c39a65cf619"
+    },
+    {
+      "path": "data\\builds\\audited-20260904-v2\\feature_spec.json",
+      "sha256": "ddda188dd847931d78dbfd1a82c3aedd7a35ab5cec916666b08b27c3ebee343b"
+    },
+    {
+      "path": "data\\builds\\audited-20260904-v2\\label_names.json",
+      "sha256": "31d71961be718e1bf0eb601c3e5442408032c96869444edb276d53153f18f067"
+    },
+    {
+      "path": "data\\builds\\audited-20260904-v2\\provenance.json",
+      "sha256": "37a9c12734657db93514ef7c989e91fdd9f6fa216bb629d11bb2fd4c0cd9eaf3"
+    },
+    {
+      "path": "data\\builds\\audited-20260904-v2\\rejected_records.json",
+      "sha256": "ea3f44936bf21de9f3a203442c83138196cd10ca624f77b80fa3b472a0aa045e"
+    },
+    {
+      "path": "data\\builds\\audited-20260904-v2\\smiles_test.txt",
+      "sha256": "6f4c2ce73107be6fcbdcf07ee4b469b5a68ffdd1762da78c507a52d11bdd1c48"
+    },
+    {
+      "path": "data\\builds\\audited-20260904-v2\\smiles_train.txt",
+      "sha256": "e8eb425b93456c3c0ad3983da0535a0408f44817a53e07a3d4e65f6f4ce5af6f"
+    },
+    {
+      "path": "data\\builds\\audited-20260904-v2\\unmapped_descriptors.csv",
+      "sha256": "b9ac4288fbd7ae86288d1b43e15250a6bb77e9744322876682de3dcdb45308b2"
+    },
+    {
+      "path": "data\\builds\\audited-20260904-v2\\X_test.npz",
+      "sha256": "3648a70afb9f30b6074d1e8bf10d624ddde0c5899ff907ecf4c5b961ad70b2c2"
+    },
+    {
+      "path": "data\\builds\\audited-20260904-v2\\X_train.npz",
+      "sha256": "2578804e61b05c88c7c33e66071e9006e858014e39e7f5caa53326c98207865c"
+    },
+    {
+      "path": "data\\builds\\audited-20260904-v2\\Y_test.npz",
+      "sha256": "d11632e24c50bade68fa89228bd65805990d542d242b18f07f6998eabcfe1785"
+    },
+    {
+      "path": "data\\builds\\audited-20260904-v2\\Y_train.npz",
+      "sha256": "eb0ef103ca0bfc7a93f2342c1eeeace18ca190cee7026f9e5dcee68d7354df79"
+    },
+    {
+      "path": "data\\snapshots\\8054ea98ed675005ec10e67359902f500e4911b0\\manifest.json",
+      "sha256": "78203446cc28585978160c56507b115ee22c9562ad148fba218d6537d890edfd"
+    },
+    {
+      "path": "data\\snapshots\\8054ea98ed675005ec10e67359902f500e4911b0\\arctander_1960\\behavior_1_sparse.csv",
+      "sha256": "825bc5c902bfd420ece29a32cec6863c9ba8152e5c3f9144a31f4887158a0cf5"
+    },
+    {
+      "path": "data\\snapshots\\8054ea98ed675005ec10e67359902f500e4911b0\\arctander_1960\\molecules.csv",
+      "sha256": "244f633d0ab62daf7b9de826712403e80be86672df66b206853219a08febcd5b"
+    },
+    {
+      "path": "data\\snapshots\\8054ea98ed675005ec10e67359902f500e4911b0\\arctander_1960\\stimuli.csv",
+      "sha256": "ba66d9979e5e85cb72a37511ae79e08be4cbde407a89a6d500d78fac76e9512d"
+    },
+    {
+      "path": "data\\snapshots\\8054ea98ed675005ec10e67359902f500e4911b0\\flavornet\\behavior.csv",
+      "sha256": "784983058da1c96faafe833c77a6e09f69d003d7c17d22663cbd91aa4cc4bfbf"
+    },
+    {
+      "path": "data\\snapshots\\8054ea98ed675005ec10e67359902f500e4911b0\\flavornet\\molecules.csv",
+      "sha256": "0bd70e9097f55c06fe5e560da645a23f4f4e1ea8c75dead0d49a911291dccf25"
+    },
+    {
+      "path": "data\\snapshots\\8054ea98ed675005ec10e67359902f500e4911b0\\flavornet\\stimuli.csv",
+      "sha256": "78488b7d62fefd7be78585920669f784b321133acd91c39d50daf43f6c7b48ef"
+    },
+    {
+      "path": "data\\snapshots\\8054ea98ed675005ec10e67359902f500e4911b0\\goodscents\\behavior.csv",
+      "sha256": "18968aa66cab974ee2f942ad0abd0875ccf2bcc9501c1cb306a54bd639a22219"
+    },
+    {
+      "path": "data\\snapshots\\8054ea98ed675005ec10e67359902f500e4911b0\\goodscents\\molecules.csv",
+      "sha256": "0d9bd38c54a40a051ae7b771d51f11ac1fcf021e0369fc53583e5f634e6e8bb4"
+    },
+    {
+      "path": "data\\snapshots\\8054ea98ed675005ec10e67359902f500e4911b0\\goodscents\\stimuli.csv",
+      "sha256": "356cdd74a859ab1e8e061952dbb21587afc8981bb460cc670481d688afac923f"
+    },
+    {
+      "path": "data\\snapshots\\8054ea98ed675005ec10e67359902f500e4911b0\\leffingwell\\behavior.csv",
+      "sha256": "afe0846b159ac00691ba4c07074829f7ff262b80fa32a3280661457153e70c41"
+    },
+    {
+      "path": "data\\snapshots\\8054ea98ed675005ec10e67359902f500e4911b0\\leffingwell\\molecules.csv",
+      "sha256": "a06841a275c35b9db9253a24ac913ad97bf39f2c778e4f8a5c4df641e7dc0fa6"
+    },
+    {
+      "path": "data\\snapshots\\8054ea98ed675005ec10e67359902f500e4911b0\\leffingwell\\stimuli.csv",
+      "sha256": "ff4be9ba6a66523bc5a165ded09eee125ccb79d4988090d682b323d9331a44c8"
+    },
+    {
+      "path": "data\\snapshots\\8054ea98ed675005ec10e67359902f500e4911b0\\sigma_2014\\behavior.csv",
+      "sha256": "2365cab1b166b1c4298fdfe196cce5721045848e3f9b05254a86e3fca5bcf37c"
+    },
+    {
+      "path": "data\\snapshots\\8054ea98ed675005ec10e67359902f500e4911b0\\sigma_2014\\molecules.csv",
+      "sha256": "0c61ea5683646e91070323e7c56a1225d831686e8d6e6960393b45a8d3e439da"
+    },
+    {
+      "path": "data\\snapshots\\8054ea98ed675005ec10e67359902f500e4911b0\\sigma_2014\\stimuli.csv",
+      "sha256": "2e345eb1247de1dd10439ef2a3d7e850e331f54db0a61de857247175d9dbc156"
+    },
+    {
+      "path": "runs\\_reference\\audited-20260904-v2\\run.json",
+      "sha256": "d83f308e735213e574b1b37cb7adb059f9ec91012cc24bca8a84b08baef60760"
+    }
+  ],
+  "unchanged_artifact_count": 29,
+  "unchanged_report_source_files": 53,
+  "historical_config_unchanged": true,
+  "frontend_git_status": "",
+  "operational_run_files": [],
+  "method": "SHA-256 byte streams only; no dataset array deserialization"
+}

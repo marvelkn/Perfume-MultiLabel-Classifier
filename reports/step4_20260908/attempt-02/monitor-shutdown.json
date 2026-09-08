@@ -1,0 +1,7 @@
+{
+  "timestamp": "2026-09-08T12:39:18.5027813+07:00",
+  "owned_pid": 24212,
+  "method": "Elevated stop of owned monitor with PID/name/start-time check",
+  "exit_code": 0,
+  "still_running": false
+}

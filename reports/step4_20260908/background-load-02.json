@@ -1,0 +1,12 @@
+{
+  "timestamp": "2026-09-08T11:39:26.168927+07:00",
+  "sample_seconds": 15.014999999984866,
+  "pid": 5748,
+  "name": "rsEngineSvc.exe",
+  "service_display_name": "Reason Security Engine Service",
+  "process_cpu_percent_total_capacity": 13.33735708737053,
+  "system_cpu_percent": 22.9,
+  "available_ram_bytes": 11575590912,
+  "settings_modified": false,
+  "thermal_cause_determined": false
+}

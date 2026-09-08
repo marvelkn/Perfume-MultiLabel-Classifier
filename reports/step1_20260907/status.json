@@ -1,0 +1,28 @@
+{
+  "timestamp": "2026-09-07T19:32:33.4552538+07:00",
+  "status": "GO",
+  "scope": "Step 1 CPU sensor and baseline recording only",
+  "training_readiness": "STOP",
+  "training_reason": "Baseline 80.125-85.875 C, entirely above the planned safe-smoke stop threshold 80 C",
+  "driver_install_executed": true,
+  "user_driver_authorization": "boleh",
+  "sensor": "/amdcpu/0/temperature/2",
+  "baseline_duration_seconds": 610.0,
+  "baseline_source_span_seconds": 609.0,
+  "cpu_temperature_c": {
+    "initial": 83.875,
+    "minimum": 80.125,
+    "maximum": 85.875,
+    "mean": 83.65368852459017,
+    "median": 83.875,
+    "end": 81.0
+  },
+  "max_observed_telemetry_age_seconds": 2.9941394329071045,
+  "peak_collector_rss_bytes": 22093824,
+  "baseline_caveat": "Background services and the chat/monitoring application remained active; this is not a near-zero-CPU-load laboratory idle measurement. Desktop room temperature and fan speed were not measured.",
+  "training_started": false,
+  "test_arrays_deserialized": false,
+  "collector_stopped": true,
+  "next_step": "Step 2: safe profiles and stop/resume tests, requires separate instruction",
+  "step2_authorized": false
+}

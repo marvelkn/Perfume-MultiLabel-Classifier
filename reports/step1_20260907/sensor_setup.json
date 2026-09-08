@@ -1,0 +1,13 @@
+{
+  "timestamp": "2026-09-07T13:45:23.3381175+07:00",
+  "release": "https://github.com/LibreHardwareMonitor/LibreHardwareMonitor/releases/tag/v0.9.6",
+  "asset_url": "https://github.com/LibreHardwareMonitor/LibreHardwareMonitor/releases/download/v0.9.6/LibreHardwareMonitor.zip",
+  "sha256": "086d9f1b5a99e643edc2cfaaac16051685b551e4c5ac0b32a57c58c0e529c001",
+  "official_digest_verified": true,
+  "destination": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\.local-tools\\LibreHardwareMonitor-0.9.6",
+  "driver_installed": false,
+  "cpu": "AMD Ryzen 5 5500U",
+  "monitor_previously_running": false,
+  "libre_wmi_namespace_present": false,
+  "openhardware_wmi_namespace_present": false
+}

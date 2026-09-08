@@ -1,0 +1,73 @@
+{
+  "step": 3,
+  "status": "GO",
+  "scope": "development audit and local preregistration only",
+  "started_at": "2026-09-08T09:23:14.981257+07:00",
+  "closed_at": "2026-09-08T11:33:58.604257+07:00",
+  "interruption_time_excluded_from_compute": true,
+  "verification": {
+    "status": "PASS",
+    "protocol_id": "essenza-ml-v1-20260908",
+    "verified_files": 85,
+    "test_arrays_deserialized": false,
+    "training_started": false,
+    "final_trial_count": "pending Step 5 smoke-derived freeze"
+  },
+  "prior_verifier_checks": {
+    "status": "PASS",
+    "verified_at": "2026-09-08T09:50:34.456590+07:00",
+    "seconds": 0.10999999998603016,
+    "checks": [
+      "85 frozen checksums and partition invariants",
+      "paired trial count from 4-hour budget",
+      "trial cap 50",
+      "reject infeasible/invalid budget input",
+      "reject infeasible/invalid budget input",
+      "reject infeasible/invalid budget input",
+      "reject infeasible/invalid budget input",
+      "reject tampered expected hash or escaped path",
+      "reject tampered expected hash or escaped path"
+    ],
+    "check_count": 9,
+    "real_files_modified_for_negative_checks": false,
+    "verification": {
+      "status": "PASS",
+      "protocol_id": "essenza-ml-v1-20260908",
+      "verified_files": 85,
+      "test_arrays_deserialized": false,
+      "training_started": false,
+      "final_trial_count": "pending Step 5 smoke-derived freeze"
+    }
+  },
+  "audit_execution": {
+    "completed_at": "2026-09-08T09:31:21.495777+07:00",
+    "status": "PASS",
+    "execution_mode": "fresh project Python process, sequential plain-Python notebook cells; no interactive kernel",
+    "code_cells_executed": 7,
+    "seconds": 5.671999999991385,
+    "peak_audit_process_working_set_bytes": 179728384,
+    "memory_scope": "audit Python process only; excludes launcher and other applications",
+    "system_available_ram_bytes_after": 14330032128,
+    "cpu_temperature_c": null,
+    "cpu_temperature_reason": "No verified live sensor session during this lightweight audit",
+    "training_started": false,
+    "test_arrays_deserialized": false,
+    "failure": null
+  },
+  "freeze_manifest_sha256": "6076d5d41b3db66169505669e0953729af481aac7523dd4396605bc29d5db7c3",
+  "preservation": {
+    "production_tests_yaml_count": 34,
+    "report_source_files": 53,
+    "dataset_snapshot_reference_files": 29,
+    "frontend_git_status": "",
+    "operational_files": []
+  },
+  "training_started": false,
+  "test_arrays_deserialized": false,
+  "latex_modified": false,
+  "frontend_modified": false,
+  "next_step": 4,
+  "step4_authorized": true,
+  "step5_authorized": false,
+  "closure_backup": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\.local-backups\\step3-closure-20260908-113358"
+}

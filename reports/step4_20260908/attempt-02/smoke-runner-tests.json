@@ -1,0 +1,12 @@
+{
+  "timestamp": "2026-09-08T12:45:08.635469+07:00",
+  "exit_code": 1,
+  "wall_seconds": 0.8120000000053551,
+  "peak_test_process_tree_rss_bytes_sampled": 48668672,
+  "minimum_available_ram_bytes": 10417745920,
+  "sampling_seconds": 0.05,
+  "actual_model_fitting": false,
+  "project_dataset_loaded": false,
+  "cpu_temperature_during_tests": null,
+  "fixture_policy": "Only fake estimators and small synthetic arrays; temporary fixture roots verified under .local-tools before automatic cleanup"
+}
