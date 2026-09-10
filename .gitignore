@@ -42,3 +42,6 @@ data/reference/
 .ruff_cache/
 reports/**/pytest-tmp-*/
 reports/**/test-tmp-*/
+
+# Portable campus result archives
+campus-results/

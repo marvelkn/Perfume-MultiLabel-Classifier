@@ -1,0 +1,34 @@
+{
+  "status": "PASS",
+  "molecules": 6686,
+  "training": 5353,
+  "test": 1333,
+  "labels": 109,
+  "groups": 5363,
+  "largest_group": 38,
+  "outer_identical_feature_overlap": {
+    "morgan": 0,
+    "morgan_plus_5": 0
+  },
+  "inner_morgan_overlap": 0,
+  "fold_count": 545,
+  "fold_distribution": {
+    "5": 109
+  },
+  "source_records_byte_identical": {
+    "records.csv": true,
+    "provenance.json": true,
+    "rejected_records.json": true,
+    "label_mappings.csv": true,
+    "unmapped_descriptors.csv": true,
+    "sources.json": true
+  },
+  "added_labels": [
+    "narcissus"
+  ],
+  "removed_labels": [
+    "vetiver"
+  ],
+  "test_arrays_deserialized": false,
+  "training_started": false
+}

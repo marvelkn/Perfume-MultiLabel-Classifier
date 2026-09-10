@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "archive": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\.local-tools\\campus-transfer-full-20260909\\perfume-campus-grouped-v2.zip",
+  "bytes": 8967880,
+  "sha256": "03d665401047dca80e05a13db2827ac9e2fa2f9c0db9c12048a2130db5d9ce1a",
+  "files_verified": 84,
+  "extracted_preflight_exit_code": 0,
+  "stdout": "{\"status\": \"INPUTS_VERIFIED\", \"labels\": 109, \"summary_labels\": 109, \"training_started\": false}\n",
+  "stderr": "",
+  "verification_uses_project_python": true,
+  "fresh_dependency_install_tested": false,
+  "training_started": false,
+  "verification_directory": "C:\\Users\\ACER\\AppData\\Local\\Temp\\perfume-campus-grouped-v2-8jjeh47w"
+}

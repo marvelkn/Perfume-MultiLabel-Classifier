@@ -1,5 +1,5 @@
 {
-  "id": "perfume-five-v1",
+  "id": "perfume-five-grouped-v2",
   "revision": "8054ea98ed675005ec10e67359902f500e4911b0",
   "sources": {
     "goodscents": {
@@ -49,7 +49,8 @@
   "split": {
     "seed": 42,
     "test_size": 0.2,
-    "max_folds": 5
+    "max_folds": 5,
+    "group_policy": "structure-or-morgan-components-v1"
   },
   "tuning": {
     "seconds_per_study": 7200,

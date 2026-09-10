@@ -1,5 +1,19 @@
 # Status implementasi — 8 September 2026
 
+## Revisi split kelompok — 10 September 2026
+
+Versi aktif: **perfume-five-grouped-v2**. Seluruh 6.686 molekul dipertahankan.
+Data latih 5.353, test 1.333, target 109 label, 5.363 kelompok; semua label memiliki 5 fold.
+Tidak ada kelompok/fingerprint identik yang melintasi latih-test atau 545 fold validasi.
+Daftar target mengikuti training baru: narcissus masuk, vetiver tidak memenuhi ambang training.
+Gunakan [WINDOWS_GUIDE.md](WINDOWS_GUIDE.md) dan RUN_PERFUME_FIVE.cmd.
+Paket lengkap: .local-tools/campus-transfer-full-20260909/perfume-campus-grouped-v2.zip.
+Dataset lama perfume-five-v1 dipertahankan sebagai riwayat dan ditolak runner aktif.
+Bukti: reports/grouped_v2_20260910/validation.json. Training penelitian belum dijalankan.
+Catatan versi sebelumnya di bawah adalah riwayat.
+
+
+
 ## Revisi aktif — 10 September 2026
 
 Eksperimen aktif hanya memakai **GoodScents, IFRA 2019, Leffingwell, Arctander 1960, Sigma-Aldrich 2014**.

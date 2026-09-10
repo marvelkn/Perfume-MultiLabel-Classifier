@@ -38,12 +38,14 @@ def test_label_selection_uses_training_only_and_has_no_top25_cap(monkeypatch):
     config=p.load_config(); config["labels"]["min_train_positive"]=2
     taxonomy=[f"label{i}" for i in range(31)]+["test_only"]
     rows=[taxonomy[:31] if i%2==0 else [] for i in range(12)]+[["test_only"]]*4
-    records=pd.DataFrame({"labels":rows})
-    monkeypatch.setattr(p,"split_indices",lambda *a:(np.arange(12),np.arange(12,16)))
+    records=pd.DataFrame({"labels":rows,"smiles":["CC"]*len(rows)})
+    monkeypatch.setattr(p,"outer_split",lambda *a:(np.arange(12),np.arange(12,16)))
+    monkeypatch.setattr(p,"structure_feature_groups",lambda *a:np.arange(16))
     y,labels,split,support,_=p.encode_and_split(records,taxonomy,config)
     assert len(labels)==31 and "test_only" not in labels and y.shape==(16,31)
     for folds in split["folds"].values():
-        assert len(folds)==5
+        assert 2 <= len(folds) <= 5
+        assert all(set(np.unique(y[f[part],0])) == {0,1} for f in folds for part in ("train","validation"))
         assert sorted(i for f in folds for i in f["validation"])==list(range(12))
         assert all(not (set(f["train"])|set(f["validation"])) & set(range(12,16)) for f in folds)
 

@@ -5,7 +5,7 @@
   "parent_freeze_sha256": "6076d5d41b3db66169505669e0953729af481aac7523dd4396605bc29d5db7c3",
   "authorization": "User requests automatic tuning through final models in one campus visit, without smoke/temperature checks or intermediate approvals.",
   "excluded_laptop_host": "LAPTOP-M83M7NV1",
-  "execution_scope": "campus Windows only; no training executed during preparation",
+  "execution_scope": "campus Windows or Linux; no training executed during preparation",
   "before": {
     "smoke_required": true,
     "trial_target": "smoke-derived 20..50",

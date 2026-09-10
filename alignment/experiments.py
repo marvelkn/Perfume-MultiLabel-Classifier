@@ -11,6 +11,7 @@ import time
 
 import joblib
 import numpy as np
+import pandas as pd
 import optuna
 import psutil
 from lightgbm import LGBMClassifier
@@ -18,7 +19,8 @@ from xgboost import XGBClassifier
 import xgboost
 
 from .data import ROOT, digest
-from .perfume_data import OUTPUT
+from .perfume_data import OUTPUT, extract_features
+from .grouped_splits import POLICY, structure_feature_groups, validate_grouped_split
 from .metrics import METRICS, binary_metrics, summarize
 
 ALGORITHMS = ("xgb", "lgbm")
@@ -45,8 +47,10 @@ def environment():
 
 def check_host():
     amendment = read(ROOT / "reports/campus_20260909/full/amendment.json")
-    if os.name != "nt" or platform.node().casefold() == amendment["excluded_laptop_host"].casefold():
-        raise RuntimeError("Campus execution requires a Windows PC other than the original laptop.")
+    if platform.system() not in {"Windows", "Linux"}:
+        raise RuntimeError("Campus execution supports Windows or Linux only.")
+    if platform.node().casefold() == amendment["excluded_laptop_host"].casefold():
+        raise RuntimeError("Campus execution is blocked on the original laptop.")
 
 
 def protocol_path(dataset):
@@ -57,6 +61,8 @@ def protocol_path(dataset):
 def preflight(dataset):
     dataset = Path(dataset)
     manifest = read(dataset / "dataset_manifest.json")
+    if manifest.get("group_policy") != POLICY:
+        raise ValueError("Legacy ungrouped dataset rejected. Use perfume-five-grouped-v2.")
     for name, expected in manifest["files"].items():
         if digest(dataset / name) != expected:
             raise ValueError(f"Dataset changed: {name}")
@@ -71,6 +77,23 @@ def preflight(dataset):
     if not set(manifest["summary_labels"]).issubset(labels):
         raise ValueError("Unknown summary label.")
     split = read(dataset / "splits.json")
+    records = pd.read_csv(dataset / "records.csv")
+    config = read(dataset / "config.json")
+    if config["split"].get("group_policy") != POLICY or protocol.get("group_policy") != POLICY:
+        raise ValueError("Grouped protocol/config mismatch.")
+    if manifest["labels"] != split["eligible_labels"]:
+        raise ValueError("Split and model label registries differ.")
+    if records.smiles.duplicated().any():
+        raise ValueError("Duplicate canonical molecules.")
+    # Recompute from public structures, not test arrays or outcomes; do not trust supplied group IDs.
+    all_morgan, all_desc = extract_features(records, config)
+    groups = structure_feature_groups(records.smiles.tolist(), all_morgan)
+    validate_grouped_split(split, groups)
+    stored_groups = pd.read_csv(dataset / "groups.csv")
+    if (stored_groups.group_id.tolist() != groups.tolist()
+            or stored_groups.smiles.tolist() != records.smiles.tolist()
+            or stored_groups.source_row.tolist() != records.source_row.tolist()):
+        raise ValueError("Stored group registry differs from computed structures/features.")
     with np.load(dataset / "train.npz", allow_pickle=False) as values:
         y, x, d = values["truth"], values["morgan"], values["descriptors"]
         if y.ndim != 2 or y.shape[1] != len(labels) or y.shape[0] != len(split["train"]):
@@ -80,6 +103,8 @@ def preflight(dataset):
             raise ValueError("Feature matrix shape differs from feature metadata.")
         if not np.isfinite(x).all() or not np.isfinite(d).all() or not np.isin(y, [0, 1]).all():
             raise ValueError("Invalid training features/targets.")
+        if not np.array_equal(x, all_morgan[split["train"]]) or not np.array_equal(d, all_desc[split["train"]]):
+            raise ValueError("Training features differ from recomputed structures.")
         if values["row_index"].tolist() != split["train"]:
             raise ValueError("Stored matrix row order differs from the split.")
     if set(split["train"]) & set(split["test"]):
@@ -363,7 +388,7 @@ def run_all(dataset, run):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--dataset", type=Path, default=OUTPUT)
-    parser.add_argument("--run", type=Path, default=ROOT / "runs/perfume-five-v1")
+    parser.add_argument("--run", type=Path, default=ROOT / "runs/perfume-five-grouped-v2")
     parser.add_argument("--check", action="store_true", help="Validate inputs only, without loading test or fitting.")
     args = parser.parse_args()
     if args.check:

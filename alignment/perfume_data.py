@@ -14,15 +14,14 @@ import pandas as pd
 import requests
 from rdkit import Chem, RDLogger, rdBase
 from rdkit.Chem import Descriptors, rdFingerprintGenerator
-from sklearn.model_selection import StratifiedKFold
 
 from src.build_dataset import _attach_smiles, _attach_sigma, _cas_bridge, _truthy
 from src.label_harmonization import normalize
-from src.splits import split_indices
 from .data import ROOT, digest, write_json
+from .grouped_splits import POLICY, structure_feature_groups, outer_split, inner_folds, validate_grouped_split
 
 CONFIG = ROOT / "alignment/perfume_config.json"
-OUTPUT = ROOT / "data/builds/perfume-five-v1"
+OUTPUT = ROOT / "data/builds/perfume-five-grouped-v2"
 REQUIRED_SOURCES = {"goodscents", "ifra", "leffingwell", "arctander", "sigma"}
 IFRA_COLUMNS = ["Descriptor 1", "Descriptor 2", "Descriptor 3"]
 # Only explicit lexical equivalents; no fuzzy guesses or taste-to-odor conversion.
@@ -47,6 +46,8 @@ def load_config(path=CONFIG):
         raise ValueError("Use a full pinned commit SHA.")
     if config["labels"]["max_labels"] is not None:
         raise ValueError("This protocol does not impose a top-N label cap.")
+    if config["split"].get("group_policy") != POLICY:
+        raise ValueError("The active pipeline requires structure/feature grouped splitting.")
     return config
 
 
@@ -212,9 +213,12 @@ def merge_sources(tables, config):
                               "sigma_identity_exclusions":sigma_exclusions}, rejected, provenance, unmap, mapped
 
 
-def encode_and_split(records, taxonomy, config):
+def encode_and_split(records, taxonomy, config, *, morgan=None):
     y = np.asarray([[int(label in row) for label in taxonomy] for row in records.labels], dtype=np.uint8)
-    train, test = split_indices(y, config["split"]["test_size"], config["split"]["seed"])
+    if morgan is None:
+        morgan, _ = extract_features(records, config)
+    groups = structure_feature_groups(records.smiles.tolist(), morgan)
+    train, test = outer_split(groups, config["split"]["test_size"], config["split"]["seed"])
     positive = y[train].sum(axis=0)
     minimum = config["labels"]["min_train_positive"]
     chosen = [j for j in range(len(taxonomy)) if positive[j] >= minimum and len(train)-positive[j] >= 2]
@@ -224,14 +228,20 @@ def encode_and_split(records, taxonomy, config):
     folds, support = {}, []
     for j, label in enumerate(labels):
         pos = int(target[train,j].sum()); neg = len(train)-pos
-        k = min(config["split"]["max_folds"], pos, neg)
-        cv = StratifiedKFold(n_splits=k, shuffle=True, random_state=config["split"]["seed"])
-        folds[label] = [{"train":train[a].tolist(),"validation":train[b].tolist()}
-                        for a,b in cv.split(train,target[train,j])]
-        support.append({"label":label,"train_positive":pos,"train_negative":neg,"folds":k})
-    assert not set(train) & set(test)
+        try:
+            folds[label] = inner_folds(train, target[:,j], groups,
+                                       config["split"]["max_folds"], config["split"]["seed"])
+        except ValueError as exc:
+            raise ValueError(f"Label {label}: {exc}") from exc
+        support.append({"label":label,"train_positive":pos,"train_negative":neg,
+                        "folds":len(folds[label]),
+                        "positive_groups":len(set(groups[train][target[train,j] == 1])),
+                        "negative_groups":len(set(groups[train][target[train,j] == 0]))})
     split = {"train":train.tolist(),"test":test.tolist(),"folds":folds,"eligible_labels":labels,
-             "seed":config["split"]["seed"]}
+             "seed":config["split"]["seed"],"group_policy":POLICY,"groups":groups.tolist(),
+             "outer_method":"GroupShuffleSplit","inner_method":"StratifiedGroupKFold",
+             "test_size_unit":"groups"}
+    validate_grouped_split(split, groups)
     selection = [{"label":label,"train_positive":int(positive[j]),"selected":j in chosen}
                  for j,label in enumerate(taxonomy)]
     return target, labels, split, pd.DataFrame(support), pd.DataFrame(selection)
@@ -261,12 +271,14 @@ def prepare(output=OUTPUT, *, config_path=CONFIG, offline=False):
         raise FileExistsError("Build already exists. Use --output with a new directory; never overwrite a dataset.")
     tables, sources = load_sources(config, offline=offline)
     records, taxonomy, audit, rejected, provenance, unmapped, mappings = merge_sources(tables, config)
-    y, labels, split, support, selection = encode_and_split(records, taxonomy, config)
     x, descriptors = extract_features(records, config)
+    y, labels, split, support, selection = encode_and_split(records, taxonomy, config, morgan=x)
+    audit.update(validate_grouped_split(split, np.asarray(split["groups"])))
     audit.update({"record_count":len(records),"train_rows":len(split["train"]),"test_rows":len(split["test"]),
                   "taxonomy_size":len(taxonomy),"label_count":len(labels),
                   "training_all_zero_target_rows":int((y[split["train"]].sum(axis=1)==0).sum()),
-                  "canonical_overlap":0,"scope":"Selected fragrance-relevant sources, not verified perfume-exclusive records."})
+                  "canonical_overlap":0,"morgan_overlap_train_test":0,"morgan_plus_5_overlap_train_test":0,
+                  "scope":"Selected fragrance-relevant sources, not verified perfume-exclusive records."})
     output.mkdir(parents=True)
     for part in ("train","test"):
         idx=split[part]
@@ -277,6 +289,8 @@ def prepare(output=OUTPUT, *, config_path=CONFIG, offline=False):
     for c in ("labels","sources"):
         serial[c]=serial[c].map(json.dumps)
     serial.to_csv(output/"records.csv",index=False)
+    pd.DataFrame({"source_row":records.source_row,"smiles":records.smiles,
+                  "group_id":split["groups"]}).to_csv(output/"groups.csv",index=False)
     support.to_csv(output/"train_label_support.csv",index=False)
     selection.to_csv(output/"label_selection.csv",index=False)
     unmapped.to_csv(output/"unmapped_descriptors.csv",index=False)
@@ -291,7 +305,8 @@ def prepare(output=OUTPUT, *, config_path=CONFIG, offline=False):
           "taxonomy":taxonomy,"source_names":list(config["sources"]),"source_revision":config["revision"],
           "label_selection":"all labels with >=30 training positives; no top-N cap",
           "metric":"macro Average Precision over all selected labels",
-          "split_policy":"iterative multilabel outer split; stratified per-label inner CV",
+          "split_policy":"GroupShuffleSplit outer; StratifiedGroupKFold per-label inner; structure-or-Morgan components",
+          "group_policy":POLICY,
           "training_started":False,"test_evaluated":False,"not_a_suh_dataset_reproduction":True,
           "files":{p.name:digest(p) for p in output.iterdir() if p.is_file()}}
     write_json(output/"dataset_manifest.json",meta)
@@ -303,7 +318,7 @@ def prepare(output=OUTPUT, *, config_path=CONFIG, offline=False):
               "label_count":len(labels),"conditions":["A","B","C","D"],
               "objective":"macro Average Precision over all selected training-supported labels",
               "source_restriction":list(config["sources"]),"test_access":"after all eight candidates are frozen",
-              "no_direct_paper_score_comparison":True}
+              "no_direct_paper_score_comparison":True,"group_policy":POLICY}
     write_json(output/"experiment_protocol.json",protocol)
     return audit
 
