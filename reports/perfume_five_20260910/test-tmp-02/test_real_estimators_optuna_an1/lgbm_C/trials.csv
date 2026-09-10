@@ -1,2 +1,0 @@
-number,value,datetime_start,datetime_complete,duration,user_attrs_resolved_parameters,state
-0,0.5,2026-09-10 10:16:28.383009,2026-09-10 10:16:28.462868,0 days 00:00:00.079859,"{'n_estimators': 4, 'max_depth': 2}",COMPLETE

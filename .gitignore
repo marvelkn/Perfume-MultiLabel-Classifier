@@ -37,3 +37,8 @@ telemetry/
 
 # Downloaded, hash-verified external research artifacts
 data/reference/
+
+# Rebuildable lint cache and synthetic test output
+.ruff_cache/
+reports/**/pytest-tmp-*/
+reports/**/test-tmp-*/
