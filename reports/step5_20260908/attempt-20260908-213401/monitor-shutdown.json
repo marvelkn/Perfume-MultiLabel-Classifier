@@ -1,0 +1,9 @@
+{
+  "recorded_at": "2026-09-08T21:39:12.4102886+07:00",
+  "monitor_pid": 30952,
+  "expected_start": "2026-09-08T21:34:01",
+  "monitor_stopped": true,
+  "helper_exit_code": 0,
+  "collector_exit_code": 0,
+  "scope": "Only the monitor started by this Step 5 attempt"
+}

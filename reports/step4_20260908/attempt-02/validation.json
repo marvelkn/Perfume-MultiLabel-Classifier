@@ -1,0 +1,61 @@
+{
+  "checked_at": "2026-09-08T16:31:31.904616+07:00",
+  "status": "PASS",
+  "original_protocol": {
+    "status": "PASS",
+    "protocol_id": "essenza-ml-v1-20260908",
+    "verified_files": 85,
+    "test_arrays_deserialized": false,
+    "training_started": false,
+    "final_trial_count": "pending Step 5 smoke-derived freeze"
+  },
+  "existing_source_tests_yaml_unchanged": true,
+  "report_original_files_unchanged": 53,
+  "frontend_git_status": "",
+  "operational_run_files": 0,
+  "prior_step4_evidence_files_unchanged": 14,
+  "stopped_telemetry_rejected": true,
+  "monitor_stopped": true,
+  "runner_tests": {
+    "recorded_at": "2026-09-08T16:28:25.039306+07:00",
+    "status": "PASS",
+    "test_count": 8,
+    "tests": [
+      "test_all_frozen_units_and_estimate",
+      "test_deadline_shared_across_learners",
+      "test_invalid_predictions_cannot_complete_unit",
+      "test_wrong_dataset_rejected_before_fit",
+      "test_hot_preflight_never_loads_backend",
+      "test_failed_learner_keeps_partial_evidence_without_estimate",
+      "test_existing_run_is_never_overwritten",
+      "test_non_smoke_run_is_rejected"
+    ],
+    "unittest_reported_seconds": 0.456,
+    "evidence": "Successful terminal execution after perf_counter correction; command: .venv/Scripts/python.exe reports/step4_20260908/test_smoke_probe.py",
+    "lint": "PASS",
+    "timers": {
+      "monotonic": {
+        "implementation": "GetTickCount64()",
+        "monotonic": true,
+        "adjustable": false,
+        "resolution": 0.015625
+      },
+      "perf_counter": {
+        "implementation": "QueryPerformanceCounter()",
+        "monotonic": true,
+        "adjustable": false,
+        "resolution": 1e-07
+      }
+    },
+    "actual_model_fitting": false,
+    "project_dataset_loaded": false,
+    "temperature_during_tests": null,
+    "peak_ram_successful_run": null,
+    "initial_failure_log": "smoke-runner-tests.log",
+    "initial_failure_result": "smoke-runner-tests.json",
+    "initial_failure_reason": "GetTickCount64 monotonic clock could give a zero-duration synthetic unit; corrected to perf_counter for measurements"
+  },
+  "runner_validate_only": "PASS; original 85 files and 3 runner files checked, no dataset loaded",
+  "full_ml_test_suite_rerun": false,
+  "reason": "Existing pipeline unchanged; new runner covered by eight synthetic control-flow tests"
+}

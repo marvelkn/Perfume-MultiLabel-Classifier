@@ -1,0 +1,23 @@
+{
+  "id": "campus-no-temperature-smoke-v1",
+  "recorded_at": "2026-09-09T11:04:15.778383+07:00",
+  "authorization": "User explicitly requests campus PC ML without temperature checks due to limited time.",
+  "scope": "Windows campus smoke only; original laptop excluded; tuning not unlocked",
+  "excluded_laptop_host": "LAPTOP-M83M7NV1",
+  "temperature_monitoring": false,
+  "thermal_safety_assessed": false,
+  "cooldown_required": false,
+  "resource_limits": {
+    "threads": 1,
+    "process_rss_gib": 3,
+    "free_ram_min_gib": 4,
+    "total_active_seconds": 300,
+    "enforcement": "cooperative checkpoints; native blocks may delay detection"
+  },
+  "method_changes": false,
+  "budget_rule_changes": false,
+  "files": {
+    "reports/campus_20260909/run_campus_smoke.py": "3ff1cfafd4fb2e014f781399eaa0ad554126a0253e5c7acbf33eada781894f85",
+    "reports/campus_20260909/test_campus_smoke.py": "a3248a2c84fb39c93167534196b1f53aeef9df48569a46d0b904f29a472ce54c"
+  }
+}

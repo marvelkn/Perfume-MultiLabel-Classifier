@@ -1,0 +1,327 @@
+{
+  "selected_from_validation": "xgb_D",
+  "test": {
+    "xgb_A": {
+      "metrics": {
+        "accuracy": 0.5,
+        "auroc": 0.5,
+        "auprc": 0.75,
+        "specificity": 0.5,
+        "precision": 0.5,
+        "recall": 0.5
+      },
+      "valid_labels": {
+        "accuracy": [
+          "A",
+          "B"
+        ],
+        "auroc": [
+          "A",
+          "B"
+        ],
+        "auprc": [
+          "A",
+          "B"
+        ],
+        "specificity": [
+          "A",
+          "B"
+        ],
+        "precision": [
+          "A",
+          "B"
+        ],
+        "recall": [
+          "A",
+          "B"
+        ]
+      },
+      "requested_labels": [
+        "A",
+        "B"
+      ]
+    },
+    "xgb_B": {
+      "metrics": {
+        "accuracy": 0.5,
+        "auroc": 0.5,
+        "auprc": 0.75,
+        "specificity": 0.5,
+        "precision": 0.5,
+        "recall": 0.5
+      },
+      "valid_labels": {
+        "accuracy": [
+          "A",
+          "B"
+        ],
+        "auroc": [
+          "A",
+          "B"
+        ],
+        "auprc": [
+          "A",
+          "B"
+        ],
+        "specificity": [
+          "A",
+          "B"
+        ],
+        "precision": [
+          "A",
+          "B"
+        ],
+        "recall": [
+          "A",
+          "B"
+        ]
+      },
+      "requested_labels": [
+        "A",
+        "B"
+      ]
+    },
+    "xgb_C": {
+      "metrics": {
+        "accuracy": 0.5,
+        "auroc": 0.5,
+        "auprc": 0.75,
+        "specificity": 0.5,
+        "precision": 0.5,
+        "recall": 0.5
+      },
+      "valid_labels": {
+        "accuracy": [
+          "A",
+          "B"
+        ],
+        "auroc": [
+          "A",
+          "B"
+        ],
+        "auprc": [
+          "A",
+          "B"
+        ],
+        "specificity": [
+          "A",
+          "B"
+        ],
+        "precision": [
+          "A",
+          "B"
+        ],
+        "recall": [
+          "A",
+          "B"
+        ]
+      },
+      "requested_labels": [
+        "A",
+        "B"
+      ]
+    },
+    "xgb_D": {
+      "metrics": {
+        "accuracy": 0.5,
+        "auroc": 0.5,
+        "auprc": 0.75,
+        "specificity": 0.5,
+        "precision": 0.5,
+        "recall": 0.5
+      },
+      "valid_labels": {
+        "accuracy": [
+          "A",
+          "B"
+        ],
+        "auroc": [
+          "A",
+          "B"
+        ],
+        "auprc": [
+          "A",
+          "B"
+        ],
+        "specificity": [
+          "A",
+          "B"
+        ],
+        "precision": [
+          "A",
+          "B"
+        ],
+        "recall": [
+          "A",
+          "B"
+        ]
+      },
+      "requested_labels": [
+        "A",
+        "B"
+      ]
+    },
+    "lgbm_A": {
+      "metrics": {
+        "accuracy": 0.5,
+        "auroc": 0.5,
+        "auprc": 0.75,
+        "specificity": 0.5,
+        "precision": 0.5,
+        "recall": 0.5
+      },
+      "valid_labels": {
+        "accuracy": [
+          "A",
+          "B"
+        ],
+        "auroc": [
+          "A",
+          "B"
+        ],
+        "auprc": [
+          "A",
+          "B"
+        ],
+        "specificity": [
+          "A",
+          "B"
+        ],
+        "precision": [
+          "A",
+          "B"
+        ],
+        "recall": [
+          "A",
+          "B"
+        ]
+      },
+      "requested_labels": [
+        "A",
+        "B"
+      ]
+    },
+    "lgbm_B": {
+      "metrics": {
+        "accuracy": 0.5,
+        "auroc": 0.5,
+        "auprc": 0.75,
+        "specificity": 0.5,
+        "precision": 0.5,
+        "recall": 0.5
+      },
+      "valid_labels": {
+        "accuracy": [
+          "A",
+          "B"
+        ],
+        "auroc": [
+          "A",
+          "B"
+        ],
+        "auprc": [
+          "A",
+          "B"
+        ],
+        "specificity": [
+          "A",
+          "B"
+        ],
+        "precision": [
+          "A",
+          "B"
+        ],
+        "recall": [
+          "A",
+          "B"
+        ]
+      },
+      "requested_labels": [
+        "A",
+        "B"
+      ]
+    },
+    "lgbm_C": {
+      "metrics": {
+        "accuracy": 0.5,
+        "auroc": 0.5,
+        "auprc": 0.75,
+        "specificity": 0.5,
+        "precision": 0.5,
+        "recall": 0.5
+      },
+      "valid_labels": {
+        "accuracy": [
+          "A",
+          "B"
+        ],
+        "auroc": [
+          "A",
+          "B"
+        ],
+        "auprc": [
+          "A",
+          "B"
+        ],
+        "specificity": [
+          "A",
+          "B"
+        ],
+        "precision": [
+          "A",
+          "B"
+        ],
+        "recall": [
+          "A",
+          "B"
+        ]
+      },
+      "requested_labels": [
+        "A",
+        "B"
+      ]
+    },
+    "lgbm_D": {
+      "metrics": {
+        "accuracy": 0.5,
+        "auroc": 0.5,
+        "auprc": 0.75,
+        "specificity": 0.5,
+        "precision": 0.5,
+        "recall": 0.5
+      },
+      "valid_labels": {
+        "accuracy": [
+          "A",
+          "B"
+        ],
+        "auroc": [
+          "A",
+          "B"
+        ],
+        "auprc": [
+          "A",
+          "B"
+        ],
+        "specificity": [
+          "A",
+          "B"
+        ],
+        "precision": [
+          "A",
+          "B"
+        ],
+        "recall": [
+          "A",
+          "B"
+        ]
+      },
+      "requested_labels": [
+        "A",
+        "B"
+      ]
+    }
+  },
+  "onnx_exported": false,
+  "mobile_integration_validated": false
+}

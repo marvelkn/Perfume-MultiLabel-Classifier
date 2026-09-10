@@ -1,0 +1,21 @@
+{
+  "dataset_manifest": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+  "protocol": "c0d054e01a1383ccef514213350f058dcde0a35c41c647a3362b89c7cd2cce77",
+  "source": {
+    "alignment\\data.py": "16dcb1a13b6bad0fab71607cb9b023ec818967cbbcd2d29f267a5787b3b57365",
+    "alignment\\experiments.py": "2c2d29b0b71f012c1e6f6794ad32da913be091c1bb04cc4a34f12a4a74f91f78",
+    "alignment\\metrics.py": "b476b48133b6b5c9f62f2424f68c72c33cc8ffd2c4a531a64d659878a86f0d67",
+    "alignment\\test_alignment.py": "b526a9c164e0a0d19f35d5694a3b40043a233e6636a3856e960a0838d3072d38",
+    "alignment\\__init__.py": "240ee3902a09da6126a54ef3de09be31726841e212a6bce0a9a28c3b68384065"
+  },
+  "environment": {
+    "numpy": "1.26.4",
+    "pandas": "2.2.3",
+    "scikit-learn": "1.6.1",
+    "rdkit": "2026.3.4",
+    "xgboost": "2.1.4",
+    "lightgbm": "4.6.0",
+    "optuna": "4.5.0",
+    "joblib": "1.6.0"
+  }
+}

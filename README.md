@@ -14,6 +14,17 @@ short_description: Versioned RDKit features for Essenza mobile inference
 
 # Perfume MultiLabel Classifier
 
+## Revisi aktif — 10 September 2026
+
+Eksperimen aktif hanya memakai **GoodScents, IFRA 2019, Leffingwell, Arctander 1960, Sigma-Aldrich 2014**.
+Gunakan [WINDOWS_GUIDE.md](WINDOWS_GUIDE.md), RUN_PERFUME_FIVE.cmd, serta
+[notebook preprocessing](notebooks/02_perfume_five_preprocessing.ipynb).
+Hasil: 6.686 molekul, 109 label, fitur 1.024 atau 1.029; metadata dan split tersimpan pada perfume-five-v1.
+Preprocessing/notebook dan 21 tes komponen lulus. Training penelitian terbaru belum dijalankan.
+Revisi ini menggantikan eksperimen 25 label dan rencana penggunaan seluruh dataset Suh.
+Model/API historis dan arsip tetap disimpan; bagian prosedur lama di bawah bukan panduan run terbaru.
+
+
 Proyek ini mempelajari hubungan antara struktur kimia molekul dan karakter aromanya, seperti floral, citrus, sweet, atau woody. Satu molekul dapat memiliki beberapa karakter aroma sekaligus, sehingga tugas ini menggunakan klasifikasi **multilabel**.
 
 Repository ini berisi pengolahan data, pelatihan model XGBoost dan LightGBM, evaluasi, serta API untuk aplikasi Android **Essenza**. Proyek dikembangkan oleh Marvel Kevin Nathanael sebagai bagian dari penelitian skripsi.
@@ -68,7 +79,7 @@ Koneksi internet diperlukan ketika aplikasi meminta fitur ke API. Setelah fitur 
 | Bagian | Status |
 | --- | --- |
 | Pengolahan data | Dataset versi terbaru sudah dibangun dan diaudit: 6.703 molekul, 25 label. |
-| Pengaman runtime | Step 2: 90 tes ML lulus. Step 4 STOP sebelum smoke: rekaman 610 detik masih 76,625–85,125°C; syarat mulai <75°C. [Bukti](reports/step4_20260908/README.md). |
+| Pengaman runtime | Step 2: 90 tes ML lulus; runner smoke: 8 tes sintetis lulus. Step 4 attempt 03 STOP sebelum fitting, suhu akhir 84,875°C. [Bukti terbaru](reports/step4_20260908/attempt-03/README.md). |
 | Protokol eksperimen | Step 3 GO: [praregistrasi](PREREGISTRATION.md) dan [audit](reports/step3_20260908/README.md) terkunci; cap tuning 4 jam/model, jumlah trial menunggu pengukuran resource. |
 | Pelatihan | Kode baseline, tuning terpisah, dan evaluasi tersedia. Eksperimen dengan protokol terbaru belum dijalankan pada data nyata. |
 | Model aplikasi | Masih menggunakan 25 model XGBoost dari eksperimen sebelumnya. |
@@ -197,7 +208,7 @@ Daftar label dipilih berdasarkan frekuensi pada data development. Jika sumber, s
 
 ## Menjalankan eksperimen
 
-Perintah di bawah adalah panduan untuk tahap yang sudah diizinkan pada [SAFE_EXECUTION_PLAN.md](SAFE_EXECUTION_PLAN.md). Jalankan satu step per persetujuan. Per 8 September 2026, Step 0–3 selesai. Step 4 telah diizinkan tetapi STOP sebelum smoke karena syarat termal belum terpenuhi. Training penelitian belum dimulai; run final baru hanya dibuat pada Step 5 setelah izin terpisah.
+Perintah di bawah adalah panduan untuk tahap yang sudah diizinkan pada [SAFE_EXECUTION_PLAN.md](SAFE_EXECUTION_PLAN.md). Per 8 September 2026, Step 0–3 selesai. Izin terbaru mencakup Step 4 sampai Step 5. Step 4 attempt 03 STOP sebelum smoke karena kondisi termal; [persiapan Step 5](reports/step5_20260908/README.md) terverifikasi, tetapi jumlah trial dan run final menunggu smoke GO. Training penelitian belum dimulai; Step 6 dan seterusnya belum diizinkan.
 
 Pasang dependency lengkap untuk training, pengujian, dan visualisasi:
 

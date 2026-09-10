@@ -1,0 +1,10 @@
+{
+  "updated_at": "2026-09-08T21:23:28.175243+07:00",
+  "latest_attempt": 3,
+  "status": "STOP_BEFORE_REAL_DATA_SMOKE",
+  "completion": "attempt-03/completion.json",
+  "runner": "SMOKE_RUNNER.md",
+  "prior_attempts_preserved": true,
+  "step5_authorized": true,
+  "step5_status": "../step5_20260908/status.json"
+}

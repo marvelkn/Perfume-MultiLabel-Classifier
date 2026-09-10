@@ -1,0 +1,26 @@
+{
+  "recording_kind": "120-second repeat observation; not a replacement 10-minute baseline",
+  "started_at": "2026-09-08T12:36:08.215532+07:00",
+  "ended_at": "2026-09-08T12:38:08.223535+07:00",
+  "recording_seconds": 120.0,
+  "unique_source_samples": 60,
+  "observations": 120,
+  "source_span_seconds": 119.0,
+  "temperature_c": {
+    "initial": 76.37501,
+    "minimum": 76.37501,
+    "maximum": 80.5,
+    "mean": 78.07292516666666,
+    "end": 77.62501
+  },
+  "samples_below_75": 0,
+  "max_source_gap_seconds": 3.0,
+  "max_source_age_seconds": 2.4902725219726562,
+  "peak_collector_rss_bytes": 21958656,
+  "minimum_available_ram_bytes": 10949193728,
+  "system_cpu_mean_percent": 15.107563025210084,
+  "all_history_values_match_archived_source": true,
+  "sensor_observation_valid": true,
+  "thermal_start_condition_met": false,
+  "ambient_temperature_and_fan_speed_measured": false
+}

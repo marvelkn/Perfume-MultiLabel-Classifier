@@ -1,0 +1,26 @@
+{
+  "checked_at": "2026-09-08T21:58:32.940222+07:00",
+  "python": "3.12.14",
+  "packages": {
+    "numpy": "1.26.4",
+    "pandas": "2.2.3",
+    "rdkit": "2026.3.4",
+    "scikit-learn": "1.6.1",
+    "xgboost": "2.1.4",
+    "lightgbm": "4.6.0",
+    "optuna": "4.5.0",
+    "onnxmltools": "1.14.0",
+    "onnxruntime": "1.19.2",
+    "onnx": "1.17.0",
+    "protobuf": "5.29.5",
+    "joblib": "1.6.0",
+    "scipy": "1.15.3",
+    "iterative-stratification": "0.1.9"
+  },
+  "status": "PASS",
+  "verification": "VALIDATED_ONLY: no worker or model started",
+  "model_pipeline_source_changed": false,
+  "original_protocol_files_verified": 85,
+  "old_runner_files_verified": 3,
+  "new_supervisor_files_verified": 3
+}

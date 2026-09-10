@@ -1,0 +1,28 @@
+{
+  "missing_citations": [],
+  "duplicate_bibkeys": [],
+  "missing_references": [],
+  "duplicate_labels": [],
+  "structure_problems": [],
+  "latex_compilers": {
+    "pdflatex": null,
+    "xelatex": null,
+    "lualatex": null,
+    "latexmk": null
+  },
+  "changed_report_files": [
+    "CHANGELOG.md",
+    "pustaka.bib",
+    "assets\\pics\\perfume_five_sources.png",
+    "assets\\pics\\perfume_five_training_labels.png",
+    "src\\1.Awal\\07a-Abstrak.tex",
+    "src\\1.Awal\\07b-Abstract.tex",
+    "src\\2.Isi\\Bab1.tex",
+    "src\\2.Isi\\Bab2.tex",
+    "src\\2.Isi\\Bab3.tex",
+    "src\\2.Isi\\Bab4.tex",
+    "src\\2.Isi\\Bab5.tex"
+  ],
+  "validation_scope": "Static source validation with LaTeX comments excluded; PDF not compiled.",
+  "status": "PASS_STATIC"
+}

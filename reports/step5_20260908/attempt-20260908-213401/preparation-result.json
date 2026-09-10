@@ -1,0 +1,25 @@
+{
+  "step": 5,
+  "started_at": "2026-09-08T21:37:19.454714+07:00",
+  "status": "PREPARED_PENDING_STEP4",
+  "final_run_created": false,
+  "candidate_snapshot_created": true,
+  "test_arrays_loaded": false,
+  "development_arrays_loaded": false,
+  "model_fitting_started": false,
+  "runtime_estimates": null,
+  "final_trial_count": null,
+  "step_completed": false,
+  "step6_authorized": false,
+  "snapshot_files": 47,
+  "protocol_check": {
+    "status": "PASS",
+    "protocol_id": "essenza-ml-v1-20260908",
+    "verified_files": 85,
+    "test_arrays_deserialized": false,
+    "training_started": false,
+    "final_trial_count": "pending Step 5 smoke-derived freeze"
+  },
+  "ended_at": "2026-09-08T21:37:21.257263+07:00",
+  "active_preparation_seconds": 1.8023373000032734
+}

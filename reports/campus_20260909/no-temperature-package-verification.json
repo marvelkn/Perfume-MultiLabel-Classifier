@@ -1,0 +1,38 @@
+{
+  "status": "PASS",
+  "archive_files": 237,
+  "archive_bytes": 1973633,
+  "sha256": "bef645e93ce9524537e5e544eca4f70c9834b8214c0021c033f3ed9955c220fe",
+  "extracted_checks": [
+    {
+      "command": [
+        "reports/campus_20260909/verify_transfer.py"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "protocols/essenza_v1_20260908/verify_protocol.py"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "reports/campus_20260909/run_campus_smoke.py",
+        "--help"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "synthetic_tests": {
+    "status": "PASS",
+    "synthetic_tests": 48,
+    "duration_seconds": 3.7,
+    "warnings": 13,
+    "initial_attempt": "19 passed, 29 fixture errors due to inaccessible Windows pytest temp directory; rerun with fresh repository temp succeeded",
+    "frozen_protocol_files_verified": 85,
+    "real_training_started": false,
+    "campus_execution_tested": false
+  },
+  "training_started": false
+}

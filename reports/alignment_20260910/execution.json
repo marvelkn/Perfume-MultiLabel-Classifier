@@ -1,0 +1,48 @@
+{
+  "status": "PASS",
+  "completed_at": "2026-09-10T09:35:08.865386+07:00",
+  "execution_mode": "fresh project Python process; sequential plain-Python cells and rich-output capture; no interactive kernel",
+  "python_executable": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\.venv\\Scripts\\python.exe",
+  "code_cells_executed": 8,
+  "code_cells_total": 8,
+  "seconds": 13.484000000000037,
+  "peak_process_working_set_bytes": 788078592,
+  "cell_timings": [
+    {
+      "cell": 1,
+      "seconds": 1.7810000000000628
+    },
+    {
+      "cell": 2,
+      "seconds": 0.21899999999993724
+    },
+    {
+      "cell": 3,
+      "seconds": 0.5149999999999864
+    },
+    {
+      "cell": 4,
+      "seconds": 0.016000000000076398
+    },
+    {
+      "cell": 5,
+      "seconds": 9.015999999999963
+    },
+    {
+      "cell": 6,
+      "seconds": 1.342999999999961
+    },
+    {
+      "cell": 7,
+      "seconds": 0.4070000000000391
+    },
+    {
+      "cell": 8,
+      "seconds": 0.18700000000001182
+    }
+  ],
+  "failure": null,
+  "training_started": false,
+  "test_arrays_deserialized": false,
+  "public_reference_labels_inspected_for_protocol_audit": true
+}

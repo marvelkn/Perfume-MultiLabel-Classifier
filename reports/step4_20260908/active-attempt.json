@@ -1,0 +1,11 @@
+{
+  "recorded_at": "2026-09-08T21:59:27.946872+07:00",
+  "attempt": 4,
+  "status": "WORKER_STOPPED_COOLDOWN_RUNNING",
+  "run": "runs\\smoke-supervised-20260908-attempt04",
+  "supervisor_unified_exec_session_id": 98532,
+  "monitor_pid": 19180,
+  "monitor_start": "2026-09-08T21:55:48",
+  "worker_pid_stopped": 9572,
+  "next_action": "Wait for bounded post-stop cooldown, close owned monitor, archive CSV, verify evidence and close attempt; never restart fitting automatically"
+}

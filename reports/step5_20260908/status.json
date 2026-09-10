@@ -1,0 +1,22 @@
+{
+  "step": 5,
+  "status": "PREPARED_PENDING_STEP4",
+  "recorded_at": "2026-09-08T21:42:24.987767+07:00",
+  "step_completed": false,
+  "preparation_status": "SNAPSHOT_VALIDATED_WITH_LIVE_GUARD",
+  "completion": "attempt-20260908-213401/completion.json",
+  "previous_status_archive": "history-20260908-212328/status.json",
+  "blocker": "Measured smoke runtimes and thermal smoke GO absent; final initialization and budget freeze pending",
+  "active_seconds_cap_per_model": 14400,
+  "runtime_estimates": null,
+  "final_trial_count": null,
+  "final_run_created": false,
+  "candidate_snapshot_created": true,
+  "operational_budget_ledger_created": false,
+  "test_arrays_loaded": false,
+  "step6_authorized": false,
+  "evidence_hashes": {
+    "README.md": "42f725c4294db8e2d28444567222280bef826943286910f68f87aa02b4ba8196",
+    "attempt-20260908-213401/completion.json": "c81bd910ba8f1d56dcd6d9616a426d08f7e477c5fd6315c15c892b37a3de172f"
+  }
+}

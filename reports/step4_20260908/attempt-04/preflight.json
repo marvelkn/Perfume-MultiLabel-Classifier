@@ -1,0 +1,14 @@
+{
+  "step": 4,
+  "attempt": 4,
+  "started_at": "2026-09-08T21:55:48.4704977+07:00",
+  "authorization": "User bypass start margin and monitor real time; stop on resource/sensor condition",
+  "amendment": "essenza-smoke-supervised-v2",
+  "monitor_pid": 19180,
+  "monitor_started_at": "2026-09-08T21:55:48.3971048+07:00",
+  "git_head": "cf0e9b3f23a89a182b74c07272975268f117188c",
+  "run": "runs/smoke-supervised-20260908-attempt04",
+  "model_fitting_started": false,
+  "step5_authorized": true,
+  "step6_authorized": false
+}

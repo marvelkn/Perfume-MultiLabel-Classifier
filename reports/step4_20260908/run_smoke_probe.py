@@ -78,7 +78,7 @@ def backend():
     }
 
 
-def measure(protocol, splits, guard, operations, result, events, clock=time.monotonic):
+def measure(protocol, splits, guard, operations, result, events, clock=time.perf_counter):
     np = operations["np"]
     probe = protocol["smoke_measurement"]
     fold = splits["folds"][probe["fold"]]
@@ -213,10 +213,10 @@ def execute(run, telemetry):
     try:
         with exclusive_run(run), guard:
             guard.check(force=True)
-            started = time.monotonic()
+            started = time.perf_counter()
             operations = backend()
             guard.check(force=True)
-            result["backend_import_seconds"] = time.monotonic() - started
+            result["backend_import_seconds"] = time.perf_counter() - started
             with (
                 operations["pool"](limits=1),
                 (run / "units.jsonl").open("x", encoding="utf-8") as events,

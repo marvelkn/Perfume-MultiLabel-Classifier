@@ -1,0 +1,12 @@
+{
+  "step": 5,
+  "started_at": "2026-09-08T21:34:01.5278421+07:00",
+  "authorization": "User: yaudah oke sekarang kita lanjut aja step 5 tapi tetep monitor suhunya, jika ada potensi terjadi apa apa tolong langsung batalkan runnnya",
+  "scope": "Prepare non-operational run snapshot, no model fitting; freeze remains dependent on measured Step 4 runtime",
+  "monitor_pid": 30952,
+  "monitor_started_at": "2026-09-08T21:34:01.4707905+07:00",
+  "git_head": "cf0e9b3f23a89a182b74c07272975268f117188c",
+  "final_run_created": false,
+  "final_trial_count": null,
+  "step6_authorized": false
+}

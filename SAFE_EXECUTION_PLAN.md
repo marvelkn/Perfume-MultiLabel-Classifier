@@ -1,5 +1,20 @@
 # Rencana Eksekusi Aman Proyek Skripsi Essenza
 
+## Revisi aktif — 10 September 2026
+
+Eksperimen aktif hanya memakai **GoodScents, IFRA 2019, Leffingwell, Arctander 1960, Sigma-Aldrich 2014**.
+Gunakan [WINDOWS_GUIDE.md](WINDOWS_GUIDE.md), RUN_PERFUME_FIVE.cmd, serta
+[notebook preprocessing](notebooks/02_perfume_five_preprocessing.ipynb).
+Hasil: 6.686 molekul, 109 label, fitur 1.024 atau 1.029; metadata dan split tersimpan pada perfume-five-v1.
+Preprocessing/notebook dan 21 tes komponen lulus. Training penelitian terbaru belum dijalankan.
+Revisi ini menggantikan eksperimen 25 label dan rencana penggunaan seluruh dataset Suh.
+Model/API historis dan arsip tetap disimpan; bagian prosedur lama di bawah bukan panduan run terbaru.
+
+
+## Amendment PC kampus otomatis — 9 September 2026
+
+Instruksi terbaru pengguna mengizinkan satu pipeline otomatis sampai model final dan hasil, tanpa smoke, sensor suhu, cooldown wajib, atau konfirmasi per tahap pada PC kampus. Ikuti [Windows Guide terbaru](reports/campus_20260909/WINDOWS_GUIDE.md) dan [amendment penuh](reports/campus_20260909/full/amendment.json). Target 30 attempted trials/model atau 4 jam tuning aktif/model; trial gagal/pruned ikut budget. Tahap independen tetap dikerjakan dan hasil yang gagal/terpotong dilaporkan. Metode awal dan buktinya dipertahankan untuk audit. Ini kesiapan tooling kampus, bukan klaim eksperimen telah selesai. Laptop asal tetap dikecualikan dari runner baru.
+
 Dokumen ini adalah panduan lintas sesi untuk menyelesaikan eksperimen ML, integrasi Essenza, pengujian Android, dan laporan skripsi secara bertahap. Setiap step hanya boleh dijalankan setelah pemilik proyek memberikan persetujuan eksplisit, misalnya: **`Jalankan Step 0 saja`**.
 
 Jangan melanjutkan otomatis ke step berikutnya walaupun step sebelumnya berhasil. Setelah setiap step, laporkan hasil, temperatur, durasi, penggunaan RAM, artefak yang dibuat, dan status **GO/STOP**.
@@ -13,7 +28,7 @@ Jangan melanjutkan otomatis ke step berikutnya walaupun step sebelumnya berhasil
 | Perangkat training | Acer Aspire A515-45, AMD Ryzen 5 5500U |
 | Sistem operasi | Windows |
 | Tanggal penyusunan plan | 6 September 2026 |
-| Status eksekusi | Step 0–3 GO; Step 4 STOP sebelum smoke karena suhu belum <75°C |
+| Status eksekusi | Step 0–3 GO; Step 4 STOP termal; Step 5 snapshot calon run siap, budget/run final belum dikunci |
 | Prinsip utama | Satu step per persetujuan, fail-closed, dan tidak menjalankan workload berat secara bersamaan |
 
 ## Batas Sesi Backend dan Laporan — 7 September 2026
@@ -29,6 +44,8 @@ Instruksi pemilik proyek pada sesi ini menetapkan:
 - Pengguna mengizinkan **Step 3** pada 8 September 2026 dan memilih budget **4 jam komputasi aktif per model** untuk tuning; cooldown, baseline, final fitting, dan sensitivitas terpisah. Izin ini hanya berlaku untuk Step 3 pada saat diberikan.
 - [PREREGISTRATION.md](PREREGISTRATION.md) kini mengunci aturan tuning; jumlah trial final dihitung pada Step 5 dari pengukuran Step 4. Angka 30 trial bukan target otomatis.
 - Pengguna mengizinkan penutupan Step 3 dan pelaksanaan Step 4 melalui **oke lanjut** pada 8 September 2026 setelah usulan kedua pekerjaan tersebut. Step 5 dan tahap sesudahnya belum diizinkan.
+
+Persetujuan terbaru pada 8 September 2026: pengguna meminta **oke lanjut terus sampai step 5 juga**. Step 4 dan Step 5 kini diizinkan dalam rangkaian ini; Step 5 hanya dilaksanakan setelah gate Step 4 GO. Step 6 dan seterusnya belum diizinkan. Bukti: reports/step4_20260908/attempt-03/preflight.json dan reports/step5_20260908/preflight.json.
 
 ## Kebijakan Lokasi Edit Asli — Wajib
 
@@ -531,8 +548,8 @@ Jika smoke test atau satu trial tidak dapat berjalan dalam batas konservatif:
 | 1 | GO | reports/step1_20260907/baseline-validation.json; SENSOR_SETUP.md | Sensor/baseline 610 detik valid; suhu 80,125–85,875°C, training STOP |
 | 2 | GO | reports/step2_20260907/completion.json; RUNTIME_SAFETY.md | 90 tes lulus; profil, log, lock, dan resume; tanpa real-data training |
 | 3 | GO | reports/step3_20260908/completion.json; PREREGISTRATION.md | 85 checksum, audit notebook dan protokol terkunci; 4 jam/model |
-| 4 | STOP | reports/step4_20260908/completion.json | Baseline 610 detik: 76,625–85,125°C; 0 fitting, syarat mulai <75°C belum terpenuhi |
-| 5 | BELUM DIMULAI | — | Run final |
+| 4 | STOP | reports/step4_20260908/attempt-03/completion.json | Baseline 610 detik: 71,750–85,625°C, akhir 84,875°C; 0 fitting nyata |
+| 5 | PERSIAPAN SELESAI, MENUNGGU SMOKE | reports/step5_20260908/attempt-20260908-213401/completion.json | 47 snapshot nonoperasional; guard live lulus. Jumlah trial/run final belum dibuat |
 | 6 | BELUM DIMULAI | — | Baseline XGBoost |
 | 7 | BELUM DIMULAI | — | Baseline LightGBM |
 | 8 | BELUM DIMULAI | — | Tuning XGBoost |
@@ -649,6 +666,44 @@ Step berikutnya yang boleh diusulkan:
 - Validasi: skrip analisis dan Ruff lulus; 85 checksum frozen, source/tes/YAML, 53 berkas laporan, dan frontend tetap utuh. Tidak ada commit/push; isi LaTeX tidak berubah.
 - Artefak: reports/step4_20260908/README.md, thermal-validation.json, rekaman JSONL, CSV sumber, log guard, diagnosis beban, validation.json, completion.json; status pada README/IMPLEMENTATION_STATUS/plan diperbarui.
 - Berikutnya: ulangi Step 4 setelah pemeriksaan termal memenuhi batas; jangan menaikkan batas atau lanjut Step 5 tanpa smoke yang valid dan izin terpisah.
+
+### 8 September 2026 — Step 4 (attempt 02, STOP termal; runner siap)
+
+- Persetujuan: pengguna memberi **oke lanjut**, lalu **continue**; scope ulang Step 4 dan persiapan runner. Step 5 tidak diizinkan.
+- Pengamatan: 12:36:08–12:38:08 WIB, **120 detik**; ini pemeriksaan ulang singkat, bukan baseline baru 10 menit. Suhu min/max/akhir **76.375/80.500/77.625°C**; seluruh 60 sampel unik masih >=75°C.
+- RAM pengamatan: peak collector **20.94 MiB**, RAM bebas minimum **10.20 GiB**. Suhu/peak RAM tes sukses tidak disampling.
+- Guard menolak mulai pada 77,125°C sebelum data dimuat. Power plan Acer terverifikasi bertipe Balanced. Sampel beban latar rsEngineSvc.exe sekitar 8,89% total CPU; penyebab panas tidak disimpulkan.
+- Implementasi ringan: run_smoke_probe.py, test_smoke_probe.py, SMOKE_RUNNER.md dan checksum tambahan di reports/step4_20260908. Satu guard 300 detik untuk kedua learner; semua unit/parameter mengikuti protokol. Tidak ada perubahan pipeline model lama.
+- Tes: awal 7 lulus/1 gagal akibat resolusi timer monotonik Windows; diperbaiki memakai perf_counter untuk durasi unit. **8 tes sintetis lulus dalam 0,456 detik**; Ruff dan validate-only lulus. Tes memakai estimator palsu, tidak fitting model.
+- Validasi: 85 berkas praregistrasi dan 3 file tambahan runner cocok; 14 bukti attempt awal, source/tes/YAML lama, 53 berkas laporan dan frontend tetap utuh.
+- Hasil: **STOP Step 4 sebelum real-data smoke**; persiapan runner selesai. Probe aktif tetap 0 detik, estimasi runtime/jumlah trial belum tersedia.
+- Cleanup: collector exit 0, telemetry STOP ditolak guard, monitor milik attempt ini sudah ditutup. Tidak ada perubahan keamanan/daya/BIOS, isi LaTeX, frontend, commit, atau push.
+- Artefak: reports/step4_20260908/attempt-02/, latest.json, serta runner/dokumentasi/checksum pada folder induk. Penutupan 2026-09-08T16:31:31.904616+07:00.
+- Berikutnya: selesaikan kondisi termal atau pilih resource lain, lalu ulangi Step 4. Jangan lanjut otomatis ke Step 5 atau menaikkan batas suhu.
+
+### 8 September 2026 — Step 4 attempt 03 dan persiapan Step 5
+
+- Persetujuan terbaru: **oke lanjut terus sampai step 5 juga**. Step 4 dan Step 5 diizinkan bersama; Step 6 dan seterusnya belum diizinkan. Status izin lama dalam log/artefak frozen tetap merupakan riwayat pada saat dibuat.
+- Baseline baru: 2026-09-08T21:08:53.410799+07:00 sampai 2026-09-08T21:19:03.407614+07:00, **610 detik**. Suhu awal/minimum/maksimum/rata-rata/akhir **73,375/71,750/85,625/78,940/84,875°C**. Lima menit terakhir 79,625–85,625°C; rentang berturut-turut di bawah 75°C terpanjang 204 detik.
+- Sensor valid: 304 sampel sumber unik, 608 observasi, umur maksimum 2,674 detik, gap maksimum 3 detik; seluruh observasi cocok arsip CSV. Peak RSS collector **21.09 MiB**, RAM sistem bebas minimum **12.52 GiB**; peak monitor tidak disampling.
+- Guard menolak mulai pada **85,125°C** sebelum dataset dimuat. Probe aktif tetap **0 detik**, 0 label-fit, estimasi runtime null. Hasil **STOP Step 4**; kondisi termal belum memenuhi batas mulai <75°C.
+- Beban latar CPU sistem rata-rata 20,93%, 60 observasi akhir 38,24%; sampel 10 detik rsEngineSvc.exe 9,04% total CPU. Power plan Balanced dan charger terhubung. Tidak disimpulkan penyebab tunggal panas; suhu ruang/kipas tidak diukur.
+- Persiapan Step 5: checksum dataset/source/partisi/profil cocok, Python dan 14 dependency cocok. Aturan budget 4 jam/model tetap. **Step 5 diizinkan tetapi tertahan**; jumlah trial, run final dan ledger belum dibuat tanpa runtime smoke valid. Enforcement akumulasi waktu/trial lintas sesi masih harus disediakan sebelum tuning Step 8/9.
+- Cleanup/validasi: collector exit 0; telemetry STOP ditolak guard; monitor PID 29908 milik attempt ini ditutup. 85 berkas protokol, 3 runner, 29 bukti attempt terdahulu dan 53 berkas laporan utuh; frontend bersih. Tidak ada pemuatan matriks dataset/test, perubahan source model, isi LaTeX, frontend, pengaturan sistem, commit, atau push oleh sesi ini.
+- Artefak: reports/step4_20260908/attempt-03/, latest.json, reports/step5_20260908/. Penutupan 2026-09-08T21:23:28.175243+07:00.
+- Berikutnya: setelah kondisi termal berubah, ukur ulang dan selesaikan Step 4 serta Step 5 dengan izin yang sudah diberikan. Jangan menaikkan batas atau mengarang runtime/jumlah trial untuk melewati gate.
+
+### 8 September 2026 — Step 5 (snapshot calon run terpantau)
+
+- Persetujuan: **yaudah oke sekarang kita lanjut aja step 5 tapi tetep monitor suhunya, jika ada potensi terjadi apa apa tolong langsung batalkan runnnya**. Pelaksanaan terbatas pada persiapan metadata; Step 6 dan seterusnya belum diizinkan.
+- Tindakan: jalankan monitor/collector, lalu siapkan snapshot calon run nonoperasional dengan ResourceGuard. Batas suhu tetap safe-training; durasi guard dipersempit satu menit, satu thread. Tidak ada fitting atau pembukaan matriks development/test.
+- Hasil persiapan: 47 snapshot cocok SHA-256; 85 berkas protokol dan Python/dependency/source cocok. candidate_run.json menyimpan partisi frozen dan profil final, training_allowed=false; budget_pending.json menyimpan jumlah trial/runtime null. Tidak ada run.json atau run operasional baru. Partisi belum diregenerasi oleh initializer final.
+- Durasi aktif 21:37:19–21:37:21 WIB, **1,802 detik**. Suhu sampel guard awal/maksimum/akhir **75,375°C**; peak RSS **28,02 MiB**, RAM sistem bebas minimum **9,54 GiB**. Banyak check memakai sampel sumber yang sama; bukan jaminan pembacaan kontinu.
+- Rekaman sensor terpisah: 21:34:21–21:37:21 WIB, **180 detik**, 90 sampel sumber/179 observasi, suhu 74,625–83,125°C, akhir 75,375°C. Peak collector 20,89 MiB, minimum RAM bebas seluruh rekaman 8,32 GiB. Bukan pengganti baseline 10 menit atau bukti smoke GO.
+- Tidak ada stop terpicu selama persiapan. Collector exit 0 dan telemetry STOP ditolak guard. Monitor milik sesi PID 30952 ditutup; CSV diarsipkan dan cocok dengan seluruh observasi.
+- Status **persiapan snapshot selesai**, tetapi **Step 5 belum GO** karena belum ada runtime smoke lengkap, jumlah trial, regenerasi partisi, budget freeze, atau run final. Step 4 tetap STOP. Tidak ada perubahan model utama, frontend, isi LaTeX, pengaturan daya/keamanan, commit, atau push.
+- Artefak: reports/step5_20260908/attempt-20260908-213401/; status sebelumnya diarsipkan dalam history-20260908-212328/. Penutupan 2026-09-08T21:42:24.987767+07:00.
+- Berikutnya: lengkapi smoke yang valid dan cooldown; jika dipisah per algoritme, amandemen runner lebih dahulu dengan cap 300 detik aktif gabungan tetap. Setelah itu selesaikan freeze dan inisialisasi Step 5 sesuai izin yang sudah ada.
 
 ## Prompt Singkat untuk Chat Berikutnya
 

@@ -1,0 +1,15 @@
+test_assignment_failure_never_releases_worker (__main__.SupervisorTests.test_assignment_failure_never_releases_worker) ... ok
+test_both_stages_and_cooldowns_required_for_success (__main__.SupervisorTests.test_both_stages_and_cooldowns_required_for_success) ... ok
+test_cooldown_does_not_reset_combined_budget (__main__.SupervisorTests.test_cooldown_does_not_reset_combined_budget) ... ok
+test_direct_worker_rejects_unbounded_budget (__main__.SupervisorTests.test_direct_worker_rejects_unbounded_budget) ... ok
+test_hot_preflight_starts_no_process (__main__.SupervisorTests.test_hot_preflight_starts_no_process) ... ok
+test_sensor_failure_kills_sleeping_worker (__main__.SupervisorTests.test_sensor_failure_kills_sleeping_worker) ... ok
+test_stale_sensor_starts_no_process (__main__.SupervisorTests.test_stale_sensor_starts_no_process) ... ok
+test_successful_child_finishes_cleanly (__main__.SupervisorTests.test_successful_child_finishes_cleanly) ... ok
+test_temperature_rise_kills_sleeping_worker (__main__.SupervisorTests.test_temperature_rise_kills_sleeping_worker) ... ok
+test_timeout_kills_sleeping_worker (__main__.SupervisorTests.test_timeout_kills_sleeping_worker) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 1.311s
+
+OK

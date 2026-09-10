@@ -1,0 +1,10 @@
+{
+  "A": {
+    "file": "label_000.joblib",
+    "sha256": "82bb5853f0c8deb4cd7aceceb7d1078bf16362c13fae33bfd8be4221ff38f2fb"
+  },
+  "B": {
+    "file": "label_001.joblib",
+    "sha256": "82bb5853f0c8deb4cd7aceceb7d1078bf16362c13fae33bfd8be4221ff38f2fb"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "status": "PASS",
+  "archive_sha256": "2bd278b194e190129f7645ff604e526dd50563cd24b216a6c9fb9e4f67a4452e",
+  "archive_bytes": 1996398,
+  "archive_files": 232,
+  "checks": [
+    {
+      "command": [
+        "reports/campus_20260909/verify_transfer.py"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"status\": \"PASS\",\n  \"files\": 231,\n  \"python\": \"3.12.14\",\n  \"executable\": \"C:\\\\Users\\\\ACER\\\\Documents\\\\Marvel\\\\Skripsi\\\\Project Skripsi\\\\Perfume-MultiLabel-Classifier\\\\.venv\\\\Scripts\\\\python.exe\",\n  \"platform\": \"Windows-11-10.0.26200-SP0\",\n  \"training_started\": false,\n  \"test_arrays_loaded\": false\n}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "protocols/essenza_v1_20260908/verify_protocol.py"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"status\": \"PASS\",\n  \"protocol_id\": \"essenza-ml-v1-20260908\",\n  \"verified_files\": 85,\n  \"test_arrays_deserialized\": false,\n  \"training_started\": false,\n  \"final_trial_count\": \"pending Step 5 smoke-derived freeze\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "reports/step4_20260908/run_smoke_probe.py",
+        "validate"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"status\": \"VALIDATED_ONLY\", \"protocol_id\": \"essenza-ml-v1-20260908\", \"model_fit_started\": false, \"dataset_loaded\": false}\n",
+      "stderr": ""
+    }
+  ],
+  "note": "Extracted overlay verified using existing laptop interpreter; campus installation not executed or guaranteed. No training or test array loading."
+}

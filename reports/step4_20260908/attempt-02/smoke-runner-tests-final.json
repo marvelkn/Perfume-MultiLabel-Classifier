@@ -1,0 +1,39 @@
+{
+  "recorded_at": "2026-09-08T16:28:25.039306+07:00",
+  "status": "PASS",
+  "test_count": 8,
+  "tests": [
+    "test_all_frozen_units_and_estimate",
+    "test_deadline_shared_across_learners",
+    "test_invalid_predictions_cannot_complete_unit",
+    "test_wrong_dataset_rejected_before_fit",
+    "test_hot_preflight_never_loads_backend",
+    "test_failed_learner_keeps_partial_evidence_without_estimate",
+    "test_existing_run_is_never_overwritten",
+    "test_non_smoke_run_is_rejected"
+  ],
+  "unittest_reported_seconds": 0.456,
+  "evidence": "Successful terminal execution after perf_counter correction; command: .venv/Scripts/python.exe reports/step4_20260908/test_smoke_probe.py",
+  "lint": "PASS",
+  "timers": {
+    "monotonic": {
+      "implementation": "GetTickCount64()",
+      "monotonic": true,
+      "adjustable": false,
+      "resolution": 0.015625
+    },
+    "perf_counter": {
+      "implementation": "QueryPerformanceCounter()",
+      "monotonic": true,
+      "adjustable": false,
+      "resolution": 1e-07
+    }
+  },
+  "actual_model_fitting": false,
+  "project_dataset_loaded": false,
+  "temperature_during_tests": null,
+  "peak_ram_successful_run": null,
+  "initial_failure_log": "smoke-runner-tests.log",
+  "initial_failure_result": "smoke-runner-tests.json",
+  "initial_failure_reason": "GetTickCount64 monotonic clock could give a zero-duration synthetic unit; corrected to perf_counter for measurements"
+}

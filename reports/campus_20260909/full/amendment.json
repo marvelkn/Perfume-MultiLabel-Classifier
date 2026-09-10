@@ -1,0 +1,65 @@
+{
+  "id": "campus-full-no-temperature-v1",
+  "recorded_at": "2026-09-09T11:30:22.795189+07:00",
+  "parent_protocol": "essenza-ml-v1-20260908",
+  "parent_freeze_sha256": "6076d5d41b3db66169505669e0953729af481aac7523dd4396605bc29d5db7c3",
+  "authorization": "User requests automatic tuning through final models in one campus visit, without smoke/temperature checks or intermediate approvals.",
+  "excluded_laptop_host": "LAPTOP-M83M7NV1",
+  "execution_scope": "campus Windows only; no training executed during preparation",
+  "before": {
+    "smoke_required": true,
+    "trial_target": "smoke-derived 20..50",
+    "temperature_required": true,
+    "per_step_approval": true
+  },
+  "after": {
+    "smoke_required": false,
+    "temperature_required": false,
+    "cooldown_required": false,
+    "automatic_stages": [
+      "init",
+      "baseline both",
+      "tune both",
+      "fit both",
+      "sensitivity both",
+      "freeze selection",
+      "test both",
+      "ONNX parity",
+      "desktop benchmark",
+      "result ZIP"
+    ],
+    "attempted_trials_per_learner": 30,
+    "active_tuning_seconds_per_learner": 14400,
+    "threads": 2,
+    "session_seconds": 1200,
+    "session_retries_with_progress_max": 6,
+    "consecutive_resource_stops_end_tuning": 2,
+    "automatic_fit_best_complete_after_budget_stop": true
+  },
+  "scientific_limitations": [
+    "30 is an engineering target fixed before campus scores, not a smoke estimate or proof of optimality",
+    "Different achieved trial counts must be disclosed as resource truncation",
+    "Missing or failed sensitivity variants reported before test; no score-based retry",
+    "Conditional robustness, not nested CV; no p-value claim",
+    "No thermal safety assessment",
+    "Time cap can have polling/cleanup overshoot, recorded rather than hidden"
+  ],
+  "unchanged": [
+    "audited dataset",
+    "frozen partitions and labels",
+    "metric",
+    "hyperparameter spaces",
+    "seeds",
+    "threshold holdout",
+    "CV-based candidate choice",
+    "test not used for tuning"
+  ],
+  "files": {
+    "reports/campus_20260909/full/campus_support.py": "0da8cf47912137683b11c78fc377d7d296ec38f4f77584f9317f61ce714d3c88",
+    "reports/campus_20260909/full/campus_worker.py": "185eb7a73d9a95d5691420bcfcb41b4cbce7296940e2e82b163ed705dfe070a0",
+    "reports/campus_20260909/full/run_all.py": "2fea085282d72e42ceefc0cbb610763ae7fbb0db0c57df7e69ffa62b4108a4e7",
+    "reports/campus_20260909/full/test_full.py": "764182193ba02356e09be3bcc047b5fec07794112aebf875034782cd84e7b349",
+    "RUN_CAMPUS_ALL.cmd": "81654719580c5165f1891275c4a2c1d043655181a773fd3270f220c46f994817",
+    "reports/campus_20260909/WINDOWS_GUIDE.md": "05ac48f0ba815cad26cf6b07ef3dd6cf505097b20bf6ef8f90e5ee503c94030f"
+  }
+}

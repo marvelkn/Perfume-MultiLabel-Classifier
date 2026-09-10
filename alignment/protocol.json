@@ -1,0 +1,105 @@
+{
+  "id": "suh-aligned-v1",
+  "created_at": "2026-09-10T02:30:54.887938+00:00",
+  "status": "prepared_not_trained",
+  "dataset_manifest_sha256": "acafc284bc4fb2f29b24b0d2275a542452df8d0699f9fb99ceffa8eed60fa161",
+  "reference": "https://osf.io/vfru6/",
+  "reference_license": "CC BY 4.0",
+  "environment": {
+    "numpy": "1.26.4",
+    "pandas": "2.2.3",
+    "scikit-learn": "1.6.1",
+    "rdkit": "2026.3.4",
+    "xgboost": "2.1.4",
+    "lightgbm": "4.6.0",
+    "optuna": "4.5.0",
+    "joblib": "1.6.0"
+  },
+  "conditions": {
+    "A": "Morgan 1024 + reference parameters",
+    "B": "Morgan 1024 + five descriptors + reference parameters",
+    "C": "Morgan 1024 + Optuna",
+    "D": "Morgan 1024 + five descriptors + Optuna"
+  },
+  "features": {
+    "radius": 2,
+    "bits": 1024,
+    "chirality": false,
+    "descriptor_order": [
+      "MolWt",
+      "MolLogP",
+      "NumHDonors",
+      "NumHAcceptors",
+      "TPSA"
+    ]
+  },
+  "baseline": {
+    "xgb": {
+      "n_estimators": 100,
+      "random_state": 42,
+      "eval_metric": "logloss"
+    },
+    "lgbm": {
+      "n_estimators": 100,
+      "random_state": 42,
+      "class_weight": "balanced"
+    }
+  },
+  "validation": {
+    "outer_test_size": 0.2,
+    "seed": 42,
+    "method": "per-label StratifiedKFold",
+    "n_splits": "min(5, training positives, training negatives)",
+    "skip_training": "positive < 2 or negative < 2",
+    "primary_labels": "fixed 100 labels with >=30 author IFRA slot occurrences"
+  },
+  "tuning": {
+    "seconds_per_algorithm": 14400,
+    "seconds_per_study": 7200,
+    "attempts_per_algorithm": 30,
+    "attempts_per_study": 15,
+    "sampler": "TPE seed 42; state persisted",
+    "objective": "mean per-label mean-fold Average Precision on fixed 100-label reference subset",
+    "early_stopping": false,
+    "pruning": false,
+    "n_estimators": "100..800 step100",
+    "interrupted_budget": "charge full reservation if elapsed time was not persisted"
+  },
+  "evaluation": {
+    "metrics": [
+      "accuracy",
+      "auroc",
+      "auprc",
+      "specificity",
+      "precision",
+      "recall"
+    ],
+    "auprc": "sklearn average_precision_score",
+    "decision": "classifier.predict, positive iff probability > 0.5 for current binary implementations",
+    "aggregate": "arithmetic mean per label; fixed summary cohort; undefined values null with coverage",
+    "single_class_auc": null,
+    "single_class_specificity": null,
+    "zero_division_precision_recall": 0
+  },
+  "adaptations": [
+    "Correct author row-index reset before building features/targets.",
+    "Use recorded installed dependency versions; author notebook Python3.13.5, package versions unspecified.",
+    "Hold test until all eight candidates have frozen configuration/model hashes.",
+    "Tuning varies n_estimators, no early-stopping holdout or threshold fitting; preserves reference validation data use.",
+    "Keep disconnected reference records only in benchmark; public API remains connected-single-molecule.",
+    "One isotope MolBlock/SMILES fingerprint mismatch retained and documented to preserve reference inputs."
+  ],
+  "optional_experiments": {
+    "weighted_loss_extra": false,
+    "focal_loss": false,
+    "scaffold": false,
+    "repeated_cv": false
+  },
+  "not_claimed": [
+    "exact numerical reproduction of article",
+    "performance improvement",
+    "global optimum",
+    "mixture prediction",
+    "mobile readiness"
+  ]
+}

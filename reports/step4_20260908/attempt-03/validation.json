@@ -1,0 +1,58 @@
+{
+  "checked_at": "2026-09-08T21:20:57.977197+07:00",
+  "status": "PASS",
+  "original_protocol": {
+    "status": "PASS",
+    "protocol_id": "essenza-ml-v1-20260908",
+    "verified_files": 85,
+    "test_arrays_deserialized": false,
+    "training_started": false,
+    "final_trial_count": "pending Step 5 smoke-derived freeze"
+  },
+  "smoke_runner": {
+    "status": "VALIDATED_ONLY",
+    "protocol_id": "essenza-ml-v1-20260908",
+    "model_fit_started": false,
+    "dataset_loaded": false
+  },
+  "environment": {
+    "timestamp": "2026-09-08T21:11:47.254521+07:00",
+    "python": "3.12.14",
+    "packages": {
+      "numpy": "1.26.4",
+      "pandas": "2.2.3",
+      "rdkit": "2026.3.4",
+      "scikit-learn": "1.6.1",
+      "xgboost": "2.1.4",
+      "lightgbm": "4.6.0",
+      "optuna": "4.5.0",
+      "onnxmltools": "1.14.0",
+      "onnxruntime": "1.19.2",
+      "onnx": "1.17.0",
+      "protobuf": "5.29.5",
+      "joblib": "1.6.0",
+      "scipy": "1.15.3",
+      "iterative-stratification": "0.1.9"
+    },
+    "mismatches": {},
+    "status": "PASS"
+  },
+  "prior_attempt_evidence_files_unchanged": {
+    "reports\\step4_20260908\\completion.json": 14,
+    "reports\\step4_20260908\\attempt-02\\completion.json": 15
+  },
+  "report_original_files_unchanged": 53,
+  "frontend_git_status": "",
+  "operational_runs": [],
+  "source_csv_matches_archive": true,
+  "history_matches_archived_csv": true,
+  "stopped_telemetry_rejected": true,
+  "monitor_stopped": true,
+  "collector_exit_code": 0,
+  "training_resource_config_valid": true,
+  "git_head": "cf0e9b3f23a89a182b74c07272975268f117188c",
+  "tests_rerun": false,
+  "test_rerun_reason": "No code changes this attempt; prior 8 synthetic smoke runner tests and 90 ML tests remain evidence, not real-workload validation",
+  "test_arrays_loaded": false,
+  "model_fitting_started": false
+}

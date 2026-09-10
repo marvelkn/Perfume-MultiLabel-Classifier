@@ -1,0 +1,13 @@
+{
+  "step": 4,
+  "attempt": 3,
+  "started_at": "2026-09-08T21:07:00.4198623+07:00",
+  "authorization": "User: oke lanjut terus sampai step 5 juga; Steps 4 and 5 authorized, Step 6 onward not authorized",
+  "git_head": "cf0e9b3f23a89a182b74c07272975268f117188c",
+  "monitor_pid": 29908,
+  "monitor_started_at": "2026-09-08T21:07:00.3707618+07:00",
+  "step5_authorized": true,
+  "step6_authorized": false,
+  "probe_started": false,
+  "probe_active_seconds_cap": 300
+}

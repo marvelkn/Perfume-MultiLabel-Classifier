@@ -1,0 +1,43 @@
+{
+  "step": 4,
+  "attempt": 4,
+  "status": "STOP_DURING_FIRST_XGB_UNIT",
+  "recorded_at": "2026-09-08T21:59:27.946872+07:00",
+  "active_seconds": 4.869285499997204,
+  "active_seconds_scope": "Supervisor preflight, worker launch/imports/load/resample and interrupted first label-fit; not a completed fit duration",
+  "cpu_c_start": 78.12501,
+  "cpu_c_stop": 82.5,
+  "last_cpu_c_before_stop": 79.5,
+  "peak_parent_plus_worker_rss_bytes": 344768512,
+  "minimum_system_available_ram_bytes": 9847926784,
+  "sensor_age_at_stop_seconds": 1.0847938060760498,
+  "stop_observed_timestamp": 1788879391.0858383,
+  "child_exited_timestamp": 1788879391.0863774,
+  "recorded_detection_to_wait_return_seconds": 0.0005390644073486328,
+  "termination_latency_scope": "Timestamp difference after detecting the already-acquired sample to parent wait/poll confirmation; not latency from physical threshold crossing and not a real-time guarantee",
+  "child_pid": 9572,
+  "child_exit_code": 0,
+  "child_exit_code_interpretation": "Windows job termination reported exit 0; supervisor STOP, missing worker-result and incomplete unit log govern outcome, never exit code alone",
+  "supervisor_stop_events": 1,
+  "worker_clean_end_record_present": false,
+  "real_label_fit_units_started": 1,
+  "real_label_fit_units_completed": 0,
+  "started_units": [
+    {
+      "event": "unit_started",
+      "algorithm": "xgb",
+      "strategy": "none",
+      "label": "musty"
+    }
+  ],
+  "boosting_rounds_completed": null,
+  "development_arrays_loaded": true,
+  "test_arrays_loaded": false,
+  "lgbm_started": false,
+  "trial_runtime_estimates": null,
+  "final_trial_count": null,
+  "model_artifacts_created": false,
+  "next_stage_started": false,
+  "cooldown_status": "RUNNING_IN_SUPERVISOR",
+  "cooldown_started_approximately": "2026-09-08T21:56:31.086377+07:00"
+}

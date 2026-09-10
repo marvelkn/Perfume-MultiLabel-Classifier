@@ -1,0 +1,57 @@
+{
+  "verified_at": "2026-09-08T21:20:56.993349+07:00",
+  "recording_status": "RECORDED",
+  "sensor_recording_valid": true,
+  "sensor_identity_basis": "CPU die identifier/name and fresh changing CSV match the sensor verified in Step 1; no new UI screenshot",
+  "started_at": "2026-09-08T21:08:53.410799+07:00",
+  "ended_at": "2026-09-08T21:19:03.407614+07:00",
+  "recording_duration_seconds": 610.0,
+  "source_span_seconds": 608.0,
+  "collector_observations": 608,
+  "unique_source_samples": 304,
+  "cpu_temperature_c": {
+    "initial": 73.37501,
+    "minimum": 71.75001,
+    "maximum": 85.625,
+    "mean_unique_samples": 78.93997174342105,
+    "median": 80.1875,
+    "end": 84.875
+  },
+  "last_300_seconds_temperature_c": {
+    "minimum": 79.625,
+    "maximum": 85.625
+  },
+  "unique_samples_below_start_75c": 115,
+  "max_source_gap_seconds": 3.0,
+  "max_observer_gap_seconds": 1.2373414039611816,
+  "max_observed_telemetry_age_seconds": 2.6740753650665283,
+  "system_cpu_percent": {
+    "mean": 20.934925864909392,
+    "minimum": 10.3,
+    "maximum": 60.6,
+    "last_60_observations_mean": 38.23833333333334
+  },
+  "peak_collector_rss_bytes": 22118400,
+  "minimum_system_available_ram_bytes": 13445550080,
+  "monitor_peak_ram_bytes": null,
+  "memory_scope": "Collector only; monitor/other applications not included in peak RSS",
+  "preflight_start_temperature_condition_met_at_end": false,
+  "step4_result": "STOP",
+  "probe_started": false,
+  "completed_label_fits": {
+    "xgb": 0,
+    "lgbm": 0
+  },
+  "probe_active_seconds_used": 0,
+  "trial_runtime_estimates": null,
+  "test_arrays_deserialized": false,
+  "dataset_loaded": false,
+  "background_conditions": "Chat, monitor, collector, and background services active; no ML fitting. Not a laboratory idle baseline. Ambient temperature and fan speed not measured.",
+  "history_sha256": "7e0d49523b7871d9c1c3722a21f1276b0dff41854ba46fbbcab8866931c3b015",
+  "summary_sha256": "2b05c0c6affd33e77bf4e053c8bfa095c9c66a3228909b5758e5201ce797b09e",
+  "all_history_values_match_archived_source": true,
+  "source_csv_sha256": "85b9ad6ecfec1df5d01a25f021c2ba857878ab3ee1d17cd09fbb0ac87b994946",
+  "longest_continuous_below_75_observed_span_seconds": 204.0,
+  "last_300_seconds_all_below_75": false,
+  "ambient_temperature_and_fan_speed_measured": false
+}

@@ -1,0 +1,52 @@
+Power Scheme GUID: ae98d46f-516f-4711-98ec-7c574478e330  (Acer)
+  Subgroup GUID: fea3413e-7e05-4911-9a71-700331f1c294  (Settings belonging to no subgroup)
+    GUID Alias: SUB_NONE
+    Power Setting GUID: 0e796bdb-100d-47d6-a2d5-f7d2daa51f51  (Require a password on wakeup)
+      GUID Alias: CONSOLELOCK
+      Possible Setting Index: 000
+      Possible Setting Friendly Name: No
+      Possible Setting Index: 001
+      Possible Setting Friendly Name: Yes
+    Current AC Power Setting Index: 0x00000001
+    Current DC Power Setting Index: 0x00000001
+
+    Power Setting GUID: 245d8541-3943-4422-b025-13a784f679b7  (Power plan type)
+      GUID Alias: PERSONALITY
+      Possible Setting Index: 000
+      Possible Setting Friendly Name: Power saver
+      Possible Setting Index: 001
+      Possible Setting Friendly Name: High performance
+      Possible Setting Index: 002
+      Possible Setting Friendly Name: Balanced
+    Current AC Power Setting Index: 0x00000002
+    Current DC Power Setting Index: 0x00000002
+
+    Power Setting GUID: 4faab71a-92e5-4726-b531-224559672d19  (Device idle policy)
+      GUID Alias: DEVICEIDLE
+      Possible Setting Index: 000
+      Possible Setting Friendly Name: Performance
+      Possible Setting Index: 001
+      Possible Setting Friendly Name: Power savings
+    Current AC Power Setting Index: 0x00000000
+    Current DC Power Setting Index: 0x00000001
+
+    Power Setting GUID: 68afb2d9-ee95-47a8-8f50-4115088073b1  (Disconnected Standby Mode)
+      GUID Alias: DISCONNECTEDSTANDBYMODE
+      Possible Setting Index: 000
+      Possible Setting Friendly Name: Normal
+      Possible Setting Index: 001
+      Possible Setting Friendly Name: Aggressive
+    Current AC Power Setting Index: 0x00000000
+    Current DC Power Setting Index: 0x00000000
+
+    Power Setting GUID: f15576e8-98b7-4186-b944-eafa664402d9  (Networking connectivity in Standby)
+      GUID Alias: CONNECTIVITYINSTANDBY
+      Possible Setting Index: 000
+      Possible Setting Friendly Name: Disable
+      Possible Setting Index: 001
+      Possible Setting Friendly Name: Enable
+      Possible Setting Index: 002
+      Possible Setting Friendly Name: Managed by Windows
+    Current AC Power Setting Index: 0x00000001
+    Current DC Power Setting Index: 0x00000002
+

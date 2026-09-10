@@ -1,0 +1,35 @@
+{
+  "status": "PASS",
+  "focused_tests": {
+    "passed": 19,
+    "seconds": 6.34,
+    "real_data_loaded": false
+  },
+  "regression_tests": {
+    "passed": 49,
+    "combined_previous_run": "67 passed (18 focused + 49 existing); final focused suite now 19 passed"
+  },
+  "covered": [
+    "budget reservation and cap",
+    "failed trials count toward target",
+    "Optuna RNG saved before fit",
+    "RUNNING trial recovery",
+    "CV tie-break",
+    "checkpoint sensitivity",
+    "sensitivity before test",
+    "Windows Job Object kill",
+    "parent timeout stop",
+    "completed artifact recovery",
+    "full profile RAM guard"
+  ],
+  "frozen_protocol": {
+    "status": "PASS",
+    "protocol_id": "essenza-ml-v1-20260908",
+    "verified_files": 85,
+    "test_arrays_deserialized": false,
+    "training_started": false,
+    "final_trial_count": "pending Step 5 smoke-derived freeze"
+  },
+  "real_campus_training_executed": false,
+  "campus_installation_tested": false
+}

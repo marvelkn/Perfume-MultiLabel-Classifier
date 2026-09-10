@@ -1,0 +1,47 @@
+{
+  "amendment_id": "essenza-smoke-supervised-v2",
+  "status": "FROZEN_BEFORE_EXECUTION",
+  "frozen_at": "2026-09-08T21:55:15.058238+07:00",
+  "parent_protocol_id": "essenza-ml-v1-20260908",
+  "parent_freeze_sha256": "6076d5d41b3db66169505669e0953729af481aac7523dd4396605bc29d5db7c3",
+  "old_runner_freeze_sha256": "2a11fa3948fe645cc48a836ff5e0e8a9f51f039b9053c7ef90f5088a3cf56261",
+  "authorization": "User: bypass aja dan langsung monitor real time jika ada yang terjadi langsung stop processnya",
+  "change_scope": "Resource execution only; relax pre-start margin while adding independent process supervision and stricter immediate observed-temperature stop",
+  "before": {
+    "start_c_exclusive": 75,
+    "stop_c": 80,
+    "hot_seconds": 5,
+    "execution": "two learners sequential in one process"
+  },
+  "after": {
+    "profile": "supervised-smoke-v2",
+    "start_c_exclusive": 80,
+    "stop_on_first_observed_c": 80,
+    "poll_seconds": 0.25,
+    "source_max_age_seconds": 5,
+    "execution": "separate learner subprocesses, Windows kill-on-close job, cooldown after each stage",
+    "cooldown_seconds": 610,
+    "last_cooldown_300_seconds_max_c_exclusive": 75
+  },
+  "combined_active_budget_seconds": 300,
+  "thread_count": 1,
+  "max_process_tree_rss_gib": 3,
+  "minimum_free_ram_gib": 4,
+  "dataset_splits_metrics_parameters_unchanged": true,
+  "no_final_test_based_changes": true,
+  "real_data_fitting_started_at_freeze": false,
+  "tests": {
+    "count": 10,
+    "reported_seconds": 1.311,
+    "status": "PASS",
+    "lint": "PASS",
+    "synthetic_model_fit": false,
+    "scope": "sleeping child processes, synthetic sensor values and mocked stage timing",
+    "log_sha256": "b383493f4b16271f8098b009ee1cb5b42da0e52fffcfbb43ea200a4f2174ce94"
+  },
+  "files": {
+    "reports/step4_20260908/supervised_v2/run_supervised_smoke.py": "31abe06befbc99157dd4c0b3967ba2a4b8cd13ea4938337bf706bc19565f1979",
+    "reports/step4_20260908/supervised_v2/test_supervisor.py": "2121f073256a54f95683cf5706d3200c7d1139f41af1bd5e8078e7e84eb58410",
+    "reports/step4_20260908/supervised_v2/README.md": "f5b884e930cc02df59e91dcd0883ff166616eb6f33a7e1dfc30ba69a10415c0f"
+  }
+}

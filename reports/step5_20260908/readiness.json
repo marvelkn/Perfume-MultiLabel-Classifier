@@ -1,0 +1,30 @@
+{
+  "step": 5,
+  "checked_at": "2026-09-08T21:20:57.979268+07:00",
+  "status": "PREPARATION_COMPLETE_BLOCKED_BY_STEP4",
+  "authorized": true,
+  "step6_authorized": false,
+  "protocol_id": "essenza-ml-v1-20260908",
+  "protocol_manifest_sha256": "6076d5d41b3db66169505669e0953729af481aac7523dd4396605bc29d5db7c3",
+  "training_config_sha256": "09ef8ee773a0f12c2ccab4940b97b520eba419384f10b483895deec59f11e134",
+  "partition_file_sha256": "b4cb272574b55ffcb63e8728882ec673eed9cc5ca8717652552643df597d7f6e",
+  "python_and_14_packages_match": true,
+  "dataset_source_split_hashes_match": true,
+  "safe_training_resources_valid": true,
+  "step4_go": false,
+  "step4_evidence": "../step4_20260908/attempt-03/thermal-validation.json",
+  "runtime_estimates": null,
+  "planned_trial_count": null,
+  "active_seconds_cap_per_model": 14400,
+  "budget_freeze_created": false,
+  "final_run_created": false,
+  "ledger_created": false,
+  "test_arrays_loaded": false,
+  "remaining": [
+    "Complete real-data smoke and cooldown with thermal GO",
+    "Compute and validate same trial count from measured runtimes under preregistered rule",
+    "Create new final run and immutable protocol/config/source/environment/split snapshot",
+    "Initialize zero-use budget ledger; add operational cumulative-budget enforcement before tuning (Steps 8/9)"
+  ],
+  "limitation": "Existing CLI session limit is not cumulative 4-hour or total-trial enforcement; no claim of enforced tuning cap yet."
+}

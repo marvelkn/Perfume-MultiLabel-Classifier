@@ -1,0 +1,12 @@
+{
+  "created_at": "2026-09-08T21:46:56.065194+07:00",
+  "status": "PREPARING_NOT_EXECUTED",
+  "user_request": "bypass aja dan langsung monitor real time jika ada yang terjadi langsung stop processnya",
+  "interpreted_scope": "Waive the <75 C pre-start margin and pre-smoke baseline for supervised resource smoke only. Start must still be below 80 C; stop on first observed >=80 C, sensor failure, resource limit or timeout. No bypass of Step 5 numerical evidence and no final tuning.",
+  "parent_freeze_sha256": "6076d5d41b3db66169505669e0953729af481aac7523dd4396605bc29d5db7c3",
+  "old_runner_freeze_sha256": "2a11fa3948fe645cc48a836ff5e0e8a9f51f039b9053c7ef90f5088a3cf56261",
+  "old_source_hashes": {
+    "reports/step4_20260908/run_smoke_probe.py": "2b3b2ea0afa4331db4d681e69e516e2d25a48590c1946dbfa76fb5b6ff064813"
+  },
+  "execution_started": false
+}

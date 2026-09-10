@@ -1,0 +1,32 @@
+{
+  "status": "PASS",
+  "archive_files": 244,
+  "archive_bytes": 1990179,
+  "sha256": "7308bbb834aeecc46708faf834d9c270fa8ff826eca9bcbd3447d3e6e5e12a37",
+  "checks": [
+    {
+      "command": [
+        "reports/campus_20260909/verify_transfer.py"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"status\": \"PASS\",\n  \"files\": 243,\n  \"python\": \"3.12.14\",\n  \"executable\": \"C:\\\\Users\\\\ACER\\\\Documents\\\\Marvel\\\\Skripsi\\\\Project Skripsi\\\\Perfume-MultiLabel-Classifier\\\\.venv\\\\Scripts\\\\python.exe\",\n  \"platform\": \"Windows-11-10.0.26200-SP0\",\n  \"training_started\": false,\n  \"test_arrays_loaded\": false\n}\n"
+    },
+    {
+      "command": [
+        "protocols/essenza_v1_20260908/verify_protocol.py"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"status\": \"PASS\",\n  \"protocol_id\": \"essenza-ml-v1-20260908\",\n  \"verified_files\": 85,\n  \"test_arrays_deserialized\": false,\n  \"training_started\": false,\n  \"final_trial_count\": \"pending Step 5 smoke-derived freeze\"\n}\n"
+    },
+    {
+      "command": [
+        "reports/campus_20260909/full/run_all.py",
+        "--help"
+      ],
+      "exit_code": 0,
+      "stdout": "usage: run_all.py [-h] --run RUN --campus-no-temperature\n\nRun the complete campus experiment sequentially, without smoke or thermal\ntelemetry.\n\noptions:\n  -h, --help            show this help message and exit\n  --run RUN\n  --campus-no-temperature\n"
+    }
+  ],
+  "full_amendment_files_verified": 6,
+  "training_started": false
+}

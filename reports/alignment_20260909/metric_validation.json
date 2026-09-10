@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "checks": [
+    "hand-counted confusion matrix",
+    "binary accuracy versus subset accuracy",
+    "AP versus trapezoidal PR area",
+    "undefined denominator handling",
+    "strict JSON",
+    "invalid inputs"
+  ],
+  "training_started": false,
+  "real_test_predictions_loaded": false
+}

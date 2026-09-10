@@ -1,0 +1,6 @@
+source,accepted_rows,unique_molecules_in_source,molecules_exclusive_to_source,molecule_label_pairs_exclusive_to_source
+goodscents,4259,4203,1681,9723
+leffingwell,3522,3522,1157,7640
+arctander,2433,2376,1117,3721
+flavornet,483,483,51,196
+sigma,704,704,0,738

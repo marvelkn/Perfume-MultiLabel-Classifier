@@ -1,0 +1,18 @@
+{
+  "supplement_id": "essenza-ml-v1-step4-runner-v1",
+  "version": 1,
+  "recorded_at": "2026-09-08T16:28:25.039306+07:00",
+  "kind": "mechanical execution tooling supplement before any real-data probe",
+  "authorization": "Step 4 continue; no authorization for Step 5",
+  "parent_protocol_id": "essenza-ml-v1-20260908",
+  "protocol_freeze_sha256": "6076d5d41b3db66169505669e0953729af481aac7523dd4396605bc29d5db7c3",
+  "original_frozen_files_verified": 85,
+  "method_changes": false,
+  "load_timing_clarification": "Shared backend import is charged once to each learner load estimate; actual probe imports backend once. Recorded separately; conservative planning, original estimate formula unchanged.",
+  "files": {
+    "reports/step4_20260908/run_smoke_probe.py": "2b3b2ea0afa4331db4d681e69e516e2d25a48590c1946dbfa76fb5b6ff064813",
+    "reports/step4_20260908/test_smoke_probe.py": "13f0681b82b0013249d6c98f045dc1534770ccb0b6b386e960b6dd387292926f",
+    "reports/step4_20260908/SMOKE_RUNNER.md": "d956362c58adf66b45982c405d36eb953395d52ba6bb16bf8c1231de0e425a54"
+  },
+  "real_data_probe_executed": false
+}

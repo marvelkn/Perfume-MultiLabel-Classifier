@@ -1,0 +1,16 @@
+source,table,rows,columns,file
+goodscents,molecules,4565,5,goodscents/molecules.csv
+goodscents,behavior,4626,2,goodscents/behavior.csv
+goodscents,stimuli,4626,5,goodscents/stimuli.csv
+leffingwell,molecules,3522,5,leffingwell/molecules.csv
+leffingwell,behavior,3522,114,leffingwell/behavior.csv
+leffingwell,stimuli,3522,7,leffingwell/stimuli.csv
+arctander,molecules,2751,5,arctander_1960/molecules.csv
+arctander,behavior,3102,2,arctander_1960/behavior_1_sparse.csv
+arctander,stimuli,3102,4,arctander_1960/stimuli.csv
+sigma,molecules,867,5,sigma_2014/molecules.csv
+sigma,behavior,941,119,sigma_2014/behavior.csv
+sigma,stimuli,941,2,sigma_2014/stimuli.csv
+flavornet,molecules,716,5,flavornet/molecules.csv
+flavornet,behavior,716,2,flavornet/behavior.csv
+flavornet,stimuli,716,2,flavornet/stimuli.csv

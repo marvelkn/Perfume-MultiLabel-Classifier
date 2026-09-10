@@ -1,0 +1,187 @@
+{
+  "report_root": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Laporan Skripsi\\2521_skripsi_Marvel_Kevin_Nathanael",
+  "backup": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\.local-backups\\alignment-20260909-214548\\thesis-source-before-alignment.zip",
+  "backup_verified_files": 54,
+  "changes": [
+    {
+      "file": "src/2.Isi/Bab1.tex",
+      "line_at_edit": 11,
+      "before": "Suh \\textit{et al.} membandingkan Random Forest, XGBoost, dan LightGBM dengan beberapa representasi molekul pada data aroma dari sepuluh sumber Pyrfume \\cite{suh2025}. Penelitian tersebut menjadi dasar empiris untuk mempelajari model berbasis pohon dan \\textit{Morgan fingerprint}. Studi ini memusatkan perbandingan pada XGBoost dan LightGBM, menggunakan lima sumber, 25 label, serta gabungan \\textit{Morgan fingerprint} dan lima deskriptor fisikokimia. Perbedaan dataset dan prosedur evaluasi membatasi perbandingan langsung dengan angka penelitian lain.",
+      "after": "Suh \\textit{et al.} menjadi acuan pendekatan prediksi aroma dari struktur molekul \\cite{suh2025}. Penelitian ini mengadaptasi pendekatan tersebut untuk membandingkan XGBoost dan LightGBM pada lima sumber Pyrfume, 25 label, gabungan \\textit{Morgan fingerprint} dan lima deskriptor RDKit, serta optimasi menggunakan Optuna. Penelitian ini tidak mengusulkan algoritma klasifikasi baru. Pyrfume dan RDKit juga telah digunakan dalam penelitian acuan; karena itu, penggunaannya saja tidak dinyatakan sebagai kebaruan. Perbedaan dataset, label, dan prosedur evaluasi membuat angka pada jurnal acuan hanya menjadi pembanding kontekstual, bukan bukti langsung bahwa modifikasi ini lebih baik."
+    },
+    {
+      "file": "src/2.Isi/Bab1.tex",
+      "line_at_edit": 17,
+      "before": "Selain evaluasi model, penelitian ini menyiapkan prototipe Android bernama Essenza. Aplikasi menggunakan React Native untuk antarmuka dan ONNX Runtime untuk inferensi model pada perangkat \\cite{reactnative2024,onnxmobile2026}. Featurisasi SMILES dijalankan oleh RDKit melalui API, sedangkan skor aroma dihitung oleh model ONNX lokal. Spesifikasi fitur dicatat bersama model agar perubahan versi RDKit atau pengaturan fingerprint dapat dideteksi sebelum inferensi.",
+      "after": "Selain evaluasi model, penelitian ini menyiapkan prototipe Android bernama Essenza. Rancangan aplikasi menggunakan React Native untuk antarmuka dan ONNX Runtime untuk inferensi pada perangkat \\cite{reactnative2024,onnxmobile2026}. Dalam rancangan tersebut, RDKit menghitung fitur SMILES melalui API, kemudian model ONNX lokal menghitung skor aroma. Spesifikasi fitur dicatat bersama model agar ketidaksesuaian dapat dideteksi. Status integrasi pada aplikasi asli dan pengujian perangkat dibedakan dari kesiapan kode backend."
+    },
+    {
+      "file": "src/2.Isi/Bab1.tex",
+      "line_at_edit": 26,
+      "before": "    \\item Bagaimana membandingkan XGBoost dan LightGBM menggunakan ruang pencarian khusus masing-masing algoritma, seluruh label target, dan pemisahan data yang menjaga independensi evaluasi test?",
+      "after": "    \\item Bagaimana membandingkan XGBoost dan LightGBM sebelum dan sesudah tuning Optuna pada data, fitur, label, serta pembagian validasi yang sama, dengan test tetap terpisah dari pemilihan model?"
+    },
+    {
+      "file": "src/2.Isi/Bab1.tex",
+      "line_at_edit": 50,
+      "before": "    \\item menyusun dan menjalankan perbandingan XGBoost dan LightGBM dengan optimasi khusus masing-masing algoritma;",
+      "after": "    \\item mengadaptasi pendekatan penelitian acuan dan membandingkan skor validasi baseline proyek dengan hasil tuning Optuna untuk XGBoost dan LightGBM;"
+    },
+    {
+      "file": "src/2.Isi/Bab3.tex",
+      "line_at_edit": 5,
+      "before": "Penelitian menggunakan perbandingan eksperimental dua algoritma klasifikasi multi-label, disertai pengembangan prototipe Android. Protokol pada bab ini mengikuti implementasi pipeline terbaru \\cite{essenzaml2026}. Pembangunan dataset dan pengujian komponen telah dilakukan. Baseline pada data nyata, tuning, fitting akhir, evaluasi test, dan pengujian Android dilaksanakan setelah persiapan eksperimen terpenuhi; status hasilnya dijelaskan pada Bab IV.",
+      "after": "Penelitian mengadaptasi pendekatan prediksi aroma berbasis struktur molekul dari Suh \\textit{et al.}, dengan perbandingan XGBoost dan LightGBM serta pengembangan prototipe Android \\cite{suh2025,essenzaml2026}. Baseline proyek dan kandidat hasil tuning dibandingkan pada data dan pembagian validasi yang sama. Perbandingan tersebut belum merupakan reproduksi eksperimen Suh karena sumber data, label, fitur, dan jumlah fold berbeda. Pembangunan dataset serta pengujian komponen telah dilakukan; hasil eksperimen komparatif dan pengujian Android dilaporkan hanya jika artefaknya tersedia."
+    },
+    {
+      "file": "src/2.Isi/Bab3.tex",
+      "line_at_edit": 43,
+      "before": "Variasi istilah dipetakan menggunakan aturan harmonisasi ke taksonomi target. Istilah yang belum terpetakan dan alasan penolakan rekaman disimpan sebagai keluaran audit. Jumlah rekaman yang diterima dari tiap sumber tidak dijumlahkan sebagai jumlah molekul unik karena satu molekul dapat muncul di beberapa sumber.",
+      "after": "Taksonomi awal mengikuti 113 label Leffingwell. Istilah dipetakan melalui normalisasi teks, pencocokan langsung, dan daftar sinonim eksplisit. Prosedur ini berbeda dari kurasi berpedoman IFRA dengan pakar pada penelitian acuan \\cite{suh2025}. Builder mencatat kegagalan identitas dan struktur serta istilah tidak terpetakan. Notebook audit tanggal 9 September 2026 melengkapi pencatatan 739 rekaman yang lolos pemeriksaan struktur tetapi tidak menghasilkan label terpetakan. Jumlah diterima antarsumber tidak dijumlahkan sebagai molekul unik karena identitas yang sama dapat muncul di beberapa sumber."
+    },
+    {
+      "file": "src/2.Isi/Bab3.tex",
+      "line_at_edit": 111,
+      "before": "Setiap algoritma membentuk 25 model biner. Baseline memakai parameter bawaan algoritma dengan batas boosting dan early stopping yang sama seperti prosedur training proyek. Tiga strategi dibandingkan: tanpa penyesuaian data, pembobotan kelas, dan \\textit{random oversampling}.",
+      "after": "Setiap algoritma membentuk 25 model biner. Baseline memakai parameter yang tidak dituning, dengan pengaturan CPU, batas boosting, dan early stopping dari prosedur proyek. Baseline ini bukan reproduksi identik pengaturan Suh. Tiga strategi dibandingkan: tanpa penyesuaian data, pembobotan kelas, dan \\textit{random oversampling}. Kode baseline saat ini menyimpan AP per fold dan rata-ratanya. Pembuktian peningkatan pada data test memerlukan baseline dan kandidat modifikasi yang sama-sama difinalisasi serta dikunci sebelum evaluasi; skor validasi terbaik hasil tuning saja belum membuktikan peningkatan tersebut."
+    },
+    {
+      "file": "src/2.Isi/Bab3.tex",
+      "line_at_edit": 170,
+      "before": "Jumlah trial tambahan diberikan saat perintah dijalankan. Contoh 20 trial pada panduan penggunaan merupakan contoh pemanggilan, bukan bukti bahwa 20 atau 30 trial telah selesai. Anggaran total untuk kedua studi perlu ditetapkan sebelum eksekusi dan dilaporkan bersama waktu aktual. Dataset, fold, label, seed, serta metrik dibuat sama; jumlah putaran dan ruang parameter mengikuti masing-masing algoritma.",
+      "after": "Amendment pelaksanaan pada PC kampus tanggal 9 September 2026 menetapkan batas 30 attempted trials atau empat jam komputasi tuning aktif per algoritma, sesuai batas yang tercapai lebih dahulu. Trial gagal dan pruned ikut dihitung; baseline dan fitting akhir dihitung terpisah. Angka tersebut merupakan anggaran yang ditetapkan sebelum hasil dilihat, bukan jaminan solusi optimal atau bukti seluruh trial telah selesai. Dataset, fold, label, seed, dan objektif tetap sama untuk kedua algoritma; ruang parameter mengikuti masing-masing model."
+    },
+    {
+      "file": "src/2.Isi/Bab3.tex",
+      "line_at_edit": 174,
+      "before": "Training dijalankan pada CPU dengan dua thread dan satu trial pada satu waktu. Konfigurasi awal menetapkan durasi sesi 30 menit, RAM tersedia sedikitnya 4 GiB, serta batas memori proses beserta proses anak sebesar 4 GiB. Jika suhu CPU mencapai sedikitnya $90\\,^{\\circ}\\mathrm{C}$ selama 30 detik, pemeriksaan menghentikan proses.",
+      "after": "Training direncanakan pada CPU dengan dua thread dan satu trial pada satu waktu. Pelaksanaan di laptop asal menggunakan pengawasan suhu; bukti penghentian dan revisi batas operasional disimpan terpisah. Pelaksanaan pada PC kampus mengikuti amendment tanggal 9 September 2026, dengan sesi kerja 1.200 detik dan batas tuning yang dijelaskan sebelumnya. Catatan konfigurasi dan durasi aktual harus disertakan pada hasil."
+    },
+    {
+      "file": "src/2.Isi/Bab3.tex",
+      "line_at_edit": 176,
+      "before": "Suhu harus diperoleh dari sensor yang aktif. Pada Windows, pipeline membaca file JSON yang diperbarui pembaca sensor eksternal, dengan waktu pembacaan maksimal 10 detik. Program pembaca sensor belum disertakan dalam repository. Batas-batas ini adalah pengaturan operasional proyek yang diperiksa melalui callback; batas tersebut tidak merupakan jaminan pabrikan atau pembatas memori keras dari sistem operasi.",
+      "after": "Kode pembacaan dan pengawasan sumber daya untuk laptop tersedia dalam repository. Pada runner PC kampus, pemeriksaan suhu dan cooldown tidak diwajibkan sesuai amendment; suhu tidak diukur sehingga tidak ada kesimpulan tentang kondisi termalnya. Kebijakan laptop dan PC kampus tidak disamakan. Pengaturan operasional proyek juga tidak merupakan jaminan pabrikan atau pembatas memori keras dari sistem operasi."
+    },
+    {
+      "file": "src/2.Isi/Bab3.tex",
+      "line_at_edit": 188,
+      "before": "Evaluasi test melaporkan macro/micro AP, macro/micro F1, macro precision dan recall, Hamming loss, subset accuracy, serta ROC-AUC dan dukungan positif per label. AP label tanpa contoh positif ditetapkan nol agar label tetap ikut dalam macro AP. ROC-AUC yang tidak terdefinisi dilaporkan sebagai nilai kosong, dengan jumlah label valid dicatat. Prediksi, label sebenarnya, threshold, dan metrik disimpan sebagai artefak.",
+      "after": "Evaluasi test melaporkan macro/micro AP, macro/micro F1, macro precision dan recall, Hamming loss, subset accuracy, serta ROC-AUC dan dukungan positif per label. AP label tanpa contoh positif ditetapkan nol agar label tetap ikut dalam macro AP. ROC-AUC yang tidak terdefinisi dilaporkan sebagai nilai kosong, dengan jumlah label valid dicatat. Prediksi, label sebenarnya, threshold, dan metrik disimpan sebagai artefak.\n\nAudit keselarasan menemukan bahwa metrik tersebut belum sepenuhnya sama dengan pelaporan acuan. Subset accuracy mensyaratkan seluruh label satu sampel benar, sedangkan accuracy biner dihitung untuk setiap label. AP juga tidak otomatis sama dengan AUPRC yang dihitung menggunakan integrasi trapesium. Skrip pelengkap \\path{reports/alignment_20260909/metric_supplement.py} disediakan untuk menghitung accuracy biner, specificity, dan AUPRC trapesium dari prediksi test yang sudah tersimpan, menggunakan threshold yang sama. Skrip ini tidak mengubah objektif tuning atau melatih model kembali dan belum menjadi tahap otomatis runner kampus.\n\nDetail integrasi AUPRC, threshold, serta cara perataan metrik pada kode Suh belum terverifikasi. Karena itu, tambahan metrik ini belum membuat angka antarpenelitian dapat dibandingkan secara langsung. Hasil per label dan aturan perataan harus ikut dilaporkan."
+    },
+    {
+      "file": "src/2.Isi/Bab3.tex",
+      "line_at_edit": 226,
+      "before": "Aplikasi memeriksa kecocokan ID fitur, dimensi dan nilai input, serta checksum model. Seluruh model harus berhasil sebelum hasil lengkap ditampilkan. Permintaan dari input lama dibatalkan atau diabaikan, dan operasi inferensi serta pelepasan sesi diurutkan. Cache model dibedakan menurut identitas bundle. API dan aset aplikasi harus diperbarui sebagai pasangan dengan spesifikasi yang sesuai.",
+      "after": "Rancangan integrasi mensyaratkan pemeriksaan ID fitur, dimensi dan nilai input, serta checksum model. Seluruh model harus berhasil sebelum hasil lengkap ditampilkan. Penanganan input lama, urutan operasi inferensi, dan cache berdasarkan identitas bundle merupakan kebutuhan implementasi yang harus diverifikasi pada aplikasi asli. API dan aset aplikasi harus diperbarui sebagai pasangan dengan spesifikasi yang sesuai."
+    },
+    {
+      "file": "src/2.Isi/Bab3.tex",
+      "line_at_edit": 232,
+      "before": "Parfum buatan pengguna disimpan melalui AsyncStorage dengan versi format, validasi, dan operasi yang berurutan. Katalog historis tetap dipertahankan, sedangkan pembuatan katalog baru memerlukan CSV serta sumber dan versi yang dinyatakan. Bobot accord tidak ditebak dari nama notes. Kategori katalog tidak disamakan secara otomatis dengan 25 label model.",
+      "after": "Penyimpanan rancangan parfum pengguna direncanakan melalui AsyncStorage dengan versi format dan validasi. Pembuatan katalog baru memerlukan CSV serta sumber dan versi yang dinyatakan. Bobot accord tidak ditebak dari nama notes. Kategori katalog tidak disamakan secara otomatis dengan 25 label model. Fitur katalog dan penyimpanan bukan bukti kemampuan model memprediksi aroma campuran."
+    },
+    {
+      "file": "src/2.Isi/Bab4.tex",
+      "line_at_edit": 5,
+      "before": "Bab ini menyajikan hasil yang dapat ditelusuri pada pemeriksaan tanggal 4 September 2026, yaitu audit dataset versi terbaru, kesiapan pembagian data, kesesuaian fitur historis, dan pengujian perangkat lunak. Protokol pada Bab III telah diimplementasikan, tetapi eksperimen komparatif pada data nyata belum dijalankan. Karena itu, bab ini belum menyatakan model terbaik berdasarkan protokol terbaru.",
+      "after": "Bab ini menyajikan audit dataset dan bukti perangkat lunak bertanggal 4 September 2026, dilengkapi audit preprocessing serta keselarasan pada 9 September 2026. Ketersediaan kode tidak berarti seluruh eksperimen atau integrasi aplikasi selesai. Pada pemeriksaan terakhir, hasil tuning dan evaluasi test dari PC kampus belum tersedia dalam bukti yang ditinjau. Karena itu, bab ini belum menyatakan model terbaik maupun peningkatan terhadap penelitian acuan."
+    },
+    {
+      "file": "src/2.Isi/Bab4.tex",
+      "line_at_edit": 7,
+      "before": "\\path{runs/audited-20260904-v2/run.json}",
+      "after": "\\path{runs/_reference/audited-20260904-v2/run.json}"
+    },
+    {
+      "file": "src/2.Isi/Bab4.tex",
+      "line_at_edit": 20,
+      "before": "\\begin{tabular}{lrrrr}",
+      "after": "\\begin{tabular}{lrrrrr}"
+    },
+    {
+      "file": "src/2.Isi/Bab4.tex",
+      "line_at_edit": 22,
+      "before": "Sumber & Rekaman & Identitas gagal & Struktur ditolak & Diterima \\\\",
+      "after": "Sumber & Awal & ID gagal & Struktur & Tanpa label & Diterima \\\\"
+    },
+    {
+      "file": "src/2.Isi/Bab4.tex",
+      "line_at_edit": 24,
+      "before": "GoodScents & 4.626 & 0 & 183 & 4.259 \\\\",
+      "after": "GoodScents & 4.626 & 0 & 183 & 184 & 4.259 \\\\"
+    },
+    {
+      "file": "src/2.Isi/Bab4.tex",
+      "line_at_edit": 25,
+      "before": "Leffingwell & 3.522 & 0 & 0 & 3.522 \\\\",
+      "after": "Leffingwell & 3.522 & 0 & 0 & 0 & 3.522 \\\\"
+    },
+    {
+      "file": "src/2.Isi/Bab4.tex",
+      "line_at_edit": 26,
+      "before": "Arctander & 3.102 & 278 & 102 & 2.433 \\\\",
+      "after": "Arctander & 3.102 & 278 & 102 & 289 & 2.433 \\\\"
+    },
+    {
+      "file": "src/2.Isi/Bab4.tex",
+      "line_at_edit": 27,
+      "before": "Flavornet & 716 & 0 & 0 & 483 \\\\",
+      "after": "Flavornet & 716 & 0 & 0 & 233 & 483 \\\\"
+    },
+    {
+      "file": "src/2.Isi/Bab4.tex",
+      "line_at_edit": 28,
+      "before": "Sigma & 941 & 204 & 0 & 704 \\\\",
+      "after": "Sigma & 941 & 204 & 0 & 33 & 704 \\\\"
+    },
+    {
+      "file": "src/2.Isi/Bab4.tex",
+      "line_at_edit": 33,
+      "before": "Tabel \\ref{tab:audit_sumber} menghitung rekaman sumber sebelum penggabungan molekul yang sama. Kolom struktur ditolak mencakup SMILES invalid atau multifragmen. Rekaman yang valid tetapi tidak mempunyai label hasil harmonisasi tidak termasuk kolom diterima; karena itu, kolom penolakan yang ditampilkan bukan partisi lengkap seluruh rekaman. Jumlah diterima antarsumber juga bukan jumlah molekul unik.",
+      "after": "Tabel \\ref{tab:audit_sumber} menghitung rekaman sebelum penggabungan molekul yang sama. Kolom struktur mencakup SMILES invalid atau multifragmen. Kolom tanpa label mencatat rekaman yang lolos pemeriksaan struktur tetapi tidak menghasilkan label terpetakan. Audit ulang merekonsiliasi 12.907 rekaman menjadi 482 identitas gagal, 285 struktur ditolak, 739 tanpa label terpetakan, dan 11.401 diterima. Setelah penggabungan terdapat 6.703 molekul unik; jumlah diterima antarsumber bukan jumlah molekul unik."
+    },
+    {
+      "file": "src/2.Isi/Bab4.tex",
+      "line_at_edit": 80,
+      "before": "Persiapan training & Belum dimulai & Telemetri suhu CPU belum tersedia \\\\",
+      "after": "Pelaksanaan kampus & Hasil belum tersedia & Runner dan anggaran sudah disiapkan; bukan bukti training selesai \\\\"
+    },
+    {
+      "file": "src/2.Isi/Bab4.tex",
+      "line_at_edit": 90,
+      "before": "Pemeriksaan awal training mencatat \\texttt{training\\_started=false} karena suhu CPU belum tersedia. Folder run terbaru baru memuat konfigurasi dan indeks pembagian data. Pada kondisi ini, belum terdapat studi Optuna selesai, manifest model hasil fitting akhir, atau metrik test untuk protokol Bab III.",
+      "after": "Catatan awal tanggal 4 September 2026 menyatakan training belum dimulai. Persiapan berikutnya menghasilkan protokol, pengawasan sumber daya laptop, dan runner otomatis PC kampus dengan amendment tanggal 9 September 2026. Artefak persiapan tersebut tidak membuktikan tuning telah selesai. Hasil baseline lengkap, studi Optuna selesai, manifest model final, dan metrik test dari pelaksanaan kampus belum tersedia dalam bukti yang ditinjau."
+    },
+    {
+      "file": "src/2.Isi/Bab4.tex",
+      "line_at_edit": 116,
+      "before": "Implementasi terbaru memisahkan layanan fitur RDKit dari inferensi model pada ponsel. REST dan Gradio menggunakan fungsi yang sama, sedangkan aplikasi memeriksa versi fitur serta keutuhan bundle. Alur juga menangani respons dari input lama dan kegagalan salah satu model agar hasil tidak tercampur atau ditampilkan sebagian.",
+      "after": "Backend menyediakan layanan fitur RDKit untuk mendukung rancangan inferensi ONNX pada ponsel. Namun, pemeriksaan checkout frontend asli tanggal 9 September 2026 menemukan bahwa \\path{App.js} masih memanggil \\texttt{mockPredictFromSmiles}. Karena itu, pemisahan layanan fitur dan inferensi lokal belum dapat dinyatakan sudah berjalan pada aplikasi asli. Catatan pengujian frontend sebelumnya diperlakukan sebagai bukti historis, bukan verifikasi integrasi checkout tersebut."
+    },
+    {
+      "file": "src/2.Isi/Bab4.tex",
+      "line_at_edit": 118,
+      "before": "Aset aplikasi masih memuat 25 model XGBoost dari eksperimen sebelumnya. Keberadaan aset tersebut tidak menyatakan bahwa XGBoost sudah terpilih pada eksperimen baru. Deployment API yang diperbarui, build APK, dan verifikasi ONNX Runtime React Native pada perangkat belum dilaksanakan. Bukti latensi, pemakaian memori, serta ketepatan inferensi Android untuk versi terbaru belum tersedia.",
+      "after": "Model dari eksperimen sebelumnya tidak menjadi dasar pemilihan algoritma pada eksperimen baru. Deployment API, build APK, serta kesesuaian prediksi ONNX pada perangkat perlu dibuktikan untuk versi yang sama. Bukti latensi, pemakaian memori, dan ketepatan inferensi Android untuk versi terbaru belum tersedia pada audit ini."
+    },
+    {
+      "file": "src/2.Isi/Bab4.tex",
+      "line_at_edit": 120,
+      "before": "Explorer memakai katalog lokal 2.029 parfum dengan daftar accord tersendiri. Berkas sumber mentah dan riwayat transformasi katalog historis belum lengkap. Exporter baru meminta sumber serta versi eksplisit, tetapi belum menggantikan kebutuhan menelusuri asal katalog yang sedang dipakai.",
+      "after": "Catatan historis menyebut katalog 2.029 parfum dengan daftar accord tersendiri. Jumlah tersebut tidak digunakan sebagai ukuran dataset molekul atau bukti kualitas prediksi aroma. Versi katalog pada aplikasi yang akan diuji perlu dicatat bersama sumber dan riwayat transformasinya. Katalog Explorer berada di luar pembuktian manfaat tuning model molekul."
+    },
+    {
+      "file": "src/2.Isi/Bab4.tex",
+      "line_at_edit": 126,
+      "before": "Interpretasi selanjutnya masih dibatasi oleh label negatif yang tidak terverifikasi, potensi kemiripan struktur lintas partisi, penggunaan molekul historis, serta belum adanya studi ablasi fitur, kalibrasi skor, atau validasi sensori. Peta SHAP lama tidak digunakan sebagai hasil analisis baru karena memakai model dan prosedur yang berbeda. Analisis baru akan memakai sampel development serta heatmap cosine dan MDS langsung.",
+      "after": "Interpretasi masih dibatasi oleh label negatif yang tidak terverifikasi, kemiripan struktur lintas partisi, penggunaan molekul historis, serta belum adanya ablasi fitur, kalibrasi skor, atau validasi sensori. Audit metrik juga menunjukkan bahwa subset accuracy bukan accuracy biner dan AP tidak boleh langsung dianggap sama dengan AUPRC pada jurnal. Sampai dataset, label, dan perhitungan metrik diselaraskan, perbedaan angka terhadap Suh tidak menjadi bukti langsung peningkatan atau penurunan akibat modifikasi. Peta SHAP lama tetap diperlakukan sebagai arsip."
+    },
+    {
+      "file": "src/2.Isi/Bab4.tex",
+      "line_at_edit": 137,
+      "before": "Audit dataset & \\path{reports/audit_20260904/dataset_audit.json} \\\\",
+      "after": "Audit dataset & \\path{reports/audit_20260904/dataset_audit.json} \\\\\nAudit preprocessing ulang & \\path{reports/preprocessing_20260909/audit_summary.json} \\\\\nAudit keselarasan & \\path{reports/alignment_20260909/ALIGNMENT_AUDIT.md} \\\\"
+    }
+  ]
+}

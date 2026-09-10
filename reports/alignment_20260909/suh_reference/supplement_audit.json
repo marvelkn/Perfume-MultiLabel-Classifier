@@ -1,0 +1,188 @@
+{
+  "source_url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs42004-025-01651-7/MediaObjects/42004_2025_1651_MOESM3_ESM.xlsx",
+  "sha256": "2e01468186621beeb46347c3de685bdd26b11acfb3fdf383c41d2f75f4c4f158",
+  "data_rows": 1800,
+  "unique_labels": 200,
+  "other_like_labels": [
+    "OTHERS"
+  ],
+  "metric_columns": [
+    "accuracy_cv",
+    "auroc_cv",
+    "auprc_cv",
+    "specificity_cv",
+    "precision_cv",
+    "recall_cv",
+    "accuracy_test",
+    "auroc_test",
+    "auprc_test",
+    "specificity_test",
+    "precision_test",
+    "recall_test"
+  ],
+  "coverage": {
+    "FG_RF": {
+      "rows": 200,
+      "unique_labels": 200,
+      "numeric_metrics": {
+        "accuracy_cv": 188,
+        "auroc_cv": 188,
+        "auprc_cv": 188,
+        "specificity_cv": 188,
+        "precision_cv": 188,
+        "recall_cv": 188,
+        "accuracy_test": 188,
+        "auroc_test": 166,
+        "auprc_test": 188,
+        "specificity_test": 166,
+        "precision_test": 188,
+        "recall_test": 188
+      }
+    },
+    "FG_XGB": {
+      "rows": 200,
+      "unique_labels": 200,
+      "numeric_metrics": {
+        "accuracy_cv": 188,
+        "auroc_cv": 188,
+        "auprc_cv": 188,
+        "specificity_cv": 188,
+        "precision_cv": 188,
+        "recall_cv": 188,
+        "accuracy_test": 188,
+        "auroc_test": 166,
+        "auprc_test": 188,
+        "specificity_test": 166,
+        "precision_test": 188,
+        "recall_test": 188
+      }
+    },
+    "FG_LGBM": {
+      "rows": 200,
+      "unique_labels": 200,
+      "numeric_metrics": {
+        "accuracy_cv": 188,
+        "auroc_cv": 188,
+        "auprc_cv": 188,
+        "specificity_cv": 188,
+        "precision_cv": 188,
+        "recall_cv": 188,
+        "accuracy_test": 188,
+        "auroc_test": 166,
+        "auprc_test": 188,
+        "specificity_test": 166,
+        "precision_test": 188,
+        "recall_test": 188
+      }
+    },
+    "MD_RF": {
+      "rows": 200,
+      "unique_labels": 200,
+      "numeric_metrics": {
+        "accuracy_cv": 188,
+        "auroc_cv": 188,
+        "auprc_cv": 188,
+        "specificity_cv": 188,
+        "precision_cv": 188,
+        "recall_cv": 188,
+        "accuracy_test": 188,
+        "auroc_test": 166,
+        "auprc_test": 188,
+        "specificity_test": 166,
+        "precision_test": 188,
+        "recall_test": 188
+      }
+    },
+    "MD_XGB": {
+      "rows": 200,
+      "unique_labels": 200,
+      "numeric_metrics": {
+        "accuracy_cv": 188,
+        "auroc_cv": 188,
+        "auprc_cv": 188,
+        "specificity_cv": 188,
+        "precision_cv": 188,
+        "recall_cv": 188,
+        "accuracy_test": 188,
+        "auroc_test": 166,
+        "auprc_test": 188,
+        "specificity_test": 166,
+        "precision_test": 188,
+        "recall_test": 188
+      }
+    },
+    "MD_LGBM": {
+      "rows": 200,
+      "unique_labels": 200,
+      "numeric_metrics": {
+        "accuracy_cv": 188,
+        "auroc_cv": 188,
+        "auprc_cv": 188,
+        "specificity_cv": 188,
+        "precision_cv": 188,
+        "recall_cv": 188,
+        "accuracy_test": 188,
+        "auroc_test": 166,
+        "auprc_test": 188,
+        "specificity_test": 166,
+        "precision_test": 188,
+        "recall_test": 188
+      }
+    },
+    "ST_RF": {
+      "rows": 200,
+      "unique_labels": 200,
+      "numeric_metrics": {
+        "accuracy_cv": 188,
+        "auroc_cv": 188,
+        "auprc_cv": 188,
+        "specificity_cv": 188,
+        "precision_cv": 188,
+        "recall_cv": 188,
+        "accuracy_test": 188,
+        "auroc_test": 166,
+        "auprc_test": 188,
+        "specificity_test": 166,
+        "precision_test": 188,
+        "recall_test": 188
+      }
+    },
+    "ST_XGB": {
+      "rows": 200,
+      "unique_labels": 200,
+      "numeric_metrics": {
+        "accuracy_cv": 188,
+        "auroc_cv": 188,
+        "auprc_cv": 188,
+        "specificity_cv": 188,
+        "precision_cv": 188,
+        "recall_cv": 188,
+        "accuracy_test": 188,
+        "auroc_test": 166,
+        "auprc_test": 188,
+        "specificity_test": 166,
+        "precision_test": 188,
+        "recall_test": 188
+      }
+    },
+    "ST_LGBM": {
+      "rows": 200,
+      "unique_labels": 200,
+      "numeric_metrics": {
+        "accuracy_cv": 188,
+        "auroc_cv": 188,
+        "auprc_cv": 188,
+        "specificity_cv": 188,
+        "precision_cv": 188,
+        "recall_cv": 188,
+        "accuracy_test": 188,
+        "auroc_test": 166,
+        "auprc_test": 188,
+        "specificity_test": 166,
+        "precision_test": 188,
+        "recall_test": 188
+      }
+    }
+  },
+  "note": "Supplementary result label set; not a curated molecule training dataset. Missing metrics are not evidence that all 200 labels were evaluable."
+}

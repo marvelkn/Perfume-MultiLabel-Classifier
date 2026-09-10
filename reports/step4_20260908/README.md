@@ -1,5 +1,7 @@
 # Step 4 — Pemeriksaan termal sebelum smoke
 
+**Status terbaru: [attempt 03](attempt-03/README.md)** tetap STOP sebelum fitting; baseline 610 detik, suhu akhir 84,875°C. Step 4–5 sudah diizinkan. [Step 5](../step5_20260908/README.md) tertahan sampai smoke GO. Bagian berikut mempertahankan hasil dan cakupan izin attempt pertama pada waktu itu.
+
 **STOP sebelum fitting.** Rekaman CPU baru selama **610 detik** tidak memenuhi syarat mulai safe-smoke **<75°C**. Tidak ada label-fit, run smoke/final, tuning, pemuatan matriks dataset, atau evaluasi test yang dijalankan. Budget aktif probe terpakai **0 dari 300 detik**.
 
 ## Hasil pengukuran
@@ -48,3 +50,7 @@ Charger terhubung pada pengamatan; skema daya bernama Acer. Kesetaraannya dengan
 ## Langkah berikutnya
 
 Step 4 belum GO. Ulangi pemeriksaan termal setelah kondisi CPU memiliki margin di bawah 75°C dan sensor valid; batas suhu tetap. Probe terdaftar pada [PREREGISTRATION.md](../../PREREGISTRATION.md) baru boleh dijalankan jika syarat mulai terpenuhi. Jika kondisi lokal tetap tidak memenuhi batas, pilih resource lain dengan amandemen environment sebelum menjalankan eksperimen. Jangan memakai baseline ini untuk menebak waktu trial. **Step 5, jumlah trial final, dan training utama belum dijalankan atau diizinkan.**
+
+## Pembaruan setelah attempt awal
+
+8 September 2026: [attempt 02](attempt-02/README.md) tetap STOP termal (76,375–80,500°C selama 120 detik). [Runner smoke](SMOKE_RUNNER.md) sudah disiapkan; delapan tes sintetis dan validate-only lulus. Statistik di atas tetap merupakan attempt awal, bukan digabung dengan rekaman berikutnya.

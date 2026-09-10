@@ -1,0 +1,9 @@
+{
+  "status": "PENDING_MEASURED_SMOKE",
+  "active_seconds_cap_per_algorithm": 14400,
+  "trial_count_final": null,
+  "runtime_estimates": null,
+  "planned_trials_rule": "N = min(50, floor(0.8 * 14400 / max(t_hat[xgb], t_hat[lgbm])))",
+  "training_allowed": false,
+  "scope": "draft; not an operational ledger or budget freeze"
+}

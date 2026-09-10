@@ -1,0 +1,51 @@
+{
+  "timestamp": "2026-09-08T21:10:01.766694+07:00",
+  "sample_seconds": 10.000667399988743,
+  "system_cpu_percent": 12.8,
+  "top_processes": [
+    {
+      "pid": 5748,
+      "name": "rsEngineSvc.exe",
+      "cpu_percent_total_capacity": 9.035855280362094
+    },
+    {
+      "pid": 21320,
+      "name": "ChatGPT.exe",
+      "cpu_percent_total_capacity": 1.2238766518069695
+    },
+    {
+      "pid": 13452,
+      "name": "python.exe",
+      "cpu_percent_total_capacity": 0.7030780765699612
+    },
+    {
+      "pid": 27856,
+      "name": "ChatGPT.exe",
+      "cpu_percent_total_capacity": 0.5338185396179335
+    },
+    {
+      "pid": 28196,
+      "name": "dwm.exe",
+      "cpu_percent_total_capacity": 0.4296588245705319
+    },
+    {
+      "pid": 4,
+      "name": "System",
+      "cpu_percent_total_capacity": 0.19529946571387813
+    },
+    {
+      "pid": 7824,
+      "name": "Discord.exe",
+      "cpu_percent_total_capacity": 0.07811978628555125
+    },
+    {
+      "pid": 24936,
+      "name": "codex.exe",
+      "cpu_percent_total_capacity": 0.06509982190462603
+    }
+  ],
+  "power_plugged": true,
+  "available_ram_bytes": 15363276800,
+  "settings_modified": false,
+  "thermal_cause_determined": false
+}

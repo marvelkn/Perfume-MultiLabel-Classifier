@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "synthetic_tests": 48,
+  "duration_seconds": 3.7,
+  "warnings": 13,
+  "initial_attempt": "19 passed, 29 fixture errors due to inaccessible Windows pytest temp directory; rerun with fresh repository temp succeeded",
+  "frozen_protocol_files_verified": 85,
+  "real_training_started": false,
+  "campus_execution_tested": false
+}

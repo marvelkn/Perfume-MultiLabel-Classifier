@@ -1,0 +1,20 @@
+{
+  "step": 5,
+  "status": "AUTHORIZED_BLOCKED_BY_STEP4",
+  "recorded_at": "2026-09-08T21:23:28.175243+07:00",
+  "preparation_status": "VALIDATED",
+  "step_completed": false,
+  "blocker": "Step 4 thermal STOP; no measured trial runtimes",
+  "active_seconds_cap_per_model": 14400,
+  "runtime_estimates": null,
+  "final_trial_count": null,
+  "final_run_created": false,
+  "budget_ledger_created": false,
+  "test_arrays_loaded": false,
+  "step6_authorized": false,
+  "evidence_hashes": {
+    "preflight.json": "d608db289eea2b0b314d52bbb4df51d878157d908ef05d9148f984ae855ba286",
+    "readiness.json": "a0ca3186dbb5c39e309d79b99e15aa7ddcbc07b1a6fc7a8d57a9d99baaca7733",
+    "README.md": "e3ba4777e1193663c4796570b402663987b4ea0b8e5137297d19bf83cf33b8a7"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "recorded_at": "2026-09-08T21:56:06.759099+07:00",
+  "timestamp": 1788879364.0,
+  "cpu_c": 77.12501,
+  "sensor_id": "/amdcpu/0/temperature/2",
+  "sensor_name": "Core (Tctl/Tdie)",
+  "source_age_seconds": 2.759099245071411,
+  "fresh_since_monitor_start": true
+}

@@ -1,5 +1,16 @@
 # Status implementasi — 8 September 2026
 
+## Revisi aktif — 10 September 2026
+
+Eksperimen aktif hanya memakai **GoodScents, IFRA 2019, Leffingwell, Arctander 1960, Sigma-Aldrich 2014**.
+Gunakan [WINDOWS_GUIDE.md](WINDOWS_GUIDE.md), RUN_PERFUME_FIVE.cmd, serta
+[notebook preprocessing](notebooks/02_perfume_five_preprocessing.ipynb).
+Hasil: 6.686 molekul, 109 label, fitur 1.024 atau 1.029; metadata dan split tersimpan pada perfume-five-v1.
+Preprocessing/notebook dan 21 tes komponen lulus. Training penelitian terbaru belum dijalankan.
+Revisi ini menggantikan eksperimen 25 label dan rencana penggunaan seluruh dataset Suh.
+Model/API historis dan arsip tetap disimpan; bagian prosedur lama di bawah bukan panduan run terbaru.
+
+
 Pekerjaan sesi ini berlangsung langsung di checkout ML asli pada `C:\Users\ACER\Documents\Marvel\Skripsi\Project Skripsi\Perfume-MultiLabel-Classifier`. Frontend hanya referensi. Source LaTeX tetap pada folder laporan asli; isi bab belum diubah oleh Step 0–4.
 
 | Tahap terbaru | Status dan bukti |
@@ -8,9 +19,10 @@ Pekerjaan sesi ini berlangsung langsung di checkout ML asli pada `C:\Users\ACER\
 | Step 1 | GO sensor/baseline: 610 detik, suhu 80,125–85,875°C. Kesiapan termal training STOP. |
 | Step 2 | GO: profil aman, log resource, lock per run, dan resume baseline tersedia; 90 tes ML sintetis lulus. |
 | Step 3 | GO: audit dan [praregistrasi](PREREGISTRATION.md), 85 checksum, tujuh sel notebook dan sembilan pemeriksaan verifier lulus. |
-| Step 4 | STOP sebelum smoke: 610 detik, CPU 76,625–85,125°C; 0 label-fit, guard menolak mulai. [Bukti](reports/step4_20260908/README.md). |
+| Step 4 | Attempt 03 STOP: baseline 610 detik, suhu akhir 84,875°C; belum ada fitting nyata. [Bukti terbaru](reports/step4_20260908/attempt-03/README.md). |
+| Step 5 | Snapshot calon run 47 berkas terverifikasi dengan guard live; 1,802 detik, 75,375°C, peak RSS 28,02 MiB. Budget/run final masih menunggu smoke. [Bukti](reports/step5_20260908/attempt-20260908-213401/README.md). |
 | Training protokol terbaru | Belum dimulai; belum ada hasil model atau test baru. |
-| Berikutnya | Ulangi Step 4 ketika suhu memenuhi syarat mulai <75°C. Estimasi runtime dan jumlah trial final masih menunggu; Step 5 belum diizinkan. |
+| Berikutnya | Selesaikan kondisi termal, lalu ulangi Step 4 dan lanjut Step 5 sesuai izin yang sudah diberikan. Step 6 dan seterusnya belum diizinkan. |
 
 Profil aktif yang dapat dipilih adalah smoke 1 thread/3 GiB/5 menit/80°C selama 5 detik dan training 2 thread/4 GiB/20 menit/85°C selama 10 detik. Keduanya memerlukan sensor valid dan kondisi mulai yang lebih dingin. Penghentian bersifat kooperatif, sehingga unit test belum membuktikan batas termal pada workload nyata.
 

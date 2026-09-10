@@ -1,0 +1,29 @@
+{
+  "status": "PASS",
+  "latex_static_checks": {
+    "Bab1": {
+      "environment_balance": "PASS",
+      "brace_balance": "PASS",
+      "citation_keys": "PASS",
+      "citation_count": 11
+    },
+    "Bab3": {
+      "environment_balance": "PASS",
+      "brace_balance": "PASS",
+      "citation_keys": "PASS",
+      "citation_count": 13
+    },
+    "Bab4": {
+      "environment_balance": "PASS",
+      "brace_balance": "PASS",
+      "citation_keys": "PASS",
+      "citation_count": 2,
+      "source_table_columns": "PASS"
+    }
+  },
+  "latex_compiled": false,
+  "latex_compiler_found": null,
+  "limitation": "Layout/PDF not verified; no LaTeX compiler available.",
+  "training_started": false,
+  "frontend_edited": false
+}
