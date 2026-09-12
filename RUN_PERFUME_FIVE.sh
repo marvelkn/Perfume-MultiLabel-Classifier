@@ -15,4 +15,4 @@ fi
 .venv/bin/python -B -m alignment.experiments
 .venv/bin/python -B -m alignment.collect_results
 
-echo "SELESAI. Ambil ZIP terbaru dari folder campus-results."
+echo "SELESAI. Ambil ZIP perfume-grouped-v3-results terbaru dari folder campus-results."

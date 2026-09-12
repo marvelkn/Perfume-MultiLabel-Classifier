@@ -1,0 +1,16 @@
+{
+  "id": "campus-i7-8700k-cpu-v1",
+  "source": "DxDiag.txt captured 2026-09-11",
+  "expected_machine": "DESKTOP-GPMUCGR",
+  "cpu": "Intel Core i7-8700K",
+  "physical_cores": 6,
+  "logical_cpus": 12,
+  "ram_gib": 32,
+  "gpu": "NVIDIA GeForce GTX 1080 Ti 11 GB",
+  "threads_per_model": 6,
+  "execution_device": "cpu",
+  "xgboost_tree_method": "hist",
+  "run_models_sequentially": true,
+  "gpu_acceleration_enabled": false,
+  "gpu_reason": "The Windows pip LightGBM package does not guarantee GPU support; CPU execution keeps both algorithms on the same reproducible setup."
+}

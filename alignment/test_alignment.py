@@ -82,12 +82,17 @@ def test_feature_equivalence_to_author_morgan():
     assert desc.shape == (1, 5) and np.isfinite(desc).all()
 
 
-def test_baseline_weighting_is_reference_specific():
-    from alignment.experiments import make_model
+def test_class_weighting_is_identical_for_both_algorithms():
+    from alignment.experiments import balanced_sample_weights, make_model
     xgb = make_model("xgb", {"n_estimators":100})
     lgbm = make_model("lgbm", {"n_estimators":100})
     assert xgb.get_params()["scale_pos_weight"] is None
-    assert lgbm.get_params()["class_weight"] == "balanced"
+    assert lgbm.get_params()["class_weight"] is None
+    assert xgb.get_params()["n_jobs"] == lgbm.get_params()["n_jobs"] == 6
+    assert xgb.get_params()["tree_method"] == "hist"
+    assert xgb.get_params()["device"] is None
+    weights = balanced_sample_weights([0, 0, 0, 1])
+    assert weights.tolist() == pytest.approx([2/3, 2/3, 2/3, 2])
 
 
 def test_deadline_stops_before_fit():
@@ -121,26 +126,39 @@ def test_full_orchestration_freezes_all_candidates_before_test(tmp_path, monkeyp
     y = np.column_stack([x[:, 0], 1-x[:, 0]])
     np.savez(dataset / "train.npz", row_index=np.arange(8), truth=y, morgan=x, descriptors=x.astype(float))
     np.savez(dataset / "test.npz", truth=y, morgan=x, descriptors=x.astype(float))
+    pd.DataFrame({"group_id":np.arange(8)}).to_csv(dataset / "groups.csv", index=False)
     (dataset / "dataset_manifest.json").write_text("{}")
     folds = [{"train":[0,1,2,3], "validation":[4,5,6,7]},
              {"train":[4,5,6,7], "validation":[0,1,2,3]}]
     e.write(dataset / "splits.json", {"folds":{"A":folds,"B":folds}, "eligible_labels":["A","B"]})
     meta = {"labels":["A","B"], "summary_labels":["A","B"]}
     monkeypatch.setattr(e, "check_host", lambda: None)
-    monkeypatch.setattr(e, "preflight", lambda _: (meta, {}))
+    protocol = {"confirmatory_status":"test"}
+    monkeypatch.setattr(e, "preflight", lambda _: (meta, protocol))
     monkeypatch.setattr(e, "fit", lambda *a, **k: FakeModel())
     monkeypatch.setattr(e, "tuning", lambda *a, **k: {"n_estimators":100})
+    def fake_robustness(run_path, key, algorithm, params, features, truth, labels, groups, protocol):
+        folder = run_path / "robustness" / key
+        e.write(folder / "thresholds.json", {
+            "labels": {name: {"threshold":0.5} for name in labels}
+        })
+        result = {"mean_metrics":{"auprc":0.8 if algorithm == "xgb" else 0.7}}
+        e.write(folder / "robustness_summary.json", result)
+        return result
+    monkeypatch.setattr(e, "repeated_grouped_cv", fake_robustness)
     original_load = e.np.load
     test_opens = []
     def checked_load(path, *args, **kwargs):
         if Path(path).name == "test.npz":
             freeze = e.read(run / "selection_frozen.json")
-            assert len(freeze["files"]) == 32
+            assert len(freeze["files"]) >= 60
+            assert set(freeze["finalists_from_primary_validation"]) == {"xgb", "lgbm"}
             test_opens.append(str(path))
         return original_load(path, *args, **kwargs)
     monkeypatch.setattr(e.np, "load", checked_load)
     result = e.run_all(dataset, run)
-    assert len(e.read(result)["test"]) == 8
+    assert len(e.read(result)["primary_test_threshold_0_5"]) == 8
+    assert len(e.read(result)["secondary_test_validation_thresholds"]) == 2
     assert len(test_opens) == 1
     monkeypatch.setattr(e, "fit", lambda *a, **k: pytest.fail("A frozen run must not fit again."))
     e.run_all(dataset, run)
@@ -156,5 +174,36 @@ def test_interrupted_tuning_reservation_is_charged(tmp_path):
             {"charged_seconds":3600, "active_reservation":3600})
     with pytest.raises(RuntimeError, match="no completed trial"):
         e.tuning(tmp_path, key, "xgb", None, None, None, None, None,
-                 {"tuning":{"seconds_per_study":7200, "attempts_per_study":15}})
+                 {"tuning":{"seconds_per_study":7200, "safety_max_trials_per_study":10000}})
     assert e.read(tmp_path / key / "tuning_budget.json")["charged_seconds"] == 7200
+
+
+def test_thresholds_use_oof_values_and_are_deterministic():
+    from alignment.experiments import select_validation_thresholds
+    truth = np.array([[0], [0], [1], [1]], dtype=np.uint8)
+    probabilities = np.array([[0.1], [0.4], [0.45], [0.9]])
+    result = select_validation_thresholds(truth, probabilities, ["floral"], [0.4, 0.5])
+    assert result["selection_data"].startswith("training-validation only")
+    assert result["labels"]["floral"]["threshold"] == 0.4
+    assert result == select_validation_thresholds(truth, probabilities, ["floral"], [0.4, 0.5])
+
+
+def test_repeated_grouped_cv_writes_fold_oof_and_threshold_artifacts(tmp_path, monkeypatch):
+    import alignment.experiments as e
+    x = np.tile(np.array([[0.0], [1.0]]), (10, 1))
+    y = np.column_stack([x[:, 0], 1 - x[:, 0]]).astype(np.uint8)
+    labels = ["floral", "woody"]
+    protocol = {
+        "robustness": {"seeds":[7, 21], "folds":2},
+        "threshold_selection": {"grid":[0.4, 0.5, 0.6]},
+    }
+    monkeypatch.setattr(e, "fit", lambda *args, **kwargs: FakeModel())
+    result = e.repeated_grouped_cv(
+        tmp_path, "xgb_D", "xgb", {"n_estimators":4}, x, y, labels,
+        np.arange(len(y)), protocol,
+    )
+    assert result["seeds"] == [7, 21]
+    assert (tmp_path / "robustness/xgb_D/seed_7/cv_fold_metrics.json").is_file()
+    assert (tmp_path / "robustness/xgb_D/pooled_oof_predictions.npz").is_file()
+    thresholds = e.read(tmp_path / "robustness/xgb_D/thresholds.json")
+    assert set(thresholds["labels"]) == set(labels)

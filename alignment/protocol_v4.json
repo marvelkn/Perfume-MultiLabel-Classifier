@@ -1,0 +1,70 @@
+{
+  "id": "perfume-five-grouped-v4",
+  "created_at": "2026-09-12T00:00:00+07:00",
+  "dataset_manifest_sha256": "886e8e49d08bf8c5c73f0c3d13de25bd01b63ada4bdcc7e58f4b49ad7cd60c17",
+  "environment": {
+    "numpy": "1.26.4",
+    "pandas": "2.2.3",
+    "scikit-learn": "1.6.1",
+    "rdkit": "2026.3.4",
+    "xgboost": "2.1.4",
+    "lightgbm": "4.6.0",
+    "optuna": "4.5.0",
+    "joblib": "1.6.0"
+  },
+  "algorithms": ["xgb", "lgbm"],
+  "dataset_id": "perfume-five-grouped-v2",
+  "group_policy": "structure-or-morgan-components-v1",
+  "class_imbalance": {
+    "policy": "balanced-sample-weight-from-training-partition-v1",
+    "same_as_grouped_v3": true,
+    "same_for_algorithms": true
+  },
+  "candidates": {
+    "xgb_C": "continued XGBoost study using Morgan 1024",
+    "xgb_D": "continued XGBoost study using Morgan 1024 plus five RDKit descriptors",
+    "lgbm_C": "continued LightGBM study using Morgan 1024",
+    "lgbm_D": "continued LightGBM study using Morgan 1024 plus five RDKit descriptors"
+  },
+  "incumbents": {
+    "xgb_D_v3": "frozen grouped-v3 XGBoost finalist",
+    "lgbm_D_v3": "frozen grouped-v3 LightGBM finalist"
+  },
+  "tuning": {
+    "seconds_per_study": 14400,
+    "initial_charged_seconds": 7200,
+    "additional_seconds_per_study": 7200,
+    "seconds_per_algorithm": 28800,
+    "seconds_all_algorithms": 57600,
+    "additional_seconds_total": 28800,
+    "safety_max_trials_per_study": 10000,
+    "sampler": "resumed TPESampler(seed=42)",
+    "search_space_changed": false,
+    "objective": "macro Average Precision over all 109 labels",
+    "fairness_rule": "equal cumulative active tuning time for XGBoost and LightGBM"
+  },
+  "robustness": {
+    "seeds": [7, 21, 42, 84, 100],
+    "folds": 5,
+    "grouped": true,
+    "selection_metric": "mean macro Average Precision across repetitions",
+    "paired_seed_comparison": true
+  },
+  "threshold_selection": {
+    "source": "mean repeated grouped out-of-fold validation probabilities",
+    "objective": "per-label F1",
+    "grid": [
+      0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5,
+      0.55, 0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9, 0.95
+    ],
+    "test_data_used": false
+  },
+  "primary_reporting": {
+    "threshold": 0.5,
+    "metrics": ["accuracy", "auroc", "auprc", "specificity", "precision", "recall"],
+    "paired_label_bootstrap_iterations": 10000
+  },
+  "test_access": "after all continued candidates are compared by repeated grouped CV, both algorithm selections are frozen, and any selected extended candidates are fitted on all training data",
+  "confirmatory_status": "exploratory symmetric tuning continuation after grouped-v3 test inspection; grouped-v3 remains the primary XGBoost-LightGBM comparison",
+  "run_once": true
+}

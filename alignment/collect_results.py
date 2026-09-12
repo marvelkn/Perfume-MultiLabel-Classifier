@@ -8,13 +8,13 @@ from .data import ROOT
 
 def collect(root=ROOT):
     root = Path(root).resolve()
-    run = root / "runs/perfume-five-grouped-v2"
+    run = root / "runs/perfume-five-grouped-v3"
     if not run.exists():
-        raise FileNotFoundError("No grouped-v2 run results yet.")
+        raise FileNotFoundError("No grouped-v3 run results yet.")
     if (run / ".alignment.lock").exists():
         raise RuntimeError("Stop/wait for training before collecting a consistent result archive.")
     folders = [run, root/"data/builds/perfume-five-grouped-v2", root/"alignment", root/"src",
-               root/"reports/grouped_v2_20260910"]
+               root/"reports/grouped_v3_20260911"]
     files = {p for folder in folders for p in folder.rglob("*")
              if p.is_file() and "__pycache__" not in p.parts and p.suffix not in (".pyc",)}
     files.update(root/n for n in ("requirements_training.txt","config.yaml","WINDOWS_GUIDE.md",
@@ -24,7 +24,7 @@ def collect(root=ROOT):
     files.add(root/"notebooks/02_perfume_five_preprocessing.ipynb")
     target = root/"campus-results"
     target.mkdir(exist_ok=True)
-    path = target/("perfume-grouped-v2-results-"+datetime.now().strftime("%Y%m%d-%H%M%S-%f")+".zip")
+    path = target/("perfume-grouped-v3-results-"+datetime.now().strftime("%Y%m%d-%H%M%S-%f")+".zip")
     manifest = {}
     with zipfile.ZipFile(path,"x",zipfile.ZIP_DEFLATED) as z:
         for p in sorted(files):

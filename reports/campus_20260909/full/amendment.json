@@ -30,7 +30,7 @@
     ],
     "attempted_trials_per_learner": 30,
     "active_tuning_seconds_per_learner": 14400,
-    "threads": 2,
+    "threads": 6,
     "session_seconds": 1200,
     "session_retries_with_progress_max": 6,
     "consecutive_resource_stops_end_tuning": 2,

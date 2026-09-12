@@ -1,0 +1,8 @@
+{
+  "charged_seconds": 7200,
+  "active_reservation": 0,
+  "stop_rule": "elapsed active compute time",
+  "attempted_trials": 11,
+  "completed_trials": 10,
+  "stop_reason": "time_budget_exhausted"
+}

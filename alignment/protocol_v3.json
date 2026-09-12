@@ -1,0 +1,64 @@
+{
+  "id": "perfume-five-grouped-v3",
+  "created_at": "2026-09-11T00:00:00+07:00",
+  "dataset_manifest_sha256": "886e8e49d08bf8c5c73f0c3d13de25bd01b63ada4bdcc7e58f4b49ad7cd60c17",
+  "environment": {
+    "numpy": "1.26.4",
+    "pandas": "2.2.3",
+    "scikit-learn": "1.6.1",
+    "rdkit": "2026.3.4",
+    "xgboost": "2.1.4",
+    "lightgbm": "4.6.0",
+    "optuna": "4.5.0",
+    "joblib": "1.6.0"
+  },
+  "dataset_id": "perfume-five-grouped-v2",
+  "source_restriction": [
+    "goodscents",
+    "ifra",
+    "leffingwell",
+    "arctander",
+    "sigma"
+  ],
+  "group_policy": "structure-or-morgan-components-v1",
+  "conditions": ["A", "B", "C", "D"],
+  "objective": "macro Average Precision over all 109 training-supported labels",
+  "class_imbalance": {
+    "policy": "balanced-sample-weight-from-training-partition-v1",
+    "formula": "n_samples / (2 * class_count[y])",
+    "same_for_algorithms": ["xgb", "lgbm"],
+    "validation_and_test_metrics_are_unweighted": true
+  },
+  "tuning": {
+    "seconds_per_study": 7200,
+    "seconds_per_algorithm": 14400,
+    "safety_max_trials_per_study": 10000,
+    "stop_rule": "elapsed active compute time; trial count is only a non-binding safety guard",
+    "sampler": "TPESampler(seed=42)"
+  },
+  "robustness": {
+    "purpose": "compare one validation-selected finalist per algorithm",
+    "seeds": [7, 21, 42, 84, 100],
+    "folds": 5,
+    "grouped": true,
+    "selection_metric": "mean macro Average Precision across repetitions"
+  },
+  "threshold_selection": {
+    "role": "secondary sensitivity analysis",
+    "source": "mean repeated grouped out-of-fold validation probabilities",
+    "objective": "per-label F1",
+    "grid": [
+      0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5,
+      0.55, 0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9, 0.95
+    ],
+    "test_data_used": false
+  },
+  "primary_reporting": {
+    "threshold": 0.5,
+    "metrics": ["accuracy", "auroc", "auprc", "specificity", "precision", "recall"],
+    "reason": "retain the locked Suh-aligned comparison"
+  },
+  "test_access": "after eight candidates, two finalists, repeated grouped CV, thresholds, and selection are frozen",
+  "confirmatory_status": "exploratory follow-up because the held-out split was already inspected in grouped-v2; grouped-v2 remains the primary confirmatory test",
+  "no_direct_paper_score_comparison": true
+}

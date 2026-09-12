@@ -67,7 +67,7 @@ def test_real_estimators_optuna_and_resume_on_tiny_synthetic_data(tmp_path,monke
     split={"folds":{label:folds for label in labels}}
     key=algorithm+"_C"; (tmp_path/key).mkdir()
     monkeypatch.setattr(e,"suggest",lambda trial,a:{"n_estimators":4,"max_depth":2})
-    protocol={"tuning":{"seconds_per_study":30,"attempts_per_study":1}}
+    protocol={"tuning":{"seconds_per_study":30,"safety_max_trials_per_study":1}}
     args=(tmp_path,key,algorithm,x,y,{"labels":labels,"summary_labels":labels},split,
           dict(enumerate(range(48))),protocol)
     best=e.tuning(*args)

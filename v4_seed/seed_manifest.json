@@ -1,0 +1,42 @@
+{
+  "source_run": "perfume-five-grouped-v3",
+  "source_identity_sha256": "bb3e5d683ea0328aef6596976d1f40e2bac24f14f148cb739d62571219738ce7",
+  "source_selection_sha256": "c36218f318893787b601a116808bd87e60a7afc5639ad9dba76f41d32bd7ed53",
+  "initial_charged_seconds_per_study": 7200,
+  "studies": {
+    "xgb_C": {"attempted_trials": 11, "completed_trials": 10, "completed_adaptive_tpe_trials": 0},
+    "xgb_D": {"attempted_trials": 11, "completed_trials": 10, "completed_adaptive_tpe_trials": 0},
+    "lgbm_C": {"attempted_trials": 44, "completed_trials": 43, "completed_adaptive_tpe_trials": 33},
+    "lgbm_D": {"attempted_trials": 52, "completed_trials": 52, "completed_adaptive_tpe_trials": 42}
+  },
+  "files": {
+    "xgb_C/optuna.sqlite3": "3fb4a791c4195baf767ff4c69662aac5d45c106444bcf2e95ca51c02786ee6d2",
+    "xgb_C/sampler.joblib": "45b4fe96b1fa598a2cbf8ba9dd4a823c4599c93e55daecb7831853fc9d39a7dc",
+    "xgb_C/trials.csv": "4da2045c8c7ee35ee104be3dbf9cd5e03e0b16968286a767fb5b4c944842e474",
+    "xgb_C/tuning_budget.json": "9a7a2261b5f11c15dd5e1dfb2ec3587cb6f617c908656706b420695766944c31",
+    "xgb_D/optuna.sqlite3": "cb089afaf780d69c202366f7ac19454944df43f94aa917b1981c1860455e30b1",
+    "xgb_D/sampler.joblib": "45b4fe96b1fa598a2cbf8ba9dd4a823c4599c93e55daecb7831853fc9d39a7dc",
+    "xgb_D/trials.csv": "9fffde5e4c5898bf859099078a452d423ac0fe3589d52dc2850ed7aa0e34a8b9",
+    "xgb_D/tuning_budget.json": "9a7a2261b5f11c15dd5e1dfb2ec3587cb6f617c908656706b420695766944c31",
+    "lgbm_C/optuna.sqlite3": "0f0dfe1365f18433b05f96d4d45645c2958c5e80fb291cb5393a96e37906e7c1",
+    "lgbm_C/sampler.joblib": "3733486db61c059189ef09c08b8c4dcad1c58c87684a0c913994edb350d808cd",
+    "lgbm_C/trials.csv": "b68d3515034aab06ff5c24c2a0ef141f952e0e3ac9b06f73b6f65bb19e82c835",
+    "lgbm_C/tuning_budget.json": "30c7bb1900174f0e07090e728704c3c0e4caca26b7e6a43db49507d0bb091b92",
+    "lgbm_D/optuna.sqlite3": "c6c770743ae70842394dc7c45f5b156f4d2725b09fdb7d569ced32a964fd426c",
+    "lgbm_D/sampler.joblib": "9ddff6310c9aed249bfe230adb8bb5856f402085bbce8721142034509456767f",
+    "lgbm_D/trials.csv": "a7a090146047429bb96bee20fbc9a5f30de16222deba86610b6d31b0e54e4409",
+    "lgbm_D/tuning_budget.json": "54a340a2fc335d2a502a59f50951eeadc7d1ad190781161d104e57bf377c30bf",
+    "xgb_D_v3/recipe.json": "fcd2075d4c87270c95fd75071c2a325ac6e6ca679b09ae3fe40f606b75f7b35e",
+    "xgb_D_v3/robustness_summary.json": "037f1a6153d5e283e268ec12b0115b09ea2fea46988f7a0166ffa9ed699a415d",
+    "xgb_D_v3/test_summary.json": "297407678ccc71446011a9c71eb125dff008e96fd62c7ce2abde728e88668906",
+    "xgb_D_v3/test_summary_validation_thresholds.json": "aa5cf932d0b44da2df1a869db9ab09857642bc3cb2f6a086d6e5df7ce3fa555c",
+    "xgb_D_v3/test_per_label.json": "bfa812c7c59a0b990047a99cb725ba24c72b9a4300a20da421b6dc40f34752b3",
+    "xgb_D_v3/test_per_label_validation_thresholds.json": "8cfa634f0c206313ac7538d0ba4266819009adc43a954ddf743550185a4e7396",
+    "lgbm_D_v3/recipe.json": "56b7304d1ac0aba23d744603e29dfc79245c0c730235ac77e25e18634f128448",
+    "lgbm_D_v3/robustness_summary.json": "e7c2f3fb4b1b4b204d4bc72e2b58dfafca1dd52af3b49fdad31d49fed5ceb024",
+    "lgbm_D_v3/test_summary.json": "5ce0561213ecf0c0229a28a4539ee7ea0ea1ab0652a93d2d7f80cecb06aec5cc",
+    "lgbm_D_v3/test_summary_validation_thresholds.json": "cc53dc80a74885f006e9309485c307d8630e3614effeae79f415163bb22f0e77",
+    "lgbm_D_v3/test_per_label.json": "32548d1c0995b00d48623e3e0db6c2f107235024cdb57c642d1c2dc406c5d54b",
+    "lgbm_D_v3/test_per_label_validation_thresholds.json": "ba8800efa26f7800884eb7ab157eb3d2453fcdc4b9ea0370d0637834554863db"
+  }
+}

@@ -1,4 +1,4 @@
-"""Build and verify the portable Windows/Linux campus package."""
+"""Build and verify the portable symmetric grouped-v4 continuation package."""
 from pathlib import Path
 import hashlib
 import json
@@ -13,15 +13,18 @@ def digest_bytes(value):
 
 def build(root=ROOT):
     root = Path(root).resolve()
-    destination = root / ".local-tools/campus-transfer-full-20260909/perfume-campus-grouped-v3.zip"
+    destination = (
+        root / ".local-tools/campus-transfer-full-20260909/perfume-campus-grouped-v4.zip"
+    )
     temporary = destination.with_suffix(".zip.tmp")
-    folders = [
+    folders = (
         "alignment",
         "src",
         "data/builds/perfume-five-grouped-v2",
         "data/snapshots/perfume-five-v1",
-        "reports/grouped_v3_20260911",
-    ]
+        "reports/grouped_v4_20260912",
+        "v4_seed",
+    )
     files = {
         path
         for folder in folders
@@ -32,11 +35,11 @@ def build(root=ROOT):
     files.update(root / name for name in (
         "config.yaml",
         "requirements_training.txt",
-        "WINDOWS_GUIDE.md",
-        "RUN_PERFUME_FIVE.cmd",
-        "RUN_PERFUME_FIVE.sh",
-        "COLLECT_CAMPUS_RESULTS.cmd",
-        "COLLECT_CAMPUS_RESULTS.sh",
+        "WINDOWS_GUIDE_V4.md",
+        "RUN_GROUPED_V4.cmd",
+        "RUN_GROUPED_V4.sh",
+        "COLLECT_GROUPED_V4_RESULTS.cmd",
+        "COLLECT_GROUPED_V4_RESULTS.sh",
         "README.md",
         "SAFE_EXECUTION_PLAN.md",
         "IMPLEMENTATION_STATUS.md",
@@ -57,10 +60,14 @@ def build(root=ROOT):
             hashes[name] = digest_bytes(content)
             archive.writestr(name, content)
         archive.writestr("CAMPUS_PACKAGE_MANIFEST.json", json.dumps({
-            "protocol": "perfume-five-grouped-v3",
+            "protocol": "perfume-five-grouped-v4",
             "supported_systems": ["Windows", "Linux"],
             "dataset_included": True,
             "raw_five_sources_included": True,
+            "warm_start_from_grouped_v3": True,
+            "algorithms": ["XGBoost", "LightGBM"],
+            "equal_additional_budget_per_algorithm_seconds": 14400,
+            "additional_optuna_seconds": 28800,
             "virtual_environment_included": False,
             "files": hashes,
         }, indent=2))
@@ -75,8 +82,13 @@ def build(root=ROOT):
     checksum = digest_bytes(destination.read_bytes())
     checksum_path = destination.with_suffix(".zip.sha256")
     checksum_path.write_text(f"{checksum}  {destination.name}\n", encoding="ascii")
-    return {"archive": str(destination), "sha256": checksum, "files": len(hashes),
-            "bytes": destination.stat().st_size, "supported_systems": ["Windows", "Linux"]}
+    return {
+        "archive": str(destination),
+        "sha256": checksum,
+        "files": len(hashes),
+        "bytes": destination.stat().st_size,
+        "supported_systems": ["Windows", "Linux"],
+    }
 
 
 if __name__ == "__main__":

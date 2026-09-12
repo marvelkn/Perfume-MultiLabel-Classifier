@@ -1,0 +1,24 @@
+{
+  "timestamp": "2026-09-11",
+  "protocol": "perfume-five-grouped-v3",
+  "dataset": "perfume-five-grouped-v2",
+  "checks": {
+    "python_syntax": "PASS",
+    "alignment_regression_tests": {
+      "status": "PASS",
+      "passed": 37,
+      "failed": 0
+    },
+    "dataset_protocol_preflight": {
+      "status": "INPUTS_VERIFIED",
+      "labels": 109,
+      "summary_labels": 109
+    }
+  },
+  "training_started": false,
+  "test_data_opened_by_validation": false,
+  "notes": [
+    "The packaged runner uses the same grouped-v2 dataset and split.",
+    "The grouped-v3 model run must be performed once on the campus PC."
+  ]
+}

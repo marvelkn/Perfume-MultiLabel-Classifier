@@ -90,6 +90,19 @@ def test_campus_runner_still_rejects_original_laptop(monkeypatch):
         e.check_host()
 
 
+def test_campus_compute_profile_matches_supplied_dxdiag():
+    profile = e.compute_profile()
+    assert profile["cpu"] == "Intel Core i7-8700K"
+    assert profile["physical_cores"] == 6
+    assert profile["logical_cpus"] == 12
+    assert profile["ram_gib"] == 32
+    assert profile["gpu"] == "NVIDIA GeForce GTX 1080 Ti 11 GB"
+    assert profile["threads_per_model"] == 6
+    assert profile["execution_device"] == "cpu"
+    assert profile["run_models_sequentially"] is True
+    assert profile["gpu_acceleration_enabled"] is False
+
+
 def test_preflight_recomputes_group_ids_from_structures(tmp_path,monkeypatch):
     # Integrity checks are bypassed in this fixture to specifically test the semantic guard.
     import pandas as pd
@@ -100,8 +113,10 @@ def test_preflight_recomputes_group_ids_from_structures(tmp_path,monkeypatch):
     pd.DataFrame({"source_row":range(4),"smiles":smiles}).to_csv(tmp_path/"records.csv",index=False)
     meta={"group_policy":POLICY,"files":{},"labels":["x"],"summary_labels":["x"]}
     split={"group_policy":POLICY,"groups":[0,0,0,0],"eligible_labels":["x"]}
-    values={"dataset_manifest.json":meta,"experiment_protocol.json":{
-        "dataset_manifest_sha256":"hash","environment":e.environment(),"group_policy":POLICY},
+    values={"dataset_manifest.json":meta,"protocol_v3.json":{
+        "id":e.RUN_ID,"dataset_manifest_sha256":"hash","environment":e.environment(),
+        "group_policy":POLICY,"class_imbalance":{"policy":e.WEIGHTING_POLICY},
+        "tuning":{"seconds_per_study":10,"seconds_per_algorithm":20}},
         "config.json":cfg,"splits.json":split}
     monkeypatch.setattr(e,"read",lambda p:values[p.name])
     monkeypatch.setattr(e,"digest",lambda p:"hash")
@@ -111,7 +126,7 @@ def test_preflight_recomputes_group_ids_from_structures(tmp_path,monkeypatch):
 
 def test_collect_results_refuses_active_run(tmp_path):
     from alignment.collect_results import collect
-    run=tmp_path/"runs/perfume-five-grouped-v2"
+    run=tmp_path/"runs/perfume-five-grouped-v3"
     run.mkdir(parents=True)
     (run/".alignment.lock").touch()
     with pytest.raises(RuntimeError,match="Stop/wait"):
@@ -126,7 +141,7 @@ def test_collect_results_marks_partial_and_verifies_archive(tmp_path):
               "COLLECT_CAMPUS_RESULTS.cmd","COLLECT_CAMPUS_RESULTS.sh",
               "reports/campus_20260909/full/amendment.json",
               "notebooks/02_perfume_five_preprocessing.ipynb",
-              "runs/perfume-five-grouped-v2/partial.json"]
+              "runs/perfume-five-grouped-v3/partial.json"]
     for name in required:
         p=tmp_path/name;p.parent.mkdir(parents=True,exist_ok=True);p.write_text("{}")
     path=collect(tmp_path)

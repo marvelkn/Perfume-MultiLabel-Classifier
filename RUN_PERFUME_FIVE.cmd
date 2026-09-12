@@ -15,4 +15,4 @@ if errorlevel 1 exit /b 1
 if errorlevel 1 exit /b 1
 ".venv\Scripts\python.exe" -B -m alignment.collect_results
 if errorlevel 1 exit /b 1
-echo SELESAI. Bawa folder runs\perfume-five-grouped-v2 dan data\builds\perfume-five-grouped-v2.
+echo SELESAI. Ambil ZIP perfume-grouped-v3-results terbaru dari folder campus-results.

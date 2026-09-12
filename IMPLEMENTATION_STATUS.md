@@ -1,5 +1,27 @@
 # Status implementasi — 8 September 2026
 
+## Update grouped-v4 — 12 September 2026
+
+Paket lanjutan disiapkan dengan warm-start studi C dan D untuk XGBoost serta
+LightGBM dari grouped-v3. Setiap studi mendapat 2 jam tambahan, sehingga kedua
+algoritma menerima tambahan 4 jam yang sama. Runner menilai empat kandidat baru,
+membandingkannya dengan dua incumbent v3, dan melatih final hanya kandidat yang
+terpilih dari validasi. Grouped-v3 tetap menjadi hasil utama; v4 adalah penguatan
+analisis Optuna dengan budget simetris.
+
+## Update grouped-v3 — 11 September 2026
+
+Hasil grouped-v2 telah dianalisis dan tidak dihapus. Runner grouped-v3 memperbaiki
+perbandingan XGBoost–LightGBM dengan bobot kelas yang sama, menghapus batas 15 trial
+yang sebelumnya menghentikan LightGBM terlalu cepat, menyimpan metrik per fold dan
+prediksi out-of-fold, serta menambah lima pengulangan grouped CV untuk finalis.
+Threshold hasil validasi menjadi analisis tambahan; enam metrik pada threshold 0,5
+tetap menjadi laporan utama.
+
+Status saat ini: kode dan protokol v3 disiapkan untuk validasi serta pembuatan ZIP
+`perfume-campus-grouped-v3.zip`. Training v3 belum dijalankan. Catatan lama di bawah
+dipertahankan sebagai riwayat.
+
 ## Revisi split kelompok — 10 September 2026
 
 Versi aktif: **perfume-five-grouped-v2**. Seluruh 6.686 molekul dipertahankan.
@@ -8,6 +30,7 @@ Tidak ada kelompok/fingerprint identik yang melintasi latih-test atau 545 fold v
 Daftar target mengikuti training baru: narcissus masuk, vetiver tidak memenuhi ambang training.
 Gunakan [WINDOWS_GUIDE.md](WINDOWS_GUIDE.md) dan RUN_PERFUME_FIVE.cmd.
 Paket lengkap: .local-tools/campus-transfer-full-20260909/perfume-campus-grouped-v2.zip.
+Profil PC kampus aktif memakai 6 thread CPU per model pada i7-8700K/32 GB; XGBoost dan LightGBM berjalan berurutan.
 Dataset lama perfume-five-v1 dipertahankan sebagai riwayat dan ditolak runner aktif.
 Bukti: reports/grouped_v2_20260910/validation.json. Training penelitian belum dijalankan.
 Catatan versi sebelumnya di bawah adalah riwayat.

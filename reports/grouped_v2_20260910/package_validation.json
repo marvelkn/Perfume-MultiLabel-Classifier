@@ -1,14 +1,20 @@
 {
   "status": "PASS",
   "archive": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\.local-tools\\campus-transfer-full-20260909\\perfume-campus-grouped-v2.zip",
-  "bytes": 8967880,
-  "sha256": "03d665401047dca80e05a13db2827ac9e2fa2f9c0db9c12048a2130db5d9ce1a",
-  "files_verified": 84,
+  "bytes": 8971205,
+  "sha256": "fb1cd86d87d81b085ce2ff9340340485ebb12f3aebc096526ee8e98d54781f75",
+  "archive_entries": 89,
+  "files_verified": 88,
   "extracted_preflight_exit_code": 0,
-  "stdout": "{\"status\": \"INPUTS_VERIFIED\", \"labels\": 109, \"summary_labels\": 109, \"training_started\": false}\n",
-  "stderr": "",
+  "preflight_labels": 109,
+  "compute_profile": "campus-i7-8700k-cpu-v1",
+  "xgboost_threads": 6,
+  "lightgbm_threads": 6,
+  "xgboost_tree_method": "hist",
+  "execution_device": "cpu",
+  "supported_systems": ["Windows", "Linux"],
   "verification_uses_project_python": true,
   "fresh_dependency_install_tested": false,
-  "training_started": false,
-  "verification_directory": "C:\\Users\\ACER\\AppData\\Local\\Temp\\perfume-campus-grouped-v2-8jjeh47w"
+  "research_training_started": false,
+  "physical_linux_host_tested": false
 }

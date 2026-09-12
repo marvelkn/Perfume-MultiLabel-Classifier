@@ -1,0 +1,19 @@
+{
+  "timestamp": "2026-09-11",
+  "archive": ".local-tools/campus-transfer-full-20260909/perfume-campus-grouped-v3.zip",
+  "sha256": "815a9b751568ced62881f14bf104fbbf4b2bd88688daa758157ce17948b767ed",
+  "bytes": 8895181,
+  "manifest_files": 84,
+  "archive_integrity": "PASS",
+  "extracted_alignment_tests": {
+    "status": "PASS",
+    "passed": 37,
+    "failed": 0
+  },
+  "extracted_preflight": {
+    "status": "INPUTS_VERIFIED",
+    "labels": 109,
+    "summary_labels": 109,
+    "training_started": false
+  }
+}

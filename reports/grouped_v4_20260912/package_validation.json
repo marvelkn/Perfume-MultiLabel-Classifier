@@ -1,0 +1,21 @@
+{
+  "validated_at": "2026-09-12T13:43:56+07:00",
+  "archive": "perfume-campus-grouped-v4.zip",
+  "protocol": "perfume-five-grouped-v4",
+  "sha256": "13a3ca19c3ce51787acb37d5f786a4185af0b1b2b4542b38b313d34c8e56d87f",
+  "bytes": 9060707,
+  "manifest_files": 119,
+  "archive_integrity": "passed",
+  "tests_from_extracted_archive": {
+    "passed": 42,
+    "failed": 0
+  },
+  "preflight_from_extracted_archive": {
+    "status": "V4_INPUTS_VERIFIED",
+    "algorithms": ["xgb", "lgbm"],
+    "labels": 109,
+    "additional_seconds_per_study": 7200,
+    "additional_seconds_total": 28800,
+    "training_started": false
+  }
+}

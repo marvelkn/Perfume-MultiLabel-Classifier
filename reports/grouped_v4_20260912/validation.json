@@ -1,0 +1,26 @@
+{
+  "validated_at": "2026-09-12T13:41:47+07:00",
+  "training_started": false,
+  "pytest": {
+    "scope": "alignment",
+    "passed": 42,
+    "failed": 0
+  },
+  "preflight": {
+    "status": "V4_INPUTS_VERIFIED",
+    "algorithms": ["xgb", "lgbm"],
+    "labels": 109,
+    "additional_seconds_per_study": 7200,
+    "additional_seconds_total": 28800
+  },
+  "checks": [
+    "dataset and grouped split integrity",
+    "locked dependency versions and protocol",
+    "warm-start artifact checksums",
+    "four exact grouped-v3 Optuna trial registries",
+    "equal added budget for XGBoost and LightGBM",
+    "resumable seed initialization",
+    "validation-only selection rule",
+    "paired-seed and paired-label comparison functions"
+  ]
+}

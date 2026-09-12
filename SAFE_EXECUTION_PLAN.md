@@ -1,5 +1,31 @@
 # Rencana Eksekusi Aman Proyek Skripsi Essenza
 
+## Eksperimen tambahan grouped-v4 — 12 September 2026
+
+Grouped-v3 sudah selesai dan tetap menjadi perbandingan utama XGBoost–LightGBM.
+V4 melanjutkan studi Optuna C dan D untuk kedua algoritma, masing-masing selama
+2 jam tambahan. Total tambahan adalah 4 jam per algoritma sehingga perbandingan
+tetap memakai budget yang sama. Ruang pencarian, dataset grouped, objective, bobot
+kelas, dan metrik tidak diubah. Empat kandidat v4 dinilai dengan lima repeated
+grouped CV dan dibandingkan dengan dua incumbent v3 yang sudah dibekukan. Test set
+baru diakses setelah seleksi. Hasil v4 bersifat eksploratori dan tidak menggantikan
+kesimpulan utama grouped-v3.
+
+Panduan eksekusi: [WINDOWS_GUIDE_V4.md](WINDOWS_GUIDE_V4.md).
+
+## Protokol aktif grouped-v3 — 11 September 2026
+
+Eksperimen v2 sudah selesai dan tetap disimpan sebagai evaluasi konfirmatori awal.
+Eksperimen lanjutan memakai runner **perfume-five-grouped-v3** dan dataset/split
+grouped-v2 yang sama. Perubahannya adalah bobot kelas yang identik untuk kedua
+algoritma, budget Optuna berbasis waktu penuh, artefak tiap fold, lima pengulangan
+grouped CV untuk dua finalis, dan threshold validasi sebagai analisis tambahan.
+
+Eksekusi PC kampus mengikuti [WINDOWS_GUIDE.md](WINDOWS_GUIDE.md). Satu launcher
+menjalankan seluruh urutan dan dapat dilanjutkan setelah interupsi. Bagian rencana
+bertanggal lebih lama di bawah adalah riwayat keputusan dan tidak menggantikan
+protokol v3.
+
 ## Revisi split kelompok — 10 September 2026
 
 Versi aktif: **perfume-five-grouped-v2**. Seluruh 6.686 molekul dipertahankan.
@@ -8,6 +34,7 @@ Tidak ada kelompok/fingerprint identik yang melintasi latih-test atau 545 fold v
 Daftar target mengikuti training baru: narcissus masuk, vetiver tidak memenuhi ambang training.
 Gunakan [WINDOWS_GUIDE.md](WINDOWS_GUIDE.md) dan RUN_PERFUME_FIVE.cmd.
 Paket lengkap: .local-tools/campus-transfer-full-20260909/perfume-campus-grouped-v2.zip.
+Profil PC kampus aktif memakai 6 thread CPU per model pada i7-8700K/32 GB; XGBoost dan LightGBM berjalan berurutan.
 Dataset lama perfume-five-v1 dipertahankan sebagai riwayat dan ditolak runner aktif.
 Bukti: reports/grouped_v2_20260910/validation.json. Training penelitian belum dijalankan.
 Catatan versi sebelumnya di bawah adalah riwayat.
