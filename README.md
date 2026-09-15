@@ -12,6 +12,15 @@ license: mit
 short_description: Versioned RDKit features for Essenza mobile inference
 ---
 
+## Grouped-v5
+
+Paket `perfume-campus-grouped-v5.zip` adalah audit tuning terakhir untuk kondisi
+D. XGBoost dan LightGBM masing-masing mendapat empat jam baru dengan checkpoint
+budget setiap 15 detik. Dataset, fitur, ruang pencarian, bobot kelas, split, dan
+metrik tetap sama. Grouped-v3 tetap hasil utama; v5 bersifat eksploratori.
+
+Instruksi PC kampus tersedia di [WINDOWS_GUIDE_V5.md](WINDOWS_GUIDE_V5.md).
+
 ## Grouped-v4
 
 Paket `perfume-campus-grouped-v4.zip` melanjutkan studi Optuna C dan D untuk

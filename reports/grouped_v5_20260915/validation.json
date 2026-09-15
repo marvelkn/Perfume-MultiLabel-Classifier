@@ -1,0 +1,22 @@
+{
+  "validated_at": "2026-09-15T12:17:18+07:00",
+  "source": "active_repository_before_packaging",
+  "test_command": "python -B -m pytest alignment -q -p no:cacheprovider",
+  "tests_passed": 48,
+  "tests_failed": 0,
+  "warnings": 21,
+  "warning_notes": "Matplotlib pyparsing deprecations and the known harmless LightGBM feature-name warning in legacy tests.",
+  "preflight": {
+    "status": "V5_INPUTS_VERIFIED",
+    "algorithms": [
+      "xgb",
+      "lgbm"
+    ],
+    "condition": "D",
+    "labels": 109,
+    "additional_seconds_per_study": 14400,
+    "additional_seconds_total": 28800,
+    "heartbeat_seconds": 15,
+    "training_started": false
+  }
+}

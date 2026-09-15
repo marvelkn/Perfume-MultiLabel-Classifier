@@ -1,5 +1,14 @@
 # Status implementasi — 8 September 2026
 
+## Update grouped-v5 — 15 September 2026
+
+Grouped-v4 selesai tanpa kerusakan artefak dan tetap memilih incumbent D v3 untuk
+kedua algoritma. Namun, `lgbm_D` menyelesaikan nol trial baru karena interupsi dan
+mekanisme reservasi budget. Runner v5 membatasi eksperimen pada kondisi D, memberi
+empat jam baru yang sama kepada XGBoost dan LightGBM, serta menyimpan budget setiap
+15 detik. Warning nama fitur LightGBM yang tidak memengaruhi prediksi juga disaring.
+V5 menjadi audit tuning terakhir; grouped-v3 tetap hasil utama.
+
 ## Update grouped-v4 — 12 September 2026
 
 Paket lanjutan disiapkan dengan warm-start studi C dan D untuk XGBoost serta

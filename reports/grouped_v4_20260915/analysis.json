@@ -1,0 +1,541 @@
+{
+  "run_complete": true,
+  "lock_present": false,
+  "protocol": "perfume-five-grouped-v4",
+  "selected_by_algorithm": {
+    "xgb": "xgb_D_v3",
+    "lgbm": "lgbm_D_v3"
+  },
+  "overall_selected": "xgb_D_v3",
+  "frozen_files": 136,
+  "frozen_mismatches": [],
+  "trials": {
+    "xgb_C": {
+      "csv_rows": 18,
+      "csv_complete": 16,
+      "database_rows": 18,
+      "database_states": {
+        "COMPLETE": 16,
+        "FAIL": 2
+      },
+      "initial_completed": 10,
+      "new_completed": 6,
+      "new_completed_duration_seconds": 7194.91554,
+      "best_trial": 13,
+      "best_value": 0.266339278818875,
+      "initial_best_trial": 1,
+      "initial_best_value": 0.2661571687000755,
+      "best_improvement": 0.00018211011879948336,
+      "best_came_from_v4": true,
+      "charged_seconds": 14400
+    },
+    "xgb_D": {
+      "csv_rows": 16,
+      "csv_complete": 15,
+      "database_rows": 17,
+      "database_states": {
+        "COMPLETE": 15,
+        "FAIL": 2
+      },
+      "initial_completed": 10,
+      "new_completed": 5,
+      "new_completed_duration_seconds": 6749.551173,
+      "best_trial": 1,
+      "best_value": 0.2979614057993944,
+      "initial_best_trial": 1,
+      "initial_best_value": 0.2979614057993944,
+      "best_improvement": 0.0,
+      "best_came_from_v4": false,
+      "charged_seconds": 14400
+    },
+    "lgbm_C": {
+      "csv_rows": 83,
+      "csv_complete": 81,
+      "database_rows": 83,
+      "database_states": {
+        "COMPLETE": 81,
+        "FAIL": 2
+      },
+      "initial_completed": 43,
+      "new_completed": 38,
+      "new_completed_duration_seconds": 6479.082412000001,
+      "best_trial": 76,
+      "best_value": 0.2720721587696488,
+      "initial_best_trial": 35,
+      "initial_best_value": 0.2719081653464228,
+      "best_improvement": 0.0001639934232259832,
+      "best_came_from_v4": true,
+      "charged_seconds": 14400
+    },
+    "lgbm_D": {
+      "csv_rows": 52,
+      "csv_complete": 52,
+      "database_rows": 53,
+      "database_states": {
+        "COMPLETE": 52,
+        "FAIL": 1
+      },
+      "initial_completed": 52,
+      "new_completed": 0,
+      "new_completed_duration_seconds": 0.0,
+      "best_trial": 2,
+      "best_value": 0.2966074762247983,
+      "initial_best_trial": 2,
+      "initial_best_value": 0.2966074762247983,
+      "best_improvement": 0.0,
+      "best_came_from_v4": false,
+      "charged_seconds": 14400
+    }
+  },
+  "robustness": {
+    "xgb_C": {
+      "mean": {
+        "accuracy": 0.9253345856809693,
+        "auroc": 0.8199076873370978,
+        "auprc": 0.26538100942885984,
+        "specificity": 0.9366016127027708,
+        "precision": 0.19871105675164125,
+        "recall": 0.4482534453721529
+      },
+      "std": {
+        "accuracy": 0.00021312158159869272,
+        "auroc": 0.0014639018643754925,
+        "auprc": 0.002051795785879172,
+        "specificity": 0.00026696192814027283,
+        "precision": 0.0009955629108803275,
+        "recall": 0.0035563875321776807
+      }
+    },
+    "xgb_D": {
+      "mean": {
+        "accuracy": 0.9373063751266575,
+        "auroc": 0.8343891893209643,
+        "auprc": 0.2954264313824253,
+        "specificity": 0.9494719266366728,
+        "precision": 0.24155390053689701,
+        "recall": 0.4384200803904029
+      },
+      "std": {
+        "accuracy": 0.00013676514746935726,
+        "auroc": 0.0017867155418281836,
+        "auprc": 0.0016302059018589818,
+        "specificity": 0.00014500759601886537,
+        "precision": 0.0004558307518586108,
+        "recall": 0.002818186400341169
+      }
+    },
+    "lgbm_C": {
+      "mean": {
+        "accuracy": 0.9279024058995325,
+        "auroc": 0.819808845144744,
+        "auprc": 0.27091988908488346,
+        "specificity": 0.9397560567646954,
+        "precision": 0.21734693766461613,
+        "recall": 0.4340077217257379
+      },
+      "std": {
+        "accuracy": 0.00026145139734470244,
+        "auroc": 0.001175026592503609,
+        "auprc": 0.0016766093838433869,
+        "specificity": 0.00028562597996766264,
+        "precision": 0.001305200305003006,
+        "recall": 0.0009727731653427951
+      }
+    },
+    "lgbm_D": {
+      "mean": {
+        "accuracy": 0.9294295587937688,
+        "auroc": 0.8344163551121465,
+        "auprc": 0.2942650482382704,
+        "specificity": 0.9399334577223785,
+        "precision": 0.22595877870040876,
+        "recall": 0.4650610241555329
+      },
+      "std": {
+        "accuracy": 0.00020966244369939813,
+        "auroc": 0.0011915218195951102,
+        "auprc": 0.0015170570798596372,
+        "specificity": 0.00013614328161594633,
+        "precision": 0.0010327793462673082,
+        "recall": 0.0011241767007623517
+      }
+    }
+  },
+  "feature_gain_auprc_D_minus_C": {
+    "xgb": 0.030045421953565465,
+    "lgbm": 0.02334515915338692
+  },
+  "test_metrics_threshold_0_5": {
+    "xgb_D_v3": {
+      "accuracy": 0.9328960680537107,
+      "auroc": 0.8391755141628975,
+      "auprc": 0.30578036711254186,
+      "specificity": 0.9437934646150288,
+      "precision": 0.23018701457120036,
+      "recall": 0.4705724828359341
+    },
+    "lgbm_D_v3": {
+      "accuracy": 0.9237768157635737,
+      "auroc": 0.8392044487516611,
+      "auprc": 0.30369233092125014,
+      "specificity": 0.9328755798130155,
+      "precision": 0.21076151975504603,
+      "recall": 0.5018293550714744
+    }
+  },
+  "threshold_effect": {
+    "xgb": {
+      "selected": "xgb_D_v3",
+      "fixed_macro_f1": 0.30129273634891823,
+      "threshold_macro_f1": 0.32104013737983866,
+      "fixed_precision": 0.23018701457120036,
+      "fixed_recall": 0.4705724828359341,
+      "threshold_precision": 0.29099506116238366,
+      "threshold_recall": 0.4035901756848866
+    },
+    "lgbm": {
+      "selected": "lgbm_D_v3",
+      "fixed_macro_f1": 0.28850865612887133,
+      "threshold_macro_f1": 0.32380376419312407,
+      "fixed_precision": 0.21076151975504603,
+      "fixed_recall": 0.5018293550714744,
+      "threshold_precision": 0.3080594795484025,
+      "threshold_recall": 0.40044731736550315
+    }
+  },
+  "paired_seed_comparison": {
+    "difference": "XGBoost minus LightGBM",
+    "metric": "macro Average Precision",
+    "seeds": [
+      7,
+      21,
+      42,
+      84,
+      100
+    ],
+    "per_seed_difference": [
+      0.0018664965528947808,
+      0.0012524094528025276,
+      0.0013539295745960689,
+      0.0008854367618897907,
+      0.00044864337859129577
+    ],
+    "mean_difference": 0.0011613831441548927,
+    "sample_std": 0.0005307280883906765,
+    "t_95_ci": [
+      0.0005023971839646834,
+      0.001820369104345102
+    ]
+  },
+  "paired_label_bootstrap_test": {
+    "difference": "XGBoost minus LightGBM",
+    "metric": "per-label Average Precision",
+    "resampling_unit": "label",
+    "labels": 109,
+    "iterations": 10000,
+    "seed": 42,
+    "observed_mean_difference": 0.002088036191291749,
+    "percentile_95_ci": [
+      -0.0028245427250425527,
+      0.006893696381489458
+    ],
+    "bootstrap_probability_xgb_higher": 0.7936
+  },
+  "test_labels_under_10_positives": 13,
+  "top_xgb_labels_by_auprc": [
+    {
+      "label": "popcorn",
+      "test_positives": 3,
+      "xgb_auprc": 0.9166666666666665,
+      "lgbm_auprc": 0.8055555555555556,
+      "delta_xgb_minus_lgbm": 0.11111111111111094
+    },
+    {
+      "label": "fruity",
+      "test_positives": 511,
+      "xgb_auprc": 0.8032234010759616,
+      "lgbm_auprc": 0.8013004648939293,
+      "delta_xgb_minus_lgbm": 0.0019229361820323199
+    },
+    {
+      "label": "sulfurous",
+      "test_positives": 71,
+      "xgb_auprc": 0.7538288599850469,
+      "lgbm_auprc": 0.7663415139109062,
+      "delta_xgb_minus_lgbm": -0.012512653925859318
+    },
+    {
+      "label": "cucumber",
+      "test_positives": 18,
+      "xgb_auprc": 0.7194687630597786,
+      "lgbm_auprc": 0.6910310358672739,
+      "delta_xgb_minus_lgbm": 0.028437727192504703
+    },
+    {
+      "label": "garlic",
+      "test_positives": 26,
+      "xgb_auprc": 0.7080177850457341,
+      "lgbm_auprc": 0.6992751444302101,
+      "delta_xgb_minus_lgbm": 0.008742640615523989
+    },
+    {
+      "label": "floral",
+      "test_positives": 374,
+      "xgb_auprc": 0.6610581766380509,
+      "lgbm_auprc": 0.653692722413914,
+      "delta_xgb_minus_lgbm": 0.007365454224136925
+    },
+    {
+      "label": "green",
+      "test_positives": 404,
+      "xgb_auprc": 0.6151755368856953,
+      "lgbm_auprc": 0.6221711947820622,
+      "delta_xgb_minus_lgbm": -0.006995657896366914
+    },
+    {
+      "label": "onion",
+      "test_positives": 35,
+      "xgb_auprc": 0.6127086971042528,
+      "lgbm_auprc": 0.6122293851455527,
+      "delta_xgb_minus_lgbm": 0.00047931195870010157
+    },
+    {
+      "label": "woody",
+      "test_positives": 240,
+      "xgb_auprc": 0.6127016694647955,
+      "lgbm_auprc": 0.6014910421673618,
+      "delta_xgb_minus_lgbm": 0.011210627297433717
+    },
+    {
+      "label": "phenolic",
+      "test_positives": 43,
+      "xgb_auprc": 0.5851162475086156,
+      "lgbm_auprc": 0.5953583032354429,
+      "delta_xgb_minus_lgbm": -0.010242055726827348
+    }
+  ],
+  "bottom_xgb_labels_by_auprc": [
+    {
+      "label": "dry",
+      "test_positives": 31,
+      "xgb_auprc": 0.046693374445780145,
+      "lgbm_auprc": 0.044024472636329234,
+      "delta_xgb_minus_lgbm": 0.0026689018094509104
+    },
+    {
+      "label": "milky",
+      "test_positives": 8,
+      "xgb_auprc": 0.04536055746554204,
+      "lgbm_auprc": 0.05333556355199038,
+      "delta_xgb_minus_lgbm": -0.007975006086448341
+    },
+    {
+      "label": "warm",
+      "test_positives": 26,
+      "xgb_auprc": 0.045302752347072754,
+      "lgbm_auprc": 0.06675578968998606,
+      "delta_xgb_minus_lgbm": -0.02145303734291331
+    },
+    {
+      "label": "clean",
+      "test_positives": 18,
+      "xgb_auprc": 0.04135045864094169,
+      "lgbm_auprc": 0.04541403777844476,
+      "delta_xgb_minus_lgbm": -0.004063579137503069
+    },
+    {
+      "label": "marine",
+      "test_positives": 6,
+      "xgb_auprc": 0.03529676686141217,
+      "lgbm_auprc": 0.03576815764945572,
+      "delta_xgb_minus_lgbm": -0.00047139078804354917
+    },
+    {
+      "label": "soapy",
+      "test_positives": 11,
+      "xgb_auprc": 0.031451258745427015,
+      "lgbm_auprc": 0.02602311907103704,
+      "delta_xgb_minus_lgbm": 0.005428139674389973
+    },
+    {
+      "label": "raspberry",
+      "test_positives": 10,
+      "xgb_auprc": 0.03078389482329194,
+      "lgbm_auprc": 0.02444651084217432,
+      "delta_xgb_minus_lgbm": 0.00633738398111762
+    },
+    {
+      "label": "tea",
+      "test_positives": 13,
+      "xgb_auprc": 0.02591542155211044,
+      "lgbm_auprc": 0.034321911267960845,
+      "delta_xgb_minus_lgbm": -0.008406489715850403
+    },
+    {
+      "label": "celery",
+      "test_positives": 6,
+      "xgb_auprc": 0.018830158829727574,
+      "lgbm_auprc": 0.016210327315913313,
+      "delta_xgb_minus_lgbm": 0.0026198315138142615
+    },
+    {
+      "label": "narcissus",
+      "test_positives": 2,
+      "xgb_auprc": 0.011818935416614332,
+      "lgbm_auprc": 0.006294581071010327,
+      "delta_xgb_minus_lgbm": 0.005524354345604006
+    }
+  ],
+  "largest_xgb_label_advantages": [
+    {
+      "label": "popcorn",
+      "test_positives": 3,
+      "xgb_auprc": 0.9166666666666665,
+      "lgbm_auprc": 0.8055555555555556,
+      "delta_xgb_minus_lgbm": 0.11111111111111094
+    },
+    {
+      "label": "chocolate",
+      "test_positives": 18,
+      "xgb_auprc": 0.1894667577314693,
+      "lgbm_auprc": 0.11802899741973073,
+      "delta_xgb_minus_lgbm": 0.07143776031173855
+    },
+    {
+      "label": "smoky",
+      "test_positives": 22,
+      "xgb_auprc": 0.43223942454611447,
+      "lgbm_auprc": 0.3717749574719454,
+      "delta_xgb_minus_lgbm": 0.06046446707416908
+    },
+    {
+      "label": "cinnamon",
+      "test_positives": 9,
+      "xgb_auprc": 0.25860216271437386,
+      "lgbm_auprc": 0.21453552766315134,
+      "delta_xgb_minus_lgbm": 0.04406663505122252
+    },
+    {
+      "label": "acidic",
+      "test_positives": 8,
+      "xgb_auprc": 0.3117851051427287,
+      "lgbm_auprc": 0.26987802945815537,
+      "delta_xgb_minus_lgbm": 0.04190707568457336
+    },
+    {
+      "label": "melon",
+      "test_positives": 37,
+      "xgb_auprc": 0.3763809353241935,
+      "lgbm_auprc": 0.33857072107117814,
+      "delta_xgb_minus_lgbm": 0.03781021425301534
+    },
+    {
+      "label": "orange",
+      "test_positives": 21,
+      "xgb_auprc": 0.47215406693354833,
+      "lgbm_auprc": 0.43491901669535066,
+      "delta_xgb_minus_lgbm": 0.037235050238197676
+    },
+    {
+      "label": "cooling",
+      "test_positives": 12,
+      "xgb_auprc": 0.15288444634806478,
+      "lgbm_auprc": 0.11667962613136501,
+      "delta_xgb_minus_lgbm": 0.03620482021669977
+    },
+    {
+      "label": "terpenic",
+      "test_positives": 11,
+      "xgb_auprc": 0.4741188409880305,
+      "lgbm_auprc": 0.4381752396278424,
+      "delta_xgb_minus_lgbm": 0.03594360136018809
+    },
+    {
+      "label": "citrus",
+      "test_positives": 97,
+      "xgb_auprc": 0.48679402232488406,
+      "lgbm_auprc": 0.4525084992221234,
+      "delta_xgb_minus_lgbm": 0.03428552310276067
+    }
+  ],
+  "largest_lgbm_label_advantages": [
+    {
+      "label": "neroli",
+      "test_positives": 7,
+      "xgb_auprc": 0.30580790455717166,
+      "lgbm_auprc": 0.41627971026467264,
+      "delta_xgb_minus_lgbm": -0.11047180570750098
+    },
+    {
+      "label": "apricot",
+      "test_positives": 15,
+      "xgb_auprc": 0.19951713613152866,
+      "lgbm_auprc": 0.25395202111899856,
+      "delta_xgb_minus_lgbm": -0.0544348849874699
+    },
+    {
+      "label": "coffee",
+      "test_positives": 25,
+      "xgb_auprc": 0.3510069699905795,
+      "lgbm_auprc": 0.3972004371180126,
+      "delta_xgb_minus_lgbm": -0.04619346712743311
+    },
+    {
+      "label": "mushroom",
+      "test_positives": 27,
+      "xgb_auprc": 0.23724321836973006,
+      "lgbm_auprc": 0.27740294171680074,
+      "delta_xgb_minus_lgbm": -0.040159723347070686
+    },
+    {
+      "label": "pear",
+      "test_positives": 43,
+      "xgb_auprc": 0.23422354072463913,
+      "lgbm_auprc": 0.2726732402329382,
+      "delta_xgb_minus_lgbm": -0.03844969950829907
+    },
+    {
+      "label": "leafy",
+      "test_positives": 36,
+      "xgb_auprc": 0.11452107651563873,
+      "lgbm_auprc": 0.15192119418564284,
+      "delta_xgb_minus_lgbm": -0.03740011767000412
+    },
+    {
+      "label": "jasmin",
+      "test_positives": 40,
+      "xgb_auprc": 0.26795618811428246,
+      "lgbm_auprc": 0.3038398440802246,
+      "delta_xgb_minus_lgbm": -0.03588365596594212
+    },
+    {
+      "label": "dairy",
+      "test_positives": 19,
+      "xgb_auprc": 0.1673337517877715,
+      "lgbm_auprc": 0.2029865392154289,
+      "delta_xgb_minus_lgbm": -0.0356527874276574
+    },
+    {
+      "label": "savoury",
+      "test_positives": 23,
+      "xgb_auprc": 0.1799257449417342,
+      "lgbm_auprc": 0.21505510268356895,
+      "delta_xgb_minus_lgbm": -0.03512935774183476
+    },
+    {
+      "label": "sandalwood",
+      "test_positives": 11,
+      "xgb_auprc": 0.41309088766276103,
+      "lgbm_auprc": 0.43804764768408666,
+      "delta_xgb_minus_lgbm": -0.02495676002132563
+    }
+  ],
+  "result_archive": {
+    "path": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\.local-tools\\campus-transfer-full-20260909\\perfume-campus-grouped-v4\\perfume-campus-grouped-v4\\campus-results\\perfume-grouped-v4-results-20260914-193050-959972.zip",
+    "bytes": 206565406,
+    "sha256": "b67d0259833d4ca4210f3e5c3a4d76bca8209451c9f1bc441e3cb5d6170f524e",
+    "corrupt_member": null,
+    "manifest_complete": true,
+    "manifest_files": 256
+  }
+}

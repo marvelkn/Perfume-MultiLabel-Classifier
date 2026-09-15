@@ -1,5 +1,17 @@
 # Rencana Eksekusi Aman Proyek Skripsi Essenza
 
+## Audit tuning terakhir grouped-v5 — 15 September 2026
+
+Audit grouped-v4 menemukan kondisi D tetap unggul jelas atas C, tetapi `lgbm_D`
+tidak menyelesaikan trial tambahan karena proses terputus ketika sisa waktu telah
+dicadangkan. V5 hanya melanjutkan D untuk XGBoost dan LightGBM. Keduanya menerima
+empat jam baru dengan ruang pencarian, objective, bobot kelas, dataset, dan split
+yang sama. Budget disimpan setiap 15 detik agar interupsi tidak menghabiskan seluruh
+sisa waktu. Seleksi tetap memakai lima repeated grouped CV sebelum test dibuka.
+
+V5 adalah eksperimen eksploratori terakhir. Setelah selesai, tidak dilakukan
+putaran tuning tambahan pada split yang sama. Panduan: [WINDOWS_GUIDE_V5.md](WINDOWS_GUIDE_V5.md).
+
 ## Eksperimen tambahan grouped-v4 — 12 September 2026
 
 Grouped-v3 sudah selesai dan tetap menjadi perbandingan utama XGBoost–LightGBM.

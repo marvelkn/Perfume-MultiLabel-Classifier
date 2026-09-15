@@ -1,0 +1,40 @@
+{
+  "source_run": "perfume-five-grouped-v4",
+  "source_result_archive_sha256": "b67d0259833d4ca4210f3e5c3a4d76bca8209451c9f1bc441e3cb5d6170f524e",
+  "studies": {
+    "xgb_D": {
+      "database_trials": 17,
+      "completed_trials": 15,
+      "failed_trials": 2
+    },
+    "lgbm_D": {
+      "database_trials": 53,
+      "completed_trials": 52,
+      "failed_trials": 1
+    }
+  },
+  "files": {
+    "xgb_D/optuna.sqlite3": "056f4e8c6288e5999233a0166c1fd5a785fb6acff38f4a552268ef04c192b1d0",
+    "xgb_D/sampler.joblib": "22493313d289c33e0cc82ad4f421ea784b891648fa00bf41c763590d51f82407",
+    "xgb_D/trials.csv": "67228aa4b1044e078949aa2a52cb49b3b1a9c113d20cb3ca241becc51b1a23b7",
+    "xgb_D/recipe.json": "fcd2075d4c87270c95fd75071c2a325ac6e6ca679b09ae3fe40f606b75f7b35e",
+    "lgbm_D/optuna.sqlite3": "6f2566a945a248ef0230663a4b05b684b94c76d30c2d63cbf7ff509683cee59b",
+    "lgbm_D/sampler.joblib": "9ddff6310c9aed249bfe230adb8bb5856f402085bbce8721142034509456767f",
+    "lgbm_D/trials.csv": "a7a090146047429bb96bee20fbc9a5f30de16222deba86610b6d31b0e54e4409",
+    "lgbm_D/recipe.json": "56b7304d1ac0aba23d744603e29dfc79245c0c730235ac77e25e18634f128448",
+    "xgb_D_v3/recipe.json": "fcd2075d4c87270c95fd75071c2a325ac6e6ca679b09ae3fe40f606b75f7b35e",
+    "xgb_D_v3/robustness_summary.json": "037f1a6153d5e283e268ec12b0115b09ea2fea46988f7a0166ffa9ed699a415d",
+    "xgb_D_v3/test_per_label_validation_thresholds.json": "8cfa634f0c206313ac7538d0ba4266819009adc43a954ddf743550185a4e7396",
+    "xgb_D_v3/test_per_label.json": "bfa812c7c59a0b990047a99cb725ba24c72b9a4300a20da421b6dc40f34752b3",
+    "xgb_D_v3/test_summary_validation_thresholds.json": "aa5cf932d0b44da2df1a869db9ab09857642bc3cb2f6a086d6e5df7ce3fa555c",
+    "xgb_D_v3/test_summary.json": "297407678ccc71446011a9c71eb125dff008e96fd62c7ce2abde728e88668906",
+    "lgbm_D_v3/recipe.json": "56b7304d1ac0aba23d744603e29dfc79245c0c730235ac77e25e18634f128448",
+    "lgbm_D_v3/robustness_summary.json": "e7c2f3fb4b1b4b204d4bc72e2b58dfafca1dd52af3b49fdad31d49fed5ceb024",
+    "lgbm_D_v3/test_per_label_validation_thresholds.json": "ba8800efa26f7800884eb7ab157eb3d2453fcdc4b9ea0370d0637834554863db",
+    "lgbm_D_v3/test_per_label.json": "32548d1c0995b00d48623e3e0db6c2f107235024cdb57c642d1c2dc406c5d54b",
+    "lgbm_D_v3/test_summary_validation_thresholds.json": "cc53dc80a74885f006e9309485c307d8630e3614effeae79f415163bb22f0e77",
+    "lgbm_D_v3/test_summary.json": "5ce0561213ecf0c0229a28a4539ee7ea0ea1ab0652a93d2d7f80cecb06aec5cc",
+    "v4_complete.json": "530d8c8f93ec3fe0d35ebbc4024f9064ebbdb924b193eb074648e49212e55ab1",
+    "v4_selection_frozen.json": "c4b0d5c934889b56dbfb81d92ce82374cfdee58bebc2a6189036a6d3901cfbdd"
+  }
+}
