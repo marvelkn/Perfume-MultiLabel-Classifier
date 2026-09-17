@@ -12,6 +12,20 @@ license: mit
 short_description: Versioned RDKit features for Essenza mobile inference
 ---
 
+## Grouped-v6 — paket lab aktif, 16 September 2026
+
+Gunakan `perfume-campus-grouped-v6.zip`. Semua A/B/C/D dinilai ulang untuk XGBoost
+dan LightGBM. A/B tetap baseline; empat studi C/D baru mendapat masing-masing
+8 jam tuning (32 jam total), dengan pencarian diperluas berdasarkan batas yang
+dicapai resep terbaik v5. Lima repeated grouped CV diterapkan pada semua delapan
+kandidat sebelum pemilihan model dikunci dan test dievaluasi.
+
+Panduan: [Windows](WINDOWS_GUIDE_V6.md) / [Linux](LINUX_GUIDE_V6.md).
+Protokol: [alignment/protocol_v6.json](alignment/protocol_v6.json).
+V6 bersifat eksploratori karena test set sudah diperiksa pada versi sebelumnya;
+tidak ada klaim bahwa pencarian lebih lama pasti lebih baik. Bagian versi lama
+di bawah disimpan sebagai riwayat. Otorisasi v6 menggantikan rencana berhenti v5.
+
 ## Grouped-v5
 
 Paket `perfume-campus-grouped-v5.zip` adalah audit tuning terakhir untuk kondisi

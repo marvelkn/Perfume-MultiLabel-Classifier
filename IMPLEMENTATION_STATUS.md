@@ -1,5 +1,22 @@
 # Status implementasi — 8 September 2026
 
+## Update grouped-v6 — 16 September 2026
+
+V5 selesai: XGBoost D test AP 0,31453 dan LightGBM D 0,30925. Keduanya memilih
+800 pohon (batas atas lama), sehingga pengguna menyetujui perluasan pencarian.
+Paket v6 menilai semua A/B/C/D; A/B tetap baseline, empat studi C/D baru mendapat
+8 jam/studi. Dataset/split tidak berubah. Checkpoint budget 15 detik, resume setelah
+seleksi tidak mengubah artefak terkunci, dan model lengkap tersedia untuk delapan
+kandidat. Ada tabel semua kandidat, ablasi fitur/tuning, perbandingan historis,
+serta manifest model terpilih untuk tahap inferensi.
+
+Status: paket siap untuk PC lab; 56 pengujian lulus, termasuk pengujian ulang
+dari ZIP dan koleksi hasil sintetis. Hasil training v6 skala penelitian belum ada.
+Panduan [Windows](WINDOWS_GUIDE_V6.md) / [Linux](LINUX_GUIDE_V6.md).
+V6 tetap eksploratori; repeated CV tidak menggantikan test independen.
+Catatan versi sebelumnya di bawah adalah riwayat, termasuk rencana berhenti v5
+yang telah diganti atas permintaan pengguna.
+
 ## Update grouped-v5 — 15 September 2026
 
 Grouped-v4 selesai tanpa kerusakan artefak dan tetap memilih incumbent D v3 untuk

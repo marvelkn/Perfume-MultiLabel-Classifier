@@ -1,0 +1,27 @@
+{
+  "protocol": "perfume-five-grouped-v6",
+  "date": "2026-09-16",
+  "suite": "python -B -m pytest alignment -q -p no:cacheprovider",
+  "tests_passed": 56,
+  "tests_failed": 0,
+  "duration_seconds": 103.29,
+  "warnings": 63,
+  "warning_notes": "Dependency deprecations and known LightGBM feature-name warnings in tests; the production runner suppresses only that exact harmless feature-name warning.",
+  "input_preflight": "V6_INPUTS_VERIFIED",
+  "label_count": 109,
+  "candidates": 8,
+  "tuning_hours_per_study": 8,
+  "total_tuning_hours": 32,
+  "verified_behaviors": [
+    "Pinned dataset, feature and grouped split integrity",
+    "Expanded search and historical recipe compatibility",
+    "Fresh studies with budget-preserving resume",
+    "Small real XGBoost and LightGBM tuning runs",
+    "Eight-candidate synthetic evaluation and final fitting",
+    "Resume after selection freeze without repeating tuning",
+    "Completed run verification and changed-artifact rejection"
+  ],
+  "research_scale_training_started": false,
+  "platform_tested": "Windows; Linux launcher requires separate lab execution",
+  "final_zip_validation": "Recorded separately in package_validation.json after packaging."
+}

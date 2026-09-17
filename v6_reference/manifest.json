@@ -1,0 +1,9 @@
+{
+  "purpose": "Historical reporting and one re-evaluated initial recipe per fresh study; no historical trial values imported.",
+  "files": {
+    "comparison.json": "37b788b1159a6b4d77652739a4efc3443cbc9d944bacd02adc566cc8659c5b82",
+    "v3_complete.json": "a501d6ef23bf7559a983547f266237b1b4ca37c62e5bb2a4024220a0fff4ec98",
+    "v4_complete.json": "530d8c8f93ec3fe0d35ebbc4024f9064ebbdb924b193eb074648e49212e55ab1",
+    "v5_complete.json": "51c95d9e1dcb659d207ee9204455dd047a20177e2009d792eb94fb99df9b882e"
+  }
+}

@@ -1,5 +1,77 @@
 # Rencana Eksekusi Aman Proyek Skripsi Essenza
 
+## Protokol aktif grouped-v6 — 16 September 2026
+
+Pengguna menyetujui versi berikutnya untuk PC lab setelah audit parameter v5.
+Izin ini menggantikan rencana berhenti pada v5 di catatan sebelumnya. Tidak ada
+training skala penelitian v6 yang dijalankan pada laptop saat persiapan paket.
+
+- Dataset, 109 label, fitur, split kelompok, weighting, dan enam metrik tetap.
+- A/B tetap baseline 100 pohon. C/D untuk kedua algoritma memakai empat studi
+  Optuna baru dengan budget sama: 8 jam/studi, total 32 jam tuning.
+- Resep terbaik C v4 dan D v5 menjadi trial pertama, dievaluasi ulang dalam
+  budget. Skor dan riwayat trial lama tidak diimpor.
+- Rentang pohon diperluas menjadi 100–1.600, learning rate 0,005–0,20, dan
+  colsample_bytree 0,30–1,00. Parameter lain serta sampler TPE tetap.
+- Semua delapan kandidat dinilai memakai lima pengulangan grouped CV. Setelah
+  seleksi dan threshold dibekukan, lakukan final fitting serta test untuk delapan
+  kandidat, kemudian buat tabel ablasi dan perbandingan historis.
+- Resume mempertahankan budget dan trial selesai. Setelah selection_frozen.json
+  ada, jangan menulis ulang tuning/validasi; lanjutkan hanya fitting/evaluasi
+  yang belum selesai. Setelah complete, verifikasi checksum lalu lewati training.
+- Tetap eksploratori: test lama sudah dilihat, repeated CV bukan nested CV.
+  V2 adalah evaluasi test awal; v3 menjadi tabel utama eksperimen berbobot tetapi
+  statusnya juga eksploratori. Data eksternal/nested evaluation memerlukan
+  rancangan lanjutan tersendiri dan tidak diklaim sudah tersedia.
+- Setelah v6, analisis seluruh hasil (termasuk penurunan), kunci model dan
+  lanjutkan checklist inferensi data tambahan di bawah. Tidak ada perpanjangan
+  budget otomatis atau penambahan pseudo-label ke training.
+
+Panduan: [WINDOWS_GUIDE_V6.md](WINDOWS_GUIDE_V6.md) dan
+[LINUX_GUIDE_V6.md](LINUX_GUIDE_V6.md). Protokol mesin:
+[alignment/protocol_v6.json](alignment/protocol_v6.json).
+
+## Tindak lanjut setelah model final dikunci — 16 September 2026
+
+**Status: rencana disepakati, belum diimplementasikan.** Tujuannya memanfaatkan
+rekaman dari lima sumber yang belum masuk dataset terkurasi untuk memperluas
+cakupan prediksi. Tidak semua rekaman otomatis layak menjadi data training.
+
+- [ ] Kunci model terpilih, versi RDKit, skema fitur, urutan 109 label, dan threshold;
+  simpan checksum serta hasil evaluasi sebagai acuan tetap.
+- [ ] Inventarisasi ulang `data/builds/perfume-five-grouped-v2/rejected_records.json`
+  dan `audit.json`; kelompokkan rekaman berdasarkan alasan penolakan.
+- [ ] Untuk struktur molekul tunggal yang valid tetapi label kosong atau tidak
+  terpetakan, jalankan inferensi dengan preprocessing yang sama seperti training.
+  Label asli tetap disimpan; periksa pemetaan istilah sebelum menggantinya dengan
+  prediksi. Model hanya dapat memprediksi 109 label yang telah dipelajari.
+- [ ] Untuk identitas/SMILES yang belum ditemukan, selesaikan pencocokan struktur
+  terlebih dahulu dan catat sumber serta ketidakpastiannya. Jangan menebak struktur
+  atau mengisi identitas kimia dengan imputasi.
+- [ ] Untuk struktur multikomponen, periksa apakah identitas molekul tunggal dapat
+  dipastikan dari sumber. Jangan menghapus fragmen secara otomatis; campuran yang
+  belum terselesaikan tetap di luar cakupan model molekul tunggal.
+- [ ] Cocokkan kandidat dengan dataset lama memakai identitas kanonik dan aturan
+  kelompok struktur/fingerprint. Tandai overlap agar rekaman yang sama tidak
+  dilaporkan sebagai molekul baru atau data uji independen.
+- [ ] Simpan hasil dalam artefak inferensi terpisah: identitas dan sumber rekaman,
+  SMILES asli/kanonik, alasan penolakan awal, label sumber, skor per label, label
+  prediksi, threshold, versi/checksum model, waktu inferensi, dan status validasi.
+  Tandai asal label secara eksplisit sebagai `model_prediction`. Skor bukan
+  intensitas aroma dan belum dianggap probabilitas terkalibrasi.
+- [ ] Laporkan jumlah kandidat yang berhasil diprediksi, overlap, gagal, serta
+  yang masih belum dapat diproses. Prediksi tambahan tidak dihitung sebagai
+  ground truth atau bukti peningkatan akurasi; validasi memerlukan anotasi
+  independen atau penilaian ahli.
+
+**Batas eksperimen:** hasil inferensi tambahan tidak dimasukkan otomatis ke
+training dan tidak mengubah dataset, split, maupun metrik v3–v5. Jika kelak label
+prediksi digunakan untuk training (*pseudo-labeling*), perlakukan sebagai
+eksperimen lanjutan terpisah dengan kontrol tanpa pseudo-label, pemisahan kelompok
+yang mencegah kebocoran, dan evaluasi independen yang tidak dipakai untuk pemilihan
+model. Tujuannya menguji manfaat; menambah pseudo-label belum tentu memperbaiki
+model dan dapat memperkuat kesalahan prediksi.
+
 ## Audit tuning terakhir grouped-v5 — 15 September 2026
 
 Audit grouped-v4 menemukan kondisi D tetap unggul jelas atas C, tetapi `lgbm_D`

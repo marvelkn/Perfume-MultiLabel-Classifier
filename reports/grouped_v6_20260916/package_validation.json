@@ -1,0 +1,26 @@
+{
+  "protocol": "perfume-five-grouped-v6",
+  "date": "2026-09-16",
+  "archive": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\.local-tools\\campus-transfer-full-20260909\\perfume-campus-grouped-v6.zip",
+  "sha256": "3a319d7307a2b889a9b27cc02b5b90cc766100f3cbefff0da5bc5ec19978793b",
+  "bytes": 9226767,
+  "manifest_files_verified": 160,
+  "extracted_package_tests": {
+    "passed": 56,
+    "failed": 0,
+    "warnings": 63,
+    "duration_seconds": 57.74
+  },
+  "changes_after_extracted_package_tests": [
+    "IMPLEMENTATION_STATUS.md",
+    "reports/grouped_v6_20260916/README.md"
+  ],
+  "code_and_data_identical_to_tested_extraction": true,
+  "final_archive_integrity": "PASS",
+  "preflight": "V6_INPUTS_VERIFIED",
+  "synthetic_complete_result_collection": "PASS; 369 entries hash-verified; eight candidate results",
+  "linux_launcher_syntax": "PASS with bash -n; LF line endings verified",
+  "linux_full_execution_tested": false,
+  "research_scale_training_started": false,
+  "python_version": "3.12.14"
+}
