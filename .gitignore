@@ -45,3 +45,6 @@ reports/**/test-tmp-*/
 
 # Portable campus result archives
 campus-results/
+
+# Frozen local model releases (rebuild from verified campus results)
+releases/

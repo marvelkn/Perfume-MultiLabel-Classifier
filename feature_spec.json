@@ -1,6 +1,6 @@
 {
   "radius": 2,
-  "n_bits": 2048,
+  "n_bits": 1024,
   "include_chirality": false,
   "use_descriptors": true,
   "fragment_policy": "single",

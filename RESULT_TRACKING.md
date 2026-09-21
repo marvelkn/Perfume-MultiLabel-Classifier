@@ -1,3 +1,23 @@
+## Status aktif — penyelarasan backend, 21 September 2026
+
+Grouped-v6 telah selesai; **LightGBM D** dipilih berdasarkan macro AP validasi
+0,302232 (XGBoost D 0,298848). AP test masing-masing 0,313921 dan 0,314531.
+Rilis aktif: `releases/grouped-v6-lgbm-d/`, 109 model dan 1.029 fitur.
+Inferensi Python dan konfigurasi bawaan `/fingerprint` telah diselaraskan.
+Fitur 6.686 molekul identik dengan dataset beku; 3.488 skor pada 32 contoh
+identik dengan prediksi tersimpan. Sebanyak 23 tes komponen lulus.
+
+Panduan aktif: [INFERENCE_GUIDE.md](INFERENCE_GUIDE.md).
+Bukti: [verification.json](reports/backend_alignment_20260921/verification.json).
+ONNX lama 25 label dan dua array ambangnya dihapus atas instruksi pengguna.
+ONNX baru, integrasi Android, dan deployment **ditunda**. Training tambahan,
+pseudo-labeling, dan inferensi massal data yang ditolak tidak termasuk scope aktif.
+Data, split, model terlatih, dan angka evaluasi v6 tidak diubah; hasil tetap eksploratori.
+
+**Bagian bertanggal lebih lama di bawah adalah riwayat, bukan instruksi aktif.**
+
+> Catatan: uraian lama berikut belum seluruhnya diaudit ulang. Klaim test hanya dibuka sekali, bebas seluruh leakage, ONNX/Android selesai, dan keluarga label buatan tidak menjadi acuan v6. Gunakan kontrak rilis dan laporan terbaru.
+
 # Laporan Pelacakan Hasil Eksperimen (Result Tracking v1 – v5)
 **Proyek Skripsi:** Klasifikasi Multi-Label Senyawa Aroma Parfum (*Perfume Multi-Label Odor Classification*)  
 **Algoritma:** XGBoost & LightGBM  
@@ -21,32 +41,91 @@ Eksperimen pemodelan aroma parfum dari struktur molekul ini berevolusi secara te
 
 ---
 
-## 2. Rincian Dataset & Rekayasa Fitur
+## 2. Rincian Dataset, Taksonomi 109 Label, & Preprocessing
 
 ### 2.1 Sumber Data
 Seluruh iterasi (v1 hingga v5) dibangun di atas kurasi data dari **5 basis data bahan aroma dan flavor dunia**:
-1. **The GoodScents Company (TGSC)**
-2. **IFRA 2019 Transparency List**
-3. **Leffingwell & Associates (PMP 2001)**
-4. **Arctander (1960) Perfume and Flavor Chemicals**
-5. **Sigma-Aldrich Flavors & Fragrances (2014)**
+1. **The GoodScents Company (TGSC):** Anotasi deskriptor industri wewangian komersial.
+2. **IFRA 2019 Transparency List:** Standar internasional asosiasi wewangian (acuan kosakata taksonomi).
+3. **Leffingwell & Associates (PMP 2001):** Database spesialis molekul odor dan flavor.
+4. **Arctander (1960) Perfume and Flavor Chemicals:** Literatur klasik monograf bahan kimia aroma.
+5. **Sigma-Aldrich Flavors & Fragrances (2014):** Katalog acuan bahan baku murni tingkat industri.
 
-Hasil integrasi menghasilkan **6.686 molekul tunggal kanonik** setelah deduplikasi SMILES, penghapusan campuran (*multi-fragment mixtures*), dan standardisasi tautomer.
+Hasil integrasi menghasilkan **6.686 molekul tunggal kanonik** setelah pembersihan.
 
-### 2.2 Transisi Partisi Data (v1 → v2) dan Penyelesaian Data Leakage
-- **Permasalahan pada v1 (`perfume-five-v1`):**
-  - Menggunakan partisi acak 80:20 (5.318 latih, 1.368 uji).
-  - Berdasarkan audit pra-training ([notebook 03](file:///c:/Users/ACER/Documents/Marvel/Skripsi/Project%20Skripsi/Perfume-MultiLabel-Classifier/notebooks/03_perfume_data_quality_audit.ipynb)), ditemukan adanya molekul berbeda yang berbagi kerangka struktur identik (misalnya stereoisomer, garam, atau isomer geometris dengan Morgan fingerprint 100% sama) tersebar bersamaan di data latih dan data uji.
-  - Fenomena ini merupakan kebocoran data (*data leakage*) yang dapat memberikan estimasi performa terlalu optimis semu. Oleh karena itu, **v1 dibekukan dan tidak dilatih secara penuh untuk evaluasi utama**.
-- **Solusi pada v2 s.d. v5 (`perfume-five-grouped-v2`):**
-  - Menerapkan **Grouped Splitting**: Struktur molekul dipetakan ke dalam graf kesetaraan struktur/komponen Morgan.
-  - Menghasilkan **5.363 kelompok molekul (*structural groups*)**.
-  - Partisi Luar (*Outer Split*): Menggunakan `GroupShuffleSplit` (20% kelompok uji, seed 42) $\rightarrow$ **5.353 data latih** dan **1.333 data uji**.
-  - Partisi Dalam (*Inner CV*): Menggunakan `StratifiedGroupKFold` 5-fold per label.
-  - **Integritas:** **0 tumpang tindih (*zero overlap*)** fingerprint Morgan identik antara data latih dan data uji, serta di seluruh 545 fold validasi.
-  - **Label Target:** 109 label terpilih berdasarkan ambang frekuensi data latih (label *narcissus* memenuhi syarat dan masuk, sedangkan *vetiver* tidak memenuhi ambang dan dieksklusi).
+---
 
-### 2.3 Matriks Fitur (4 Kondisi Eksperimen)
+### 2.2 Daftar Lengkap 109 Label Aroma Target (10 Famili Olfaktori)
+
+Model memprediksi **109 deskriptor aroma** secara multi-label. Untuk kebutuhan pemahaman dan presentasi, 109 label ini diklasifikasikan ke dalam **10 Famili Olfaktori**:
+
+1. **Floral (11 label):** `floral`, `rose`, `jasmin`, `lily`, `hyacinth`, `muguet` (lily of the valley), `lavender`, `neroli`, `narcissus`, `geranium`, `orris` (iris).
+2. **Fruity (15 label):** `fruity`, `apple`, `apricot`, `banana`, `berry`, `cherry`, `grape`, `grapefruit`, `melon`, `peach`, `pear`, `pineapple`, `plum`, `raspberry`, `strawberry`, `tropical fruit`.
+3. **Citrus & Fresh (5 label):** `citrus`, `lemon`, `grapefruit`, `fresh`, `clean`.
+4. **Woody & Earthy (11 label):** `woody`, `sandalwood`, `pine`, `earthy`, `mushroom`, `musty`, `rooty`, `hay`, `dry`, `terpenic`, `leathery`.
+5. **Sweet & Gourmand (16 label):** `sweet`, `caramel`, `chocolate`, `cocoa`, `coffee`, `honey`, `vanilla`, `buttery`, `creamy`, `milky`, `dairy`, `nutty`, `almond`, `coconut`, `popcorn`, `gourmand`.
+6. **Green & Herbal (8 label):** `green`, `herbal`, `grassy`, `leafy`, `celery`, `cucumber`, `tea`, `minty`.
+7. **Spicy & Warm (7 label):** `spicy`, `warm`, `cinnamon`, `aromatic`, `anisic`, `camphoraceous`, `cooling`.
+8. **Balsamic & Resinous (5 label):** `balsamic`, `amber`, `phenolic`, `aldehydic`, `sharp`.
+9. **Animalic & Waxy (4 label):** `animal like`, `musk like`, `fatty`, `waxy`.
+10. **Pungent, Savoury, Fermented, & Chemical (27 label):** `savoury`, `meaty`, `roasted`, `smoky`, `sulfurous`, `onion`, `garlic`, `tobacco`, `rum`, `brandy`, `fermented`, `winey`, `medicinal`, `metallic`, `acidic`, `sour`, `cheesy`, `oily`, `soapy`, `ethereal`, `lactonic`, `pungent`, `potato`.
+
+---
+
+### 2.3 Partisi Dataset: 5.353 Data Latih vs 1.333 Data Uji (Grouped Splitting)
+
+Dari total **6.686 senyawa molekul unik**:
+- **Data Latih & Validasi (Training Set):** **5.353 senyawa (~80,1%)**
+- **Data Uji Akhir (Held-Out Test Set):** **1.333 senyawa (~19,9%)**
+
+#### Siklus Penggunaan Data:
+1. **Fase Pelatihan & Penyetelan (Tuning):**
+   - Model **hanya boleh melihat 5.353 senyawa latih**.
+   - Di dalam 5.353 senyawa ini, dilakukan validasi silang 5-fold (*5-Fold Stratified Group Cross-Validation*) dan diulang 5 kali (*5-Seed Repeated CV*) untuk mengevaluasi hyperparameter terbaik.
+   - **Data uji 1.333 senyawa sama sekali dikunci (*strictly frozen/held-out*)** agar tidak terjadi kebocoran informasi pemilihan model (*data snooping bias*).
+2. **Fase Evaluasi Akhir:**
+   - Setelah model terbaik dikunci, data uji 1.333 senyawa dibuka **satu kali saja** untuk mengukur akurasi generalisasi pada molekul baru yang belum pernah dilihat model sebelumnya.
+
+#### Mengapa Harus *Grouped Split* (5.363 Kelompok Struktur)?
+- Pada **v1**, partisi dilakukan secara acak standar. Ditemukan adanya molekul dengan struktur/fingerprint identik (misalnya enantiomer, stereoisomer, garam) yang masuk sekaligus ke data latih dan uji. Hal ini menyebabkan **kebocoran data (*data leakage*)**.
+- Pada **v2 s.d. v5**, 6.686 molekul dikelompokkan ke dalam **5.363 gugus struktur independen**. Satu gugus utuh hanya boleh berada di set latih ATAU set uji.
+- **Hasil:** **0 tumpang tindih (*zero overlap*)** fingerprint Morgan identik antara data latih dan data uji, serta di seluruh 545 fold validasi.
+
+---
+
+### 2.4 Alur 7-Tahap Preprocessing Data Secara Lengkap
+
+Proses pra-pemrosesan data dilakukan melalui modul [`alignment/perfume_data.py`](file:///c:/Users/ACER/Documents/Marvel/Skripsi/Project%20Skripsi/Perfume-MultiLabel-Classifier/alignment/perfume_data.py) dengan 7 tahapan berurutan:
+
+1. **Tahap 1: Ingesti Data & Verifikasi Checksum:**  
+   Mengunduh tabel perilaku aroma dari repositori terkurasi Pyrfume. Setiap file diverifikasi dengan hash SHA-256 untuk menjamin integritas data tidak berubah.
+2. **Tahap 2: Sanitasi Molekul & Penyaringan Komponen Tunggal (*Single-Molecule Filtering*):**  
+   - Hanya mempertahankan molekul organik tunggal terhubung (`len(Chem.GetMolFrags(mol)) == 1`).
+   - Mengeliminasi campuran, garam anorganik, ion counter, dan molekul tanpa koordinat atom valid.
+3. **Tahap 3: Kanonikalisasi Struktur Kimia (RDKit Canonical Isomeric SMILES):**  
+   - Setiap struktur kimia distandardisasi menggunakan representasi kanonik universal RDKit (`Chem.MolToSmiles(mol, isomericSmiles=True)`).
+4. **Tahap 4: Harmonisasi & Pemetaan Sinonim Label Aroma (*Lexical Alias Mapping*):**  
+   - Menyelaraskan teks bebas dari 5 sumber ke kosakata baku IFRA (misal: *"citrus notes"* $\rightarrow$ *"citrus"*, *"herbaceous"* $\rightarrow$ *"herbal"*, *"jasmine"* $\rightarrow$ *"jasmin"*).
+   - Penggabungan multi-label: jika satu molekul tercatat di beberapa basis data, seluruh label aromanya disatukan (*union of labels*).
+5. **Tahap 5: Seleksi Label Target Berdasarkan Frekuensi Minimum:**  
+   - Memfilter hanya label yang memiliki minimal 30 kemunculan positif di data latih agar model memiliki sampel pembelajaran yang cukup $\rightarrow$ Menghasilkan **109 label target**.
+6. **Tahap 6: Pembentukan Klaster Struktur & Partisi Bebas Leakage:**  
+   - Memetakan molekul ke dalam 5.363 gugus struktur.
+   - Partisi luar: `GroupShuffleSplit` (80:20) $\rightarrow$ 5.353 train dan 1.333 test.
+   - Partisi dalam: `StratifiedGroupKFold` 5-fold per label.
+7. **Tahap 7: Ekstraksi Fitur Kimia (1.029 Fitur):**  
+   - **Morgan Fingerprint (1.024 bit):** Generator RDKit radius 2 (ECFP4-equivalent) sebagai representasi topologi 2D ikatan atom.
+   - **5 Deskriptor Fisikokimia RDKit:**
+     - `MolWt`: Berat molekul (Dalton) $\rightarrow$ merepresentasikan volatilitas/kemudahan menguap.
+     - `MolLogP`: Koefisien partisi oktanol/air $\rightarrow$ merepresentasikan hidrofobisitas/lipofilitas.
+     - `NumHDonors`: Jumlah donor ikatan hidrogen.
+     - `NumHAcceptors`: Jumlah akseptor ikatan hidrogen.
+     - `TPSA`: Luas permukaan polar topologis ($\text{Å}^2$) $\rightarrow$ memengaruhi interaksi dengan reseptor penciuman.
+   - Menggabungkan keduanya menjadi vektor fitur **1.029 dimensi** untuk Kondisi B dan D.
+
+---
+
+### 2.5 Matriks Fitur (4 Kondisi Eksperimen)
 Untuk menguji kontribusi deskriptor fisikokimia secara ilmiah (analisis ablasi), setiap versi menguji 4 kondisi:
 - **Kondisi A (Morgan Baseline):** 1.024 bit Morgan Fingerprints (ECFP4-equivalent, radius 2) tanpa tuning parameter (`n_estimators = 100`).
 - **Kondisi B (Morgan + Physicochemical Baseline):** 1.024 bit Morgan + **5 Deskriptor Fisikokimia RDKit** (`MolWt`, `MolLogP`, `NumHDonors`, `NumHAcceptors`, `TPSA`) = **1.029 fitur**, tanpa tuning parameter (`n_estimators = 100`).

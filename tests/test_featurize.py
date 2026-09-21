@@ -7,8 +7,8 @@ def test_api_training_features_and_metadata_identical():
     X, metadata = features_and_metadata("OCC", SPEC)
     response = fingerprint_result("CCO")
     np.testing.assert_array_equal(X, response["fingerprint"])
-    assert X.dtype == np.float32 and X.shape == (2053,)
-    assert set(X[:2048]) <= {0,1}
+    assert X.dtype == np.float32 and X.shape == (1029,)
+    assert set(X[:1024]) <= {0,1}
     assert response["molecular_formula"] == "C2H6O"
     assert abs(response["molecular_weight"]-46.069) < .001
 
@@ -29,4 +29,4 @@ def test_stereoisomers_and_schema_identity():
 
 def test_invalid_row_mask():
     X,mask = fingerprint_matrix(["CCO","bad!","c1ccccc1"])
-    assert X.shape == (2,2053) and mask.tolist() == [True,False,True]
+    assert X.shape == (2,1029) and mask.tolist() == [True,False,True]

@@ -15,7 +15,7 @@ DESCRIPTORS = ("MolWt", "MolLogP", "NumHDonors", "NumHAcceptors", "TPSA")
 @dataclass(frozen=True)
 class FeatureSpec:
     radius: int = 2
-    n_bits: int = 2048
+    n_bits: int = 1024
     include_chirality: bool = False
     use_descriptors: bool = True
     fragment_policy: str = "single"
@@ -73,6 +73,8 @@ def _generator(spec):
 def features_and_metadata(smiles, spec=None):
     spec = spec or FeatureSpec()
     mol = parse_molecule(smiles)
+    # Training reads canonical SMILES; use the same atom ordering for descriptors.
+    mol = Chem.MolFromSmiles(Chem.MolToSmiles(mol, isomericSmiles=True))
     vector = _generator(spec).GetFingerprintAsNumPy(mol).astype(np.float32)
     descriptor_values = [getattr(Descriptors, name)(mol) for name in DESCRIPTORS]
     if spec.use_descriptors:

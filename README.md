@@ -12,6 +12,25 @@ license: mit
 short_description: Versioned RDKit features for Essenza mobile inference
 ---
 
+## Status aktif — penyelarasan backend, 21 September 2026
+
+Grouped-v6 telah selesai; **LightGBM D** dipilih berdasarkan macro AP validasi
+0,302232 (XGBoost D 0,298848). AP test masing-masing 0,313921 dan 0,314531.
+Rilis aktif: `releases/grouped-v6-lgbm-d/`, 109 model dan 1.029 fitur.
+Inferensi Python dan konfigurasi bawaan `/fingerprint` telah diselaraskan.
+Fitur 6.686 molekul identik dengan dataset beku; 3.488 skor pada 32 contoh
+identik dengan prediksi tersimpan. Sebanyak 23 tes komponen lulus.
+
+Panduan aktif: [INFERENCE_GUIDE.md](INFERENCE_GUIDE.md).
+Bukti: [verification.json](reports/backend_alignment_20260921/verification.json).
+ONNX lama 25 label dan dua array ambangnya dihapus atas instruksi pengguna.
+ONNX baru, integrasi Android, dan deployment **ditunda**. Training tambahan,
+pseudo-labeling, dan inferensi massal data yang ditolak tidak termasuk scope aktif.
+Data, split, model terlatih, dan angka evaluasi v6 tidak diubah; hasil tetap eksploratori.
+
+**Bagian bertanggal lebih lama di bawah adalah riwayat, bukan instruksi aktif.**
+
+
 ## Grouped-v6 — paket lab aktif, 16 September 2026
 
 Gunakan `perfume-campus-grouped-v6.zip`. Semua A/B/C/D dinilai ulang untuk XGBoost

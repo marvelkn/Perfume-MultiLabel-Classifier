@@ -1,0 +1,46 @@
+{
+  "completed_at": "2026-09-21T09:57:39.082781+00:00",
+  "backend_code": [
+    "src/featurize.py",
+    "src/release.py",
+    "src/inference.py",
+    "feature_spec.json",
+    "requirements_inference.txt",
+    ".gitignore"
+  ],
+  "backend_tests": [
+    "tests/test_featurize.py",
+    "tests/test_inference.py"
+  ],
+  "backend_docs": [
+    "INFERENCE_GUIDE.md",
+    "README.md",
+    "SAFE_EXECUTION_PLAN.md",
+    "IMPLEMENTATION_STATUS.md",
+    "RESULT_TRACKING.md",
+    "PROJECT_OVERVIEW.md"
+  ],
+  "preexisting_edits_preserved": [
+    "RESULT_TRACKING.md",
+    "PROJECT_OVERVIEW.md"
+  ],
+  "legacy_removed": {
+    "models/xgb_onnx/*.onnx": 25,
+    "models/lgbm_onnx/*.onnx": 25,
+    "threshold_arrays": [
+      "models/xgb_thresholds.npy",
+      "models/lgbm_thresholds.npy"
+    ]
+  },
+  "report_files": [
+    "src/2.Isi/Bab3.tex",
+    "src/2.Isi/Bab4.tex",
+    "src/2.Isi/Bab5.tex",
+    "CHANGELOG.md",
+    "CATATAN_PENYELARASAN_BACKEND.md"
+  ],
+  "no_training": true,
+  "frontend_modified": false,
+  "onnx_exported": false,
+  "android_tested": false
+}

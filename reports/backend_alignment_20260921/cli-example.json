@@ -1,0 +1,695 @@
+{
+  "status": "ok",
+  "smiles": "COc1cc(C=O)ccc1O",
+  "molecular_formula": "C8H8O3",
+  "molecular_weight": 152.14899999999997,
+  "feature_schema_id": "630793962c4fb25dd0e1fbf39c02d1b4ba24502cf4512f6110ee841e957870eb",
+  "feature_spec": {
+    "radius": 2,
+    "n_bits": 1024,
+    "include_chirality": false,
+    "use_descriptors": true,
+    "fragment_policy": "single",
+    "dtype": "float32",
+    "version": 1,
+    "rdkit_version": "2026.03.4"
+  },
+  "model_id": "grouped-v6-lgbm-d",
+  "selected_candidate": "lgbm_D",
+  "model_manifest_sha256": "5505605ad516be5980857c5e60c01107fc02b254a11c9765e6d89cfa77f06cff",
+  "threshold_policy": "primary_fixed_0.5",
+  "n_features": 1029,
+  "label_count": 109,
+  "score_interpretation": "Uncalibrated model score; not intensity or mixture composition.",
+  "predictions": [
+    {
+      "label": "acidic",
+      "score": 0.002943397033959627,
+      "threshold": 0.5,
+      "predicted": false
+    },
+    {
+      "label": "aldehydic",
+      "score": 0.0028377992566674948,
+      "threshold": 0.5,
+      "predicted": false
+    },
+    {
+      "label": "almond",
+      "score": 0.29497700929641724,
+      "threshold": 0.5,
+      "predicted": false
+    },
+    {
+      "label": "amber",
+      "score": 0.0003646665718406439,
+      "threshold": 0.5,
+      "predicted": false
+    },
+    {
+      "label": "animal like",
+      "score": 0.13542868196964264,
+      "threshold": 0.5,
+      "predicted": false
+    },
+    {
+      "label": "anisic",
+      "score": 0.047992605715990067,
+      "threshold": 0.5,
+      "predicted": false
+    },
+    {
+      "label": "apple",
+      "score": 0.06374902278184891,
+      "threshold": 0.5,
+      "predicted": false
+    },
+    {
+      "label": "apricot",
+      "score": 0.015903513878583908,
+      "threshold": 0.5,
+      "predicted": false
+    },
+    {
+      "label": "aromatic",
+      "score": 0.45635107159614563,
+      "threshold": 0.5,
+      "predicted": false
+    },
+    {
+      "label": "balsamic",
+      "score": 0.8730687499046326,
+      "threshold": 0.5,
+      "predicted": true
+    },
+    {
+      "label": "banana",
+      "score": 0.01816234365105629,
+      "threshold": 0.5,
+      "predicted": false
+    },
+    {
+      "label": "berry",
+      "score": 0.072697713971138,
+      "threshold": 0.5,
+      "predicted": false
+    },
+    {
+      "label": "brandy",
+      "score": 0.007133778650313616,
+      "threshold": 0.5,
+      "predicted": false
+    },
+    {
+      "label": "burnt",
+      "score": 0.18305067718029022,
+      "threshold": 0.5,
+      "predicted": false
+    },
+    {
+      "label": "buttery",
+      "score": 0.06980475783348083,
+      "threshold": 0.5,
+      "predicted": false
+    },
+    {
+      "label": "camphoraceous",
+      "score": 0.0021179544273763895,
+      "threshold": 0.5,
+      "predicted": false
+    },
+    {
+      "label": "caramel",
+      "score": 0.9695701003074646,
+      "threshold": 0.5,
+      "predicted": true
+    },
+    {
+      "label": "celery",
+      "score": 0.0006498088478110731,
+      "threshold": 0.5,
+      "predicted": false
+    },
+    {
+      "label": "cheesy",
+      "score": 0.009861830621957779,
+      "threshold": 0.5,
+      "predicted": false
+    },
+    {
+      "label": "cherry",
+      "score": 0.396476686000824,
+      "threshold": 0.5,
+      "predicted": false
+    },
+    {
+      "label": "chocolate",
+      "score": 0.9388065338134766,
+      "threshold": 0.5,
+      "predicted": true
+    },
+    {
+      "label": "cinnamon",
+      "score": 0.1316031515598297,
+      "threshold": 0.5,
+      "predicted": false
+    },
+    {
+      "label": "citrus",
+      "score": 0.012486324645578861,
+      "threshold": 0.5,
+      "predicted": false
+    },
+    {
+      "label": "clean",
+      "score": 0.004102027043700218,
+      "threshold": 0.5,
+      "predicted": false
+    },
+    {
+      "label": "cocoa",
+      "score": 0.024811167269945145,
+      "threshold": 0.5,
+      "predicted": false
+    },
+    {
+      "label": "coconut",
+      "score": 0.0776631236076355,
+      "threshold": 0.5,
+      "predicted": false
+    },
+    {
+      "label": "coffee",
+      "score": 0.007457825820893049,
+      "threshold": 0.5,
+      "predicted": false
+    },
+    {
+      "label": "cooling",
+      "score": 0.0688185766339302,
+      "threshold": 0.5,
+      "predicted": false
+    },
+    {
+      "label": "creamy",
+      "score": 0.9551076889038086,
+      "threshold": 0.5,
+      "predicted": true
+    },
+    {
+      "label": "cucumber",
+      "score": 0.0006525012431666255,
+      "threshold": 0.5,
+      "predicted": false
+    },
+    {
+      "label": "dairy",
+      "score": 0.4896877408027649,
+      "threshold": 0.5,
+      "predicted": false
+    },
+    {
+      "label": "dry",
+      "score": 0.2251298874616623,
+      "threshold": 0.5,
+      "predicted": false
+    },
+    {
+      "label": "earthy",
+      "score": 0.09639130532741547,
+      "threshold": 0.5,
+      "predicted": false
+    },
+    {
+      "label": "ethereal",
+      "score": 0.00923957396298647,
+      "threshold": 0.5,
+      "predicted": false
+    },
+    {
+      "label": "fatty",
+      "score": 0.024062566459178925,
+      "threshold": 0.5,
+      "predicted": false
+    },
+    {
+      "label": "fermented",
+      "score": 0.004518200643360615,
+      "threshold": 0.5,
+      "predicted": false
+    },
+    {
+      "label": "floral",
+      "score": 0.4752108156681061,
+      "threshold": 0.5,
+      "predicted": false
+    },
+    {
+      "label": "fresh",
+      "score": 0.034301724284887314,
+      "threshold": 0.5,
+      "predicted": false
+    },
+    {
+      "label": "fruity",
+      "score": 0.07623530924320221,
+      "threshold": 0.5,
+      "predicted": false
+    },
+    {
+      "label": "garlic",
+      "score": 0.0042843022383749485,
+      "threshold": 0.5,
+      "predicted": false
+    },
+    {
+      "label": "geranium",
+      "score": 0.0010734396055340767,
+      "threshold": 0.5,
+      "predicted": false
+    },
+    {
+      "label": "gourmand",
+      "score": 0.9702810049057007,
+      "threshold": 0.5,
+      "predicted": true
+    },
+    {
+      "label": "grape",
+      "score": 0.011109222657978535,
+      "threshold": 0.5,
+      "predicted": false
+    },
+    {
+      "label": "grapefruit",
+      "score": 0.007058422546833754,
+      "threshold": 0.5,
+      "predicted": false
+    },
+    {
+      "label": "grassy",
+      "score": 0.0019047035602852702,
+      "threshold": 0.5,
+      "predicted": false
+    },
+    {
+      "label": "green",
+      "score": 0.03695913031697273,
+      "threshold": 0.5,
+      "predicted": false
+    },
+    {
+      "label": "hay",
+      "score": 0.7442370057106018,
+      "threshold": 0.5,
+      "predicted": true
+    },
+    {
+      "label": "herbal",
+      "score": 0.2187487781047821,
+      "threshold": 0.5,
+      "predicted": false
+    },
+    {
+      "label": "honey",
+      "score": 0.05449339374899864,
+      "threshold": 0.5,
+      "predicted": false
+    },
+    {
+      "label": "hyacinth",
+      "score": 0.004333862569183111,
+      "threshold": 0.5,
+      "predicted": false
+    },
+    {
+      "label": "jasmin",
+      "score": 0.00512745650485158,
+      "threshold": 0.5,
+      "predicted": false
+    },
+    {
+      "label": "lactonic",
+      "score": 0.0023260191082954407,
+      "threshold": 0.5,
+      "predicted": false
+    },
+    {
+      "label": "lavender",
+      "score": 0.0006721617537550628,
+      "threshold": 0.5,
+      "predicted": false
+    },
+    {
+      "label": "leafy",
+      "score": 0.005743613466620445,
+      "threshold": 0.5,
+      "predicted": false
+    },
+    {
+      "label": "leathery",
+      "score": 0.02099720761179924,
+      "threshold": 0.5,
+      "predicted": false
+    },
+    {
+      "label": "lemon",
+      "score": 0.003071538405492902,
+      "threshold": 0.5,
+      "predicted": false
+    },
+    {
+      "label": "lily",
+      "score": 0.019730910658836365,
+      "threshold": 0.5,
+      "predicted": false
+    },
+    {
+      "label": "marine",
+      "score": 0.0017918567173182964,
+      "threshold": 0.5,
+      "predicted": false
+    },
+    {
+      "label": "medicinal",
+      "score": 0.5023690462112427,
+      "threshold": 0.5,
+      "predicted": true
+    },
+    {
+      "label": "melon",
+      "score": 0.012656726874411106,
+      "threshold": 0.5,
+      "predicted": false
+    },
+    {
+      "label": "metallic",
+      "score": 0.09155337512493134,
+      "threshold": 0.5,
+      "predicted": false
+    },
+    {
+      "label": "milky",
+      "score": 0.36167073249816895,
+      "threshold": 0.5,
+      "predicted": false
+    },
+    {
+      "label": "minty",
+      "score": 0.08311867713928223,
+      "threshold": 0.5,
+      "predicted": false
+    },
+    {
+      "label": "muguet",
+      "score": 0.0006080219754949212,
+      "threshold": 0.5,
+      "predicted": false
+    },
+    {
+      "label": "mushroom",
+      "score": 0.0016735905082896352,
+      "threshold": 0.5,
+      "predicted": false
+    },
+    {
+      "label": "musk like",
+      "score": 0.0013892472488805652,
+      "threshold": 0.5,
+      "predicted": false
+    },
+    {
+      "label": "musty",
+      "score": 0.11633230000734329,
+      "threshold": 0.5,
+      "predicted": false
+    },
+    {
+      "label": "narcissus",
+      "score": 0.0005727599491365254,
+      "threshold": 0.5,
+      "predicted": false
+    },
+    {
+      "label": "neroli",
+      "score": 0.00032328045926988125,
+      "threshold": 0.5,
+      "predicted": false
+    },
+    {
+      "label": "nutty",
+      "score": 0.1885530799627304,
+      "threshold": 0.5,
+      "predicted": false
+    },
+    {
+      "label": "oily",
+      "score": 0.058314986526966095,
+      "threshold": 0.5,
+      "predicted": false
+    },
+    {
+      "label": "onion",
+      "score": 0.0020752798300236464,
+      "threshold": 0.5,
+      "predicted": false
+    },
+    {
+      "label": "orange",
+      "score": 0.017907995730638504,
+      "threshold": 0.5,
+      "predicted": false
+    },
+    {
+      "label": "orris",
+      "score": 0.0016149450093507767,
+      "threshold": 0.5,
+      "predicted": false
+    },
+    {
+      "label": "peach",
+      "score": 0.008348439820110798,
+      "threshold": 0.5,
+      "predicted": false
+    },
+    {
+      "label": "pear",
+      "score": 0.0023988436441868544,
+      "threshold": 0.5,
+      "predicted": false
+    },
+    {
+      "label": "phenolic",
+      "score": 0.8683426976203918,
+      "threshold": 0.5,
+      "predicted": true
+    },
+    {
+      "label": "pine",
+      "score": 0.00046045996714383364,
+      "threshold": 0.5,
+      "predicted": false
+    },
+    {
+      "label": "pineapple",
+      "score": 0.01321788877248764,
+      "threshold": 0.5,
+      "predicted": false
+    },
+    {
+      "label": "plum",
+      "score": 0.01032232865691185,
+      "threshold": 0.5,
+      "predicted": false
+    },
+    {
+      "label": "popcorn",
+      "score": 0.000700984091963619,
+      "threshold": 0.5,
+      "predicted": false
+    },
+    {
+      "label": "potato",
+      "score": 0.0020614988170564175,
+      "threshold": 0.5,
+      "predicted": false
+    },
+    {
+      "label": "powdery",
+      "score": 0.8966425657272339,
+      "threshold": 0.5,
+      "predicted": true
+    },
+    {
+      "label": "pungent",
+      "score": 0.43783679604530334,
+      "threshold": 0.5,
+      "predicted": false
+    },
+    {
+      "label": "raspberry",
+      "score": 0.0020439676009118557,
+      "threshold": 0.5,
+      "predicted": false
+    },
+    {
+      "label": "roasted",
+      "score": 0.026458105072379112,
+      "threshold": 0.5,
+      "predicted": false
+    },
+    {
+      "label": "rooty",
+      "score": 0.038609981536865234,
+      "threshold": 0.5,
+      "predicted": false
+    },
+    {
+      "label": "rose",
+      "score": 0.023516986519098282,
+      "threshold": 0.5,
+      "predicted": false
+    },
+    {
+      "label": "rum",
+      "score": 0.0028711454942822456,
+      "threshold": 0.5,
+      "predicted": false
+    },
+    {
+      "label": "sandalwood",
+      "score": 0.00012964318739250302,
+      "threshold": 0.5,
+      "predicted": false
+    },
+    {
+      "label": "savoury",
+      "score": 0.03568426892161369,
+      "threshold": 0.5,
+      "predicted": false
+    },
+    {
+      "label": "sharp",
+      "score": 0.06506995856761932,
+      "threshold": 0.5,
+      "predicted": false
+    },
+    {
+      "label": "smoky",
+      "score": 0.37019896507263184,
+      "threshold": 0.5,
+      "predicted": false
+    },
+    {
+      "label": "soapy",
+      "score": 0.005083794239908457,
+      "threshold": 0.5,
+      "predicted": false
+    },
+    {
+      "label": "sour",
+      "score": 0.019066859036684036,
+      "threshold": 0.5,
+      "predicted": false
+    },
+    {
+      "label": "spicy",
+      "score": 0.7673037052154541,
+      "threshold": 0.5,
+      "predicted": true
+    },
+    {
+      "label": "strawberry",
+      "score": 0.01170236337929964,
+      "threshold": 0.5,
+      "predicted": false
+    },
+    {
+      "label": "sulfurous",
+      "score": 0.005291997920721769,
+      "threshold": 0.5,
+      "predicted": false
+    },
+    {
+      "label": "sweet",
+      "score": 0.8757135272026062,
+      "threshold": 0.5,
+      "predicted": true
+    },
+    {
+      "label": "tea",
+      "score": 0.04257785901427269,
+      "threshold": 0.5,
+      "predicted": false
+    },
+    {
+      "label": "terpenic",
+      "score": 0.0005831531016156077,
+      "threshold": 0.5,
+      "predicted": false
+    },
+    {
+      "label": "tobacco",
+      "score": 0.017317328602075577,
+      "threshold": 0.5,
+      "predicted": false
+    },
+    {
+      "label": "tropical fruit",
+      "score": 0.04013866186141968,
+      "threshold": 0.5,
+      "predicted": false
+    },
+    {
+      "label": "vanilla",
+      "score": 0.9957769513130188,
+      "threshold": 0.5,
+      "predicted": true
+    },
+    {
+      "label": "vegetable",
+      "score": 0.04244105890393257,
+      "threshold": 0.5,
+      "predicted": false
+    },
+    {
+      "label": "violet",
+      "score": 0.000646631873678416,
+      "threshold": 0.5,
+      "predicted": false
+    },
+    {
+      "label": "warm",
+      "score": 0.5707728266716003,
+      "threshold": 0.5,
+      "predicted": true
+    },
+    {
+      "label": "waxy",
+      "score": 0.007018735632300377,
+      "threshold": 0.5,
+      "predicted": false
+    },
+    {
+      "label": "woody",
+      "score": 0.37736788392066956,
+      "threshold": 0.5,
+      "predicted": false
+    }
+  ],
+  "predicted_labels": [
+    "balsamic",
+    "caramel",
+    "chocolate",
+    "creamy",
+    "gourmand",
+    "hay",
+    "medicinal",
+    "phenolic",
+    "powdery",
+    "spicy",
+    "sweet",
+    "vanilla",
+    "warm"
+  ]
+}

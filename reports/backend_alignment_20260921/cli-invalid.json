@@ -1,0 +1,1 @@
+{"status": "error", "error": {"code": "UNSUPPORTED_MIXTURE", "message": "Prediction supports one connected molecule. Mixture odor has not been validated."}}
