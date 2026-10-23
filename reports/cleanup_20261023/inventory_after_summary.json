@@ -1,0 +1,132 @@
+{
+  "root": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier",
+  "total_bytes_excluding_git": 25974010709,
+  "total_files_excluding_git": 46153,
+  "top_level": [
+    {
+      "path": ".local-tools",
+      "bytes": 24087415380,
+      "files": 15569
+    },
+    {
+      "path": ".venv",
+      "bytes": 1123768730,
+      "files": 29593
+    },
+    {
+      "path": "releases",
+      "bytes": 365225575,
+      "files": 125
+    },
+    {
+      "path": "data",
+      "bytes": 272746555,
+      "files": 129
+    },
+    {
+      "path": "models",
+      "bytes": 75702484,
+      "files": 50
+    },
+    {
+      "path": ".local-backups",
+      "bytes": 33642249,
+      "files": 91
+    },
+    {
+      "path": "reports",
+      "bytes": 9515969,
+      "files": 332
+    },
+    {
+      "path": "v4_seed",
+      "bytes": 1089208,
+      "files": 30
+    },
+    {
+      "path": "notebooks",
+      "bytes": 1052355,
+      "files": 7
+    },
+    {
+      "path": "v5_seed",
+      "bytes": 820716,
+      "files": 23
+    },
+    {
+      "path": "v7_reference",
+      "bytes": 722317,
+      "files": 13
+    },
+    {
+      "path": "dataset",
+      "bytes": 512000,
+      "files": 1
+    },
+    {
+      "path": "runs",
+      "bytes": 440408,
+      "files": 11
+    },
+    {
+      "path": "alignment",
+      "bytes": 333174,
+      "files": 47
+    },
+    {
+      "path": "v6_reference",
+      "bytes": 330898,
+      "files": 5
+    },
+    {
+      "path": ".idea",
+      "bytes": 123631,
+      "files": 5
+    },
+    {
+      "path": "src",
+      "bytes": 105291,
+      "files": 24
+    },
+    {
+      "path": "v8",
+      "bytes": 44039,
+      "files": 6
+    },
+    {
+      "path": "protocols",
+      "bytes": 36700,
+      "files": 4
+    },
+    {
+      "path": "tests",
+      "bytes": 34130,
+      "files": 10
+    },
+    {
+      "path": "mobile_assets",
+      "bytes": 5719,
+      "files": 5
+    },
+    {
+      "path": "telemetry",
+      "bytes": 288,
+      "files": 6
+    }
+  ],
+  "environments": [
+    {
+      "path": ".local-tools/v8-notebook-deps/jedi/third_party/typeshed/stdlib/venv",
+      "bytes": 2951,
+      "files": 1
+    },
+    {
+      "path": ".venv",
+      "bytes": 1123768730,
+      "files": 29593
+    }
+  ],
+  "synthetic_directories": [],
+  "caches": [],
+  "links_skipped": []
+}

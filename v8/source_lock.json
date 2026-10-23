@@ -1,0 +1,28 @@
+{
+  "project_url": "https://osf.io/vfru6/",
+  "paper_url": "https://www.nature.com/articles/s42004-025-01651-7",
+  "upstream_catalog": "https://github.com/pyrfume/pyrfume-data/",
+  "osf_metadata_verified_on": "2026-10-01",
+  "attribution": "Jinyoung Suh, Yeonju Hong, Chunho Park (2025). A comparative study of machine learning models on molecular fingerprints for odor decoding. Communications Chemistry 8, 278. DOI: 10.1038/s42004-025-01651-7.",
+  "license": "CC BY 4.0; see included data/reference/suh2025/license.json",
+  "files": {
+    "author_code.ipynb": {
+      "sha256": "14df6a7ae7c8f46094467c17f7666633739d3c795340c47c63c6ac3c75ab2ea6",
+      "bytes": 901623,
+      "url": "https://osf.io/download/ws9y2/",
+      "version": 1
+    },
+    "Dataset1_data_preparation.xlsx": {
+      "sha256": "295947d10c26a2401829799761db4d338e001bf326045f5ab25dcc69febee290",
+      "bytes": 20683290,
+      "url": "https://osf.io/download/5xe3b/",
+      "version": 1
+    },
+    "Dataset2_final_w_molblock.csv": {
+      "sha256": "c82d281a56006c06ca0a6232ee7941124f28439ba7f21850dd326edeceab1415",
+      "bytes": 23493031,
+      "url": "https://osf.io/download/7q9ev/",
+      "version": 1
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "unit_tests_passed": 4,
+  "manifest_verified": true,
+  "cli_expected_stop_returncode": 2,
+  "v7_feature_parity": {
+    "common_molecules": 6634,
+    "morgan_identical": true,
+    "descriptors_identical": true
+  },
+  "training_started": false,
+  "tuning_started": false,
+  "xgboost_lightgbm_optuna_imported": false,
+  "notebook_execution": "7 code cells executed top-to-bottom; no cell errors",
+  "linux_execution": "not performed; Bash syntax check only",
+  "source_sha256": "9efab169b096c253d1c498d113553f325fc17e077662bee9c74b91c1b854f30b",
+  "notebook_sha256": "4861f510e2be21a9695c16e68b92cbbfb2088c091959352cc6c807a71ce66aeb",
+  "notebook_figures_visual_review": "Both PNG figures inspected: labels, numbers, log scale, and layout readable",
+  "linux_bash_syntax_check": "passed",
+  "native_linux_runtime_tested": false,
+  "notebook_markdown_encoding": "UTF-8 checked; only two markdown cells corrected after execution"
+}

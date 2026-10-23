@@ -1,6 +1,73 @@
 # Rencana Eksekusi Aman Proyek Skripsi Essenza
 
-## Status aktif — penyelarasan backend, 21 September 2026
+## Status 23 Oktober 2026: V7 utama, V9 selesai sebagai eksperimen tambahan
+
+**V7 tetap hasil utama penelitian yang dikunci**: lima sumber Pyrfume,
+6.686 molekul, 109 label, Morgan 2048 bit + delapan deskriptor.
+**V9 telah selesai dan diaudit**: 1024/2048 bit + delapan deskriptor,
+8 kandidat XGBoost/LightGBM, empat studi Optuna masing-masing 16 jam.
+Kandidat V9 terpilih dari AP validasi adalah LightGBM 2048+8 tuned
+(CV AP 0,306549; test AP 0,316227). Hasil V9 bersifat eksploratori
+dan tidak otomatis mengganti V7 atau rilis aplikasi.
+Bukti: [HASIL_ANALISIS_V9.md](reports/grouped_v9_analysis_20261021/HASIL_ANALISIS_V9.md).
+
+Untuk belajar preprocessing, fitur, Optuna, training dan evaluasi, buka
+[MULAI_BACA_KODE.md](MULAI_BACA_KODE.md).
+ONNX dan Android untuk model baru masih ditunda; inferensi Python rilis
+lama dan API fingerprint belum memakai model penelitian V7.
+
+**Bagian bertanggal lebih lama di bawah adalah riwayat.**
+
+## Status penelitian: V7 dikunci; V8 eksplorasi — 1 Oktober 2026
+
+V7 telah selesai; hasilnya tersimpan di [analisis v7](reports/grouped_v7_analysis_20260928/HASIL_ANALISIS_V7.md).
+Keputusan 1 Oktober 2026: **V7 dikunci sebagai hasil utama penelitian** (lima sumber Pyrfume; Morgan 2048 dan delapan deskriptor). **V8 hanya eksplorasi/audit** atas sepuluh sumber Suh; hasilnya tidak mengganti v7 dan belum menjadi dasar klaim performa skripsi.
+Eksperimen lanjutan ditahan atas instruksi pengguna. Fokus sekarang adalah
+**audit pre-ML V8 memakai arsip Suh (10 sumber) dan fitur v7: Morgan 2048 + 8 deskriptor = 2056**.
+
+Ketiga berkas referensi cocok dengan checksum OSF. Checkpoint audit berisi
+8700 baris dan 200 label; 100 label ringkasan acuan disimpan terpisah.
+**V8 belum siap training/tuning:** ada masalah indeks split acuan, overlap
+fingerprint, kebijakan multikomponen, dan batas reproduksi kurasi awal.
+Fitur sengaja berbeda dari Suh; jangan mengklaim seluruh pre-ML identik.
+
+Mulai dari [rencana dan perbedaan V8](V8_PREML_PLAN.md),
+[panduan Windows](WINDOWS_GUIDE_V8.md), atau [panduan Linux](LINUX_GUIDE_V8.md).
+Paket: .local-tools/campus-transfer-full-20260909/perfume-campus-v8-preml-m2048-d8.zip.
+Runner hanya audit; status STOP sebelum ML merupakan hasil yang disengaja.
+Data dan hasil v7 dipertahankan. ONNX, Android, serta revisi hasil LaTeX V8 belum dijalankan.
+
+**Bagian versi sebelumnya di bawah adalah riwayat; keputusan penelitian mengikuti status V7 di atas.**
+
+## V7 revisi 2: Morgan 2048 disiapkan - 25 September 2026
+
+Pengguna menetapkan **Morgan 2048 bit**; paket tambahan dipilih **8 deskriptor RDKit**.
+XGBoost dan LightGBM masing-masing menjalankan A-D baru: A/C Morgan saja (2048 fitur),
+B/D Morgan + 8 (2056 fitur). A/B baseline 100; C/D empat studi Optuna 8 jam/studi
+(**32 jam tuning**, belum termasuk validasi dan final fit). Eksekusi di **PC kampus/PC lain**.
+
+Delapan jenis deskriptor mengikuti acuan Suh; pemilihan ini bukan bukti paket terbaik.
+Gabungan fitur dan ukuran 2048 adalah eksperimen proyek, bukan resep gabungan asli Suh.
+Data 6686 molekul, 109 label, split 5353/1333 dan kelompok lama tetap.
+Fitur baru terpisah di data/builds/perfume-m2048-d8-v7; hasil v6 dipertahankan.
+
+**Training penelitian v7 belum dijalankan.** Rilis aktif tetap LightGBM D v6.
+Seleksi dari mean macro AP repeated grouped CV; ambang tambahan dari prediksi OOF.
+B-A menguji tambahan 8 pada baseline tetap; D-C membandingkan hasil tuning masing-masing.
+V6-v7 merupakan sejarah eksperimen; B/D mengubah panjang Morgan dan paket deskriptor.
+Test pernah dilihat, sehingga hasil tetap eksploratori.
+
+Paket terbaru: **perfume-campus-grouped-v7-m2048-d8.zip**; ekstrak ke folder baru.
+Run ID: perfume-five-grouped-v7-m2048-d8.
+Rancangan/paket v7 lama 1024 (B/D/E/F, 5 vs 8) digantikan revisi ini dan hanya menjadi riwayat.
+Panduan: [Windows](WINDOWS_GUIDE_V7.md) / [Linux](LINUX_GUIDE_V7.md).
+Rencana lengkap: [DESCRIPTOR_COMPARISON_V7_PLAN.md](DESCRIPTOR_COMPARISON_V7_PLAN.md).
+
+**Setelah hasil v7 diaudit, agenda berikutnya merombak laporan sesuai metode/hasil terbaru.**
+Catatan permanen: [AFTER_V7_REPORT_UPDATE.md](AFTER_V7_REPORT_UPDATE.md).
+LaTeX belum direvisi untuk hasil yang belum tersedia. ONNX/Android tetap ditunda.
+
+## Rilis v6 yang tetap aktif — penyelarasan backend, 21 September 2026
 
 Grouped-v6 telah selesai; **LightGBM D** dipilih berdasarkan macro AP validasi
 0,302232 (XGBoost D 0,298848). AP test masing-masing 0,313921 dan 0,314531.
@@ -12,8 +79,8 @@ identik dengan prediksi tersimpan. Sebanyak 23 tes komponen lulus.
 Panduan aktif: [INFERENCE_GUIDE.md](INFERENCE_GUIDE.md).
 Bukti: [verification.json](reports/backend_alignment_20260921/verification.json).
 ONNX lama 25 label dan dua array ambangnya dihapus atas instruksi pengguna.
-ONNX baru, integrasi Android, dan deployment **ditunda**. Training tambahan,
-pseudo-labeling, dan inferensi massal data yang ditolak tidak termasuk scope aktif.
+ONNX baru, integrasi Android, dan deployment **ditunda**. Training v7 disiapkan sesuai revisi di atas.
+Pseudo-labeling dan inferensi massal data yang ditolak tidak termasuk scope aktif.
 Data, split, model terlatih, dan angka evaluasi v6 tidak diubah; hasil tetap eksploratori.
 
 **Bagian bertanggal lebih lama di bawah adalah riwayat, bukan instruksi aktif.**
@@ -304,11 +371,11 @@ C:\Users\ACER\Documents\Marvel\Skripsi\Laporan Skripsi\2521_skripsi_Marvel_Kevin
 C:\Users\ACER\Documents\Marvel\Skripsi\Laporan Skripsi\2521_skripsi_Marvel_Kevin_Nathanael\pustaka.bib
 C:\Users\ACER\Documents\Marvel\Skripsi\Laporan Skripsi\2521_skripsi_Marvel_Kevin_Nathanael\src\1.Awal\07a-Abstrak.tex
 C:\Users\ACER\Documents\Marvel\Skripsi\Laporan Skripsi\2521_skripsi_Marvel_Kevin_Nathanael\src\1.Awal\07b-Abstract.tex
-C:\Users\ACER\Documents\Marvel\Skripsi\Laporan Skripsi\2521_skripsi_Marvel_Kevin_Nathanael\src\2.Isi\Bab1.tex
-C:\Users\ACER\Documents\Marvel\Skripsi\Laporan Skripsi\2521_skripsi_Marvel_Kevin_Nathanael\src\2.Isi\Bab2.tex
-C:\Users\ACER\Documents\Marvel\Skripsi\Laporan Skripsi\2521_skripsi_Marvel_Kevin_Nathanael\src\2.Isi\Bab3.tex
-C:\Users\ACER\Documents\Marvel\Skripsi\Laporan Skripsi\2521_skripsi_Marvel_Kevin_Nathanael\src\2.Isi\Bab4.tex
-C:\Users\ACER\Documents\Marvel\Skripsi\Laporan Skripsi\2521_skripsi_Marvel_Kevin_Nathanael\src\2.Isi\Bab5.tex
+C:\Users\ACER\Documents\Marvel\Skripsi\Laporan Skripsi\2521_skripsi_Marvel_Kevin_Nathanael\src\2.Isi\Bab 1.tex
+C:\Users\ACER\Documents\Marvel\Skripsi\Laporan Skripsi\2521_skripsi_Marvel_Kevin_Nathanael\src\2.Isi\Bab 2.tex
+C:\Users\ACER\Documents\Marvel\Skripsi\Laporan Skripsi\2521_skripsi_Marvel_Kevin_Nathanael\src\2.Isi\Bab 3.tex
+C:\Users\ACER\Documents\Marvel\Skripsi\Laporan Skripsi\2521_skripsi_Marvel_Kevin_Nathanael\src\2.Isi\Bab 4.tex
+C:\Users\ACER\Documents\Marvel\Skripsi\Laporan Skripsi\2521_skripsi_Marvel_Kevin_Nathanael\src\2.Isi\Bab 5.tex
 C:\Users\ACER\Documents\Marvel\Skripsi\Laporan Skripsi\2521_skripsi_Marvel_Kevin_Nathanael\src\3.Akhir\lampiran.tex
 C:\Users\ACER\Documents\Marvel\Skripsi\Laporan Skripsi\2521_skripsi_Marvel_Kevin_Nathanael\output\pdf\SKRIPSI.pdf
 C:\Users\ACER\Documents\Marvel\Skripsi\Laporan Skripsi\2521_skripsi_Marvel_Kevin_Nathanael\qa\static-checks.json

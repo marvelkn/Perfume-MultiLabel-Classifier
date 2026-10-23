@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="0" skipped="0" tests="1" time="3.812" timestamp="2026-09-25T10:34:10.444097+07:00" hostname="LAPTOP-M83M7NV1"><testcase classname="alignment.test_grouped_v7" name="test_package_and_collection_roundtrip" time="0.032" /></testsuite></testsuites>

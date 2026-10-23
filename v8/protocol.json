@@ -1,0 +1,79 @@
+{
+  "id": "suh-ten-v8-m2048-d8-preml",
+  "revision": 1,
+  "date": "2026-10-01",
+  "scope": "PREML_AUDIT_ONLY",
+  "training_enabled": false,
+  "tuning_enabled": false,
+  "reference": "data/reference/suh2025",
+  "output": "data/builds/suh-ten-v8-m2048-d8-preml",
+  "source_policy": "Use the author's archived curated data, not a new merge of current Pyrfume main.",
+  "author_raw_to_curated": "Retain workbook checkpoints; expert curation and original download commit are not reproducible from supplied code.",
+  "cohort_stage": "Author cell 2 after exact-string SMILES deduplication, required-value filtering and label construction; before singleton-stratum filtering/splitting.",
+  "feature_spec": {
+    "n_bits": 2048,
+    "radius": 2,
+    "include_chirality": false,
+    "source": "SMILES",
+    "dtype": "float32",
+    "descriptors": [
+      "MolWt",
+      "MolLogP",
+      "NumHDonors",
+      "NumHAcceptors",
+      "TPSA",
+      "NumRotatableBonds",
+      "HeavyAtomCount",
+      "RingCount"
+    ],
+    "dimensions": 2056,
+    "scaling": "none",
+    "imputation": "none",
+    "combination": "Morgan concatenated with eight descriptors; user-requested v7 representation"
+  },
+  "reference_feature_spec": {
+    "n_bits": 1024,
+    "radius": 2,
+    "include_chirality": false,
+    "source": "author MolBlock",
+    "md_separate": true,
+    "md_order": [
+      "MolWt",
+      "NumHDonors",
+      "NumHAcceptors",
+      "TPSA",
+      "MolLogP",
+      "NumRotatableBonds",
+      "HeavyAtomCount",
+      "RingCount"
+    ]
+  },
+  "fragment_policy": "Preserve author records for audit; flag disconnected structures. Do not silently apply v7's single-component exclusion or approve them for training.",
+  "split_policy": "Diagnose author's positional indexing without correcting or adopting a training split.",
+  "label_policy": "Keep 200 observed labels and report the author's 100-label >=30-slot subset. No replacement with v7's 109 labels.",
+  "comparison_claim": "Same archived source data; documented common preparation checkpoint; intentionally different features. Not identical pre-ML to Suh.",
+  "future_ml": {
+    "algorithms": [
+      "XGBoost",
+      "LightGBM"
+    ],
+    "candidates": [
+      "xgb_baseline",
+      "xgb_tuned",
+      "lgbm_baseline",
+      "lgbm_tuned"
+    ],
+    "representation": "same 2056 features for all four",
+    "split": "pending review of reference indexing and duplicate-feature overlap",
+    "optuna": "not configured or run at this stage",
+    "baseline_recipe": "Suh code is documented; exact historical dependency versions unavailable",
+    "evaluation": "Freeze common labels/splits/threshold policy before fitting; macro AP plus the six reference metrics. Published scores are not a paired control."
+  },
+  "expected_environment": {
+    "numpy": "1.26.4",
+    "pandas": "2.2.3",
+    "scikit-learn": "1.6.1",
+    "rdkit": "2026.3.4",
+    "openpyxl": "3.1.5"
+  }
+}

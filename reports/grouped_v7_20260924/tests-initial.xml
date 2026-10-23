@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="8" failures="0" skipped="0" tests="16" time="15.377" timestamp="2026-09-24T10:25:13.833347+07:00" hostname="LAPTOP-M83M7NV1"><testcase classname="alignment.test_grouped_v7" name="test_real_preflight_descriptor_parity_and_no_row_loss" time="6.334" /><testcase classname="alignment.test_grouped_v7" name="test_descriptor_values_and_invalid_molecules" time="0.005" /><testcase classname="alignment.test_grouped_v7" name="test_rows_order_and_first_five_cannot_change" time="0.001"><error message="failed on setup with &quot;FileNotFoundError: [WinError 3] The system cannot find the path specified: 'C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\reports\\grouped_v7_20260924\\test-tmp-v7'&quot;">self = WindowsPath('C:/Users/ACER/Documents/Marvel/Skripsi/Project Skripsi/Perfume-MultiLabel-Classifier/reports/grouped_v7_20260924/test-tmp-v7')
+mode = 448, parents = False, exist_ok = False
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+&gt;           os.mkdir(self, mode)
+E           FileNotFoundError: [WinError 3] The system cannot find the path specified: 'C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\reports\\grouped_v7_20260924\\test-tmp-v7'
+
+C:\Users\ACER\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py:1311: FileNotFoundError</error></testcase><testcase classname="alignment.test_grouped_v7" name="test_only_three_features_change_and_unknown_candidate_fails" time="0.013" /><testcase classname="alignment.test_grouped_v7" name="test_selection_ignores_test_and_prefers_five_on_exact_tie" time="0.001" /><testcase classname="alignment.test_grouped_v7" name="test_fresh_equal_studies_and_resume_budget" time="0.001"><error message="failed on setup with &quot;FileNotFoundError: [WinError 3] The system cannot find the path specified: 'C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\reports\\grouped_v7_20260924\\test-tmp-v7'&quot;">self = WindowsPath('C:/Users/ACER/Documents/Marvel/Skripsi/Project Skripsi/Perfume-MultiLabel-Classifier/reports/grouped_v7_20260924/test-tmp-v7')
+mode = 448, parents = False, exist_ok = False
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+&gt;           os.mkdir(self, mode)
+E           FileNotFoundError: [WinError 3] The system cannot find the path specified: 'C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\reports\\grouped_v7_20260924\\test-tmp-v7'
+
+C:\Users\ACER\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py:1311: FileNotFoundError</error></testcase><testcase classname="alignment.test_grouped_v7" name="test_freeze_interrupt_resume_models_metrics_and_inference" time="0.001"><error message="failed on setup with &quot;FileNotFoundError: [WinError 3] The system cannot find the path specified: 'C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\reports\\grouped_v7_20260924\\test-tmp-v7'&quot;">self = WindowsPath('C:/Users/ACER/Documents/Marvel/Skripsi/Project Skripsi/Perfume-MultiLabel-Classifier/reports/grouped_v7_20260924/test-tmp-v7')
+mode = 448, parents = False, exist_ok = False
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+&gt;           os.mkdir(self, mode)
+E           FileNotFoundError: [WinError 3] The system cannot find the path specified: 'C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\reports\\grouped_v7_20260924\\test-tmp-v7'
+
+C:\Users\ACER\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py:1311: FileNotFoundError</error></testcase><testcase classname="alignment.test_grouped_v7" name="test_package_and_collection_roundtrip" time="0.001"><error message="failed on setup with &quot;FileNotFoundError: [WinError 3] The system cannot find the path specified: 'C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\reports\\grouped_v7_20260924\\test-tmp-v7'&quot;">self = WindowsPath('C:/Users/ACER/Documents/Marvel/Skripsi/Project Skripsi/Perfume-MultiLabel-Classifier/reports/grouped_v7_20260924/test-tmp-v7')
+mode = 448, parents = False, exist_ok = False
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+&gt;           os.mkdir(self, mode)
+E           FileNotFoundError: [WinError 3] The system cannot find the path specified: 'C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\reports\\grouped_v7_20260924\\test-tmp-v7'
+
+C:\Users\ACER\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py:1311: FileNotFoundError</error></testcase><testcase classname="alignment.test_grouped_v6" name="test_real_inputs_and_reference_recipes_are_valid" time="5.688" /><testcase classname="alignment.test_grouped_v6" name="test_feature_shapes_differ_only_by_descriptors" time="0.000" /><testcase classname="alignment.test_grouped_v6" name="test_expanded_search_and_depth_constraints" time="0.002" /><testcase classname="alignment.test_grouped_v6" name="test_fresh_study_and_resume_do_not_import_scores_or_reset_budget" time="0.001"><error message="failed on setup with &quot;FileNotFoundError: [WinError 3] The system cannot find the path specified: 'C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\reports\\grouped_v7_20260924\\test-tmp-v7'&quot;">self = WindowsPath('C:/Users/ACER/Documents/Marvel/Skripsi/Project Skripsi/Perfume-MultiLabel-Classifier/reports/grouped_v7_20260924/test-tmp-v7')
+mode = 448, parents = False, exist_ok = False
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+&gt;           os.mkdir(self, mode)
+E           FileNotFoundError: [WinError 3] The system cannot find the path specified: 'C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\reports\\grouped_v7_20260924\\test-tmp-v7'
+
+C:\Users\ACER\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py:1311: FileNotFoundError</error></testcase><testcase classname="alignment.test_grouped_v6" name="test_selection_uses_validation_and_prefers_baseline_on_exact_tie" time="0.000" /><testcase classname="alignment.test_grouped_v6" name="test_tuning_real_estimator_trial_timeout_and_resume[xgb]" time="0.001"><error message="failed on setup with &quot;FileNotFoundError: [WinError 3] The system cannot find the path specified: 'C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\reports\\grouped_v7_20260924\\test-tmp-v7'&quot;">self = WindowsPath('C:/Users/ACER/Documents/Marvel/Skripsi/Project Skripsi/Perfume-MultiLabel-Classifier/reports/grouped_v7_20260924/test-tmp-v7')
+mode = 448, parents = False, exist_ok = False
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+&gt;           os.mkdir(self, mode)
+E           FileNotFoundError: [WinError 3] The system cannot find the path specified: 'C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\reports\\grouped_v7_20260924\\test-tmp-v7'
+
+C:\Users\ACER\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py:1311: FileNotFoundError</error></testcase><testcase classname="alignment.test_grouped_v6" name="test_tuning_real_estimator_trial_timeout_and_resume[lgbm]" time="0.001"><error message="failed on setup with &quot;FileNotFoundError: [WinError 3] The system cannot find the path specified: 'C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\reports\\grouped_v7_20260924\\test-tmp-v7'&quot;">self = WindowsPath('C:/Users/ACER/Documents/Marvel/Skripsi/Project Skripsi/Perfume-MultiLabel-Classifier/reports/grouped_v7_20260924/test-tmp-v7')
+mode = 448, parents = False, exist_ok = False
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+&gt;           os.mkdir(self, mode)
+E           FileNotFoundError: [WinError 3] The system cannot find the path specified: 'C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\reports\\grouped_v7_20260924\\test-tmp-v7'
+
+C:\Users\ACER\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py:1311: FileNotFoundError</error></testcase><testcase classname="alignment.test_grouped_v6" name="test_pipeline_freeze_resume_completion_and_tamper_detection" time="0.001"><error message="failed on setup with &quot;FileNotFoundError: [WinError 3] The system cannot find the path specified: 'C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\reports\\grouped_v7_20260924\\test-tmp-v7'&quot;">self = WindowsPath('C:/Users/ACER/Documents/Marvel/Skripsi/Project Skripsi/Perfume-MultiLabel-Classifier/reports/grouped_v7_20260924/test-tmp-v7')
+mode = 448, parents = False, exist_ok = False
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        """
+        Create a new directory at this given path.
+        """
+        try:
+&gt;           os.mkdir(self, mode)
+E           FileNotFoundError: [WinError 3] The system cannot find the path specified: 'C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\reports\\grouped_v7_20260924\\test-tmp-v7'
+
+C:\Users\ACER\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py:1311: FileNotFoundError</error></testcase></testsuite></testsuites>

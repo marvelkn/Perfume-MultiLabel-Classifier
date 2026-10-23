@@ -1,0 +1,43 @@
+{
+  "status": "V9_PREPARED",
+  "date": "2026-10-17",
+  "tests_passed": 6,
+  "actual_input_preflight": "passed in preparation and extracted ZIP",
+  "archive_integrity": "117 source/data files checked against SHA-256; CRC passed",
+  "synthetic_integration": "8 main candidates + 8h snapshots, freeze, final fits, metrics, and completed-run resume passed",
+  "budget_tests": "boundary eligibility, interrupted/complete resume, and immutable budget passed",
+  "bash_syntax": "passed with Git Bash",
+  "native_linux_run_tested": false,
+  "gpu_tested": false,
+  "research_training_started": false,
+  "v7_data_results_changed": false,
+  "latex_or_frontend_changed": false,
+  "files_added": [
+    "alignment/experiments_v9.py",
+    "alignment/tuning_v9.py",
+    "alignment/package_campus_v9.py",
+    "alignment/collect_results_v9.py",
+    "alignment/predict_v9.py",
+    "alignment/test_grouped_v9.py",
+    "alignment/protocol_v9.json",
+    "requirements_campus_v9.txt",
+    "V9_EXPERIMENT_PLAN.md",
+    "START_HERE_V9.md",
+    "WINDOWS_GUIDE_V9.md",
+    "LINUX_GUIDE_V9.md",
+    "RUN_GROUPED_V9.cmd",
+    "RUN_GROUPED_V9.sh",
+    "COLLECT_GROUPED_V9_RESULTS.cmd",
+    "COLLECT_GROUPED_V9_RESULTS.sh"
+  ],
+  "status_documents_updated": [
+    "README.md",
+    "PROJECT_CONTEXT.md",
+    "PROJECT_OVERVIEW.md",
+    "SAFE_EXECUTION_PLAN.md"
+  ],
+  "folder": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\.local-tools\\campus-transfer-full-20260909\\perfume-campus-grouped-v9-bits-d8",
+  "zip": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\.local-tools\\campus-transfer-full-20260909\\perfume-campus-grouped-v9-bits-d8.zip",
+  "bytes": 9294707,
+  "sha256": "c3b236180fe4cb457d42a457ffabd6b38fc28d573344ed4f6a22e8d1498981b3"
+}

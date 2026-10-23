@@ -1,0 +1,233 @@
+{
+  "id": "perfume-five-grouped-v7-m2048-d8",
+  "created_at": "2026-09-24",
+  "status": "prepared for PC campus/other PC; research training not started",
+  "supersedes": "prepared v7 revision 1 (1024 bits, five vs eight); old package retained as history",
+  "dataset_manifest_sha256": "886e8e49d08bf8c5c73f0c3d13de25bd01b63ada4bdcc7e58f4b49ad7cd60c17",
+  "environment": {
+    "numpy": "1.26.4",
+    "pandas": "2.2.3",
+    "scikit-learn": "1.6.1",
+    "rdkit": "2026.3.4",
+    "xgboost": "2.1.4",
+    "lightgbm": "4.6.0",
+    "optuna": "4.5.0",
+    "joblib": "1.6.0"
+  },
+  "algorithms": [
+    "xgb",
+    "lgbm"
+  ],
+  "conditions": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "group_policy": "structure-or-morgan-components-v1",
+  "class_imbalance": {
+    "policy": "balanced-sample-weight-from-training-partition-v1"
+  },
+  "baseline_parameters": {
+    "n_estimators": 100
+  },
+  "tuning": {
+    "seconds_per_study": 28800,
+    "seconds_total": 115200,
+    "heartbeat_seconds": 15,
+    "safety_max_trials": 10000,
+    "sampler": "TPESampler",
+    "seed": 42,
+    "n_startup_trials": 10,
+    "n_ei_candidates": 24,
+    "multivariate": false,
+    "study_policy": "Four fresh studies C/D, 8 hours each. Same generic initial recipe per algorithm for Morgan only and Morgan plus eight; no historical trial scores or database imported.",
+    "objective": "mean per-label mean-fold Average Precision on all 109 training-supported labels",
+    "stop_rule": "fixed eight-hour active budget per study; no extension after examining test results",
+    "incomplete_trial_policy": "Interrupted trial marked FAIL; elapsed computation remains charged; completed trials and sampler retained.",
+    "early_stopping": false,
+    "pruning": false
+  },
+  "search_space": {
+    "common": {
+      "n_estimators": {
+        "kind": "int",
+        "low": 100,
+        "high": 1600,
+        "step": 100
+      },
+      "learning_rate": {
+        "kind": "float",
+        "low": 0.005,
+        "high": 0.2,
+        "log": true
+      },
+      "max_depth": {
+        "kind": "int",
+        "low": 3,
+        "high": 8
+      },
+      "colsample_bytree": {
+        "kind": "float",
+        "low": 0.3,
+        "high": 1.0
+      },
+      "subsample": {
+        "kind": "float",
+        "low": 0.6,
+        "high": 1.0
+      },
+      "reg_alpha": {
+        "kind": "float",
+        "low": 1e-06,
+        "high": 10,
+        "log": true
+      },
+      "reg_lambda": {
+        "kind": "float",
+        "low": 0.001,
+        "high": 100,
+        "log": true
+      }
+    },
+    "xgb": {
+      "min_child_weight": {
+        "kind": "float",
+        "low": 1,
+        "high": 30,
+        "log": true
+      },
+      "gamma": {
+        "kind": "float",
+        "low": 0,
+        "high": 5
+      }
+    },
+    "lgbm": {
+      "min_child_samples": {
+        "kind": "int",
+        "low": 10,
+        "high": 150
+      }
+    },
+    "lgbm_num_leaves": {
+      "low": 8,
+      "high": 128,
+      "cap_by_depth": true
+    },
+    "lgbm_fixed": {
+      "subsample_freq": 1
+    }
+  },
+  "robustness": {
+    "seeds": [
+      7,
+      21,
+      42,
+      84,
+      100
+    ],
+    "folds": 5,
+    "scope": "all eight candidates",
+    "selection_metric": "mean macro AP across five repeated grouped-CV seeds",
+    "interpretation": "not nested CV; descriptive development evidence, not an unbiased generalization estimate"
+  },
+  "threshold_selection": {
+    "source": "mean repeated grouped out-of-fold validation probabilities",
+    "objective": "per-label F1",
+    "grid": [
+      0.05,
+      0.1,
+      0.15,
+      0.2,
+      0.25,
+      0.3,
+      0.35,
+      0.4,
+      0.45,
+      0.5,
+      0.55,
+      0.6,
+      0.65,
+      0.7,
+      0.75,
+      0.8,
+      0.85,
+      0.9,
+      0.95
+    ]
+  },
+  "primary_reporting": {
+    "threshold": 0.5,
+    "metrics": [
+      "accuracy",
+      "auroc",
+      "auprc",
+      "specificity",
+      "precision",
+      "recall"
+    ]
+  },
+  "test_access": "evaluate all eight candidates only after recipes, all repeated-CV results, thresholds, and selected model are frozen",
+  "confirmatory_status": "Exploratory extension planned after v6: the historical test set has already been inspected. Repeated CV is not nested CV or an independent test. No direct superiority claim over Suh on different cohorts.",
+  "next_action": "After complete: audit results, then overhaul thesis narrative/methodology/results/diagrams to the verified v7 revision 2. No automatic extra tuning or deployment.",
+  "reference_manifest_sha256": "7826998f867faffe38929b9ee9b6dadb8a82c3dc3800bb90741d75939b76050e",
+  "features": {
+    "descriptors": [
+      "MolWt",
+      "MolLogP",
+      "NumHDonors",
+      "NumHAcceptors",
+      "TPSA",
+      "NumRotatableBonds",
+      "HeavyAtomCount",
+      "RingCount"
+    ],
+    "B_D": "Morgan 2048 plus all eight descriptors",
+    "source": "https://www.nature.com/articles/s42004-025-01651-7",
+    "note": "Eight descriptor types from Suh; Morgan 2048 plus descriptors is this project's exploratory modification, not Suh's combined setting.",
+    "n_bits": 2048,
+    "radius": 2,
+    "include_chirality": false,
+    "A_C": "Morgan 2048 only"
+  },
+  "initial_recipes": {
+    "xgb": {
+      "n_estimators": 300,
+      "learning_rate": 0.05,
+      "max_depth": 5,
+      "colsample_bytree": 0.8,
+      "subsample": 0.8,
+      "reg_alpha": 0.01,
+      "reg_lambda": 1.0,
+      "min_child_weight": 1.0,
+      "gamma": 0.0
+    },
+    "lgbm": {
+      "n_estimators": 300,
+      "learning_rate": 0.05,
+      "max_depth": 5,
+      "colsample_bytree": 0.8,
+      "subsample": 0.8,
+      "reg_alpha": 0.01,
+      "reg_lambda": 1.0,
+      "min_child_samples": 20,
+      "num_leaves": 31,
+      "subsample_freq": 1
+    }
+  },
+  "selection": {
+    "primary": "mean macro Average Precision across five repeated grouped-CV seeds; highest wins",
+    "within_algorithm_exact_tie_order": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "overall_exact_tie": "lexicographic candidate key, matching v6; ties are not scientific superiority",
+    "stability": "report paired B-minus-A and D-minus-C deltas per seed; descriptive only",
+    "claim": "B-A eight-feature effect at fixed 2048 baseline; D-C representation+tuning; v6 history changes bit length and B/D descriptor set."
+  },
+  "revision": 2,
+  "feature_manifest_sha256": "d6f434e15d4b7cb26476caef877e759485033c05301bfeefa960f17e116b0100"
+}

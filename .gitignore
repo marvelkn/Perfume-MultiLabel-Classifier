@@ -48,3 +48,6 @@ campus-results/
 
 # Frozen local model releases (rebuild from verified campus results)
 releases/
+
+# Isolated campus V8 preparation environment
+.venv-v8/

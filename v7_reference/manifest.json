@@ -1,0 +1,34 @@
+{
+  "source_run": "perfume-five-grouped-v6",
+  "dataset_manifest_sha256": "886e8e49d08bf8c5c73f0c3d13de25bd01b63ada4bdcc7e58f4b49ad7cd60c17",
+  "source_completion_manifest_sha256": "b3f548c22ab7f02ef9159fa7ff3f6a07064461a4e327c8366e62f81d8e4fe3bd",
+  "source_files": {
+    "complete.json": "cc596fd8826ad6cfc4c49d35d1ec40539b44061bf42923ed06fda0cd724b1aa4",
+    "comparison_all.csv": "4f6ed9eebc5cc694e1030fadc60ecf5828eaf6f3b60e964ffd570ae5c1912677",
+    "selection_frozen.json": "de6608e57f75721202cc9dab9bb751be305a23d150aad840b9b5e590867c98ed",
+    "identity.json": "f8df43e3ab93e29360b6b8fa0d2ca8860c34c1522b826996df4fad2c686a1596",
+    "robustness/xgb_A/robustness_summary.json": "0acd2a363c93ad4eff7539051a11b788fdab09e886ce09abcbb1d6265dcf83ff",
+    "robustness/xgb_B/robustness_summary.json": "3fd3175ea0f9df15ff0b22de1483055cef217c5e82428c1462d2179e89664fd6",
+    "robustness/xgb_C/robustness_summary.json": "dcb393c13cfd82dcefc70fd54b0b1177703da67513468090a80bfb88926566ff",
+    "robustness/xgb_D/robustness_summary.json": "e87d3f9bb853c1d11821673133f2ec9a5aa330b2f04c89536d264f70ae47ae60",
+    "robustness/lgbm_A/robustness_summary.json": "f3eedf6cc3597b62913f39663bd702f38f27d20f1d24ffc462835af22467531d",
+    "robustness/lgbm_B/robustness_summary.json": "c0d43882645313d5e697c0e49e954e0a37b7c9243f4dda01c069c87b1f366cd3",
+    "robustness/lgbm_C/robustness_summary.json": "d70a41c388e68478571eea46186b66e751ad654a83ce55bea5c25ea852892ff1",
+    "robustness/lgbm_D/robustness_summary.json": "bcd037ba9addd7b7b194cad7848faba234ead38a935e4c8f82b52340776aa280"
+  },
+  "files": {
+    "complete.json": "cc596fd8826ad6cfc4c49d35d1ec40539b44061bf42923ed06fda0cd724b1aa4",
+    "comparison_all_v6.csv": "4f6ed9eebc5cc694e1030fadc60ecf5828eaf6f3b60e964ffd570ae5c1912677",
+    "selection_frozen.json": "de6608e57f75721202cc9dab9bb751be305a23d150aad840b9b5e590867c98ed",
+    "identity.json": "f8df43e3ab93e29360b6b8fa0d2ca8860c34c1522b826996df4fad2c686a1596",
+    "robustness/xgb_A/robustness_summary.json": "0acd2a363c93ad4eff7539051a11b788fdab09e886ce09abcbb1d6265dcf83ff",
+    "robustness/xgb_B/robustness_summary.json": "3fd3175ea0f9df15ff0b22de1483055cef217c5e82428c1462d2179e89664fd6",
+    "robustness/xgb_C/robustness_summary.json": "dcb393c13cfd82dcefc70fd54b0b1177703da67513468090a80bfb88926566ff",
+    "robustness/xgb_D/robustness_summary.json": "e87d3f9bb853c1d11821673133f2ec9a5aa330b2f04c89536d264f70ae47ae60",
+    "robustness/lgbm_A/robustness_summary.json": "f3eedf6cc3597b62913f39663bd702f38f27d20f1d24ffc462835af22467531d",
+    "robustness/lgbm_B/robustness_summary.json": "c0d43882645313d5e697c0e49e954e0a37b7c9243f4dda01c069c87b1f366cd3",
+    "robustness/lgbm_C/robustness_summary.json": "d70a41c388e68478571eea46186b66e751ad654a83ce55bea5c25ea852892ff1",
+    "robustness/lgbm_D/robustness_summary.json": "bcd037ba9addd7b7b194cad7848faba234ead38a935e4c8f82b52340776aa280"
+  },
+  "usage": "Historical context only; not used for v7 hyperparameters or selection."
+}

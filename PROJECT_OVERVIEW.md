@@ -1,274 +1,208 @@
-## Status aktif — penyelarasan backend, 21 September 2026
+# Project Overview — hasil utama V7 dan eksplorasi V9
 
-Grouped-v6 telah selesai; **LightGBM D** dipilih berdasarkan macro AP validasi
-0,302232 (XGBoost D 0,298848). AP test masing-masing 0,313921 dan 0,314531.
-Rilis aktif: `releases/grouped-v6-lgbm-d/`, 109 model dan 1.029 fitur.
-Inferensi Python dan konfigurasi bawaan `/fingerprint` telah diselaraskan.
-Fitur 6.686 molekul identik dengan dataset beku; 3.488 skor pada 32 contoh
-identik dengan prediksi tersimpan. Sebanyak 23 tes komponen lulus.
+## Status 23 Oktober 2026: V7 utama, V9 selesai sebagai eksperimen tambahan
 
-Panduan aktif: [INFERENCE_GUIDE.md](INFERENCE_GUIDE.md).
-Bukti: [verification.json](reports/backend_alignment_20260921/verification.json).
-ONNX lama 25 label dan dua array ambangnya dihapus atas instruksi pengguna.
-ONNX baru, integrasi Android, dan deployment **ditunda**. Training tambahan,
-pseudo-labeling, dan inferensi massal data yang ditolak tidak termasuk scope aktif.
-Data, split, model terlatih, dan angka evaluasi v6 tidak diubah; hasil tetap eksploratori.
+**V7 tetap hasil utama penelitian yang dikunci**: lima sumber Pyrfume,
+6.686 molekul, 109 label, Morgan 2048 bit + delapan deskriptor.
+**V9 telah selesai dan diaudit**: 1024/2048 bit + delapan deskriptor,
+8 kandidat XGBoost/LightGBM, empat studi Optuna masing-masing 16 jam.
+Kandidat V9 terpilih dari AP validasi adalah LightGBM 2048+8 tuned
+(CV AP 0,306549; test AP 0,316227). Hasil V9 bersifat eksploratori
+dan tidak otomatis mengganti V7 atau rilis aplikasi.
+Bukti: [HASIL_ANALISIS_V9.md](reports/grouped_v9_analysis_20261021/HASIL_ANALISIS_V9.md).
 
-**Bagian bertanggal lebih lama di bawah adalah riwayat, bukan instruksi aktif.**
+Untuk belajar preprocessing, fitur, Optuna, training dan evaluasi, buka
+[MULAI_BACA_KODE.md](MULAI_BACA_KODE.md).
+ONNX dan Android untuk model baru masih ditunda; inferensi Python rilis
+lama dan API fingerprint belum memakai model penelitian V7.
 
-> Catatan: uraian lama berikut belum seluruhnya diaudit ulang. Klaim test hanya dibuka sekali, bebas seluruh leakage, ONNX/Android selesai, dan keluarga label buatan tidak menjadi acuan v6. Gunakan kontrak rilis dan laporan terbaru.
+**Bagian bertanggal lebih lama di bawah adalah riwayat.**
 
-# RINGKASAN PROYEK SKRIPSI (PROJECT OVERVIEW & PRESENTATION REFERENCE)
+## Status penelitian: V7 dikunci; V8 eksplorasi — 1 Oktober 2026
 
-**Judul Proyek:** Klasifikasi Multi-Label Karakter Aroma Senyawa Molekul Berbasis Struktur Kimia untuk Aplikasi Rekomendasi Parfum (*Perfume Multi-Label Odor Classification from Molecular Structure*)  
-**Peneliti / Penulis:** Marvel Kevin Nathanael  
-**Domain:** Kemoinformatika (*Chemoinformatics*), *Machine Learning*, Aplikasi Mobile (*Edge AI*)  
-**Aplikasi Pendukung:** Essenza (Aplikasi Android Penjelajah dan Rekomendasi Parfum)  
-**Tujuan Dokumen:** Dokumen referensi komprehensif untuk penyusunan slide presentasi (PPT / Pitch Deck / Seminar Proposal / Sidang Skripsi) menggunakan AI generator presentasi (seperti Gamma, ChatGPT, Claude, Tome, atau Canva).
+V7 telah selesai; hasilnya tersimpan di [analisis v7](reports/grouped_v7_analysis_20260928/HASIL_ANALISIS_V7.md).
+Keputusan 1 Oktober 2026: **V7 dikunci sebagai hasil utama penelitian** (lima sumber Pyrfume; Morgan 2048 dan delapan deskriptor). **V8 hanya eksplorasi/audit** atas sepuluh sumber Suh; hasilnya tidak mengganti v7 dan belum menjadi dasar klaim performa skripsi.
+Eksperimen lanjutan ditahan atas instruksi pengguna. Fokus sekarang adalah
+**audit pre-ML V8 memakai arsip Suh (10 sumber) dan fitur v7: Morgan 2048 + 8 deskriptor = 2056**.
 
----
+Ketiga berkas referensi cocok dengan checksum OSF. Checkpoint audit berisi
+8700 baris dan 200 label; 100 label ringkasan acuan disimpan terpisah.
+**V8 belum siap training/tuning:** ada masalah indeks split acuan, overlap
+fingerprint, kebijakan multikomponen, dan batas reproduksi kurasi awal.
+Fitur sengaja berbeda dari Suh; jangan mengklaim seluruh pre-ML identik.
 
-## 1. Ringkasan Eksekutif (Executive Summary / Elevator Pitch)
+Mulai dari [rencana dan perbedaan V8](V8_PREML_PLAN.md),
+[panduan Windows](WINDOWS_GUIDE_V8.md), atau [panduan Linux](LINUX_GUIDE_V8.md).
+Paket: .local-tools/campus-transfer-full-20260909/perfume-campus-v8-preml-m2048-d8.zip.
+Runner hanya audit; status STOP sebelum ML merupakan hasil yang disengaja.
+Data dan hasil v7 dipertahankan. ONNX, Android, serta revisi hasil LaTeX V8 belum dijalankan.
 
-- **Masalah:** Industri wewangian selama berabad-abad mengandalkan panel uji sensori manusia (*perfumer*) untuk mengevaluasi aroma suatu senyawa kimia. Proses ini sangat mahal, lambat, memiliki bias subjektivitas indra penciuman manusia, dan dibatasi oleh risiko toksisitas senyawa baru.
-- **Tantangan Teknis:** Hubungan antara struktur kimia molekul dan persepsi aroma (*Structure-Odor Relationship* / SOR) sangat kompleks dan non-linear. Selain itu, satu molekul umumnya memiliki profil multi-aroma (misalnya suatu senyawa bisa beraroma *floral*, *citrus*, dan *sweet* sekaligus), menjadikannya persoalan **klasifikasi multi-label yang sangat timpang (*sparse multi-label classification*)**.
-- **Solusi yang Dikembangkan:**
-  1. Mengkurasi **6.686 molekul kanonik** dari **5 basis data aroma global** dengan **109 deskriptor aroma target**.
-  2. Menerapkan partisi **Grouped Splitting (5.363 gugus struktur)** untuk **mengeliminasi 100% *data leakage*** (kebocoran kemiripan struktur molekul identik antara data latih dan uji).
-  3. Membagi dataset secara objektif: **5.353 senyawa untuk pelatihan dan validasi (train & CV)** dan **1.333 senyawa terisolasi ketat untuk pengujian akhir (held-out test set)**.
-  4. Membangun dan membandingkan dua algoritma ensemble mutakhir: **XGBoost** dan **LightGBM** dengan pendekatan *Binary Relevance* dan bobot sampel terstandarisasi.
-  5. Menganalisis pengaruh representasi molekul: **Sidik jari Morgan 1.024-bit (ECFP4)** vs kombinasi **Morgan + 5 Deskriptor Fisikokimia RDKit (1.029 fitur)**.
-  6. Mengoptimasi hyperparameter dengan **Optuna (TPE Sampler)** dan memvalidasi ketat dengan **5-Seed Repeated Grouped Cross-Validation**.
-  7. Mengekspor model terbaik ke format **ONNX Runtime Mobile** dan mengintegrasikannya ke aplikasi Android **Essenza** untuk inferensi aroma lokal secara offline dan rekomendasi parfum.
-- **Capaian Terbaik (v5):**
-  - **XGBoost D:** Macro Average Precision (Test AP) **0,3145** (AUROC: **0,8387**, F1 adaptif: **0,3511**).
-  - **LightGBM D:** Macro Average Precision (Test AP) **0,3093** (AUROC: **0,8401**, F1 adaptif: **0,3450**).
-  - Penambahan 5 deskriptor fisikokimia terbukti secara konsisten meningkatkan akurasi rata-rata AP sebesar **+3,3% s.d. +4,3%**.
+**Bagian versi sebelumnya di bawah adalah riwayat; keputusan penelitian mengikuti status V7 di atas.**
 
----
+## V7 revisi 2: Morgan 2048 disiapkan - 25 September 2026
 
-## 2. Latar Belakang & Rumusan Masalah
+Pengguna menetapkan **Morgan 2048 bit**; paket tambahan dipilih **8 deskriptor RDKit**.
+XGBoost dan LightGBM masing-masing menjalankan A-D baru: A/C Morgan saja (2048 fitur),
+B/D Morgan + 8 (2056 fitur). A/B baseline 100; C/D empat studi Optuna 8 jam/studi
+(**32 jam tuning**, belum termasuk validasi dan final fit). Eksekusi di **PC kampus/PC lain**.
 
-1. **Subjektivitas & Skalabilitas Pengujian Aroma:**
-   Persepsi penciuman manusia bervariasi antar-individu karena faktor genetik reseptor olfaktori (*olfactory receptors*), kelelahan penciuman (*olfactory fatigue*), dan usia. Skrining aroma senyawa baru di laboratorium membutuhkan waktu berbulan-bulan.
-2. **Kompleksitas Hubungan Struktur Kimia ke Aroma (SOR):**
-   Dua molekul dengan kerangka struktur serupa terkadang memiliki aroma yang bertolak belakang, atau sebaliknya dua molekul dengan struktur berbeda dapat memicu aroma yang serupa. Diperlukan algoritma *machine learning* non-linear yang mampu menangkap interaksi fitur tingkat tinggi.
-3. **Karakteristik Data Multi-Label & Ekstrem Timpang (*Class Imbalance*):**
-   Dari ribuan molekul, sebuah label aroma tertentu (seperti *narcissus*, *camphoraceous*, atau *caramel*) mungkin hanya dimiliki oleh beberapa puluh molekul. Metode pemodelan konvensional cenderung gagal mendeteksi aroma minoritas.
-4. **Kebutuhan Penerapan Praktis di Perangkat Pengguna (*Edge Deployment*):**
-   Penggemar parfum dan formulator membutuhkan estimasi profil aroma molekul dan pencarian parfum langsung di smartphone tanpa selalu bergantung pada koneksi cloud yang lambat.
+Delapan jenis deskriptor mengikuti acuan Suh; pemilihan ini bukan bukti paket terbaik.
+Gabungan fitur dan ukuran 2048 adalah eksperimen proyek, bukan resep gabungan asli Suh.
+Data 6686 molekul, 109 label, split 5353/1333 dan kelompok lama tetap.
+Fitur baru terpisah di data/builds/perfume-m2048-d8-v7; hasil v6 dipertahankan.
 
----
+**Training penelitian v7 belum dijalankan.** Rilis aktif tetap LightGBM D v6.
+Seleksi dari mean macro AP repeated grouped CV; ambang tambahan dari prediksi OOF.
+B-A menguji tambahan 8 pada baseline tetap; D-C membandingkan hasil tuning masing-masing.
+V6-v7 merupakan sejarah eksperimen; B/D mengubah panjang Morgan dan paket deskriptor.
+Test pernah dilihat, sehingga hasil tetap eksploratori.
 
-## 3. Daftar Lengkap 109 Label Aroma Target (Dikelompokkan Berdasarkan Famili Aroma)
+Paket terbaru: **perfume-campus-grouped-v7-m2048-d8.zip**; ekstrak ke folder baru.
+Run ID: perfume-five-grouped-v7-m2048-d8.
+Rancangan/paket v7 lama 1024 (B/D/E/F, 5 vs 8) digantikan revisi ini dan hanya menjadi riwayat.
+Panduan: [Windows](WINDOWS_GUIDE_V7.md) / [Linux](LINUX_GUIDE_V7.md).
+Rencana lengkap: [DESCRIPTOR_COMPARISON_V7_PLAN.md](DESCRIPTOR_COMPARISON_V7_PLAN.md).
 
-Model memprediksi **109 deskriptor aroma** secara simultan. Untuk kebutuhan presentasi, 109 label ini diklasifikasikan ke dalam **10 Famili Olfaktori (*Odor Families*)**:
+**Setelah hasil v7 diaudit, agenda berikutnya merombak laporan sesuai metode/hasil terbaru.**
+Catatan permanen: [AFTER_V7_REPORT_UPDATE.md](AFTER_V7_REPORT_UPDATE.md).
+LaTeX belum direvisi untuk hasil yang belum tersedia. ONNX/Android tetap ditunda.
 
-```
-                                 ┌─ 1. Floral (11 label)
-                                 ├─ 2. Fruity (15 label)
-                                 ├─ 3. Citrus & Fresh (5 label)
-                                 ├─ 4. Woody & Earthy (11 label)
-                                 ├─ 5. Sweet & Gourmand (16 label)
-  109 Deskriptor Aroma Target ───┼─ 6. Green & Herbal (8 label)
-                                 ├─ 7. Spicy & Warm (7 label)
-                                 ├─ 8. Balsamic & Resinous (5 label)
-                                 ├─ 9. Animalic & Waxy (4 label)
-                                 └─ 10. Pungent, Savoury, & Chemical (27 label)
-```
+## 1. Fokus dan status hasil v6
 
-### Rincian Anggota Tiap Famili:
-1. **Floral (11 label):** `floral`, `rose`, `jasmin`, `lily`, `hyacinth`, `muguet` (lily of the valley), `lavender`, `neroli`, `narcissus`, `geranium`, `orris` (iris).
-2. **Fruity (15 label):** `fruity`, `apple`, `apricot`, `banana`, `berry`, `cherry`, `grape`, `grapefruit`, `melon`, `peach`, `pear`, `pineapple`, `plum`, `raspberry`, `strawberry`, `tropical fruit`.
-3. **Citrus & Fresh (5 label):** `citrus`, `lemon`, `grapefruit`, `fresh`, `clean`.
-4. **Woody & Earthy (11 label):** `woody`, `sandalwood`, `pine`, `earthy`, `mushroom`, `musty`, `rooty`, `hay`, `dry`, `terpenic`, `leathery`.
-5. **Sweet & Gourmand (16 label):** `sweet`, `caramel`, `chocolate`, `cocoa`, `coffee`, `honey`, `vanilla`, `buttery`, `creamy`, `milky`, `dairy`, `nutty`, `almond`, `coconut`, `popcorn`, `gourmand`.
-6. **Green & Herbal (8 label):** `green`, `herbal`, `grassy`, `leafy`, `celery`, `cucumber`, `tea`, `minty`.
-7. **Spicy & Warm (7 label):** `spicy`, `warm`, `cinnamon`, `aromatic`, `anisic`, `camphoraceous`, `cooling`.
-8. **Balsamic & Resinous (5 label):** `balsamic`, `amber`, `phenolic`, `aldehydic`, `sharp`.
-9. **Animalic & Waxy (4 label):** `animal like`, `musk like`, `fatty`, `waxy`.
-10. **Pungent, Savoury, Fermented, & Chemical (27 label):** `savoury`, `meaty`, `roasted`, `smoky`, `sulfurous`, `onion`, `garlic`, `tobacco`, `rum`, `brandy`, `fermented`, `winey`, `medicinal`, `metallic`, `acidic`, `sour`, `cheesy`, `oily`, `soapy`, `ethereal`, `lactonic`, `pungent`, `potato`.
+**Judul laporan:** Komparasi XGBoost dan LightGBM dengan Optimasi Optuna untuk Klasifikasi Multi-Label Aroma Molekul dalam Konteks Parfum.
 
----
+Eksperimen v6 selesai. Penelitian menguji tambahan paket lima deskriptor molekuler dan tuning pada XGBoost/LightGBM, dengan baseline internal A–D pada dataset serta pembagian yang sama. Suh menjadi acuan struktur–aroma; penelitian ini bukan reproduksi identik atau bukti mengungguli skor Suh pada dataset berbeda.
 
-## 4. Partisi Dataset: Mengapa 5.353 Train vs 1.333 Test?
+**LightGBM D dipilih melalui macro AP validasi**, bukan dari peringkat test. Inferensi Python tersedia; ONNX baru, integrasi Android Essenza, dan deployment **ditunda**. Satu molekul menghasilkan beberapa skor label aroma; tidak memprediksi campuran, intensitas sensori, atau komposisi parfum.
 
-Dari total **6.686 senyawa molekul unik**:
-- **Data Latih & Validasi (Training Set):** **5.353 senyawa (~80,1%)**
-- **Data Uji Akhir (Held-Out Test Set):** **1.333 senyawa (~19,9%)**
+## 2. Dataset dan representasi
 
-### Alur Siklus Penggunaan Data:
-1. **Selama Proses Pengembangan & Tuning (Optuna):**
-   - Model **hanya boleh melihat 5.353 senyawa latih**.
-   - Di dalam 5.353 senyawa ini, dilakukan validasi silang 5-fold (*5-Fold Stratified Group Cross-Validation*) dan diulang 5 kali (*5-Seed Repeated CV*) untuk mengevaluasi hyperparameter terbaik.
-   - **Data uji 1.333 senyawa sama sekali dikunci (*strictly frozen/held-out*)** agar tidak terjadi kebocoran informasi pemilihan model (*data snooping bias*).
-2. **Setelah Model Selesai & Dikunci:**
-   - Kandidat terbaik dilatih penuh pada seluruh 5.353 data latih.
-   - Barulah data uji 1.333 senyawa dibuka **satu kali saja** untuk mengukur akurasi generalisasi di dunia nyata pada molekul baru.
+| Komponen | Nilai/kebijakan v6 |
+|---|---|
+| Sumber Pyrfume | GoodScents, IFRA 2019, Leffingwell, Arctander 1960, Sigma-Aldrich 2014 |
+| Baris mentah | 13.337 |
+| Baris ditolak / diterima | 1.560 / 11.777 |
+| Konsolidasi rekaman | 5.091 baris; bukan 5.091 molekul tak berlabel yang dibuang |
+| Molekul unik / label | 6.686 / 109 |
+| Training / test | 5.353 / 1.333 molekul |
+| Kelompok | 5.363; terbesar 38 molekul |
+| Morgan | Radius 2, 1.024 bit, tanpa kiralitas |
+| Lima deskriptor berurutan | MolWt, MolLogP, NumHDonors, NumHAcceptors, TPSA |
+| Dimensi | A/C: 1.024; B/D: 1.029 |
+| Keluaran | Skor kelas positif dan keputusan untuk masing-masing dari 109 label |
 
-### Mengapa Disebut *Grouped Splitting* (5.363 Kelompok)?
-- Dalam kimia, satu zat bisa memiliki varian garam, stereoisomer, atau kembaran molekul yang memiliki sidik jari identik.
-- Jika dibagi acak biasa (seperti pada v1), molekul kembar ini bisa masuk ke train dan test sekaligus, sehingga model tampak "pintar" padahal hanya menghafal molekul kembarannya (*data leakage*).
-- Pada *Grouped Split*, 6.686 molekul dikelompokkan ke dalam **5.363 gugus struktur independen**. Satu gugus utuh dimasukkan ke train ATAU test.
-- **Hasilnya: 0 molekul dengan fingerprint identik yang melintasi data train dan test.**
+Kelompok dibentuk dari hubungan transitif struktur nonstereokimia identik atau fingerprint identik. Pemisahan ini bukan scaffold split dan tidak menjamin semua molekul yang mirip terpisah. Label dipilih dari training. Label tidak tercatat diperlakukan sebagai nol anotasi, bukan bukti sensori negatif. Relevansi sumber dengan parfum tidak membuktikan setiap molekul eksklusif digunakan dalam parfum.
 
----
+## 3. Delapan kandidat dan alur evaluasi
 
-## 5. Rincian Alur Preprocessing Data (Langkah demi Langkah)
-
-Proses pra-pemrosesan data dilakukan secara otomatis, terverifikasi checksum, dan terdokumentasi penuh melalui skrip [`alignment/perfume_data.py`](file:///c:/Users/ACER/Documents/Marvel/Skripsi/Project%20Skripsi/Perfume-MultiLabel-Classifier/alignment/perfume_data.py):
-
-```
-[Tahap 1: Ingesti Data 5 Sumber]
-  GoodScents, IFRA 2019, Leffingwell, Arctander, Sigma-Aldrich (Verifikasi Hash SHA-256)
-                       │
-                       ▼
-[Tahap 2: Sanitasi & Penyaringan Molekul Tunggal (Single-Molecule Filtering)]
-  Buang senyawa tanpa ID, SMILES korup, dan multi-fragmen (garam, pelarut, campuran)
-                       │
-                       ▼
-[Tahap 3: Kanonikalisasi Struktur Kimia]
-  Standarisasi representasi atomik ke RDKit Canonical Isomeric SMILES (6.686 molekul unik)
-                       │
-                       ▼
-[Tahap 4: Harmonisasi & Normalisasi Label Aroma]
-  Pemetaan teks aroma bebas dari 5 sumber ke Taksonomi IFRA via kamus sinonim terdefinisi
-                       │
-                       ▼
-[Tahap 5: Seleksi Label Target (Thresholding)]
-  Filter label aroma dengan frekuensi latih ≥ 30 kemunculan ➔ Terpilih 109 Label
-                       │
-                       ▼
-[Tahap 6: Grouped Splitting (Pencegahan Data Leakage)]
-  5.363 klaster struktur ➔ 5.353 Latih (Train) & 1.333 Uji (Test)
-                       │
-                       ▼
-[Tahap 7: Ekstraksi Fitur Molekuler]
-  Morgan Fingerprint (1.024-bit) + 5 Deskriptor Fisikokimia RDKit ➔ Matriks 1.029 Fitur
-```
-
-### Penjelasan Detail 7 Tahap Preprocessing:
-
-1. **Tahap 1: Pengambilan & Verifikasi Integritas Sumber Data:**
-   Mengunduh tabel perilaku aroma dan identitas kimia dari repositori terkurasi Pyrfume. Setiap file diverifikasi dengan hash SHA-256 untuk menjamin data tidak berubah diam-diam (*reproducibility*).
-2. **Tahap 2: Sanitasi Molekul & Eliminasi Campuran (*Single-Molecule Filtering*):**
-   - Struktur kimia yang dimasukkan wajib berupa **molekul organik tunggal terhubung (*single connected component*)**.
-   - Campuran zat, garam anorganik, dan pelarut dieliminasi menggunakan fungsi `len(Chem.GetMolFrags(mol)) == 1`. Senyawa tanpa SMILES valid langsung ditolak.
-3. **Tahap 3: Kanonikalisasi SMILES (RDKit):**
-   - Struktur kimia ditulis dalam format string SMILES (*Simplified Molecular Input Line Entry System*).
-   - Karena satu molekul dapat ditulis dengan banyak variasi string SMILES, RDKit menstandarkannya menjadi satu representasi kanonik universal (`Chem.MolToSmiles(mol, isomericSmiles=True)`).
-4. **Tahap 4: Harmonisasi Label & Pemetaan Sinonim (*Lexical Alias Mapping*):**
-   - Setiap sumber data menggunakan istilah bahasa Inggris yang sedikit berbeda (contoh: GoodScents menulis *"citrus notes"*, Arctander menulis *"citrusy"*, IFRA menulis *"citrus"*).
-   - Dibuat kamus pemetaan formal (`ALIASES`) yang memetakan variasi penulisan ke kosakata baku taksonomi IFRA tanpa menggunakan tebakan semantik kabur (*fuzzy matching*).
-   - Penggabungan multi-label: satu molekul menggabungkan label aroma dari seluruh sumber yang memuat molekul tersebut.
-5. **Tahap 5: Seleksi Label Target Berdasarkan Frekuensi:**
-   - Dari 184 istilah taksonomi IFRA, dipilih label yang memiliki **minimal 30 kemunculan positif** di partisi data latih agar model memiliki sampel pembelajaran yang cukup.
-   - Tahap ini menyaring tepat **109 label aroma**.
-6. **Tahap 6: Pembentukan Gugus Struktur & Partisi Bebas Leakage:**
-   - Menghitung kemiripan kerangka molekul menggunakan graf kesetaraan struktur dan sidik jari Morgan.
-   - Menghasilkan 5.363 gugus molekul.
-   - Menggunakan `GroupShuffleSplit` (outer 80:20) dan `StratifiedGroupKFold` (inner 5-fold).
-7. **Tahap 7: Ekstraksi Fitur Kimia (1.029 Fitur):**
-   - **Morgan Fingerprint (1.024 bit):** Menggunakan generator RDKit radius 2 (merepresentasikan lingkungan ikatan hingga 4 ikatan atom di sekitarnya, setara ECFP4) yang diproyeksikan ke dalam array biner 1.024 dimensi.
-   - **5 Deskriptor Fisikokimia RDKit:**
-     - `MolWt`: Berat molekul (satuan Dalton).
-     - `MolLogP`: Koefisien partisi oktanol-air (tingkat kelarutan lemak vs air).
-     - `NumHDonors`: Jumlah atom donor ikatan hidrogen (-OH, -NH).
-     - `NumHAcceptors`: Jumlah atom akseptor ikatan hidrogen (-O-, -N=).
-     - `TPSA`: Luas permukaan polar topologis ($\text{Å}^2$).
-
----
-
-## 6. Desain 4 Kondisi Eksperimen (Studi Ablasi)
-
-Untuk membuktikan apa yang sebenarnya meningkatkan akurasi model, dilakukan pemisahan menjadi 4 kondisi:
-
-| Kondisi | Fitur yang Digunakan | Optimasi Hyperparameter | Tujuan Eksperimen |
+| Kandidat | Fitur | Penyiapan parameter | Evaluasi kandidat |
 |---|---|---|---|
-| **Kondisi A** | Morgan 1.024-bit | Tanpa Tuning (Default 100 Trees) | Baseline murni representasi struktur 2D. |
-| **Kondisi B** | Morgan 1.024 + 5 Deskriptor (1.029 fitur) | Tanpa Tuning (Default 100 Trees) | Mengukur dampak langsung 5 deskriptor fisikokimia tanpa campur tangan tuning. |
-| **Kondisi C** | Morgan 1.024-bit | Dioptimasi Optuna (TPE Sampler) | Mengukur dampak tuning hyperparameter pada fitur Morgan saja. |
-| **Kondisi D** | Morgan 1.024 + 5 Deskriptor (1.029 fitur) | Dioptimasi Optuna (TPE Sampler) | Mengukur sinergi maksimal antara fitur fisikokimia dan tuning hyperparameter. |
+| XGBoost A | Morgan | Baseline 100 pohon | Lima pengulangan grouped CV |
+| XGBoost B | Morgan + lima deskriptor | Baseline 100 pohon | Lima pengulangan grouped CV |
+| XGBoost C | Morgan | Optuna, 8 jam/studi | Lima pengulangan grouped CV |
+| XGBoost D | Morgan + lima deskriptor | Optuna, 8 jam/studi | Lima pengulangan grouped CV |
+| LightGBM A | Morgan | Baseline 100 pohon | Lima pengulangan grouped CV |
+| LightGBM B | Morgan + lima deskriptor | Baseline 100 pohon | Lima pengulangan grouped CV |
+| LightGBM C | Morgan | Optuna, 8 jam/studi | Lima pengulangan grouped CV |
+| LightGBM D | Morgan + lima deskriptor | Optuna, 8 jam/studi | Lima pengulangan grouped CV |
 
----
+Setiap kandidat adalah Binary Relevance dengan 109 model biner dan bobot seimbang yang dihitung dari training fold. A/B tidak melalui Optuna. Parameter baseline selain pengaturan eksplisit mengikuti versi pustaka yang didokumentasikan; 100 pohon tidak menyamakan kapasitas kedua algoritma.
 
-## 7. Hasil Eksperimen Utama & Analisis Temuan (v1 s.d. v5)
+Tuning memakai TPE dan grouped CV tersimpan (seed 42); empat studi berjumlah 32 jam anggaran tuning. Satu konfigurasi historis dievaluasi ulang pada setiap studi sebagai trial awal. Nilai terbaik hanya berlaku untuk ruang pencarian dan anggaran yang diuji.
 
-### 7.1 Hasil Uji Akhir pada Data Test (Held-Out Test Set 1.333 Molekul)
+Setelah parameter kandidat ditetapkan, lima pengulangan grouped CV memakai seed 7, 21, 42, 84, 100. Setiap label memperoleh lima fold pada dataset ini. Rata-rata macro AP validasi menentukan pilihan model. Prediksi out-of-fold lima pengulangan dirata-ratakan untuk memilih ambang tambahan per label yang memaksimalkan F1, grid 0,05–0,95 langkah 0,05. Jika seri, pilih terdekat 0,5, lalu lebih besar. Ini **bukan threshold holdout terpisah**. Prediksi validasi tetap terkait dengan seleksi parameter, sehingga tidak bebas bias pemilihan.
 
-| Model & Versi | Kondisi | Resep Hyperparameter Kunci | Test AP (AUPRC) | Test AUROC | Test F1 (Threshold 0,5) | Test F1 (Adaptive Val Thr) |
-|---|---|---|---|---|---|---|
-| **XGBoost D (v5)** | D (Morgan + Desk + Optuna) | **800 trees**, lr: 0,0184, depth: 7, col: 0,504 | **0,3145** 🏆 | **0,8387** | **0,3165** | **0,3511** 🏆 |
-| **LightGBM D (v5)** | D (Morgan + Desk + Optuna) | **800 trees**, lr: 0,0133, depth: 5, col: 0,505 | **0,3093** | **0,8401** | **0,2902** | **0,3450** |
-| **XGBoost D (v3)** | D (Morgan + Desk + Optuna) | 600 trees, lr: 0,0106, depth: 8, col: 0,916 | 0,3058 | 0,8392 | 0,3013 | 0,3210 |
-| **LightGBM D (v3)** | D (Morgan + Desk + Optuna) | 400 trees, lr: 0,0239, depth: 6, col: 0,570 | 0,3037 | 0,8392 | 0,2885 | 0,3238 |
-| **XGBoost B (v3)** | B (Morgan + Desk Default) | 100 trees, parameter default | 0,2888 | 0,8212 | 0,3192 | — |
-| **LightGBM B (v3)** | B (Morgan + Desk Default) | 100 trees, parameter default | 0,2971 | 0,8252 | 0,3197 | — |
-| **XGBoost C (v3)** | C (Morgan Optuna) | 600 trees, lr: 0,0106, depth: 8 | 0,2737 | 0,8252 | 0,2774 | — |
-| **LightGBM C (v3)** | C (Morgan Optuna) | 800 trees, lr: 0,0126, depth: 8 | 0,2788 | 0,8296 | 0,2743 | — |
-| **XGBoost A (v3)** | A (Morgan Baseline Default) | 100 trees, parameter default | 0,2516 | 0,8084 | 0,2773 | — |
-| **LightGBM A (v3)** | A (Morgan Baseline Default) | 100 trees, parameter default | 0,2540 | 0,8071 | 0,2880 | — |
+Konfigurasi, pilihan kandidat, dan ambang tambahan dibekukan sebelum fitting final/evaluasi v6. **Ambang utama tetap 0,5**, termasuk pada rilis. Seluruh delapan kandidat menjalani fitting final dan evaluasi. Cabang diagram menunjukkan kandidat terpisah; eksekusi komputasi tetap berurutan. Test telah dilihat dalam eksplorasi pendahuluan, sehingga hasil **eksploratori**, bukan evaluasi independen baru.
 
-### 7.2 Tiga Kesimpulan Utama Ablasi:
-1. **Deskriptor Fisikokimia adalah Faktor Paling Berdampak:**  
-   Menambahkan 5 deskriptor fisikokimia meningkatkan AP sebesar **+3,3% s.d. +4,3%** (B vs A). Karakteristik aroma terbukti sangat dipengaruhi oleh volatilitas dan interaksi membran mukosa hidung.
-2. **Optuna Tuning Menyempurnakan Hasil:**  
-   Tuning hyperparameter memberikan kenaikan tambahan sebesar **+1,5% s.d. +2,4% AP** (C vs A) dan mengantarkan performa puncak pada Kondisi D.
-3. **Thresholding Adaptif Mendongkrak F1-Score:**  
-   Penyesuaian threshold per label pada data validasi meningkatkan F1-Score makro dari **0,3165 menjadi 0,3511 (+10,9% relatif)**.
+## 4. Tabel hasil utama v6
 
----
+Seluruh angka dibaca dari `comparison_all.csv` v6 dan ditampilkan enam desimal. AP adalah Average Precision; nama kolom artefaknya `auprc`. F1 adalah **rata-rata F1 per label**, bukan harmonic mean dari macro precision dan macro recall. AP/AUROC menggunakan skor sehingga tidak berubah karena pergantian ambang keputusan.
 
-## 8. Arsitektur Sistem & Integrasi Mobile (Aplikasi Essenza)
+| Kandidat | AP validasi | AP test | AUROC test | Macro-F1 test: 0,5 | Macro-F1 test: ambang OOF | Status seleksi |
+|---|---:|---:|---:|---:|---:|---|
+| XGBoost A | 0,248716 | 0,251634 | 0,808388 | 0,273580 | 0,273988 | — |
+| XGBoost B | 0,275842 | 0,288825 | 0,821165 | 0,309399 | 0,303762 | — |
+| XGBoost C | 0,271591 | 0,278934 | 0,828769 | 0,276136 | 0,299179 | — |
+| XGBoost D | 0,298848 | 0,314531 | 0,838731 | 0,308414 | 0,331776 | Finalis XGBoost |
+| LightGBM A | 0,250651 | 0,254001 | 0,807111 | 0,275519 | 0,270552 | — |
+| LightGBM B | 0,283486 | 0,297056 | 0,825168 | 0,310900 | 0,308279 | — |
+| LightGBM C | 0,273669 | 0,275895 | 0,828951 | 0,255100 | 0,298679 | — |
+| LightGBM D | 0,302232 | 0,313921 | 0,843526 | 0,319645 | 0,331041 | **Terpilih** |
 
-Aplikasi **Essenza** mengimplementasikan hasil riset ke dalam produk nyata:
-1. **Input Pengguna:** Pengguna memasukkan nama molekul (contoh: *"Vanillin"*, *"Linalool"*, *"Iso E Super"*) atau kode SMILES.
-2. **Ekstraksi Fitur Instan:** RDKit mengekstraksi vektor 1.029 dimensi dalam hitungan milidetik.
-3. **Inference On-Device (ONNX Runtime Mobile):** Bobot model berjalan offline langsung di prosesor Android smartphone tanpa memerlukan kuota internet.
-4. **Visualisasi Radar Aroma & Rekomendasi Parfum:** Profil 109 aroma yang diprediksi dicocokkan dengan katalog wewangian komersial untuk menampilkan parfum di pasaran yang memiliki kesamaan profil aroma molekul tersebut.
+**LightGBM D** memiliki AP validasi tertinggi. XGBoost D mempunyai AP test sedikit lebih tinggi; hal itu tidak mengubah keputusan seleksi. Ambang OOF merupakan analisis tambahan, bukan alasan mengganti metrik utama atau kandidat setelah melihat test. Penggunaan ambang OOF juga tidak selalu meningkatkan F1.
 
----
+### Metrik keputusan pada ambang utama 0,5
 
-## 9. Kerangka Slide Presentasi Siap Pakai (12 Slides Outline)
+| Kandidat | Accuracy | Specificity | Macro precision | Macro recall |
+|---|---:|---:|---:|---:|
+| XGBoost A | 0,936895 | 0,950730 | 0,231785 | 0,372304 |
+| XGBoost B | 0,947150 | 0,962132 | 0,285604 | 0,361971 |
+| XGBoost C | 0,923777 | 0,934083 | 0,203916 | 0,480890 |
+| XGBoost D | 0,935553 | 0,946463 | 0,237984 | 0,472166 |
+| LightGBM A | 0,940260 | 0,954409 | 0,245131 | 0,348771 |
+| LightGBM B | 0,948939 | 0,963519 | 0,288986 | 0,357453 |
+| LightGBM C | 0,907410 | 0,915797 | 0,181629 | 0,523359 |
+| LightGBM D | 0,934651 | 0,945199 | 0,249324 | 0,481812 |
 
-- **Slide 1: Judul & Identitas**
-  - Judul: *Klasifikasi Multi-Label Karakter Aroma Senyawa Molekul Berbasis Struktur Kimia untuk Rekomendasi Parfum*
-  - Subjudul: *Studi Perbandingan XGBoost dan LightGBM dengan Ekstraksi Deskriptor RDKit pada Aplikasi Mobile Essenza*
-  - Pemrasaran: Marvel Kevin Nathanael
-- **Slide 2: Latar Belakang & Masalah**
-  - Keterbatasan uji sensori manual: mahal, lambat, subjektif, risiko toksisitas.
-  - Visi: Digitalisasi penciuman (*digital olfaction*) berbantuan AI.
-- **Slide 3: Tantangan Teknis Utama**
-  - Hubungan struktur kimia ke aroma (*SOR*) sangat non-linear.
-  - Sifat *multi-label* (satu molekul memiliki banyak aroma).
-  - Ketimpangan kelas ekstrem (*class imbalance*).
-- **Slide 4: Alur Metodologi Penelitian**
-  - Diagram tahapan: 5 Sumber Data $\rightarrow$ Preprocessing $\rightarrow$ Grouped Split $\rightarrow$ Ekstraksi Fitur $\rightarrow$ Tuning Optuna $\rightarrow$ Validasi 5-Seed $\rightarrow$ ONNX Mobile $\rightarrow$ Essenza.
-- **Slide 5: Dataset & Pencegahan Kebocoran Data (Grouped Splitting)**
-  - 5 Sumber data global (TGSC, IFRA, Leffingwell, Arctander, Sigma-Aldrich).
-  - 6.686 Molekul Kanonik, 109 Label Aroma Target.
-  - Partisi: 5.353 Train vs 1.333 Test (5.363 klaster struktur, 0 overlap fingerprint).
-- **Slide 6: 109 Deskriptor Aroma dalam 10 Famili Olfaktori**
-  - Visualisasi famili aroma: Floral (11), Fruity (15), Citrus (5), Woody (11), Sweet (16), Green (8), Spicy (7), Balsamic (5), Animalic (4), Savoury & Chemical (27).
-- **Slide 7: Rekayasa Fitur & Desain 4 Kondisi Eksperimen**
-  - Morgan Fingerprint 1.024-bit + 5 Deskriptor RDKit (MolWt, LogP, HDonors, HAcceptors, TPSA).
-  - Penjelasan 4 kondisi eksperimen (A, B, C, D) untuk pembuktian ablasi ilmiah.
-- **Slide 8: Strategi Pemodelan & Tuning Optuna**
-  - XGBoost vs LightGBM (Binary Relevance).
-  - Pembobotan kelas seimbang seragam (*Symmetric Sample Weights*).
-  - Tuning Bayesian Optuna TPE & 5-Seed Repeated Grouped CV.
-- **Slide 9: Hasil Eksperimen Utama (Puncak di Run v5)**
-  - Rekor v5: XGBoost D Test AP **0,3145** dan LightGBM D Test AP **0,3093**.
-  - Threshold tuning adaptif mendongkrak F1-Score hingga **0,3511**.
-- **Slide 10: Analisis Ablasi: Apa yang Paling Berpengaruh?**
-  - Deskriptor fisikokimia memberikan lompatan akurasi terbesar (+3,3% s.d. +4,3% AP).
-  - Tuning Optuna menyempurnakan performa (+1,5% s.d. +2,4% AP).
-  - Sinergi fitur + tuning menghasilkan lonjakan total +6,3% AP.
-- **Slide 11: Implementasi Aplikasi Mobile (Essenza)**
-  - Arsitektur Edge AI: Model ONNX berjalan offline di smartphone.
-  - Prediksi profil aroma molekul baru dan pencarian parfum komersial berbasis kemiripan aroma.
-- **Slide 12: Kesimpulan & Sesi Tanya Jawab (Q&A)**
-  - Keberhasilan memodelkan 109 aroma molekul tanpa data leakage.
-  - Bukti krusialnya sifat fisikokimia molekul dalam persepsi aroma.
-  - Integrasi sukses dari riset kemoinformatika ke aplikasi nyata.
-  - Terima Kasih & Tanya Jawab.
+Accuracy adalah ketepatan pasangan molekul–label, bukan persentase molekul yang seluruh labelnya benar. Prediksi semua label negatif mencapai accuracy **0,960970**, dengan recall/F1 nol. Karena itu accuracy tidak menjadi bukti keberhasilan tunggal.
+
+## 5. Tabel analisis modifikasi
+
+| Kontras | Yang diuji | Batas interpretasi |
+|---|---|---|
+| B–A | Paket lima deskriptor pada baseline | Bukan pengaruh setiap deskriptor secara terpisah |
+| C–A | Tuning pada Morgan | Bukan keunggulan TPE atas random/grid search |
+| D–B | Tuning pada fitur gabungan | Tidak menjamin semua metrik naik |
+| D–C | Dua representasi yang masing-masing dituning | Parameter hasil pencarian berbeda; bukan efek fitur dengan semua parameter tetap |
+| D–A | Gabungan fitur tambahan dan tuning | Tidak memisahkan seluruh kontribusi komponen |
+
+Selisih berikut adalah pengurangan skor absolut, **bukan persen kenaikan relatif**. F1 dan recall memakai ambang utama 0,5.
+
+| Algoritma | Kontras | Delta AP test | Delta macro-F1 test | Delta macro recall test |
+|---|---|---:|---:|---:|
+| XGBoost | B–A | +0,037191 | +0,035818 | -0,010332 |
+| XGBoost | C–A | +0,027300 | +0,002556 | +0,108586 |
+| XGBoost | D–B | +0,025706 | -0,000985 | +0,110195 |
+| XGBoost | D–C | +0,035598 | +0,032278 | -0,008724 |
+| XGBoost | D–A | +0,062897 | +0,034834 | +0,099862 |
+| LightGBM | B–A | +0,043056 | +0,035381 | +0,008682 |
+| LightGBM | C–A | +0,021895 | -0,020419 | +0,174587 |
+| LightGBM | D–B | +0,016865 | +0,008745 | +0,124359 |
+| LightGBM | D–C | +0,038026 | +0,064545 | -0,041546 |
+| LightGBM | D–A | +0,059920 | +0,044126 | +0,133041 |
+
+Paket deskriptor meningkatkan AP pada B–A untuk kedua algoritma; recall XGBoost turun. Tuning meningkatkan AP terhadap baseline representasi masing-masing, tetapi F1 LightGBM C–A dan XGBoost D–B turun. Hasil tidak membuktikan mekanisme biologis, volatilitas, manfaat setiap deskriptor, atau peningkatan semua metrik. Perbandingan versi lama mengubah ruang pencarian dan titik awal, sehingga tidak mengisolasi pengaruh lama tuning saja.
+
+## 6. Tabel status implementasi dan batas bukti
+
+| Bagian | Status setelah v6 | Pekerjaan/batas yang tersisa |
+|---|---|---|
+| Training dan evaluasi A–D | Selesai | Tetap eksploratori; tidak otomatis training ulang |
+| Seleksi rilis | LightGBM D | Tetap berdasarkan AP validasi |
+| Fitur/Python inference | Diverifikasi pada cakupan tersimpan | 6.686 vektor fitur; 32 contoh / 3.488 skor; bukan pengukuran akurasi baru |
+| Ambang | Utama 0,5; tambahan dari OOF | Bukan holdout terpisah; kalibrasi belum diuji |
+| Feature API | Menyediakan fitur RDKit berversi | Belum layanan prediksi model terpilih |
+| Laporan | Hasil v6 dan audit ilmiah sudah dimasukkan | Batasan empiris tetap dinyatakan |
+| Harmonisasi label | Aturan/provenance terdokumentasi | Kesetaraan semantik belum divalidasi pakar |
+| Ketidakpastian | Interval deskriptif tersedia | Label/seed berkorelasi; bukan bukti ekuivalensi atau superioritas populasi |
+| ONNX baru / Android / deployment | **Ditunda** | Konversi, parity, ukuran, RAM, latensi, dan uji perangkat belum dilakukan |
+
+Rilis `releases/grouped-v6-lgbm-d/` memuat 109 model, skema fitur, urutan label, versi pustaka, checksum, dan ambang utama. ONNX lama 25 label telah dihapus. Pemrosesan SMILES tetap membutuhkan RDKit; jika memakai Feature API, seluruh alur tidak dapat disebut offline. Arsitektur mobile akhir belum dikunci. Katalog/rekomendasi parfum atau manfaat pengguna tidak dianggap tervalidasi oleh metrik model molekul.
+
+## 7. Acuan presentasi dan pekerjaan berikutnya
+
+Urutan slide yang konsisten: masalah struktur–aroma; posisi Suh dan kontribusi terbatas; lima sumber dan alur jumlah data; fitur; delapan kandidat; grouped CV/OOF dan batas test; hasil v6; kontras A–D; rilis Python; pekerjaan ONNX/Android yang ditunda; batasan; kesimpulan.
+
+Jangan menggunakan keluarga aroma buatan sebagai taksonomi penelitian tanpa dasar dan pemetaan yang tervalidasi. Daftar target mengikuti manifest `release.json` dan spesifikasi fitur pada rilis, bukan keluarga label buatan. Jangan menyebut bebas 100% leakage, test baru dibuka satu kali sepanjang penelitian, Optuna optimal global, atau aplikasi sudah berhasil.
+
+Pekerjaan berikutnya adalah penyiapan implementasi saat dimulai pengguna, dengan menjaga fitur/label/ambang dan menguji kesetaraan. Validasi ahli, evaluasi independen, kalibrasi, serta kontrol/ablasi tambahan tetap berstatus belum dilakukan; keterbatasan ini tidak hilang setelah revisi dokumen. Pseudo-labeling dan training tambahan tidak termasuk scope aktif.
+
+## 8. Sumber angka dan riwayat pembaruan
+
+- Angka utama: `.local-tools/campus-transfer-full-20260909/perfume-campus-grouped-v6/perfume-campus-grouped-v6/runs/perfume-five-grouped-v6/comparison_all.csv`.
+- Pendukung: `ablation_deltas.csv`, `selection_frozen.json`, `complete.json`, dan dataset manifest pada paket yang sama.
+- Konsistensi Python: [verification.json](reports/backend_alignment_20260921/verification.json).
+- Batas ilmiah dan bukti revisi: [rencana audit](SCIENTIFIC_AUDIT_FIX_PLAN_20260921.md), [EVIDENCE_REVIEW.md](reports/scientific_audit_20260922/EVIDENCE_REVIEW.md).
+- Panduan aktif: [INFERENCE_GUIDE.md](INFERENCE_GUIDE.md), [PROJECT_CONTEXT.md](PROJECT_CONTEXT.md), [SAFE_EXECUTION_PLAN.md](SAFE_EXECUTION_PLAN.md).
+- Sumber laporan utama tetap berada di `C:\Users\ACER\Documents\Marvel\Skripsi\Laporan Skripsi\2521_skripsi_Marvel_Kevin_Nathanael`.
+- 23 September 2026: ringkasan lama diganti; seluruh tabel hasil memakai v6 dan definisi metrik aktual; threshold OOF dijelaskan; diagram delapan cabang diselaraskan. Tidak mengubah data, model, split, hasil eksperimen, atau frontend.

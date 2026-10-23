@@ -1,0 +1,23 @@
+{
+  "module_imports_passed": [
+    "alignment.perfume_data",
+    "alignment.grouped_splits",
+    "alignment.descriptors_v7",
+    "alignment.tuning_v6",
+    "alignment.tuning_v9",
+    "alignment.experiments_v7",
+    "alignment.experiments_v9",
+    "alignment.metrics",
+    "alignment.predict_v7"
+  ],
+  "guide_links_checked": 21,
+  "missing_links": [],
+  "data_manifest_exists": true,
+  "v7_feature_manifest_exists": true,
+  "v7_result_complete_exists": true,
+  "v9_result_complete_exists": true,
+  "v7_artifact_files_present": 1199,
+  "v7_selected_model_sample_sha256_matches": true,
+  "v9_artifact_files_present": 1314,
+  "v9_selected_model_sample_sha256_matches": true
+}

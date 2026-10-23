@@ -1,0 +1,64 @@
+test_both_sizes_keep_exact_same_descriptors (alignment.test_grouped_v9.V9Tests.test_both_sizes_keep_exact_same_descriptors) ... ok
+test_interruption_preserves_charged_budget (alignment.test_grouped_v9.V9Tests.test_interruption_preserves_charged_budget) ... [I 2026-10-17 22:33:57,479] A new study created in RDB with name: pause
+[2026-10-17T15:33:57.604472+00:00] trial_started: {'candidate': 'pause', 'trial': 0}
+[I 2026-10-17 22:33:57,917] Using an existing study with name 'pause' instead of creating a new one.
+[2026-10-17T15:33:57.997550+00:00] trial_started: {'candidate': 'pause', 'trial': 1}
+[2026-10-17T15:33:58.351010+00:00] trial_completed: {'candidate': 'pause', 'trial': 1, 'macro_ap': 0.3, 'best_macro_ap': 0.3}
+[2026-10-17T15:33:58.423404+00:00] trial_started: {'candidate': 'pause', 'trial': 2}
+[2026-10-17T15:33:58.773969+00:00] trial_completed: {'candidate': 'pause', 'trial': 2, 'macro_ap': 0.3, 'best_macro_ap': 0.3}
+[2026-10-17T15:33:58.849383+00:00] trial_started: {'candidate': 'pause', 'trial': 3}
+[2026-10-17T15:33:59.193436+00:00] trial_completed: {'candidate': 'pause', 'trial': 3, 'macro_ap': 0.3, 'best_macro_ap': 0.3}
+[2026-10-17T15:33:59.261580+00:00] trial_started: {'candidate': 'pause', 'trial': 4}
+[2026-10-17T15:33:59.608743+00:00] trial_completed: {'candidate': 'pause', 'trial': 4, 'macro_ap': 0.3, 'best_macro_ap': 0.3}
+[2026-10-17T15:33:59.677434+00:00] trial_started: {'candidate': 'pause', 'trial': 5}
+[2026-10-17T15:34:00.034881+00:00] trial_completed: {'candidate': 'pause', 'trial': 5, 'macro_ap': 0.3, 'best_macro_ap': 0.3}
+[2026-10-17T15:34:00.113652+00:00] trial_started: {'candidate': 'pause', 'trial': 6}
+ok
+test_selection_uses_validation_and_fixed_tie_order (alignment.test_grouped_v9.V9Tests.test_selection_uses_validation_and_fixed_tie_order) ... ok
+test_snapshot_excludes_trials_completed_after_boundary (alignment.test_grouped_v9.V9Tests.test_snapshot_excludes_trials_completed_after_boundary) ... [I 2026-10-17 22:34:00,528] A new study created in memory with name: no-name-a4ed6374-ae46-4f77-9424-acf026a3abb7
+ok
+[2026-10-17T15:34:00.630665+00:00] prepare_candidate: {'candidate': 'xgb_m1024_base'}
+[2026-10-17T15:34:00.642418+00:00] repeated_grouped_cv: {'candidate': 'xgb_m1024_base', 'seeds': [7, 21]}
+[2026-10-17T15:34:01.451906+00:00] prepare_candidate: {'candidate': 'xgb_m2048_base'}
+[2026-10-17T15:34:01.462015+00:00] repeated_grouped_cv: {'candidate': 'xgb_m2048_base', 'seeds': [7, 21]}
+[2026-10-17T15:34:02.190460+00:00] prepare_candidate: {'candidate': 'lgbm_m1024_base'}
+[2026-10-17T15:34:02.199991+00:00] repeated_grouped_cv: {'candidate': 'lgbm_m1024_base', 'seeds': [7, 21]}
+[2026-10-17T15:34:02.767373+00:00] prepare_candidate: {'candidate': 'lgbm_m2048_base'}
+[2026-10-17T15:34:02.777431+00:00] repeated_grouped_cv: {'candidate': 'lgbm_m2048_base', 'seeds': [7, 21]}
+[2026-10-17T15:34:03.459958+00:00] prepare_candidate: {'candidate': 'xgb_m1024_tuned'}
+[2026-10-17T15:34:03.480836+00:00] repeated_grouped_cv: {'candidate': 'xgb_m1024_tuned', 'seeds': [7, 21]}
+[2026-10-17T15:34:04.116321+00:00] prepare_candidate: {'candidate': 'xgb_m2048_tuned'}
+[2026-10-17T15:34:04.135323+00:00] repeated_grouped_cv: {'candidate': 'xgb_m2048_tuned', 'seeds': [7, 21]}
+[2026-10-17T15:34:04.856889+00:00] prepare_candidate: {'candidate': 'lgbm_m1024_tuned'}
+[2026-10-17T15:34:04.875780+00:00] repeated_grouped_cv: {'candidate': 'lgbm_m1024_tuned', 'seeds': [7, 21]}
+[2026-10-17T15:34:05.364693+00:00] prepare_candidate: {'candidate': 'lgbm_m2048_tuned'}
+[2026-10-17T15:34:05.382707+00:00] repeated_grouped_cv: {'candidate': 'lgbm_m2048_tuned', 'seeds': [7, 21]}
+[2026-10-17T15:34:05.928762+00:00] validate_8h_snapshot: {'candidate': 'xgb_m1024_tuned'}
+[2026-10-17T15:34:06.541227+00:00] validate_8h_snapshot: {'candidate': 'xgb_m2048_tuned'}
+[2026-10-17T15:34:07.255222+00:00] validate_8h_snapshot: {'candidate': 'lgbm_m1024_tuned'}
+[2026-10-17T15:34:07.745471+00:00] validate_8h_snapshot: {'candidate': 'lgbm_m2048_tuned'}
+[2026-10-17T15:34:08.507096+00:00] final_fit_and_test: {'candidate': 'xgb_m1024_base'}
+[2026-10-17T15:34:08.684875+00:00] final_fit_and_test: {'candidate': 'xgb_m1024_tuned'}
+[2026-10-17T15:34:08.854691+00:00] final_fit_and_test: {'candidate': 'xgb_m2048_base'}
+[2026-10-17T15:34:09.040001+00:00] final_fit_and_test: {'candidate': 'xgb_m2048_tuned'}
+[2026-10-17T15:34:09.226970+00:00] final_fit_and_test: {'candidate': 'lgbm_m1024_base'}
+[2026-10-17T15:34:09.349986+00:00] final_fit_and_test: {'candidate': 'lgbm_m1024_tuned'}
+[2026-10-17T15:34:09.475526+00:00] final_fit_and_test: {'candidate': 'lgbm_m2048_base'}
+[2026-10-17T15:34:09.747420+00:00] final_fit_and_test: {'candidate': 'lgbm_m2048_tuned'}
+[2026-10-17T15:34:10.254976+00:00] complete: {'selected': 'xgb_m1024_base'}
+[2026-10-17T15:34:10.449166+00:00] already_complete: {'message': 'Checksum cocok; training tidak diulang.'}
+test_synthetic_full_run_freeze_inference_and_resume (alignment.test_grouped_v9.V9Tests.test_synthetic_full_run_freeze_inference_and_resume) ... ok
+test_time_budget_resume_and_snapshots (alignment.test_grouped_v9.V9Tests.test_time_budget_resume_and_snapshots) ... [I 2026-10-17 22:34:10,916] A new study created in RDB with name: tiny
+[2026-10-17T15:34:11.045614+00:00] trial_started: {'candidate': 'tiny', 'trial': 0}
+[2026-10-17T15:34:11.747997+00:00] trial_completed: {'candidate': 'tiny', 'trial': 0, 'macro_ap': 0.3, 'best_macro_ap': 0.3}
+[2026-10-17T15:34:11.825114+00:00] trial_started: {'candidate': 'tiny', 'trial': 1}
+[2026-10-17T15:34:12.532069+00:00] trial_completed: {'candidate': 'tiny', 'trial': 1, 'macro_ap': 0.3, 'best_macro_ap': 0.3}
+[2026-10-17T15:34:12.613175+00:00] trial_started: {'candidate': 'tiny', 'trial': 2}
+[2026-10-17T15:34:13.319905+00:00] trial_completed: {'candidate': 'tiny', 'trial': 2, 'macro_ap': 0.3, 'best_macro_ap': 0.3}
+[I 2026-10-17 22:34:13,494] Using an existing study with name 'tiny' instead of creating a new one.
+ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 17.215s
+
+OK

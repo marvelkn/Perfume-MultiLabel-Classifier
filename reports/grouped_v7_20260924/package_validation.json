@@ -1,0 +1,43 @@
+{
+  "status": "READY_FOR_CAMPUS_TRAINING",
+  "research_training_started": false,
+  "tests": {
+    "passed": 16,
+    "junit": "tests.xml",
+    "initial_fixture_issue": "First test run lacked its temporary parent directory; rerun with unique OS temp path passed."
+  },
+  "portable_preflight": "{'status': 'V7_INPUTS_VERIFIED', 'candidates': ['xgb_B', 'xgb_D', 'xgb_E', 'xgb_F', 'lgbm_B', 'lgbm_D', 'lgbm_E', 'lgbm_F'], 'labels': 109, 'hours_per_study': 8.0, 'total_tuning_hours': 32.0, 'training_started': False}",
+  "linux_syntax": "bash -n passed; full Linux training not executed",
+  "dataset": {
+    "molecules": 6686,
+    "labels": 109,
+    "train": 5353,
+    "test": 1333,
+    "first_five_match": true,
+    "rows_removed": 0
+  },
+  "archive": {
+    "path": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\.local-tools\\campus-transfer-full-20260909\\perfume-campus-grouped-v7.zip",
+    "bytes": 9057396,
+    "sha256": "a3b389ec491cf8c0fc492bbb1be4e14ca8da15b8e57e7f772527cf08c7923225",
+    "files": 122
+  },
+  "source_files": {
+    "alignment/collect_results_v7.py": "e73032632862f20514c23180508412a327f997f5e63aa0190d1013a5102a15e3",
+    "alignment/descriptors_v7.py": "01775cf39c3f9f34f27c24fbaaa3117b077ff274403fba3e67a1ea3d8276c1f4",
+    "alignment/experiments_v7.py": "04bed8625405cf60d660de32010c46d7470ded65d8f193ae73d2e376678d573b",
+    "alignment/package_campus_v7.py": "04bec34dae5d7ec69a7c0916c58ceb6e2048c387f5c4be007badec51c665cdae",
+    "alignment/predict_v7.py": "4c88d9cf6df4f63c0b08277f2b3822881887e942b7ec5d04da54a320b4ee16cc",
+    "alignment/prepare_v7.py": "894260398691ccbcd1b78d10177e947a8909b4dd07b2fd9977108979f1e61ac3",
+    "alignment/protocol_v7.json": "96b0faa042fecfcf28502d26723b5ade9e03511b2b268cf7c118cc9f55981b76",
+    "alignment/test_grouped_v7.py": "da28091007271546853c74e9866c7145df077d7d2f6b70f7b95a7d489be3b059"
+  },
+  "extracted_folder": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\.local-tools\\campus-transfer-full-20260909\\perfume-campus-grouped-v7",
+  "limitations": [
+    "No full v7 training locally",
+    "Linux commands prepared; full training environment not executed on Linux",
+    "Historical test is not independent; v7 remains exploratory",
+    "Active v6 release not replaced"
+  ],
+  "lint": "Ruff all F checks and fatal syntax checks passed; git diff --check passed"
+}

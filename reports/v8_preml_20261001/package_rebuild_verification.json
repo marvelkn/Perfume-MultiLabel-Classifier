@@ -1,0 +1,10 @@
+{
+  "archive_sha256": "c8128423129e38913b31df6a26b1ee5109707750d61e3431841287a57c9ee06b",
+  "packaged_file_hashes_verified": 35,
+  "rebuilt_from_packaged_inputs": true,
+  "all_array_hashes_identical_to_preparation": true,
+  "expected_stop_exit_code": 2,
+  "training_started": false,
+  "native_os": "Windows",
+  "linux_native_run_tested": false
+}

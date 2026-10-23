@@ -1,0 +1,74 @@
+{
+  "status": "PREPARED_AND_PACKAGE_VERIFIED",
+  "archive": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\.local-tools\\campus-transfer-full-20260909\\perfume-campus-grouped-v7-m2048-d8.zip",
+  "sha256": "7ac249fbda516223b39045bbbfd87b0b023df8246959333062510a9f8f1cff07",
+  "bytes": 9322468,
+  "files_verified": 123,
+  "extracted_folder": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\.local-tools\\campus-transfer-full-20260909\\perfume-campus-grouped-v7-m2048-d8",
+  "package_preflight": {
+    "status": "V7_M2048_D8_INPUTS_VERIFIED",
+    "candidates": [
+      "xgb_A",
+      "xgb_B",
+      "xgb_C",
+      "xgb_D",
+      "lgbm_A",
+      "lgbm_B",
+      "lgbm_C",
+      "lgbm_D"
+    ],
+    "labels": 109,
+    "feature_dimensions": [
+      2048,
+      2056
+    ],
+    "hours_per_study": 8.0,
+    "total_tuning_hours": 32.0,
+    "training_started": false
+  },
+  "features": {
+    "rows": 6686,
+    "dimensions": {
+      "A_C": 2048,
+      "B_D": 2056
+    },
+    "rows_removed": 0,
+    "labels_or_splits_changed": false,
+    "first_five_match_frozen_train_and_test": true,
+    "morgan_2048_folds_exactly_to_frozen_1024": true
+  },
+  "test_evidence": {
+    "v7_and_v6": {
+      "name": "pytest",
+      "errors": "0",
+      "failures": "0",
+      "skipped": "0",
+      "tests": "16",
+      "time": "32.323",
+      "timestamp": "2026-09-24T22:01:09.677599+07:00",
+      "hostname": "LAPTOP-M83M7NV1"
+    },
+    "packaging_after_metadata_update": {
+      "name": "pytest",
+      "errors": "0",
+      "failures": "0",
+      "skipped": "0",
+      "tests": "1",
+      "time": "3.812",
+      "timestamp": "2026-09-25T10:34:10.444097+07:00",
+      "hostname": "LAPTOP-M83M7NV1"
+    }
+  },
+  "linux_script_syntax": {
+    "RUN_GROUPED_V7.sh": "bash -n passed",
+    "COLLECT_GROUPED_V7_RESULTS.sh": "bash -n passed"
+  },
+  "research_training_started": false,
+  "limitations": [
+    "No full research training during preparation.",
+    "Extracted package checked on Windows with the existing pinned Python environment.",
+    "Linux shell syntax checked; full Linux installation/training not executed.",
+    "Historical test already inspected; v7 remains exploratory.",
+    "V6 versus v7 B/D changes fingerprint length and descriptor package together."
+  ]
+}

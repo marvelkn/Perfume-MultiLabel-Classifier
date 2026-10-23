@@ -1,6 +1,34 @@
 # Status implementasi — 8 September 2026
 
-## Status aktif — penyelarasan backend, 21 September 2026
+## V7 revisi 2: Morgan 2048 disiapkan - 25 September 2026
+
+Pengguna menetapkan **Morgan 2048 bit**; paket tambahan dipilih **8 deskriptor RDKit**.
+XGBoost dan LightGBM masing-masing menjalankan A-D baru: A/C Morgan saja (2048 fitur),
+B/D Morgan + 8 (2056 fitur). A/B baseline 100; C/D empat studi Optuna 8 jam/studi
+(**32 jam tuning**, belum termasuk validasi dan final fit). Eksekusi di **PC kampus/PC lain**.
+
+Delapan jenis deskriptor mengikuti acuan Suh; pemilihan ini bukan bukti paket terbaik.
+Gabungan fitur dan ukuran 2048 adalah eksperimen proyek, bukan resep gabungan asli Suh.
+Data 6686 molekul, 109 label, split 5353/1333 dan kelompok lama tetap.
+Fitur baru terpisah di data/builds/perfume-m2048-d8-v7; hasil v6 dipertahankan.
+
+**Training penelitian v7 belum dijalankan.** Rilis aktif tetap LightGBM D v6.
+Seleksi dari mean macro AP repeated grouped CV; ambang tambahan dari prediksi OOF.
+B-A menguji tambahan 8 pada baseline tetap; D-C membandingkan hasil tuning masing-masing.
+V6-v7 merupakan sejarah eksperimen; B/D mengubah panjang Morgan dan paket deskriptor.
+Test pernah dilihat, sehingga hasil tetap eksploratori.
+
+Paket terbaru: **perfume-campus-grouped-v7-m2048-d8.zip**; ekstrak ke folder baru.
+Run ID: perfume-five-grouped-v7-m2048-d8.
+Rancangan/paket v7 lama 1024 (B/D/E/F, 5 vs 8) digantikan revisi ini dan hanya menjadi riwayat.
+Panduan: [Windows](WINDOWS_GUIDE_V7.md) / [Linux](LINUX_GUIDE_V7.md).
+Rencana lengkap: [DESCRIPTOR_COMPARISON_V7_PLAN.md](DESCRIPTOR_COMPARISON_V7_PLAN.md).
+
+**Setelah hasil v7 diaudit, agenda berikutnya merombak laporan sesuai metode/hasil terbaru.**
+Catatan permanen: [AFTER_V7_REPORT_UPDATE.md](AFTER_V7_REPORT_UPDATE.md).
+LaTeX belum direvisi untuk hasil yang belum tersedia. ONNX/Android tetap ditunda.
+
+## Rilis v6 yang tetap aktif — penyelarasan backend, 21 September 2026
 
 Grouped-v6 telah selesai; **LightGBM D** dipilih berdasarkan macro AP validasi
 0,302232 (XGBoost D 0,298848). AP test masing-masing 0,313921 dan 0,314531.
@@ -12,8 +40,8 @@ identik dengan prediksi tersimpan. Sebanyak 23 tes komponen lulus.
 Panduan aktif: [INFERENCE_GUIDE.md](INFERENCE_GUIDE.md).
 Bukti: [verification.json](reports/backend_alignment_20260921/verification.json).
 ONNX lama 25 label dan dua array ambangnya dihapus atas instruksi pengguna.
-ONNX baru, integrasi Android, dan deployment **ditunda**. Training tambahan,
-pseudo-labeling, dan inferensi massal data yang ditolak tidak termasuk scope aktif.
+ONNX baru, integrasi Android, dan deployment **ditunda**. Training v7 disiapkan sesuai revisi di atas.
+Pseudo-labeling dan inferensi massal data yang ditolak tidak termasuk scope aktif.
 Data, split, model terlatih, dan angka evaluasi v6 tidak diubah; hasil tetap eksploratori.
 
 **Bagian bertanggal lebih lama di bawah adalah riwayat, bukan instruksi aktif.**

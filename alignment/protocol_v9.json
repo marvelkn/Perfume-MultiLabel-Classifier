@@ -1,0 +1,238 @@
+{
+  "environment": {
+    "numpy": "1.26.4",
+    "pandas": "2.2.3",
+    "scikit-learn": "1.6.1",
+    "rdkit": "2026.3.4",
+    "xgboost": "2.1.4",
+    "lightgbm": "4.6.0",
+    "optuna": "4.5.0",
+    "joblib": "1.6.0"
+  },
+  "dataset_manifest_sha256": "886e8e49d08bf8c5c73f0c3d13de25bd01b63ada4bdcc7e58f4b49ad7cd60c17",
+  "group_policy": "structure-or-morgan-components-v1",
+  "class_imbalance": {
+    "policy": "balanced-sample-weight-from-training-partition-v1"
+  },
+  "baseline_parameters": {
+    "n_estimators": 100
+  },
+  "tuning": {
+    "seconds_per_study": 57600,
+    "seconds_total": 230400,
+    "heartbeat_seconds": 15,
+    "safety_max_trials": 10000,
+    "sampler": "TPESampler",
+    "seed": 42,
+    "n_startup_trials": 10,
+    "n_ei_candidates": 24,
+    "multivariate": false,
+    "study_policy": "Four fresh studies; identical generic initial recipe/search space/sampler seed for both bit lengths. No V7 trials or best parameters imported.",
+    "objective": "mean per-label mean-fold Average Precision on all 109 training-supported labels",
+    "stop_rule": "Fixed 16 active hours per study; no score-based extension. Preserve best completed trial by each 8/16-hour boundary.",
+    "incomplete_trial_policy": "Interrupted trial marked FAIL; elapsed computation remains charged; completed trials and sampler retained.",
+    "early_stopping": false,
+    "pruning": false,
+    "snapshot_seconds": [
+      28800,
+      57600
+    ]
+  },
+  "search_space": {
+    "common": {
+      "n_estimators": {
+        "kind": "int",
+        "low": 100,
+        "high": 1600,
+        "step": 100
+      },
+      "learning_rate": {
+        "kind": "float",
+        "low": 0.005,
+        "high": 0.2,
+        "log": true
+      },
+      "max_depth": {
+        "kind": "int",
+        "low": 3,
+        "high": 8
+      },
+      "colsample_bytree": {
+        "kind": "float",
+        "low": 0.3,
+        "high": 1.0
+      },
+      "subsample": {
+        "kind": "float",
+        "low": 0.6,
+        "high": 1.0
+      },
+      "reg_alpha": {
+        "kind": "float",
+        "low": 1e-06,
+        "high": 10,
+        "log": true
+      },
+      "reg_lambda": {
+        "kind": "float",
+        "low": 0.001,
+        "high": 100,
+        "log": true
+      }
+    },
+    "xgb": {
+      "min_child_weight": {
+        "kind": "float",
+        "low": 1,
+        "high": 30,
+        "log": true
+      },
+      "gamma": {
+        "kind": "float",
+        "low": 0,
+        "high": 5
+      }
+    },
+    "lgbm": {
+      "min_child_samples": {
+        "kind": "int",
+        "low": 10,
+        "high": 150
+      }
+    },
+    "lgbm_num_leaves": {
+      "low": 8,
+      "high": 128,
+      "cap_by_depth": true
+    },
+    "lgbm_fixed": {
+      "subsample_freq": 1
+    }
+  },
+  "robustness": {
+    "seeds": [
+      7,
+      21,
+      42,
+      84,
+      100
+    ],
+    "folds": 5,
+    "scope": "all eight main candidates, plus the 8-hour recipes when different from 16-hour recipes",
+    "selection_metric": "mean macro AP across five repeated grouped-CV seeds",
+    "interpretation": "not nested CV; descriptive development evidence, not an unbiased generalization estimate"
+  },
+  "threshold_selection": {
+    "source": "mean repeated grouped out-of-fold validation probabilities",
+    "objective": "per-label F1",
+    "grid": [
+      0.05,
+      0.1,
+      0.15,
+      0.2,
+      0.25,
+      0.3,
+      0.35,
+      0.4,
+      0.45,
+      0.5,
+      0.55,
+      0.6,
+      0.65,
+      0.7,
+      0.75,
+      0.8,
+      0.85,
+      0.9,
+      0.95
+    ]
+  },
+  "primary_reporting": {
+    "threshold": 0.5,
+    "metrics": [
+      "accuracy",
+      "auroc",
+      "auprc",
+      "specificity",
+      "precision",
+      "recall"
+    ]
+  },
+  "initial_recipes": {
+    "xgb": {
+      "n_estimators": 300,
+      "learning_rate": 0.05,
+      "max_depth": 5,
+      "colsample_bytree": 0.8,
+      "subsample": 0.8,
+      "reg_alpha": 0.01,
+      "reg_lambda": 1.0,
+      "min_child_weight": 1.0,
+      "gamma": 0.0
+    },
+    "lgbm": {
+      "n_estimators": 300,
+      "learning_rate": 0.05,
+      "max_depth": 5,
+      "colsample_bytree": 0.8,
+      "subsample": 0.8,
+      "reg_alpha": 0.01,
+      "reg_lambda": 1.0,
+      "min_child_samples": 20,
+      "num_leaves": 31,
+      "subsample_freq": 1
+    }
+  },
+  "feature_manifest_sha256": "d6f434e15d4b7cb26476caef877e759485033c05301bfeefa960f17e116b0100",
+  "id": "perfume-five-grouped-v9-bits-d8",
+  "created_at": "2026-10-17",
+  "status": "prepared for campus; research training not started",
+  "algorithms": [
+    "xgb",
+    "lgbm"
+  ],
+  "candidates": [
+    "xgb_m1024_base",
+    "xgb_m1024_tuned",
+    "xgb_m2048_base",
+    "xgb_m2048_tuned",
+    "lgbm_m1024_base",
+    "lgbm_m1024_tuned",
+    "lgbm_m2048_base",
+    "lgbm_m2048_tuned"
+  ],
+  "research_status": "V7 locked; V8 pre-ML exploration; V9 is a separate exploratory follow-up.",
+  "features": {
+    "morgan_bits": [
+      1024,
+      2048
+    ],
+    "radius": 2,
+    "include_chirality": false,
+    "descriptors": [
+      "MolWt",
+      "MolLogP",
+      "NumHDonors",
+      "NumHAcceptors",
+      "TPSA",
+      "NumRotatableBonds",
+      "HeavyAtomCount",
+      "RingCount"
+    ],
+    "dimensions": [
+      1032,
+      2056
+    ],
+    "source": "Frozen V7 2048 + MD8; exact OR-fold to frozen 1024 verified on all rows."
+  },
+  "compute_profile_sha256": "9a748301bb63cfb3bf2634a94ea987f564faf3186a186215c5bee9d2eb6a63de",
+  "test_access": "All recipes, repeated CV and OOF thresholds frozen before final fitting/test; eight main candidates only.",
+  "confirmatory_status": "Exploratory follow-up; historical test has been inspected. Repeated CV is not nested or independent confirmation. No automatic replacement of V7 or superiority claim over Suh.",
+  "next_action": "Audit all results including declines; compare bits and 8/16-hour validation snapshots. V7 remains locked.",
+  "budget_comparison": {
+    "method": "Within-study 8/16-hour best-completed snapshots; same repeated grouped CV",
+    "same_recipe": "Reuse identical 16-hour CV result with explicit marker; do not refit identical recipe.",
+    "no_complete_trial_at_8h": "Report unavailable; do not substitute a trial completed after 8h.",
+    "selection": "8-hour snapshots are descriptive only, not candidate selection or test evaluation."
+  }
+}

@@ -1,0 +1,1314 @@
+{
+  "root": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier",
+  "total_bytes_excluding_git": 31440829399,
+  "total_files_excluding_git": 212702,
+  "top_level": [
+    {
+      "path": ".local-tools",
+      "bytes": 29553538250,
+      "files": 182063
+    },
+    {
+      "path": ".venv",
+      "bytes": 1123768730,
+      "files": 29593
+    },
+    {
+      "path": "releases",
+      "bytes": 365225575,
+      "files": 125
+    },
+    {
+      "path": "data",
+      "bytes": 272746555,
+      "files": 129
+    },
+    {
+      "path": "models",
+      "bytes": 75702484,
+      "files": 50
+    },
+    {
+      "path": ".local-backups",
+      "bytes": 33642249,
+      "files": 91
+    },
+    {
+      "path": "reports",
+      "bytes": 9516146,
+      "files": 334
+    },
+    {
+      "path": "v4_seed",
+      "bytes": 1089208,
+      "files": 30
+    },
+    {
+      "path": "notebooks",
+      "bytes": 1052355,
+      "files": 7
+    },
+    {
+      "path": "v5_seed",
+      "bytes": 820716,
+      "files": 23
+    },
+    {
+      "path": "v7_reference",
+      "bytes": 722317,
+      "files": 13
+    },
+    {
+      "path": "alignment",
+      "bytes": 679078,
+      "files": 62
+    },
+    {
+      "path": "dataset",
+      "bytes": 512000,
+      "files": 1
+    },
+    {
+      "path": "runs",
+      "bytes": 440408,
+      "files": 11
+    },
+    {
+      "path": "v6_reference",
+      "bytes": 330898,
+      "files": 5
+    },
+    {
+      "path": "src",
+      "bytes": 255983,
+      "files": 42
+    },
+    {
+      "path": "tests",
+      "bytes": 171118,
+      "files": 20
+    },
+    {
+      "path": ".idea",
+      "bytes": 123631,
+      "files": 5
+    },
+    {
+      "path": "v8",
+      "bytes": 92106,
+      "files": 8
+    },
+    {
+      "path": "protocols",
+      "bytes": 36700,
+      "files": 4
+    },
+    {
+      "path": "__pycache__",
+      "bytes": 16219,
+      "files": 4
+    },
+    {
+      "path": ".pytest_cache",
+      "bytes": 6993,
+      "files": 5
+    },
+    {
+      "path": "mobile_assets",
+      "bytes": 5719,
+      "files": 5
+    },
+    {
+      "path": "telemetry",
+      "bytes": 288,
+      "files": 6
+    }
+  ],
+  "environments": [
+    {
+      "path": ".local-tools/campus-transfer-full-20260909/perfume-campus-grouped-v2/perfume-campus-grouped-v2/.venv",
+      "bytes": 789736370,
+      "files": 26077
+    },
+    {
+      "path": ".local-tools/campus-transfer-full-20260909/perfume-campus-grouped-v3/perfume-campus-grouped-v3/.venv",
+      "bytes": 789736434,
+      "files": 26077
+    },
+    {
+      "path": ".local-tools/campus-transfer-full-20260909/perfume-campus-grouped-v4/perfume-campus-grouped-v4/.venv",
+      "bytes": 789529162,
+      "files": 26109
+    },
+    {
+      "path": ".local-tools/campus-transfer-full-20260909/perfume-campus-grouped-v5/perfume-campus-grouped-v5/.venv",
+      "bytes": 789529162,
+      "files": 26109
+    },
+    {
+      "path": ".local-tools/campus-transfer-full-20260909/perfume-campus-grouped-v6/perfume-campus-grouped-v6/.venv",
+      "bytes": 789529162,
+      "files": 26109
+    },
+    {
+      "path": ".local-tools/campus-transfer-full-20260909/perfume-campus-grouped-v7-m2048-d8/perfume-campus-grouped-v7-m2048-d8/.venv",
+      "bytes": 637789193,
+      "files": 13945
+    },
+    {
+      "path": ".local-tools/campus-transfer-full-20260909/perfume-campus-grouped-v9-bits-d8/perfume-campus-grouped-v9-bits-d8/.venv",
+      "bytes": 638248936,
+      "files": 13913
+    },
+    {
+      "path": ".local-tools/campus-transfer-full-20260909/perfume-campus-grouped-v9-bits-d8/perfume-campus-grouped-v9-bits-d8/.venv-conda/Lib/venv",
+      "bytes": 586384,
+      "files": 12
+    },
+    {
+      "path": ".local-tools/campus-transfer-full-20260909/perfume-campus-grouped-v9-bits-d8/perfume-campus-grouped-v9-bits-d8/.venv-conda",
+      "bytes": 157630237,
+      "files": 5490
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/jedi/third_party/typeshed/stdlib/venv",
+      "bytes": 2951,
+      "files": 1
+    },
+    {
+      "path": ".venv",
+      "bytes": 1123768730,
+      "files": 29593
+    }
+  ],
+  "synthetic_directories": [
+    {
+      "path": ".local-tools/pytest-v7-m2048-1bcb329936c54918b818c3ebe159c25e",
+      "bytes": 2554654,
+      "files": 581
+    },
+    {
+      "path": ".local-tools/v7-package-check-bc5879ec437849fe9f644f327658224b",
+      "bytes": 1523,
+      "files": 7
+    },
+    {
+      "path": ".local-tools/v8-package-check-20261001",
+      "bytes": 52289626,
+      "files": 49
+    },
+    {
+      "path": "reports/backend_alignment_20260921/test-tmp-01",
+      "bytes": 177,
+      "files": 2
+    }
+  ],
+  "caches": [
+    {
+      "path": ".local-tools/campus-transfer-full-20260909/perfume-campus-grouped-v6/perfume-campus-grouped-v6/alignment/__pycache__",
+      "bytes": 213028,
+      "files": 10
+    },
+    {
+      "path": ".local-tools/campus-transfer-full-20260909/perfume-campus-grouped-v6/perfume-campus-grouped-v6/src/__pycache__",
+      "bytes": 43202,
+      "files": 8
+    },
+    {
+      "path": ".local-tools/campus-transfer-full-20260909/perfume-campus-grouped-v9-bits-d8/perfume-campus-grouped-v9-bits-d8/alignment/__pycache__",
+      "bytes": 255209,
+      "files": 15
+    },
+    {
+      "path": ".local-tools/campus-transfer-full-20260909/perfume-campus-grouped-v9-bits-d8/perfume-campus-grouped-v9-bits-d8/src/__pycache__",
+      "bytes": 43384,
+      "files": 8
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/asttokens/__pycache__",
+      "bytes": 72449,
+      "files": 7
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/colorama/tests/__pycache__",
+      "bytes": 49111,
+      "files": 7
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/colorama/__pycache__",
+      "bytes": 41556,
+      "files": 6
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/comm/__pycache__",
+      "bytes": 15186,
+      "files": 2
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/dateutil/parser/__pycache__",
+      "bytes": 80041,
+      "files": 3
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/dateutil/tz/__pycache__",
+      "bytes": 102497,
+      "files": 5
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/dateutil/zoneinfo/__pycache__",
+      "bytes": 11353,
+      "files": 2
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/dateutil/__pycache__",
+      "bytes": 106237,
+      "files": 8
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/debugpy/adapter/__pycache__",
+      "bytes": 102080,
+      "files": 7
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/debugpy/common/__pycache__",
+      "bytes": 125298,
+      "files": 9
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/debugpy/launcher/__pycache__",
+      "bytes": 29728,
+      "files": 6
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/debugpy/server/__pycache__",
+      "bytes": 44742,
+      "files": 4
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/debugpy/_vendored/pydevd/pydevd_attach_to_process/linux_and_mac/__pycache__",
+      "bytes": 2275,
+      "files": 1
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/debugpy/_vendored/pydevd/pydevd_attach_to_process/winappdbg/win32/__pycache__",
+      "bytes": 594453,
+      "files": 16
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/debugpy/_vendored/pydevd/pydevd_attach_to_process/winappdbg/__pycache__",
+      "bytes": 1080568,
+      "files": 18
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/debugpy/_vendored/pydevd/pydevd_attach_to_process/__pycache__",
+      "bytes": 38969,
+      "files": 7
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/debugpy/_vendored/pydevd/pydevd_plugins/extensions/types/__pycache__",
+      "bytes": 14874,
+      "files": 5
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/debugpy/_vendored/pydevd/pydevd_plugins/extensions/__pycache__",
+      "bytes": 336,
+      "files": 1
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/debugpy/_vendored/pydevd/pydevd_plugins/__pycache__",
+      "bytes": 49504,
+      "files": 4
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/debugpy/_vendored/pydevd/pydev_ipython/__pycache__",
+      "bytes": 81866,
+      "files": 16
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/debugpy/_vendored/pydevd/pydev_sitecustomize/__pycache__",
+      "bytes": 6819,
+      "files": 1
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/debugpy/_vendored/pydevd/_pydevd_bundle/pydevd_concurrency_analyser/__pycache__",
+      "bytes": 21027,
+      "files": 3
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/debugpy/_vendored/pydevd/_pydevd_bundle/_debug_adapter/__pycache__",
+      "bytes": 660765,
+      "files": 5
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/debugpy/_vendored/pydevd/_pydevd_bundle/__pycache__",
+      "bytes": 898963,
+      "files": 56
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/debugpy/_vendored/pydevd/_pydevd_frame_eval/vendored/bytecode/tests/__pycache__",
+      "bytes": 192067,
+      "files": 10
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/debugpy/_vendored/pydevd/_pydevd_frame_eval/vendored/bytecode/__pycache__",
+      "bytes": 103104,
+      "files": 7
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/debugpy/_vendored/pydevd/_pydevd_frame_eval/vendored/__pycache__",
+      "bytes": 2803,
+      "files": 2
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/debugpy/_vendored/pydevd/_pydevd_frame_eval/__pycache__",
+      "bytes": 19104,
+      "files": 5
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/debugpy/_vendored/pydevd/_pydevd_sys_monitoring/__pycache__",
+      "bytes": 56418,
+      "files": 2
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/debugpy/_vendored/pydevd/_pydev_bundle/fsnotify/__pycache__",
+      "bytes": 13941,
+      "files": 1
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/debugpy/_vendored/pydevd/_pydev_bundle/__pycache__",
+      "bytes": 193277,
+      "files": 25
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/debugpy/_vendored/pydevd/_pydev_runfiles/__pycache__",
+      "bytes": 93160,
+      "files": 9
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/debugpy/_vendored/pydevd/__pycache__",
+      "bytes": 247663,
+      "files": 9
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/debugpy/_vendored/__pycache__",
+      "bytes": 11812,
+      "files": 4
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/debugpy/__pycache__",
+      "bytes": 13307,
+      "files": 4
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/executing/__pycache__",
+      "bytes": 93433,
+      "files": 7
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/ipykernel/comm/__pycache__",
+      "bytes": 7121,
+      "files": 3
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/ipykernel/gui/__pycache__",
+      "bytes": 7815,
+      "files": 3
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/ipykernel/inprocess/__pycache__",
+      "bytes": 35624,
+      "files": 8
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/ipykernel/pylab/__pycache__",
+      "bytes": 1323,
+      "files": 3
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/ipykernel/__pycache__",
+      "bytes": 336021,
+      "files": 25
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/IPython/core/magics/__pycache__",
+      "bytes": 287067,
+      "files": 17
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/IPython/core/__pycache__",
+      "bytes": 1147085,
+      "files": 51
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/IPython/extensions/deduperreload/__pycache__",
+      "bytes": 40165,
+      "files": 3
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/IPython/extensions/__pycache__",
+      "bytes": 44369,
+      "files": 3
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/IPython/external/__pycache__",
+      "bytes": 31373,
+      "files": 4
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/IPython/lib/__pycache__",
+      "bytes": 160249,
+      "files": 11
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/IPython/sphinxext/tests/__pycache__",
+      "bytes": 1760,
+      "files": 2
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/IPython/sphinxext/__pycache__",
+      "bytes": 47178,
+      "files": 4
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/IPython/terminal/pt_inputhooks/__pycache__",
+      "bytes": 36870,
+      "files": 11
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/IPython/terminal/shortcuts/__pycache__",
+      "bytes": 71033,
+      "files": 4
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/IPython/terminal/tests/__pycache__",
+      "bytes": 4247,
+      "files": 2
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/IPython/terminal/__pycache__",
+      "bytes": 121778,
+      "files": 8
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/IPython/testing/plugin/__pycache__",
+      "bytes": 59116,
+      "files": 9
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/IPython/testing/__pycache__",
+      "bytes": 35456,
+      "files": 6
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/IPython/utils/__pycache__",
+      "bytes": 177179,
+      "files": 34
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/IPython/__pycache__",
+      "bytes": 12204,
+      "files": 4
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/jedi/api/refactoring/__pycache__",
+      "bytes": 30162,
+      "files": 2
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/jedi/api/__pycache__",
+      "bytes": 193481,
+      "files": 14
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/jedi/inference/compiled/subprocess/__pycache__",
+      "bytes": 36602,
+      "files": 3
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/jedi/inference/compiled/__pycache__",
+      "bytes": 83448,
+      "files": 5
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/jedi/inference/gradual/__pycache__",
+      "bytes": 108369,
+      "files": 10
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/jedi/inference/value/__pycache__",
+      "bytes": 158586,
+      "files": 9
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/jedi/inference/__pycache__",
+      "bytes": 332190,
+      "files": 25
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/jedi/plugins/__pycache__",
+      "bytes": 77409,
+      "files": 6
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/jedi/__pycache__",
+      "bytes": 46691,
+      "files": 10
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/jupyter_client/asynchronous/__pycache__",
+      "bytes": 3726,
+      "files": 2
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/jupyter_client/blocking/__pycache__",
+      "bytes": 3438,
+      "files": 2
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/jupyter_client/ioloop/__pycache__",
+      "bytes": 10921,
+      "files": 3
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/jupyter_client/provisioning/__pycache__",
+      "bytes": 38160,
+      "files": 4
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/jupyter_client/ssh/__pycache__",
+      "bytes": 20795,
+      "files": 3
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/jupyter_client/__pycache__",
+      "bytes": 350455,
+      "files": 24
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/jupyter_core/utils/__pycache__",
+      "bytes": 10071,
+      "files": 1
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/jupyter_core/__pycache__",
+      "bytes": 89586,
+      "files": 8
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/matplotlib_inline/__pycache__",
+      "bytes": 18366,
+      "files": 3
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/packaging/licenses/__pycache__",
+      "bytes": 55622,
+      "files": 2
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/packaging/__pycache__",
+      "bytes": 439349,
+      "files": 20
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/parso/pgen2/__pycache__",
+      "bytes": 23806,
+      "files": 3
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/parso/python/__pycache__",
+      "bytes": 226672,
+      "files": 9
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/parso/__pycache__",
+      "bytes": 76692,
+      "files": 9
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/platformdirs/__pycache__",
+      "bytes": 174440,
+      "files": 12
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/prompt_toolkit/application/__pycache__",
+      "bytes": 83631,
+      "files": 5
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/prompt_toolkit/clipboard/__pycache__",
+      "bytes": 9214,
+      "files": 4
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/prompt_toolkit/completion/__pycache__",
+      "bytes": 45777,
+      "files": 7
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/prompt_toolkit/contrib/completers/__pycache__",
+      "bytes": 3011,
+      "files": 2
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/prompt_toolkit/contrib/regular_languages/__pycache__",
+      "bytes": 51726,
+      "files": 6
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/prompt_toolkit/contrib/ssh/__pycache__",
+      "bytes": 9575,
+      "files": 2
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/prompt_toolkit/contrib/telnet/__pycache__",
+      "bytes": 28825,
+      "files": 4
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/prompt_toolkit/contrib/__pycache__",
+      "bytes": 195,
+      "files": 1
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/prompt_toolkit/eventloop/__pycache__",
+      "bytes": 18977,
+      "files": 5
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/prompt_toolkit/filters/__pycache__",
+      "bytes": 33596,
+      "files": 5
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/prompt_toolkit/formatted_text/__pycache__",
+      "bytes": 29048,
+      "files": 6
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/prompt_toolkit/input/__pycache__",
+      "bytes": 102009,
+      "files": 11
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/prompt_toolkit/key_binding/bindings/__pycache__",
+      "bytes": 213573,
+      "files": 14
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/prompt_toolkit/key_binding/__pycache__",
+      "bytes": 109785,
+      "files": 7
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/prompt_toolkit/layout/__pycache__",
+      "bytes": 285747,
+      "files": 13
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/prompt_toolkit/lexers/__pycache__",
+      "bytes": 16184,
+      "files": 3
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/prompt_toolkit/output/__pycache__",
+      "bytes": 94907,
+      "files": 10
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/prompt_toolkit/shortcuts/progress_bar/__pycache__",
+      "bytes": 36965,
+      "files": 3
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/prompt_toolkit/shortcuts/__pycache__",
+      "bytes": 92753,
+      "files": 5
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/prompt_toolkit/styles/__pycache__",
+      "bytes": 54584,
+      "files": 7
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/prompt_toolkit/widgets/__pycache__",
+      "bytes": 83059,
+      "files": 5
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/prompt_toolkit/__pycache__",
+      "bytes": 248163,
+      "files": 20
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/psutil/__pycache__",
+      "bytes": 382910,
+      "files": 10
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/pure_eval/__pycache__",
+      "bytes": 35568,
+      "files": 5
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/pygments/filters/__pycache__",
+      "bytes": 37858,
+      "files": 1
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/pygments/formatters/__pycache__",
+      "bytes": 171684,
+      "files": 14
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/pygments/lexers/__pycache__",
+      "bytes": 3354907,
+      "files": 263
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/pygments/styles/__pycache__",
+      "bytes": 159544,
+      "files": 49
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/pygments/__pycache__",
+      "bytes": 168115,
+      "files": 16
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/stack_data/__pycache__",
+      "bytes": 76732,
+      "files": 6
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/tornado/platform/__pycache__",
+      "bytes": 39728,
+      "files": 4
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/tornado/test/__pycache__",
+      "bytes": 1197193,
+      "files": 38
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/tornado/__pycache__",
+      "bytes": 1039173,
+      "files": 31
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/traitlets/config/__pycache__",
+      "bytes": 147602,
+      "files": 7
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/traitlets/tests/__pycache__",
+      "bytes": 6118,
+      "files": 3
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/traitlets/utils/__pycache__",
+      "bytes": 27168,
+      "files": 10
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/traitlets/__pycache__",
+      "bytes": 184592,
+      "files": 4
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/wcwidth/table_grapheme_overrides/__pycache__",
+      "bytes": 2109284,
+      "files": 22
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/wcwidth/__pycache__",
+      "bytes": 216788,
+      "files": 26
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/zmq/auth/__pycache__",
+      "bytes": 36988,
+      "files": 6
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/zmq/backend/cffi/__pycache__",
+      "bytes": 42527,
+      "files": 8
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/zmq/backend/cython/__pycache__",
+      "bytes": 67177,
+      "files": 2
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/zmq/backend/__pycache__",
+      "bytes": 2409,
+      "files": 2
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/zmq/devices/__pycache__",
+      "bytes": 28402,
+      "files": 6
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/zmq/eventloop/__pycache__",
+      "bytes": 44109,
+      "files": 5
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/zmq/green/eventloop/__pycache__",
+      "bytes": 1378,
+      "files": 3
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/zmq/green/__pycache__",
+      "bytes": 20100,
+      "files": 4
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/zmq/log/__pycache__",
+      "bytes": 17597,
+      "files": 3
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/zmq/ssh/__pycache__",
+      "bytes": 23909,
+      "files": 3
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/zmq/sugar/__pycache__",
+      "bytes": 87213,
+      "files": 9
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/zmq/tests/__pycache__",
+      "bytes": 12779,
+      "files": 1
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/zmq/utils/__pycache__",
+      "bytes": 27056,
+      "files": 8
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/zmq/__pycache__",
+      "bytes": 93390,
+      "files": 8
+    },
+    {
+      "path": ".local-tools/v8-notebook-deps/__pycache__",
+      "bytes": 238430,
+      "files": 6
+    },
+    {
+      "path": ".local-tools/v8-preml-deps/attr/__pycache__",
+      "bytes": 205595,
+      "files": 13
+    },
+    {
+      "path": ".local-tools/v8-preml-deps/attrs/__pycache__",
+      "bytes": 2294,
+      "files": 6
+    },
+    {
+      "path": ".local-tools/v8-preml-deps/dateutil/parser/__pycache__",
+      "bytes": 80041,
+      "files": 3
+    },
+    {
+      "path": ".local-tools/v8-preml-deps/dateutil/tz/__pycache__",
+      "bytes": 102497,
+      "files": 5
+    },
+    {
+      "path": ".local-tools/v8-preml-deps/dateutil/zoneinfo/__pycache__",
+      "bytes": 11353,
+      "files": 2
+    },
+    {
+      "path": ".local-tools/v8-preml-deps/dateutil/__pycache__",
+      "bytes": 106237,
+      "files": 8
+    },
+    {
+      "path": ".local-tools/v8-preml-deps/et_xmlfile/__pycache__",
+      "bytes": 30371,
+      "files": 3
+    },
+    {
+      "path": ".local-tools/v8-preml-deps/fastjsonschema/__pycache__",
+      "bytes": 116957,
+      "files": 11
+    },
+    {
+      "path": ".local-tools/v8-preml-deps/jsonschema/benchmarks/__pycache__",
+      "bytes": 19460,
+      "files": 12
+    },
+    {
+      "path": ".local-tools/v8-preml-deps/jsonschema/tests/typing/__pycache__",
+      "bytes": 1192,
+      "files": 2
+    },
+    {
+      "path": ".local-tools/v8-preml-deps/jsonschema/tests/__pycache__",
+      "bytes": 275581,
+      "files": 11
+    },
+    {
+      "path": ".local-tools/v8-preml-deps/jsonschema/__pycache__",
+      "bytes": 175072,
+      "files": 12
+    },
+    {
+      "path": ".local-tools/v8-preml-deps/jsonschema_specifications/tests/__pycache__",
+      "bytes": 2152,
+      "files": 2
+    },
+    {
+      "path": ".local-tools/v8-preml-deps/jsonschema_specifications/__pycache__",
+      "bytes": 2012,
+      "files": 2
+    },
+    {
+      "path": ".local-tools/v8-preml-deps/jupyter_client/asynchronous/__pycache__",
+      "bytes": 3726,
+      "files": 2
+    },
+    {
+      "path": ".local-tools/v8-preml-deps/jupyter_client/blocking/__pycache__",
+      "bytes": 3438,
+      "files": 2
+    },
+    {
+      "path": ".local-tools/v8-preml-deps/jupyter_client/ioloop/__pycache__",
+      "bytes": 10921,
+      "files": 3
+    },
+    {
+      "path": ".local-tools/v8-preml-deps/jupyter_client/provisioning/__pycache__",
+      "bytes": 38160,
+      "files": 4
+    },
+    {
+      "path": ".local-tools/v8-preml-deps/jupyter_client/ssh/__pycache__",
+      "bytes": 20795,
+      "files": 3
+    },
+    {
+      "path": ".local-tools/v8-preml-deps/jupyter_client/__pycache__",
+      "bytes": 350455,
+      "files": 24
+    },
+    {
+      "path": ".local-tools/v8-preml-deps/jupyter_core/utils/__pycache__",
+      "bytes": 10071,
+      "files": 1
+    },
+    {
+      "path": ".local-tools/v8-preml-deps/jupyter_core/__pycache__",
+      "bytes": 89586,
+      "files": 8
+    },
+    {
+      "path": ".local-tools/v8-preml-deps/nbclient/__pycache__",
+      "bytes": 82521,
+      "files": 8
+    },
+    {
+      "path": ".local-tools/v8-preml-deps/nbformat/corpus/tests/__pycache__",
+      "bytes": 983,
+      "files": 2
+    },
+    {
+      "path": ".local-tools/v8-preml-deps/nbformat/corpus/__pycache__",
+      "bytes": 701,
+      "files": 2
+    },
+    {
+      "path": ".local-tools/v8-preml-deps/nbformat/v1/__pycache__",
+      "bytes": 6915,
+      "files": 5
+    },
+    {
+      "path": ".local-tools/v8-preml-deps/nbformat/v2/__pycache__",
+      "bytes": 27743,
+      "files": 7
+    },
+    {
+      "path": ".local-tools/v8-preml-deps/nbformat/v3/__pycache__",
+      "bytes": 33263,
+      "files": 6
+    },
+    {
+      "path": ".local-tools/v8-preml-deps/nbformat/v4/__pycache__",
+      "bytes": 26782,
+      "files": 5
+    },
+    {
+      "path": ".local-tools/v8-preml-deps/nbformat/__pycache__",
+      "bytes": 102280,
+      "files": 13
+    },
+    {
+      "path": ".local-tools/v8-preml-deps/openpyxl/cell/__pycache__",
+      "bytes": 39485,
+      "files": 6
+    },
+    {
+      "path": ".local-tools/v8-preml-deps/openpyxl/chart/__pycache__",
+      "bytes": 126929,
+      "files": 34
+    },
+    {
+      "path": ".local-tools/v8-preml-deps/openpyxl/chartsheet/__pycache__",
+      "bytes": 16258,
+      "files": 8
+    },
+    {
+      "path": ".local-tools/v8-preml-deps/openpyxl/comments/__pycache__",
+      "bytes": 16037,
+      "files": 5
+    },
+    {
+      "path": ".local-tools/v8-preml-deps/openpyxl/compat/__pycache__",
+      "bytes": 7636,
+      "files": 6
+    },
+    {
+      "path": ".local-tools/v8-preml-deps/openpyxl/descriptors/__pycache__",
+      "bytes": 44909,
+      "files": 9
+    },
+    {
+      "path": ".local-tools/v8-preml-deps/openpyxl/drawing/__pycache__",
+      "bytes": 128666,
+      "files": 16
+    },
+    {
+      "path": ".local-tools/v8-preml-deps/openpyxl/formatting/__pycache__",
+      "bytes": 14973,
+      "files": 3
+    },
+    {
+      "path": ".local-tools/v8-preml-deps/openpyxl/formula/__pycache__",
+      "bytes": 28209,
+      "files": 3
+    },
+    {
+      "path": ".local-tools/v8-preml-deps/openpyxl/packaging/__pycache__",
+      "bytes": 43195,
+      "files": 8
+    },
+    {
+      "path": ".local-tools/v8-preml-deps/openpyxl/pivot/__pycache__",
+      "bytes": 79396,
+      "files": 5
+    },
+    {
+      "path": ".local-tools/v8-preml-deps/openpyxl/reader/__pycache__",
+      "bytes": 28654,
+      "files": 5
+    },
+    {
+      "path": ".local-tools/v8-preml-deps/openpyxl/styles/__pycache__",
+      "bytes": 115517,
+      "files": 16
+    },
+    {
+      "path": ".local-tools/v8-preml-deps/openpyxl/utils/__pycache__",
+      "bytes": 37685,
+      "files": 12
+    },
+    {
+      "path": ".local-tools/v8-preml-deps/openpyxl/workbook/external_link/__pycache__",
+      "bytes": 6658,
+      "files": 2
+    },
+    {
+      "path": ".local-tools/v8-preml-deps/openpyxl/workbook/__pycache__",
+      "bytes": 66753,
+      "files": 12
+    },
+    {
+      "path": ".local-tools/v8-preml-deps/openpyxl/worksheet/__pycache__",
+      "bytes": 242008,
+      "files": 32
+    },
+    {
+      "path": ".local-tools/v8-preml-deps/openpyxl/writer/__pycache__",
+      "bytes": 27214,
+      "files": 3
+    },
+    {
+      "path": ".local-tools/v8-preml-deps/openpyxl/xml/__pycache__",
+      "bytes": 9218,
+      "files": 3
+    },
+    {
+      "path": ".local-tools/v8-preml-deps/openpyxl/__pycache__",
+      "bytes": 1326,
+      "files": 2
+    },
+    {
+      "path": ".local-tools/v8-preml-deps/platformdirs/__pycache__",
+      "bytes": 174440,
+      "files": 12
+    },
+    {
+      "path": ".local-tools/v8-preml-deps/referencing/tests/__pycache__",
+      "bytes": 87732,
+      "files": 6
+    },
+    {
+      "path": ".local-tools/v8-preml-deps/referencing/__pycache__",
+      "bytes": 61745,
+      "files": 7
+    },
+    {
+      "path": ".local-tools/v8-preml-deps/rpds/__pycache__",
+      "bytes": 336,
+      "files": 1
+    },
+    {
+      "path": ".local-tools/v8-preml-deps/tornado/platform/__pycache__",
+      "bytes": 39728,
+      "files": 4
+    },
+    {
+      "path": ".local-tools/v8-preml-deps/tornado/test/__pycache__",
+      "bytes": 1197193,
+      "files": 38
+    },
+    {
+      "path": ".local-tools/v8-preml-deps/tornado/__pycache__",
+      "bytes": 1039173,
+      "files": 31
+    },
+    {
+      "path": ".local-tools/v8-preml-deps/traitlets/config/__pycache__",
+      "bytes": 147602,
+      "files": 7
+    },
+    {
+      "path": ".local-tools/v8-preml-deps/traitlets/tests/__pycache__",
+      "bytes": 6118,
+      "files": 3
+    },
+    {
+      "path": ".local-tools/v8-preml-deps/traitlets/utils/__pycache__",
+      "bytes": 27168,
+      "files": 10
+    },
+    {
+      "path": ".local-tools/v8-preml-deps/traitlets/__pycache__",
+      "bytes": 184592,
+      "files": 4
+    },
+    {
+      "path": ".local-tools/v8-preml-deps/zmq/auth/__pycache__",
+      "bytes": 36988,
+      "files": 6
+    },
+    {
+      "path": ".local-tools/v8-preml-deps/zmq/backend/cffi/__pycache__",
+      "bytes": 42527,
+      "files": 8
+    },
+    {
+      "path": ".local-tools/v8-preml-deps/zmq/backend/cython/__pycache__",
+      "bytes": 67177,
+      "files": 2
+    },
+    {
+      "path": ".local-tools/v8-preml-deps/zmq/backend/__pycache__",
+      "bytes": 2409,
+      "files": 2
+    },
+    {
+      "path": ".local-tools/v8-preml-deps/zmq/devices/__pycache__",
+      "bytes": 28402,
+      "files": 6
+    },
+    {
+      "path": ".local-tools/v8-preml-deps/zmq/eventloop/__pycache__",
+      "bytes": 44109,
+      "files": 5
+    },
+    {
+      "path": ".local-tools/v8-preml-deps/zmq/green/eventloop/__pycache__",
+      "bytes": 1378,
+      "files": 3
+    },
+    {
+      "path": ".local-tools/v8-preml-deps/zmq/green/__pycache__",
+      "bytes": 20100,
+      "files": 4
+    },
+    {
+      "path": ".local-tools/v8-preml-deps/zmq/log/__pycache__",
+      "bytes": 17597,
+      "files": 3
+    },
+    {
+      "path": ".local-tools/v8-preml-deps/zmq/ssh/__pycache__",
+      "bytes": 23909,
+      "files": 3
+    },
+    {
+      "path": ".local-tools/v8-preml-deps/zmq/sugar/__pycache__",
+      "bytes": 87213,
+      "files": 9
+    },
+    {
+      "path": ".local-tools/v8-preml-deps/zmq/tests/__pycache__",
+      "bytes": 12779,
+      "files": 1
+    },
+    {
+      "path": ".local-tools/v8-preml-deps/zmq/utils/__pycache__",
+      "bytes": 27056,
+      "files": 8
+    },
+    {
+      "path": ".local-tools/v8-preml-deps/zmq/__pycache__",
+      "bytes": 93390,
+      "files": 8
+    },
+    {
+      "path": ".local-tools/v8-preml-deps/__pycache__",
+      "bytes": 208259,
+      "files": 3
+    },
+    {
+      "path": ".pytest_cache",
+      "bytes": 6993,
+      "files": 5
+    },
+    {
+      "path": "alignment/__pycache__",
+      "bytes": 346642,
+      "files": 15
+    },
+    {
+      "path": "src/__pycache__",
+      "bytes": 150692,
+      "files": 18
+    },
+    {
+      "path": "tests/__pycache__",
+      "bytes": 136988,
+      "files": 10
+    },
+    {
+      "path": "v8/__pycache__",
+      "bytes": 48067,
+      "files": 2
+    },
+    {
+      "path": "__pycache__",
+      "bytes": 16219,
+      "files": 4
+    }
+  ],
+  "links_skipped": []
+}
