@@ -1,0 +1,105 @@
+{
+  "date": "2026-10-27",
+  "data": {
+    "feature_identical_groups": 638,
+    "molecules_in_identical_groups": 1520,
+    "groups_with_conflicting_selected_targets": 616,
+    "molecules_in_conflicting_groups": 1474,
+    "feature_identical_groups_crossing_outer_split": 0,
+    "conflicting_groups_with_different_nonstereo_structures": 11,
+    "conflicting_groups_same_nonstereo_structure": 605,
+    "train": {
+      "conflicting_groups": 489,
+      "molecules": 1180,
+      "minimum_exact_profile_mismatches_due_to_identical_features": 667,
+      "all_zero_target_rows": 11
+    },
+    "test": {
+      "conflicting_groups": 127,
+      "molecules": 294,
+      "minimum_exact_profile_mismatches_due_to_identical_features": 164,
+      "all_zero_target_rows": 4
+    },
+    "examples": [
+      [
+        {
+          "row": 11,
+          "smiles": "C(=C/C1OCCO1)/c1ccccc1",
+          "labels": [
+            "cinnamon",
+            "spicy",
+            "warm"
+          ]
+        },
+        {
+          "row": 12,
+          "smiles": "C(=C\\C1OCCO1)/c1ccccc1",
+          "labels": [
+            "cinnamon",
+            "spicy",
+            "sweet"
+          ]
+        }
+      ],
+      [
+        {
+          "row": 14,
+          "smiles": "C/C(=C/C#N)CCc1ccccc1",
+          "labels": [
+            "citrus",
+            "floral",
+            "lemon",
+            "spicy"
+          ]
+        },
+        {
+          "row": 21,
+          "smiles": "C/C(=C\\C#N)CCc1ccccc1",
+          "labels": [
+            "citrus",
+            "lemon"
+          ]
+        },
+        {
+          "row": 916,
+          "smiles": "CC(=CC#N)CCc1ccccc1",
+          "labels": [
+            "balsamic",
+            "cinnamon",
+            "citrus",
+            "floral",
+            "fruity",
+            "rose"
+          ]
+        }
+      ],
+      [
+        {
+          "row": 15,
+          "smiles": "C/C(=C/C=O)CCC1CC1(C)C",
+          "labels": [
+            "citrus",
+            "lemon"
+          ]
+        },
+        {
+          "row": 23,
+          "smiles": "C/C(=C\\C=O)CCC1CC1(C)C",
+          "labels": [
+            "lemon"
+          ]
+        }
+      ]
+    ]
+  },
+  "frontend": {
+    "source_bundle_matches": true,
+    "feature_spec_and_label_order_matches": true,
+    "onnx_hashes_verified": 109,
+    "threshold": 0.5,
+    "selected": "lgbm_D",
+    "evidence_document": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Essenza_Frontend\\docs\\VERIFICATION.md",
+    "android_device_not_retested_today": true,
+    "onnxruntime_available": true
+  }
+}

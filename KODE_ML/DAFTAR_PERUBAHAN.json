@@ -1,0 +1,339 @@
+{
+  "date": "2026-10-26",
+  "files_to_deliver": [
+    {
+      "path": "IMPLEMENTATION_STATUS.md",
+      "change": "modified",
+      "sha256": "f03cd8ea1b0406897d53222291a2a7fc510a6be8461c3402f158a8738c292372"
+    },
+    {
+      "path": "KODE_ML/01_Sumber_Data.ipynb",
+      "change": "created_or_relocated",
+      "sha256": "e81157c966aa06973c5afaa73f7b7bef302c4035a338774890cd55a0c0ba4648"
+    },
+    {
+      "path": "KODE_ML/02_Preprocessing_dan_Audit_Label.ipynb",
+      "change": "created_or_relocated",
+      "sha256": "07ba2fc200366950e9be4cb54716185cb5082a187417517971137e80c621ccb6"
+    },
+    {
+      "path": "KODE_ML/03_Dataset_dan_Fitur.ipynb",
+      "change": "created_or_relocated",
+      "sha256": "ae09e21b999dd546b4e220d88fabf3fff1e4a1f6e2a81d21f3e74b369ecdf3cf"
+    },
+    {
+      "path": "KODE_ML/04_Grup_Split_dan_Fold.ipynb",
+      "change": "created_or_relocated",
+      "sha256": "12bf117028960c063f420987681f1c39b889244a99daee93cf09a31a64e989bc"
+    },
+    {
+      "path": "KODE_ML/05_Model_dan_Bobot.ipynb",
+      "change": "created_or_relocated",
+      "sha256": "7078ae1168bd493752607cbdb8c69d7fc264381997b6b91201e644dc6116feea"
+    },
+    {
+      "path": "KODE_ML/06_Optuna_CV_dan_OOF.ipynb",
+      "change": "created_or_relocated",
+      "sha256": "96bb7b01281a42362522aec7deedfee1ceff30c6c451c8edc07a52e4e05b6dc9"
+    },
+    {
+      "path": "KODE_ML/07_Evaluasi_dan_Pemilihan.ipynb",
+      "change": "created_or_relocated",
+      "sha256": "2f57034619dab26999a45de01fdb6f14d0e536b6946e9398b71b3bc6d726c788"
+    },
+    {
+      "path": "KODE_ML/08_Prediksi_Molekul.ipynb",
+      "change": "created_or_relocated",
+      "sha256": "4bc0698877eb011cb0af7bb2aac937e5a4257a0b2201023bd9ff1a3188d6bb38"
+    },
+    {
+      "path": "KODE_ML/asal_kohor.py",
+      "change": "created_or_relocated",
+      "sha256": "c0b4fab50851629f320eacb5c41b6d41b592d9fecd703dde1da13788e0c066e5"
+    },
+    {
+      "path": "KODE_ML/audit_labels.py",
+      "change": "created_or_relocated",
+      "sha256": "ad7f3aba393868af10b2a07ac4d43889c04caec1a5b561405004b29fe0dd7c86"
+    },
+    {
+      "path": "KODE_ML/belajar.py",
+      "change": "created_or_relocated",
+      "sha256": "7c838acb27257ef6f74504954bd2225a67c776ad3a1ecdf1baedd34ffd07a24f"
+    },
+    {
+      "path": "KODE_ML/DAFTAR_PERUBAHAN.json",
+      "change": "created_or_relocated",
+      "sha256": null
+    },
+    {
+      "path": "KODE_ML/hasil_audit_label/aliases.csv",
+      "change": "created_or_relocated",
+      "sha256": "9e8d92d484ac23808c748e5476a080ceab645d378e0a5b518f83c40bd5887873"
+    },
+    {
+      "path": "KODE_ML/hasil_audit_label/LABEL_AUDIT_FINDINGS.md",
+      "change": "created_or_relocated",
+      "sha256": "06271276d302e8c2dd3fa7b947574dbc6534e4664dffd8bf513b5108c8029357"
+    },
+    {
+      "path": "KODE_ML/hasil_audit_label/mappings.csv",
+      "change": "created_or_relocated",
+      "sha256": "9f5d6b84cb60786447761c20958245bf37bfde24d4c9ea1aa874d0843a76e045"
+    },
+    {
+      "path": "KODE_ML/hasil_audit_label/per_source.csv",
+      "change": "created_or_relocated",
+      "sha256": "6de561592c325dee925ce2ade1d4f1dcdd983cdac3501d2ea24f209d4bbf7ced"
+    },
+    {
+      "path": "KODE_ML/hasil_audit_label/raw_row_status.csv",
+      "change": "created_or_relocated",
+      "sha256": "bbbf9c23122d735aabf757d61b31b7773c41bd3c4f6b2bb1ba4dca1f3677736d"
+    },
+    {
+      "path": "KODE_ML/hasil_audit_label/rejected_rows.csv",
+      "change": "created_or_relocated",
+      "sha256": "ae0527dc074165483e08d53209d3880549a94c7baa6e9d7270dc8d360b01338c"
+    },
+    {
+      "path": "KODE_ML/hasil_audit_label/summary.json",
+      "change": "created_or_relocated",
+      "sha256": "276d330dad6446b5ee1b941c6e2c8bd4e20e32b67e40ecc3065cf3d72e02bc14"
+    },
+    {
+      "path": "KODE_ML/hasil_audit_label/taxonomy_selection.csv",
+      "change": "created_or_relocated",
+      "sha256": "50ca362243a7729ed22442cb90b345aa77fed0ed3f60fd6ff1940a46e1f0613c"
+    },
+    {
+      "path": "KODE_ML/hasil_audit_label/token_inventory.csv",
+      "change": "created_or_relocated",
+      "sha256": "082702f05e1f5eae47c4e57ef9c08d7ca8069bf7edb224d0a095735ccfa1533a"
+    },
+    {
+      "path": "KODE_ML/hasil_audit_label/unmapped_by_source.csv",
+      "change": "created_or_relocated",
+      "sha256": "898084ee4737c4613fd5cc01088452fa447288df5ba2612458caab1dc4161d1d"
+    },
+    {
+      "path": "KODE_ML/hasil_audit_label/unmatched_terms.csv",
+      "change": "created_or_relocated",
+      "sha256": "71d62bbafe52152fc4c4155671a883052aac327634926fe56ec6c249c8bab949"
+    },
+    {
+      "path": "KODE_ML/HASIL_VERIFIKASI.json",
+      "change": "created_or_relocated",
+      "sha256": "ca079972c4c9b71af778d509156d3978caa3e86a7a09f927c0dcef0227b0f685"
+    },
+    {
+      "path": "KODE_ML/HASIL_VERIFIKASI.md",
+      "change": "created_or_relocated",
+      "sha256": "ded26d1f90aac86565a094773d31bb492ec7259ec52619d3eb2a297a7b076a91"
+    },
+    {
+      "path": "KODE_ML/PANDUAN_SIDANG_KODE.md",
+      "change": "modified",
+      "sha256": "41740f9e2eff18c2fb0d800b826e3212e2d3a784dcf02fbad0f855677a40c676"
+    },
+    {
+      "path": "KODE_ML/README.md",
+      "change": "modified",
+      "sha256": "1c5cad429f1da1e8a5fecb82eb2de6104f63a0ffa7479643d7d8827d755283e5"
+    },
+    {
+      "path": "KODE_ML/requirements_belajar.txt",
+      "change": "created_or_relocated",
+      "sha256": "56fb8b316f54e118690fa049da993847b5e991ef956b397ec934be9c9b68f32e"
+    },
+    {
+      "path": "KODE_ML/research/__init__.py",
+      "change": "created_or_relocated",
+      "sha256": "2fcc417bb5637f2c1a86493ace45d5aed29546d47798564b448242537120369a"
+    },
+    {
+      "path": "KODE_ML/research/config/compute.json",
+      "change": "created_or_relocated",
+      "sha256": "d5a3c037be1845cb3fef3458cde8d130807e2c1fbe84cb4e2f53a16e1794fc55"
+    },
+    {
+      "path": "KODE_ML/research/config/dataset.json",
+      "change": "created_or_relocated",
+      "sha256": "c2f990ea905c01f46d21224041f4826f6f5de73b65b957d892fdff3b5610f5f2"
+    },
+    {
+      "path": "KODE_ML/research/config/experiment.json",
+      "change": "created_or_relocated",
+      "sha256": "9c65c0bb98e06d8ddfa2f6505c7a84f094cd3fe8db182db39d56563a2a75779e"
+    },
+    {
+      "path": "KODE_ML/research/config/sources.json",
+      "change": "created_or_relocated",
+      "sha256": "781ce2a3cdb915b2ba62be55647aea96ffe0bba85981437879a0dfad67587ccf"
+    },
+    {
+      "path": "KODE_ML/research/dataset.py",
+      "change": "created_or_relocated",
+      "sha256": "8dc2ecbc33f556fd0f4b1b655fe8c728de1ccc141bfc1af7b6fd45781b2caeb3"
+    },
+    {
+      "path": "KODE_ML/research/experiment.py",
+      "change": "created_or_relocated",
+      "sha256": "45db31726b7d08049b93aa36da731f5db7610a4ff51bc75789c9bf1ab1b32d79"
+    },
+    {
+      "path": "KODE_ML/research/features.py",
+      "change": "created_or_relocated",
+      "sha256": "8a1774f10afe12c65985b1e326903f5509ad68814a61f6cb2d7df086f14564d0"
+    },
+    {
+      "path": "KODE_ML/research/inference.py",
+      "change": "created_or_relocated",
+      "sha256": "a9cdd7d49ed7a308134c9d6b82b47f1cbfcd720a9c58d02511ecf78a9b432a4a"
+    },
+    {
+      "path": "KODE_ML/research/metrics.py",
+      "change": "created_or_relocated",
+      "sha256": "b476b48133b6b5c9f62f2424f68c72c33cc8ffd2c4a531a64d659878a86f0d67"
+    },
+    {
+      "path": "KODE_ML/research/preprocessing.py",
+      "change": "created_or_relocated",
+      "sha256": "91aaeca7a9a9b6bb0cfae5349168c1205f62fb588496961c58193be96fb7ef14"
+    },
+    {
+      "path": "KODE_ML/research/results.py",
+      "change": "created_or_relocated",
+      "sha256": "724762a4e03ec358000821ecddff0d86436e1983256b8b0e6b3adacdb63b5f2d"
+    },
+    {
+      "path": "KODE_ML/research/runtime.py",
+      "change": "created_or_relocated",
+      "sha256": "9a66f6e7d64d453435ba9320cce169065fa6a85cbcc9b7edcfccb1951c30a867"
+    },
+    {
+      "path": "KODE_ML/research/source_identity.py",
+      "change": "created_or_relocated",
+      "sha256": "36fb057eb35996f5a0f386712d6ce07896cb4ff9ef3675ead78325e8fecbccc6"
+    },
+    {
+      "path": "KODE_ML/research/splits.py",
+      "change": "created_or_relocated",
+      "sha256": "9386cb3804ad90592c9a3b9e11cbffcb28023754ab069e10fc82c4aa1e90d2f0"
+    },
+    {
+      "path": "KODE_ML/research/tests/test_research_readonly.py",
+      "change": "created_or_relocated",
+      "sha256": "aaa51ee9fc686fe24082927224658da728994167be17d1343f57e1162c541f66"
+    },
+    {
+      "path": "KODE_ML/research/training.py",
+      "change": "created_or_relocated",
+      "sha256": "4b8f34ca70a8263b3a8a25e7c0e2b3e46bc1e8767be2149ec7cf4c804024e184"
+    },
+    {
+      "path": "KODE_ML/research/tuning.py",
+      "change": "created_or_relocated",
+      "sha256": "af497eb63c357a7f08bd7f1e3a3a73966ca925bf267b96d2de09bb1122b92531"
+    },
+    {
+      "path": "KODE_ML/research/validation.py",
+      "change": "created_or_relocated",
+      "sha256": "7c0f86601d8c619b7a2c1d76e86659ab41bd0533f0cdac2a5f99700624877c6c"
+    },
+    {
+      "path": "MULAI_BACA_KODE.md",
+      "change": "modified",
+      "sha256": "2c732d9a011cee25792e40c758b5bb723adb0a8004247159156ea6a674a8ab87"
+    },
+    {
+      "path": "PROJECT_CONTEXT.md",
+      "change": "modified",
+      "sha256": "dc78b4ccfa99f9f76f2d9c0f00403fd9ffa1d6281575cc3db34e59026c183d49"
+    },
+    {
+      "path": "PROJECT_OVERVIEW.md",
+      "change": "modified",
+      "sha256": "c1f7fcfb3101441fa2c0fef1eb126c5a27b1f92b0259cc2c25c69fe6dad0cd06"
+    },
+    {
+      "path": "README.md",
+      "change": "modified",
+      "sha256": "52a55f31064530e22908a63e299d4123b0c6d07cb3329fb82a73ae9ec13d34e8"
+    },
+    {
+      "path": "reports/kode_ml_notebooks_20261026/README.md",
+      "change": "created_or_relocated",
+      "sha256": "117d9259dfff65e48b1803d977602fff1af7f25e630c98e615acc24498afcc25"
+    },
+    {
+      "path": "reports/kode_ml_notebooks_20261026/source_relocation.json",
+      "change": "created_or_relocated",
+      "sha256": "52caf94c1ad3b142b33c917c18337d9d1b9067c58f05895b06264c84e8697bde"
+    },
+    {
+      "path": "reports/kode_ml_notebooks_20261026/source_structure_checks.json",
+      "change": "created_or_relocated",
+      "sha256": "684021b0965f130a6fc8abb37885dc6e51135baced2ee4dac9839000f05bcc16"
+    },
+    {
+      "path": "reports/kode_ml_notebooks_20261026/verification.json",
+      "change": "created_or_relocated",
+      "sha256": "ca079972c4c9b71af778d509156d3978caa3e86a7a09f927c0dcef0227b0f685"
+    },
+    {
+      "path": "research/__init__.py",
+      "change": "modified",
+      "sha256": "ae12b2df28303bf7d61c9c46f4891df3c0b2ce6370556bb66b5ac9a0863f7e2a"
+    },
+    {
+      "path": "SAFE_EXECUTION_PLAN.md",
+      "change": "modified",
+      "sha256": "97b3d35e1cb204710054a12b6e3af7917fe8167c673023dd8b85be249b98201e"
+    }
+  ],
+  "archived_original_paths": [
+    "research/__init__.py",
+    "research/config/compute.json",
+    "research/config/dataset.json",
+    "research/config/experiment.json",
+    "research/config/sources.json",
+    "research/dataset.py",
+    "research/experiment.py",
+    "research/features.py",
+    "research/inference.py",
+    "research/metrics.py",
+    "research/preprocessing.py",
+    "research/results.py",
+    "research/runtime.py",
+    "research/source_identity.py",
+    "research/splits.py",
+    "research/tests/test_research_readonly.py",
+    "research/training.py",
+    "research/tuning.py",
+    "research/validation.py",
+    "KODE_ML/01_fitur.py",
+    "KODE_ML/02_split.py",
+    "KODE_ML/03_optuna.py",
+    "KODE_ML/04_training_evaluasi.py",
+    "KODE_ML/05_prediksi.py",
+    "KODE_ML/BELAJAR_KODE_ML_LENGKAP.ipynb",
+    "KODE_ML/README.md",
+    "KODE_ML/_lokasi.py"
+  ],
+  "canonical_source_from": "research/",
+  "canonical_source_to": "KODE_ML/research/",
+  "backup": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\.local-backups\\kode-ml-notebooks-20261026\\source-before.zip",
+  "archive": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\archive\\kode-ml-before-notebooks-20261026",
+  "excluded_from_change": [
+    "data/",
+    "runs/",
+    ".local-tools/",
+    "models/",
+    "releases/",
+    "src/",
+    "API",
+    "frontend",
+    "LaTeX"
+  ]
+}

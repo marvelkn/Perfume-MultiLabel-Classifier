@@ -1,0 +1,31 @@
+{
+  "experiment_functions_exact_after_path_normalization": true,
+  "import_modes": [
+    {
+      "cwd": "C:\\Users\\ACER\\Documents\\ChatGPT\\Project Skripsi\\notebook_reorg_20261026\\relocation\\files",
+      "output": {
+        "package_path": [
+          "C:\\Users\\ACER\\Documents\\ChatGPT\\Project Skripsi\\notebook_reorg_20261026\\relocation\\files\\KODE_ML\\research"
+        ],
+        "root": "C:\\Users\\ACER\\Documents\\ChatGPT\\Project Skripsi\\notebook_reorg_20261026\\relocation\\files",
+        "source_root": "C:\\Users\\ACER\\Documents\\ChatGPT\\Project Skripsi\\notebook_reorg_20261026\\relocation\\files\\KODE_ML\\research",
+        "experiment_file": "C:\\Users\\ACER\\Documents\\ChatGPT\\Project Skripsi\\notebook_reorg_20261026\\relocation\\files\\KODE_ML\\research\\experiment.py",
+        "config": "C:\\Users\\ACER\\Documents\\ChatGPT\\Project Skripsi\\notebook_reorg_20261026\\relocation\\files\\KODE_ML\\research\\config\\experiment.json"
+      }
+    },
+    {
+      "cwd": "C:\\Users\\ACER\\Documents\\ChatGPT\\Project Skripsi\\notebook_reorg_20261026\\relocation\\files\\KODE_ML",
+      "output": {
+        "package_path": [
+          "C:\\Users\\ACER\\Documents\\ChatGPT\\Project Skripsi\\notebook_reorg_20261026\\relocation\\files\\KODE_ML\\research"
+        ],
+        "root": "C:\\Users\\ACER\\Documents\\ChatGPT\\Project Skripsi\\notebook_reorg_20261026\\relocation\\files",
+        "source_root": "C:\\Users\\ACER\\Documents\\ChatGPT\\Project Skripsi\\notebook_reorg_20261026\\relocation\\files\\KODE_ML\\research",
+        "experiment_file": "C:\\Users\\ACER\\Documents\\ChatGPT\\Project Skripsi\\notebook_reorg_20261026\\relocation\\files\\KODE_ML\\research\\experiment.py",
+        "config": "C:\\Users\\ACER\\Documents\\ChatGPT\\Project Skripsi\\notebook_reorg_20261026\\relocation\\files\\KODE_ML\\research\\config\\experiment.json"
+      }
+    }
+  ],
+  "training_performed": false,
+  "original_repo_modified": false
+}

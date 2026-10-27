@@ -1,0 +1,32 @@
+{
+  "dataset_directory": "data/builds/perfume-five-grouped-v2",
+  "features_directory": "data/builds/perfume-m2048-d8-v7",
+  "rows": 6686,
+  "train_rows": 5353,
+  "test_rows": 1333,
+  "label_count": 109,
+  "group_origin": "structure without stereo OR identical historical Morgan 1024; frozen, not recomputed",
+  "dataset_files": {
+    "audit.json": "1790c4e6f231e2a8903538844bb3c91f3c468ca37e4d2529d0182f3b7408fcc4",
+    "config.json": "b789385d38b884d53e81fa5cdb59821a86ec5ee63134989a93efc2142824addc",
+    "dataset_manifest.json": "886e8e49d08bf8c5c73f0c3d13de25bd01b63ada4bdcc7e58f4b49ad7cd60c17",
+    "experiment_protocol.json": "7eee3e641c556a3432237d118bda6a332481f50d664e464b7a450b290a4ca65f",
+    "groups.csv": "16085d79d665558eb1c8ae05bfb1543fe28495d417acc58416104434bdebfd49",
+    "label_mappings.csv": "9f5d6b84cb60786447761c20958245bf37bfde24d4c9ea1aa874d0843a76e045",
+    "label_selection.csv": "8a0cddc493382f260d7149c7eb4e690f6d470d4b4fc903a59ff4a01c9d5289af",
+    "provenance.json": "d1228b1ec5bcbee91fbc1007c6e10c6dbb0f2fab90b46c7be6587b35d844cb85",
+    "records.csv": "e62cbe41c117c8ffb72e88e4b67bd5831ec6d5f47d7ffdb40f40c352836f9671",
+    "rejected_records.json": "179b13066cc77af3e784fd30f57a49234ec27f2242362a293897a5d670105835",
+    "sources.json": "34b6aabfa9cfc98bdc5e43498a20728d48c2c636568a855819539b8f1f99b0f3",
+    "splits.json": "ae2ce0dda7ffeed2c397d4b631e1e3de39485aedf648b3365bd16272bdf7a4c4",
+    "test.npz": "a97167baae30b636e080ad05ef60ac2d2d7eadd3b70910e0c308b3948910f58a",
+    "train.npz": "41d9f01b57ef795b87ebfd424eff5e23e58c5a330f6b9e7a3727783e08f0b2eb",
+    "train_label_support.csv": "3a53661ffaa52c3d49fe25497cdfe07597757891df652d5bbd6161d2bdb00222",
+    "unmapped_descriptors.csv": "898084ee4737c4613fd5cc01088452fa447288df5ba2612458caab1dc4161d1d"
+  },
+  "feature_files": {
+    "descriptors.csv": "2879580d79f184428ac6e206e1fb073f0bb9bb0952adecfbda89a45e8805f627",
+    "features.npz": "81531d2ba87102b56b610b9ec2c084ca147b8e5d218a5b87a21f8387a81c33a5",
+    "manifest.json": "d6f434e15d4b7cb26476caef877e759485033c05301bfeefa960f17e116b0100"
+  }
+}

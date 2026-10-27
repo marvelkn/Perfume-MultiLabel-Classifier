@@ -1,0 +1,32 @@
+alias,destination,destination_in_taxonomy,alias_itself_in_taxonomy,observed_tokens_at_mapper,tokens_using_alias,status
+fruit,fruity,True,False,3,3,used
+fruits,fruity,True,False,0,0,not_observed
+flower,floral,True,False,7,7,used
+flowers,floral,True,False,1,1,used
+floral notes,floral,True,False,0,0,not_observed
+wood,woody,True,False,1,1,used
+woods,woody,True,False,0,0,not_observed
+herb,herbal,True,False,1,1,used
+herbaceous,herbal,True,False,67,67,used
+green notes,green,True,False,0,0,not_observed
+citrus notes,citrus,True,False,0,0,not_observed
+spice,spicy,True,False,7,7,used
+spicy notes,spicy,True,False,0,0,not_observed
+sweet notes,sweet,True,False,0,0,not_observed
+cream,creamy,True,False,0,0,not_observed
+butter,buttery,True,False,33,33,used
+nut,nutty,True,False,1,1,used
+smoke,smoky,True,False,0,0,not_observed
+smokey,smoky,True,False,0,0,not_observed
+earth,earthy,True,False,0,0,not_observed
+mint,minty,True,False,124,124,used
+oil,oily,True,False,3,3,used
+musk,musk like,True,False,110,110,used
+animal,animal like,True,False,223,223,used
+animalic,animal like,True,False,0,0,not_observed
+jasmine,jasmin,True,False,56,56,used
+savory,savoury,True,False,139,139,used
+tropical,tropical fruit,True,False,437,437,used
+sulphurous,sulfurous,True,False,0,0,not_observed
+balsam,balsamic,True,False,42,42,used
+powder,powdery,True,False,0,0,not_observed

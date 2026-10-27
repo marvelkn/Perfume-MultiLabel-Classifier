@@ -1,0 +1,23 @@
+{
+  "primary_completion_files_verified": 1199,
+  "legacy_api_src_test_files_unchanged": 42,
+  "protected_files_unchanged": 24,
+  "raw_cleaning_audit": {
+    "records": 6686,
+    "targets": [
+      6686,
+      109
+    ],
+    "taxonomy": 184,
+    "rejected": 1560,
+    "accepted_before_merge": 11777,
+    "frozen_records_and_targets_equal": true,
+    "downloaded": false,
+    "written": false
+  },
+  "tests": {
+    "passed": 7,
+    "training_executed": false,
+    "command": "python -B -m pytest research/tests/test_research_readonly.py -q -p no:cacheprovider"
+  }
+}

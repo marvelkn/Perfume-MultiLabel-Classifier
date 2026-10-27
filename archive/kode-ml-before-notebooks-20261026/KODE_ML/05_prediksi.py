@@ -6,7 +6,7 @@ import sys
 from _lokasi import ROOT, hasil_penelitian
 
 sys.path.insert(0, str(ROOT))
-from alignment.predict_v7 import predict  # noqa: E402
+from research.inference import predict  # noqa: E402
 
 
 def contoh_prediksi(smiles: str, jumlah: int) -> None:

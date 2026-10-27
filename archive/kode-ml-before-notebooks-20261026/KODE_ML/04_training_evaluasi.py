@@ -8,9 +8,9 @@ import pandas as pd
 from _lokasi import ROOT, baca_json, hasil_penelitian
 
 sys.path.insert(0, str(ROOT))
-from alignment.metrics import binary_metrics, summarize  # noqa: E402
-from alignment.experiments import prediction_diagnostics  # noqa: E402
-from alignment.experiments_v7 import run_all as training_asli  # noqa: E402
+from research.metrics import binary_metrics, summarize  # noqa: E402
+from research.validation import prediction_diagnostics  # noqa: E402
+from research.experiment import run_all as training_asli  # noqa: E402
 
 
 def ringkas_hasil() -> None:

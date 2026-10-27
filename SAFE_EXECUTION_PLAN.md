@@ -1,5 +1,33 @@
 # Rencana Eksekusi Aman Proyek Skripsi Essenza
 
+## Status 26 Oktober 2026: source dan delapan notebook di KODE_ML
+
+Source utama tunggal di `KODE_ML/research/`; root `research/__init__.py` hanya penghubung import.
+Buka `KODE_ML/README.md` untuk urutan notebook 01–08. Notebook menampilkan source aktual,
+menjalankan audit di memori dan membaca hasil terkunci; training/tuning tidak berjalan secara default.
+Audit label: 184 istilah IFRA → 109 target, 31 alias, 498 istilah/6.494 kemunculan gagal mapping.
+Alias/taksonomi tidak diubah. Data, model, hasil, metode, parameter, seed dan split tetap.
+`asal_kohor.py` mengaudit sejarah grup dari Morgan1024 tersimpan, bukan fitur training utama.
+Fitur model tetap Morgan2048+8. ONNX/Android dan training baru tetap tugas terpisah.
+Backup dan perpindahan file tercatat di `KODE_ML/HASIL_VERIFIKASI.md`.
+
+**Bagian bertanggal sebelumnya di bawah adalah riwayat.**
+
+
+## Status 25 Oktober 2026: jalur aktif dirapikan, hasil utama tetap
+
+Kode utama sekarang berada di `research/`; konfigurasi metode di `research/config/experiment.json`.
+Panduan belajar tunggal: `KODE_ML/BELAJAR_KODE_ML_LENGKAP.ipynb`.
+Hasil V7 dikunci dan V9 tambahan. Data/model/hasil lama tidak diubah.
+Pemeriksaan aktif memakai fitur 2048+8, hash dan identitas baris, serta grup/split beku;
+tidak menghitung ulang 1024+5. Asal grup tetap struktur tanpa stereo atau Morgan1024 identik.
+Source dan launcher eksperimen lama diarsipkan. API, src, dan tes integrasi lama tetap karena masih saling dipakai. ONNX/Android model baru ditunda.
+Tidak ada training/tuning/unduhan dataset pada perapian ini. Source baru wajib memakai
+folder run baru; tidak boleh melanjutkan run lama dengan identitas source berubah.
+Rincian: `reports/research_cleanup_20261025/REFACTOR_REPORT.md` dan `archive/README.md`.
+
+**Catatan bertanggal sebelumnya adalah riwayat; source/path lamanya dapat ditelusuri lewat arsip.**
+
 ## Status 23 Oktober 2026: V7 utama, V9 selesai sebagai eksperimen tambahan
 
 **V7 tetap hasil utama penelitian yang dikunci**: lima sumber Pyrfume,

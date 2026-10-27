@@ -1,0 +1,1585 @@
+source,raw_token,normalized_token,mapped_label,mapping_method,reached_production_mapper,row_outcome,final_use_reason,count
+leffingwell,fruity,fruity,fruity,exact,True,accepted,retained_label,1391
+goodscents,fruity,fruity,fruity,exact,True,accepted,retained_label,1247
+goodscents,green,green,green,exact,True,accepted,retained_label,1066
+goodscents,sweet,sweet,sweet,exact,True,accepted,retained_label,1002
+goodscents,floral,floral,floral,exact,True,accepted,retained_label,908
+leffingwell,green,green,green,exact,True,accepted,retained_label,907
+leffingwell,sweet,sweet,sweet,exact,True,accepted,retained_label,825
+arctander,fruity,fruity,fruity,exact,True,accepted,retained_label,770
+arctander,floral,floral,floral,exact,True,accepted,retained_label,751
+goodscents,woody,woody,woody,exact,True,accepted,retained_label,621
+arctander,green,green,green,exact,True,accepted,retained_label,602
+goodscents,herbal,herbal,herbal,exact,True,accepted,retained_label,555
+leffingwell,floral,floral,floral,exact,True,accepted,retained_label,553
+arctander,herbal,herbal,herbal,exact,True,accepted,retained_label,544
+leffingwell,fatty,fatty,fatty,exact,True,accepted,retained_label,407
+leffingwell,herbal,herbal,herbal,exact,True,accepted,retained_label,406
+goodscents,fatty,fatty,fatty,exact,True,accepted,retained_label,398
+goodscents,fresh,fresh,fresh,exact,True,accepted,retained_label,380
+ifra,Floral,floral,floral,exact,True,accepted,retained_label,380
+goodscents,waxy,waxy,waxy,exact,True,accepted,retained_label,377
+arctander,woody,woody,woody,exact,True,accepted,retained_label,365
+goodscents,spicy,spicy,spicy,exact,True,accepted,retained_label,351
+arctander,oily,oily,oily,exact,True,accepted,retained_label,345
+ifra,Fruity,fruity,fruity,exact,True,accepted,retained_label,325
+goodscents,citrus,citrus,citrus,exact,True,accepted,retained_label,297
+goodscents,rose,rose,rose,exact,True,accepted,retained_label,273
+ifra,Green,green,green,exact,True,accepted,retained_label,270
+arctander,rose,rose,rose,exact,True,accepted,retained_label,255
+leffingwell,sulfurous,sulfurous,sulfurous,exact,True,accepted,retained_label,252
+goodscents,sulfurous,sulfurous,sulfurous,exact,True,accepted,retained_label,249
+goodscents,earthy,earthy,earthy,exact,True,accepted,retained_label,247
+leffingwell,waxy,waxy,waxy,exact,True,accepted,retained_label,244
+leffingwell,apple,apple,apple,exact,True,accepted,retained_label,239
+arctander,balsamic,balsamic,balsamic,exact,True,accepted,retained_label,238
+leffingwell,fresh,fresh,fresh,exact,True,accepted,retained_label,237
+goodscents,nutty,nutty,nutty,exact,True,accepted,retained_label,235
+goodscents,tropical,tropical,tropical fruit,alias,True,accepted,retained_label,235
+leffingwell,nutty,nutty,nutty,exact,True,accepted,retained_label,224
+goodscents,balsamic,balsamic,balsamic,exact,True,accepted,retained_label,220
+goodscents,oily,oily,oily,exact,True,accepted,retained_label,217
+leffingwell,woody,woody,woody,exact,True,accepted,retained_label,211
+leffingwell,meaty,meaty,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,209
+leffingwell,spicy,spicy,spicy,exact,True,accepted,retained_label,203
+leffingwell,citrus,citrus,citrus,exact,True,accepted,retained_label,201
+leffingwell,tropical,tropical,tropical fruit,alias,True,accepted,retained_label,201
+leffingwell,oily,oily,oily,exact,True,accepted,retained_label,200
+leffingwell,roasted,roasted,roasted,exact,True,accepted,retained_label,195
+leffingwell,ethereal,ethereal,ethereal,exact,True,accepted,retained_label,194
+goodscents,minty,minty,minty,exact,True,accepted,retained_label,190
+arctander,ethereal,ethereal,ethereal,exact,True,accepted,retained_label,188
+arctander,spicy,spicy,spicy,exact,True,accepted,retained_label,186
+goodscents,vegetable,vegetable,vegetable,exact,True,accepted,retained_label,182
+leffingwell,earthy,earthy,earthy,exact,True,accepted,retained_label,173
+leffingwell,winey,winey,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,172
+goodscents,powdery,powdery,powdery,exact,True,accepted,retained_label,171
+leffingwell,vegetable,vegetable,vegetable,exact,True,accepted,retained_label,165
+leffingwell,balsamic,balsamic,balsamic,exact,True,accepted,retained_label,164
+leffingwell,rose,rose,rose,exact,True,accepted,retained_label,163
+goodscents,musty,musty,musty,exact,True,accepted,retained_label,158
+ifra,Herbal,herbal,herbal,exact,True,accepted,retained_label,157
+leffingwell,caramellic,caramellic,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,155
+arctander,fatty,fatty,fatty,exact,True,accepted,retained_label,152
+goodscents,creamy,creamy,creamy,exact,True,accepted,retained_label,148
+goodscents,pineapple,pineapple,pineapple,exact,True,accepted,retained_label,147
+goodscents,apple,apple,apple,exact,True,accepted,retained_label,145
+goodscents,meaty,meaty,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,142
+ifra,Woody,woody,woody,exact,True,accepted,retained_label,142
+leffingwell,cheesy,cheesy,cheesy,exact,True,accepted,retained_label,142
+goodscents,aldehydic,aldehydic,aldehydic,exact,True,accepted,retained_label,139
+leffingwell,pineapple,pineapple,pineapple,exact,True,accepted,retained_label,139
+goodscents,roasted,roasted,roasted,exact,True,accepted,retained_label,136
+arctander,winey,winey,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,135
+goodscents,ethereal,ethereal,ethereal,exact,True,accepted,retained_label,134
+goodscents,phenolic,phenolic,phenolic,exact,True,accepted,retained_label,133
+sigma,fruity,fruity,fruity,exact,True,accepted,retained_label,133
+leffingwell,burnt,burnt,burnt,exact,True,accepted,retained_label,131
+sigma,sweet,sweet,sweet,exact,True,accepted,retained_label,130
+arctander,earthy,earthy,earthy,exact,True,accepted,retained_label,129
+goodscents,dry,dry,dry,exact,True,accepted,retained_label,128
+ifra,Citrus,citrus,citrus,exact,True,accepted,retained_label,128
+ifra,Sweet,sweet,sweet,exact,True,accepted,retained_label,125
+leffingwell,onion,onion,onion,exact,True,accepted,retained_label,125
+leffingwell,mint,mint,minty,alias,True,accepted,retained_label,123
+goodscents,berry,berry,berry,exact,True,accepted,retained_label,120
+arctander,camphoraceous,camphoraceous,camphoraceous,exact,True,accepted,retained_label,117
+goodscents,caramellic,caramellic,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,117
+goodscents,metallic,metallic,metallic,exact,True,accepted,retained_label,117
+leffingwell,pungent,pungent,pungent,exact,True,accepted,retained_label,117
+arctander,citrus,citrus,citrus,exact,True,accepted,retained_label,114
+goodscents,odorless,odorless,,unmapped,False,multifragment,row_multifragment,112
+goodscents,odorless,odorless,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,112
+ifra,Fresh,fresh,fresh,exact,True,accepted,retained_label,112
+sigma,green,green,green,exact,True,accepted,retained_label,111
+goodscents,pungent,pungent,pungent,exact,True,accepted,retained_label,110
+goodscents,honey,honey,honey,exact,True,accepted,retained_label,109
+goodscents,camphoreous,camphoreous,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,105
+leffingwell,fermented,fermented,fermented,exact,True,accepted,retained_label,105
+leffingwell,buttery,buttery,buttery,exact,True,accepted,retained_label,97
+goodscents,leafy,leafy,leafy,exact,True,accepted,retained_label,96
+goodscents,onion,onion,onion,exact,True,accepted,retained_label,96
+goodscents,animal,animal,animal like,alias,True,accepted,retained_label,93
+arctander,minty,minty,minty,exact,True,accepted,retained_label,92
+goodscents,clean,clean,clean,exact,True,accepted,retained_label,92
+goodscents,jasmin,jasmin,jasmin,exact,True,accepted,retained_label,92
+leffingwell,musty,musty,musty,exact,True,accepted,retained_label,92
+leffingwell,pear,pear,pear,exact,True,accepted,retained_label,91
+goodscents,musk,musk,musk like,alias,True,accepted,retained_label,90
+goodscents,pear,pear,pear,exact,True,accepted,retained_label,90
+arctander,leafy,leafy,leafy,exact,True,accepted,retained_label,88
+goodscents,coconut,coconut,coconut,exact,True,accepted,retained_label,88
+goodscents,melon,melon,melon,exact,True,accepted,retained_label,88
+goodscents,winey,winey,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,88
+arctander,waxy,waxy,waxy,exact,True,accepted,retained_label,87
+leffingwell,garlic,garlic,garlic,exact,True,accepted,retained_label,85
+goodscents,amber,amber,amber,exact,True,accepted,retained_label,84
+goodscents,cheesy,cheesy,cheesy,exact,True,accepted,retained_label,84
+leffingwell,creamy,creamy,creamy,exact,True,accepted,retained_label,84
+leffingwell,melon,melon,melon,exact,True,accepted,retained_label,84
+leffingwell,honey,honey,honey,exact,True,accepted,retained_label,82
+leffingwell,savory,savory,savoury,alias,True,accepted,retained_label,82
+leffingwell,phenolic,phenolic,phenolic,exact,True,accepted,retained_label,81
+arctander,musty,musty,musty,exact,True,accepted,retained_label,80
+goodscents,banana,banana,banana,exact,True,accepted,retained_label,80
+goodscents,mushroom,mushroom,mushroom,exact,True,accepted,retained_label,80
+leffingwell,alcoholic,alcoholic,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,79
+leffingwell,cocoa,cocoa,cocoa,exact,True,accepted,retained_label,79
+leffingwell,cognac,cognac,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,78
+goodscents,coffee,coffee,coffee,exact,True,accepted,retained_label,76
+goodscents,cooling,cooling,cooling,exact,True,accepted,retained_label,76
+arctander,floral,floral,floral,exact,False,missing_identity,row_missing_identity,75
+goodscents,buttery,buttery,buttery,exact,True,accepted,retained_label,74
+arctander,animal,animal,animal like,alias,True,accepted,retained_label,73
+arctander,fruity,fruity,fruity,exact,False,missing_identity,row_missing_identity,73
+arctander,honey,honey,honey,exact,True,accepted,retained_label,73
+goodscents,garlic,garlic,garlic,exact,True,accepted,retained_label,73
+goodscents,pine,pine,pine,exact,True,accepted,retained_label,73
+ifra,Rose,rose,rose,exact,True,accepted,retained_label,73
+sigma,floral,floral,floral,exact,True,accepted,retained_label,73
+arctander,musky,musky,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,71
+goodscents,vanilla,vanilla,vanilla,exact,True,accepted,retained_label,71
+leffingwell,berry,berry,berry,exact,True,accepted,retained_label,71
+goodscents,alliaceous,alliaceous,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,70
+sigma,apple,apple,apple,exact,True,accepted,retained_label,70
+arctander,caramelic,caramelic,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,69
+goodscents,peach,peach,peach,exact,True,accepted,retained_label,69
+leffingwell,dairy,dairy,dairy,exact,True,accepted,retained_label,69
+goodscents,natural,natural,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,68
+leffingwell,alliaceous,alliaceous,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,68
+leffingwell,camphoreous,camphoreous,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,68
+goodscents,dairy,dairy,dairy,exact,True,accepted,retained_label,67
+leffingwell,banana,banana,banana,exact,True,accepted,retained_label,67
+goodscents,burnt,burnt,burnt,exact,True,accepted,retained_label,66
+goodscents,cherry,cherry,cherry,exact,True,accepted,retained_label,66
+goodscents,tobacco,tobacco,tobacco,exact,True,accepted,retained_label,66
+sigma,herbaceous,herbaceous,herbal,alias,True,accepted,retained_label,66
+arctander,nutty,nutty,nutty,exact,True,accepted,retained_label,65
+arctander,apple,apple,apple,exact,True,accepted,retained_label,64
+arctander,green,green,green,exact,False,missing_identity,row_missing_identity,64
+arctander,pineapple,pineapple,pineapple,exact,True,accepted,retained_label,63
+goodscents,warm,warm,warm,exact,True,accepted,retained_label,63
+goodscents,cocoa,cocoa,cocoa,exact,True,accepted,retained_label,62
+arctander,gassy,gassy,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,61
+leffingwell,vanilla,vanilla,vanilla,exact,True,accepted,retained_label,61
+goodscents,apricot,apricot,apricot,exact,True,accepted,retained_label,60
+goodscents,bland,bland,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,59
+goodscents,orange,orange,orange,exact,True,accepted,retained_label,59
+leffingwell,rum,rum,rum,exact,True,accepted,retained_label,59
+arctander,ambre,ambre,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,58
+arctander,berry,berry,berry,exact,True,accepted,retained_label,58
+leffingwell,mushroom,mushroom,mushroom,exact,True,accepted,retained_label,58
+goodscents,cortex,cortex,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,57
+goodscents,rummy,rummy,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,57
+goodscents,savory,savory,savoury,alias,True,accepted,retained_label,57
+goodscents,violet,violet,violet,exact,True,accepted,retained_label,57
+ifra,Balsamic,balsamic,balsamic,exact,True,accepted,retained_label,57
+leffingwell,coffee,coffee,coffee,exact,True,accepted,retained_label,57
+leffingwell,odorless,odorless,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,57
+goodscents,geranium,geranium,geranium,exact,True,accepted,retained_label,56
+goodscents,hyacinth,hyacinth,hyacinth,exact,True,accepted,retained_label,56
+ifra,Spicy,spicy,spicy,exact,True,accepted,retained_label,56
+goodscents,medicinal,medicinal,medicinal,exact,True,accepted,retained_label,55
+goodscents,milky,milky,milky,exact,True,accepted,retained_label,55
+leffingwell,aromatic,aromatic,aromatic,exact,True,accepted,retained_label,55
+leffingwell,tobacco,tobacco,tobacco,exact,True,accepted,retained_label,55
+leffingwell,orange,orange,orange,exact,True,accepted,retained_label,54
+leffingwell,sharp,sharp,sharp,exact,True,accepted,retained_label,54
+arctander,jasmin,jasmin,jasmin,exact,True,accepted,retained_label,53
+goodscents,muguet,muguet,muguet,exact,True,accepted,retained_label,53
+goodscents,orris,orris,orris,exact,True,accepted,retained_label,53
+ifra,Aldehydic,aldehydic,aldehydic,exact,True,accepted,retained_label,53
+leffingwell,leafy,leafy,leafy,exact,True,accepted,retained_label,53
+goodscents,grape,grape,grape,exact,True,accepted,retained_label,52
+goodscents,grapefruit,grapefruit,grapefruit,exact,True,accepted,retained_label,52
+arctander,medicinal,medicinal,medicinal,exact,True,accepted,retained_label,51
+goodscents,fermented,fermented,fermented,exact,True,accepted,retained_label,51
+goodscents,sharp,sharp,sharp,exact,True,accepted,retained_label,51
+arctander,herbal,herbal,herbal,exact,False,missing_identity,row_missing_identity,50
+goodscents,soapy,soapy,soapy,exact,True,accepted,retained_label,50
+ifra,Gourmand,gourmand,gourmand,exact,True,accepted,retained_label,50
+leffingwell,almond,almond,almond,exact,True,accepted,retained_label,50
+leffingwell,fishy,fishy,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,50
+goodscents,cucumber,cucumber,cucumber,exact,True,accepted,retained_label,49
+ifra,Apple,apple,apple,exact,True,accepted,retained_label,49
+sigma,sweet,sweet,sweet,exact,False,missing_identity,row_missing_identity,49
+goodscents,grassy,grassy,grassy,exact,True,accepted,retained_label,48
+goodscents,lactonic,lactonic,lactonic,exact,True,accepted,retained_label,48
+goodscents,terpenic,terpenic,terpenic,exact,True,accepted,retained_label,48
+leffingwell,animal,animal,animal like,alias,True,accepted,retained_label,48
+arctander,woody,woody,woody,exact,False,missing_identity,row_missing_identity,47
+goodscents,chocolate,chocolate,chocolate,exact,True,accepted,retained_label,47
+goodscents,plum,plum,plum,exact,True,accepted,retained_label,47
+leffingwell,grape,grape,grape,exact,True,accepted,retained_label,47
+leffingwell,peach,peach,peach,exact,True,accepted,retained_label,47
+leffingwell,smoky,smoky,smoky,exact,True,accepted,retained_label,46
+sigma,ethereal,ethereal,ethereal,exact,True,accepted,retained_label,46
+goodscents,brown,brown,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,45
+goodscents,cognac,cognac,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,45
+goodscents,estery,estery,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,45
+sigma,nutty,nutty,nutty,exact,True,accepted,retained_label,45
+sigma,vegetable,vegetable,vegetable,exact,True,accepted,retained_label,45
+arctander,hyacinth,hyacinth,hyacinth,exact,True,accepted,retained_label,44
+goodscents,cinnamon,cinnamon,cinnamon,exact,True,accepted,retained_label,44
+goodscents,lily,lily,lily,exact,True,accepted,retained_label,44
+goodscents,ripe,ripe,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,44
+goodscents,weedy,weedy,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,44
+leffingwell,sour,sour,sour,exact,True,accepted,retained_label,44
+sigma,fatty,fatty,fatty,exact,True,accepted,retained_label,44
+arctander,buttery,buttery,buttery,exact,True,accepted,retained_label,43
+leffingwell,anisic,anisic,anisic,exact,True,accepted,retained_label,43
+sigma,chocolate,chocolate,chocolate,exact,True,accepted,retained_label,43
+sigma,oily,oily,oily,exact,True,accepted,retained_label,43
+sigma,woody,woody,woody,exact,True,accepted,retained_label,43
+arctander,tobacco,tobacco,tobacco,exact,True,accepted,retained_label,42
+goodscents,cooked,cooked,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,42
+goodscents,lavender,lavender,lavender,exact,True,accepted,retained_label,42
+goodscents,leathery,leathery,leathery,exact,True,accepted,retained_label,42
+goodscents,lemon,lemon,lemon,exact,True,accepted,retained_label,42
+goodscents,mild,mild,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,42
+ifra,Jasmin,jasmin,jasmin,exact,True,accepted,retained_label,42
+leffingwell,coconut,coconut,coconut,exact,True,accepted,retained_label,42
+leffingwell,jasmine,jasmine,jasmin,alias,True,accepted,retained_label,42
+leffingwell,cherry,cherry,cherry,exact,True,accepted,retained_label,41
+leffingwell,hay,hay,hay,exact,True,accepted,retained_label,41
+sigma,meaty,meaty,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,41
+sigma,rose,rose,rose,exact,True,accepted,retained_label,41
+arctander,banana,banana,banana,exact,True,accepted,retained_label,40
+arctander,lily,lily,lily,exact,True,accepted,retained_label,40
+goodscents,smoky,smoky,smoky,exact,True,accepted,retained_label,40
+leffingwell,milky,milky,milky,exact,True,accepted,retained_label,40
+leffingwell,warm,warm,warm,exact,True,accepted,retained_label,40
+arctander,creamy,creamy,creamy,exact,True,accepted,retained_label,39
+goodscents,cedar,cedar,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,39
+goodscents,coumarinic,coumarinic,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,39
+goodscents,hay,hay,hay,exact,True,accepted,retained_label,39
+ifra,Minty,minty,minty,exact,True,accepted,retained_label,39
+arctander,anisic,anisic,anisic,exact,True,accepted,retained_label,38
+arctander,orange,orange,orange,exact,True,accepted,retained_label,38
+arctander,rose,rose,rose,exact,False,missing_identity,row_missing_identity,38
+goodscents,celery,celery,celery,exact,True,accepted,retained_label,38
+sigma,earthy,earthy,earthy,exact,True,accepted,retained_label,38
+goodscents,almond,almond,almond,exact,True,accepted,retained_label,37
+goodscents,ozone,ozone,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,37
+goodscents,raspberry,raspberry,raspberry,exact,True,accepted,retained_label,37
+ifra,Earthy,earthy,earthy,exact,True,accepted,retained_label,37
+ifra,Powdery,powdery,powdery,exact,True,accepted,retained_label,37
+sigma,berry,berry,berry,exact,True,accepted,retained_label,37
+sigma,citrus,citrus,citrus,exact,True,accepted,retained_label,37
+sigma,creamy,creamy,creamy,exact,True,accepted,retained_label,37
+sigma,pineapple,pineapple,pineapple,exact,True,accepted,retained_label,37
+goodscents,acidic,acidic,acidic,exact,True,accepted,retained_label,36
+leffingwell,coumarinic,coumarinic,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,36
+leffingwell,medicinal,medicinal,medicinal,exact,True,accepted,retained_label,36
+sigma,caramel,caramel,caramel,exact,True,accepted,retained_label,36
+arctander,geranium,geranium,geranium,exact,True,accepted,retained_label,35
+arctander,pine,pine,pine,exact,True,accepted,retained_label,35
+goodscents,bready,bready,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,35
+goodscents,sandalwood,sandalwood,sandalwood,exact,True,accepted,retained_label,35
+goodscents,strawberry,strawberry,strawberry,exact,True,accepted,retained_label,35
+leffingwell,pine,pine,pine,exact,True,accepted,retained_label,35
+leffingwell,solvent,solvent,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,35
+leffingwell,tea,tea,tea,exact,True,accepted,retained_label,35
+sigma,banana,banana,banana,exact,True,accepted,retained_label,35
+sigma,spicy,spicy,spicy,exact,True,accepted,retained_label,35
+arctander,vanillin,vanillin,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,34
+goodscents,anisic,anisic,anisic,exact,True,accepted,retained_label,34
+goodscents,juicy,juicy,juicy,exact,True,accepted,mapped_but_below_train_support,34
+goodscents,sour,sour,sour,exact,True,accepted,retained_label,34
+ifra,Pear,pear,pear,exact,True,accepted,retained_label,34
+sigma,waxy,waxy,waxy,exact,True,accepted,retained_label,34
+arctander,apricot,apricot,apricot,exact,True,accepted,retained_label,33
+arctander,musky,musky,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,33
+goodscents,bergamot,bergamot,bergamot,exact,True,accepted,mapped_but_below_train_support,33
+goodscents,chemical,chemical,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,33
+goodscents,hawthorn,hawthorn,hawthorn,exact,True,accepted,mapped_but_below_train_support,33
+goodscents,mentholic,mentholic,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,33
+goodscents,vetiver,vetiver,vetiver,exact,True,accepted,mapped_but_below_train_support,33
+arctander,metallic,metallic,metallic,exact,True,accepted,retained_label,32
+leffingwell,apricot,apricot,apricot,exact,True,accepted,retained_label,32
+sigma,butter,butter,buttery,alias,True,accepted,retained_label,32
+sigma,cheese,cheese,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,32
+sigma,musty,musty,musty,exact,True,accepted,retained_label,32
+goodscents,bland,bland,,unmapped,False,multifragment,row_multifragment,31
+goodscents,jammy,jammy,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,31
+goodscents,marine,marine,marine,exact,True,accepted,retained_label,31
+leffingwell,dry,dry,dry,exact,True,accepted,retained_label,31
+leffingwell,hazelnut,hazelnut,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,31
+leffingwell,ripe,ripe,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,31
+arctander,hay,hay,hay,exact,True,accepted,retained_label,30
+arctander,orris,orris,orris,exact,True,accepted,retained_label,30
+goodscents,clove,clove,clove,exact,True,accepted,mapped_but_below_train_support,30
+goodscents,licorice,licorice,licorice,exact,True,accepted,mapped_but_below_train_support,30
+goodscents,orangeflower,orangeflower,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,30
+goodscents,peppery,peppery,peppery,exact,True,accepted,mapped_but_below_train_support,30
+ifra,Oily,oily,oily,exact,True,accepted,retained_label,30
+ifra,Pineapple,pineapple,pineapple,exact,True,accepted,retained_label,30
+leffingwell,brandy,brandy,brandy,exact,True,accepted,retained_label,30
+leffingwell,ketonic,ketonic,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,30
+sigma,honey,honey,honey,exact,True,accepted,retained_label,30
+sigma,wine-like,wine like,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,30
+arctander,pear,pear,pear,exact,True,accepted,retained_label,29
+goodscents,anise,anise,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,29
+goodscents,gardenia,gardenia,gardenia,exact,True,accepted,mapped_but_below_train_support,29
+goodscents,plastic,plastic,plastic,exact,True,accepted,mapped_but_below_train_support,29
+leffingwell,chicken,chicken,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,29
+leffingwell,gasoline,gasoline,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,29
+leffingwell,grassy,grassy,grassy,exact,True,accepted,retained_label,29
+leffingwell,potato,potato,potato,exact,True,accepted,retained_label,29
+sigma,grape,grape,grape,exact,True,accepted,retained_label,29
+sigma,spicy,spicy,spicy,exact,False,missing_identity,row_missing_identity,29
+arctander,peach,peach,peach,exact,True,accepted,retained_label,28
+goodscents,ambergris,ambergris,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,28
+goodscents,neroli,neroli,neroli,exact,True,accepted,retained_label,28
+goodscents,patchouli,patchouli,patchouli,exact,True,accepted,mapped_but_below_train_support,28
+ifra,Amber,amber,amber,exact,True,accepted,retained_label,28
+ifra,Pine,pine,pine,exact,True,accepted,retained_label,28
+leffingwell,chocolate,chocolate,chocolate,exact,True,accepted,retained_label,28
+leffingwell,plum,plum,plum,exact,True,accepted,retained_label,28
+sigma,apricot,apricot,apricot,exact,True,accepted,retained_label,28
+arctander,almond,almond,almond,exact,True,accepted,retained_label,27
+arctander,musky,musky,,unmapped,False,missing_identity,row_missing_identity,27
+arctander,sour,sour,sour,exact,True,accepted,retained_label,27
+goodscents,cinnamyl,cinnamyl,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,27
+goodscents,cumin,cumin,cumin,exact,True,accepted,mapped_but_below_train_support,27
+goodscents,hazelnut,hazelnut,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,27
+goodscents,orchid,orchid,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,27
+goodscents,tonka,tonka,tonka,exact,True,accepted,mapped_but_below_train_support,27
+leffingwell,bread,bread,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,27
+leffingwell,grapefruit,grapefruit,grapefruit,exact,True,accepted,retained_label,27
+sigma,cherry,cherry,cherry,exact,True,accepted,retained_label,27
+goodscents,alcoholic,alcoholic,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,26
+goodscents,balsam,balsam,balsamic,alias,True,accepted,retained_label,26
+goodscents,cabbage,cabbage,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,26
+goodscents,dusty,dusty,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,26
+goodscents,narcissus,narcissus,narcissus,exact,True,accepted,retained_label,26
+goodscents,sweaty,sweaty,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,26
+goodscents,watery,watery,watery,exact,True,accepted,mapped_but_below_train_support,26
+leffingwell,orris,orris,orris,exact,True,accepted,retained_label,26
+leffingwell,strawberry,strawberry,strawberry,exact,True,accepted,retained_label,26
+leffingwell,violet,violet,violet,exact,True,accepted,retained_label,26
+sigma,coffee,coffee,coffee,exact,True,accepted,retained_label,26
+arctander,orange-blossom,orange blossom,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,25
+arctander,phenolic,phenolic,phenolic,exact,True,accepted,retained_label,25
+goodscents,chicken,chicken,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,25
+goodscents,fruit tropical fruit,fruit tropical fruit,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,25
+goodscents,potato,potato,potato,exact,True,accepted,retained_label,25
+ifra,Dry,dry,dry,exact,True,accepted,retained_label,25
+ifra,Musk like,musk like,musk like,exact,True,accepted,retained_label,25
+leffingwell,aldehydic,aldehydic,aldehydic,exact,True,accepted,retained_label,25
+leffingwell,cabbage,cabbage,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,25
+leffingwell,cinnamon,cinnamon,cinnamon,exact,True,accepted,retained_label,25
+leffingwell,cucumber,cucumber,cucumber,exact,True,accepted,retained_label,25
+leffingwell,lemon,lemon,lemon,exact,True,accepted,retained_label,25
+leffingwell,malty,malty,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,25
+leffingwell,metallic,metallic,metallic,exact,True,accepted,retained_label,25
+sigma,almond,almond,almond,exact,True,accepted,retained_label,25
+arctander,floral,floral,floral,exact,False,multifragment,row_multifragment,24
+arctander,lilac,lilac,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,24
+arctander,tarry,tarry,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,24
+goodscents,fishy,fishy,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,24
+goodscents,galbanum,galbanum,galbanum,exact,True,accepted,mapped_but_below_train_support,24
+goodscents,lime,lime,lime,exact,True,accepted,mapped_but_below_train_support,24
+goodscents,rooty,rooty,rooty,exact,True,accepted,retained_label,24
+leffingwell,beefy,beefy,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,24
+leffingwell,chamomile,chamomile,chamomile,exact,True,accepted,mapped_but_below_train_support,24
+sigma,herbaceous,herbaceous,herbal,alias,False,missing_identity,row_missing_identity,24
+sigma,vanilla,vanilla,vanilla,exact,True,accepted,retained_label,24
+arctander,brandy,brandy,brandy,exact,True,accepted,retained_label,23
+arctander,plum,plum,plum,exact,True,accepted,retained_label,23
+goodscents,aromatic,aromatic,aromatic,exact,True,accepted,retained_label,23
+goodscents,foliage,foliage,foliage,exact,True,accepted,mapped_but_below_train_support,23
+goodscents,nut skin,nut skin,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,23
+ifra,Violet,violet,violet,exact,True,accepted,retained_label,23
+leffingwell,black currant,black currant,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,23
+leffingwell,brothy,brothy,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,23
+leffingwell,popcorn,popcorn,popcorn,exact,True,accepted,retained_label,23
+leffingwell,tomato,tomato,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,23
+sigma,fruity,fruity,fruity,exact,False,missing_identity,row_missing_identity,23
+sigma,green,green,green,exact,False,missing_identity,row_missing_identity,23
+arctander,aldehydic,aldehydic,aldehydic,exact,True,accepted,retained_label,22
+arctander,balsamic,balsamic,balsamic,exact,False,missing_identity,row_missing_identity,22
+arctander,grape,grape,grape,exact,True,accepted,retained_label,22
+goodscents,fusel,fusel,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,22
+goodscents,maple,maple,maple,exact,True,accepted,mapped_but_below_train_support,22
+goodscents,tea,tea,tea,exact,True,accepted,retained_label,22
+goodscents,tutti frutti,tutti frutti,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,22
+ifra,Food Like,food like,food like,exact,True,accepted,mapped_but_below_train_support,22
+ifra,Warm,warm,warm,exact,True,accepted,retained_label,22
+goodscents,meaty roasted meaty,meaty roasted meaty,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,21
+goodscents,solvent,solvent,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,21
+ifra,Anisic,anisic,anisic,exact,True,accepted,retained_label,21
+ifra,Caramel,caramel,caramel,exact,True,accepted,retained_label,21
+ifra,Nutty,nutty,nutty,exact,True,accepted,retained_label,21
+ifra,Waxy,waxy,waxy,exact,True,accepted,retained_label,21
+sigma,coconut,coconut,coconut,exact,True,accepted,retained_label,21
+sigma,floral,floral,floral,exact,False,missing_identity,row_missing_identity,21
+sigma,minty,minty,minty,exact,True,accepted,retained_label,21
+arctander,mushroom,mushroom,mushroom,exact,True,accepted,retained_label,20
+arctander,oily,oily,oily,exact,False,missing_identity,row_missing_identity,20
+arctander,rooty,rooty,rooty,exact,True,accepted,retained_label,20
+goodscents,lilac,lilac,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,20
+goodscents,popcorn,popcorn,popcorn,exact,True,accepted,retained_label,20
+goodscents,rubbery,rubbery,rubbery,exact,True,accepted,mapped_but_below_train_support,20
+goodscents,toasted,toasted,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,20
+goodscents,tomato,tomato,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,20
+goodscents,ylang,ylang,ylang,exact,True,accepted,mapped_but_below_train_support,20
+ifra,Muguet,muguet,muguet,exact,True,accepted,retained_label,20
+leffingwell,horseradish,horseradish,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,20
+leffingwell,leathery,leathery,leathery,exact,True,accepted,retained_label,20
+leffingwell,musk,musk,musk like,alias,True,accepted,retained_label,20
+leffingwell,radish,radish,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,20
+sigma,woody,woody,woody,exact,False,missing_identity,row_missing_identity,20
+arctander,coco,coco,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,19
+goodscents,carnation,carnation,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,19
+goodscents,fungal,fungal,fungal,exact,True,accepted,mapped_but_below_train_support,19
+goodscents,ketonic,ketonic,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,19
+goodscents,naphthyl,naphthyl,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,19
+goodscents,onion green onion,onion green onion,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,19
+goodscents,pepper bell pepper,pepper bell pepper,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,19
+ifra,Neroli,neroli,neroli,exact,True,accepted,retained_label,19
+ifra,Tropical-Fruit,tropical fruit,tropical fruit,exact,True,accepted,retained_label,19
+leffingwell,gasoline,gasoline,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,19
+sigma,melon,melon,melon,exact,True,accepted,retained_label,19
+arctander,tea,tea,tea,exact,True,accepted,retained_label,18
+goodscents,blueberry,blueberry,blueberry,exact,True,accepted,mapped_but_below_train_support,18
+goodscents,cloth laundered cloth,cloth laundered cloth,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,18
+goodscents,fir needle,fir needle,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,18
+goodscents,fruit dried fruit,fruit dried fruit,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,18
+goodscents,horseradish,horseradish,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,18
+goodscents,magnolia,magnolia,magnolia,exact,True,accepted,mapped_but_below_train_support,18
+goodscents,radish,radish,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,18
+goodscents,resinous,resinous,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,18
+goodscents,rhubarb,rhubarb,rhubarb,exact,True,accepted,mapped_but_below_train_support,18
+goodscents,violet leaf,violet leaf,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,18
+ifra,Camphoraceous,camphoraceous,camphoraceous,exact,True,accepted,retained_label,18
+ifra,Sulfurous,sulfurous,sulfurous,exact,True,accepted,retained_label,18
+sigma,medicinal,medicinal,medicinal,exact,True,accepted,retained_label,18
+sigma,sulfurous,sulfurous,sulfurous,exact,True,accepted,retained_label,18
+arctander,aromatic,aromatic,aromatic,exact,True,accepted,retained_label,17
+arctander,leather,leather,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,17
+arctander,mossy,mossy,mossy,exact,True,accepted,mapped_but_below_train_support,17
+goodscents,almond bitter almond,almond bitter almond,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,17
+goodscents,ambrette,ambrette,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,17
+goodscents,currant bud black currant bud,currant bud black currant bud,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,17
+goodscents,mossy,mossy,mossy,exact,True,accepted,mapped_but_below_train_support,17
+goodscents,seedy,seedy,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,17
+goodscents,spearmint,spearmint,spearmint,exact,True,accepted,mapped_but_below_train_support,17
+ifra,Honey,honey,honey,exact,True,accepted,retained_label,17
+ifra,Lavender,lavender,lavender,exact,True,accepted,retained_label,17
+leffingwell,catty,catty,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,17
+arctander,fruity,fruity,fruity,exact,False,multifragment,row_multifragment,16
+goodscents,apple green apple,apple green apple,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,16
+goodscents,brandy,brandy,brandy,exact,True,accepted,retained_label,16
+goodscents,brothy,brothy,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,16
+goodscents,currant black currant,currant black currant,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,16
+goodscents,greasy,greasy,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,16
+goodscents,lily of the valley,lily of the valley,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,16
+goodscents,mandarin,mandarin,mandarin,exact,True,accepted,mapped_but_below_train_support,16
+goodscents,meaty,meaty,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,16
+goodscents,mild,mild,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,16
+goodscents,mimosa,mimosa,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,16
+ifra,Aromatic,aromatic,aromatic,exact,True,accepted,retained_label,16
+ifra,Geranium,geranium,geranium,exact,True,accepted,retained_label,16
+ifra,Grapefruit,grapefruit,grapefruit,exact,True,accepted,retained_label,16
+sigma,balsam,balsam,balsamic,alias,True,accepted,retained_label,16
+sigma,orange,orange,orange,exact,True,accepted,retained_label,16
+arctander,mimosa,mimosa,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,15
+arctander,narcissus,narcissus,narcissus,exact,True,accepted,retained_label,15
+arctander,pepper,pepper,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,15
+arctander,violet,violet,violet,exact,True,accepted,retained_label,15
+goodscents,coffee roasted coffee,coffee roasted coffee,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,15
+goodscents,eucalyptus,eucalyptus,eucalyptus,exact,True,accepted,mapped_but_below_train_support,15
+goodscents,passion fruit,passion fruit,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,15
+goodscents,petal,petal,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,15
+goodscents,rose red rose,rose red rose,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,15
+goodscents,yeasty,yeasty,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,15
+ifra,Berry,berry,berry,exact,True,accepted,retained_label,15
+ifra,Herbal,herbal,herbal,exact,False,multifragment,row_multifragment,15
+ifra,Marine,marine,marine,exact,True,accepted,retained_label,15
+sigma,anise,anise,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,15
+sigma,berry,berry,berry,exact,False,missing_identity,row_missing_identity,15
+sigma,minty,minty,minty,exact,False,missing_identity,row_missing_identity,15
+arctander,herbal,herbal,herbal,exact,False,multifragment,row_multifragment,14
+arctander,powdery,powdery,powdery,exact,True,accepted,retained_label,14
+arctander,spicy,spicy,spicy,exact,False,missing_identity,row_missing_identity,14
+goodscents,ammoniacal,ammoniacal,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,14
+goodscents,beefy,beefy,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,14
+goodscents,bitter,bitter,bitter,exact,True,accepted,mapped_but_below_train_support,14
+goodscents,caramellic,caramellic,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,14
+goodscents,chamomile,chamomile,chamomile,exact,True,accepted,mapped_but_below_train_support,14
+goodscents,dirty,dirty,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,14
+goodscents,fishy,fishy,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,14
+goodscents,mustard,mustard,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,14
+goodscents,walnut,walnut,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,14
+ifra,Banana,banana,banana,exact,True,accepted,retained_label,14
+ifra,Ozonic,ozonic,ozonic,exact,True,accepted,mapped_but_below_train_support,14
+ifra,Sandalwood,sandalwood,sandalwood,exact,True,accepted,retained_label,14
+leffingwell,odorless,odorless,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,14
+sigma,"alliaceous (onion, garlic)",alliaceous onion garlic,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,14
+sigma,jasmine,jasmine,jasmin,alias,True,accepted,retained_label,14
+sigma,peach,peach,peach,exact,True,accepted,retained_label,14
+sigma,pear,pear,pear,exact,True,accepted,retained_label,14
+sigma,plum,plum,plum,exact,True,accepted,retained_label,14
+goodscents,beany,beany,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,13
+goodscents,buchu,buchu,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,13
+goodscents,candy,candy,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,13
+goodscents,chrysanthemum,chrysanthemum,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,13
+goodscents,corn,corn,corn,exact,True,accepted,mapped_but_below_train_support,13
+goodscents,cyclamen,cyclamen,cyclamen,exact,True,accepted,mapped_but_below_train_support,13
+goodscents,humus,humus,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,13
+goodscents,mango,mango,mango,exact,True,accepted,mapped_but_below_train_support,13
+goodscents,petitgrain,petitgrain,petitgrain,exact,True,accepted,mapped_but_below_train_support,13
+goodscents,sage clary sage,sage clary sage,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,13
+goodscents,thujonic,thujonic,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,13
+ifra,Cedarwood,cedarwood,cedarwood,exact,True,accepted,mapped_but_below_train_support,13
+ifra,Lemon,lemon,lemon,exact,True,accepted,retained_label,13
+ifra,Peach,peach,peach,exact,True,accepted,retained_label,13
+ifra,Smoky,smoky,smoky,exact,True,accepted,retained_label,13
+ifra,Soft,soft,soft,exact,True,accepted,mapped_but_below_train_support,13
+sigma,meaty,meaty,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,13
+arctander,caramelic,caramelic,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,12
+arctander,smoky,smoky,smoky,exact,True,accepted,retained_label,12
+goodscents,bacon,bacon,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,12
+goodscents,bois de rose,bois de rose,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,12
+goodscents,eggy,eggy,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,12
+goodscents,fennel,fennel,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,12
+goodscents,heliotrope,heliotrope,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,12
+goodscents,onion cooked onion,onion cooked onion,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,12
+goodscents,privet,privet,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,12
+goodscents,rancid,rancid,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,12
+goodscents,rosemary,rosemary,rosemary,exact,True,accepted,mapped_but_below_train_support,12
+goodscents,sugar,sugar,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,12
+ifra,Acidic,acidic,acidic,exact,True,accepted,retained_label,12
+ifra,Hyacinth,hyacinth,hyacinth,exact,True,accepted,retained_label,12
+sigma,balsam,balsam,balsamic,alias,False,missing_identity,row_missing_identity,12
+sigma,citrus,citrus,citrus,exact,False,missing_identity,row_missing_identity,12
+sigma,lemon,lemon,lemon,exact,False,missing_identity,row_missing_identity,12
+sigma,smoky,smoky,smoky,exact,True,accepted,retained_label,12
+arctander,camphoraceous,camphoraceous,camphoraceous,exact,False,missing_identity,row_missing_identity,11
+arctander,sandalwood,sandalwood,sandalwood,exact,True,accepted,retained_label,11
+goodscents,corn chip,corn chip,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,11
+goodscents,gassy,gassy,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,11
+goodscents,mild,mild,,unmapped,False,multifragment,row_multifragment,11
+goodscents,peppermint,peppermint,peppermint,exact,True,accepted,mapped_but_below_train_support,11
+goodscents,tallow,tallow,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,11
+goodscents,tuberose,tuberose,tuberose,exact,True,accepted,mapped_but_below_train_support,11
+ifra,Animal Like,animal like,animal like,exact,True,accepted,retained_label,11
+ifra,Creamy,creamy,creamy,exact,True,accepted,retained_label,11
+ifra,Melon,melon,melon,exact,True,accepted,retained_label,11
+ifra,Phenolic,phenolic,phenolic,exact,True,accepted,retained_label,11
+ifra,Roasted,roasted,roasted,exact,True,accepted,retained_label,11
+ifra,Ylang,ylang,ylang,exact,True,accepted,mapped_but_below_train_support,11
+sigma,hyacinth,hyacinth,hyacinth,exact,True,accepted,retained_label,11
+sigma,rose,rose,rose,exact,False,missing_identity,row_missing_identity,11
+sigma,strawberry,strawberry,strawberry,exact,True,accepted,retained_label,11
+arctander,ambre,ambre,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,10
+goodscents,banana unripe banana,banana unripe banana,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,10
+goodscents,basil,basil,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,10
+goodscents,caraway,caraway,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,10
+goodscents,fried,fried,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,10
+goodscents,hazelnut roasted hazelnut,hazelnut roasted hazelnut,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,10
+goodscents,incense,incense,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,10
+goodscents,melon rind,melon rind,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,10
+goodscents,nasturtium,nasturtium,nasturtium,exact,True,accepted,mapped_but_below_train_support,10
+goodscents,oakmoss,oakmoss,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,10
+goodscents,peanut,peanut,peanut,exact,True,accepted,mapped_but_below_train_support,10
+goodscents,peony,peony,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,10
+goodscents,raw,raw,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,10
+goodscents,wintergreen,wintergreen,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,10
+ifra,Orange,orange,orange,exact,True,accepted,retained_label,10
+ifra,Spicy,spicy,spicy,exact,False,multifragment,row_multifragment,10
+ifra,Tobacco,tobacco,tobacco,exact,True,accepted,retained_label,10
+ifra,Vanilla,vanilla,vanilla,exact,True,accepted,retained_label,10
+sigma,apple,apple,apple,exact,False,missing_identity,row_missing_identity,10
+sigma,cinnamon,cinnamon,cinnamon,exact,False,missing_identity,row_missing_identity,10
+sigma,hazelnut,hazelnut,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,10
+sigma,wine-like,wine like,,unmapped,False,missing_identity,row_missing_identity,10
+arctander,acid,acid,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,9
+arctander,earthy,earthy,earthy,exact,False,missing_identity,row_missing_identity,9
+arctander,fatty,fatty,fatty,exact,False,missing_identity,row_missing_identity,9
+arctander,honey,honey,honey,exact,False,missing_identity,row_missing_identity,9
+arctander,leafy,leafy,leafy,exact,False,missing_identity,row_missing_identity,9
+arctander,musty,musty,musty,exact,False,missing_identity,row_missing_identity,9
+arctander,winey,winey,,unmapped,False,missing_identity,row_missing_identity,9
+goodscents,apple skin,apple skin,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,9
+goodscents,cologne,cologne,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,9
+goodscents,flowery,flowery,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,9
+goodscents,honeysuckle,honeysuckle,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,9
+goodscents,kiwi,kiwi,kiwi,exact,True,accepted,mapped_but_below_train_support,9
+goodscents,labdanum,labdanum,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,9
+goodscents,papaya,papaya,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,9
+goodscents,tangerine,tangerine,tangerine,exact,True,accepted,mapped_but_below_train_support,9
+goodscents,thyme,thyme,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,9
+goodscents,whiskey,whiskey,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,9
+ifra,Almond,almond,almond,exact,True,accepted,retained_label,9
+ifra,Animal like,animal like,animal like,exact,True,accepted,retained_label,9
+ifra,Cucumber,cucumber,cucumber,exact,True,accepted,retained_label,9
+ifra,Hay,hay,hay,exact,True,accepted,retained_label,9
+ifra,Leafy,leafy,leafy,exact,True,accepted,retained_label,9
+ifra,Onion,onion,onion,exact,True,accepted,retained_label,9
+ifra,Sharp,sharp,sharp,exact,True,accepted,retained_label,9
+leffingwell,meaty,meaty,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,9
+sigma,animal,animal,animal like,alias,True,accepted,retained_label,9
+sigma,raspberry,raspberry,raspberry,exact,True,accepted,retained_label,9
+sigma,vanilla,vanilla,vanilla,exact,False,missing_identity,row_missing_identity,9
+arctander,caramelic,caramelic,,unmapped,False,missing_identity,row_missing_identity,8
+arctander,citrus,citrus,citrus,exact,False,missing_identity,row_missing_identity,8
+arctander,earthy,earthy,earthy,exact,False,multifragment,row_multifragment,8
+arctander,gassy,gassy,,unmapped,False,missing_identity,row_missing_identity,8
+arctander,nutty,nutty,nutty,exact,False,multifragment,row_multifragment,8
+arctander,winey,winey,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,8
+arctander,woody,woody,woody,exact,False,multifragment,row_multifragment,8
+goodscents,acetic,acetic,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,8
+goodscents,acrylate,acrylate,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,8
+goodscents,alcoholic,alcoholic,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,8
+goodscents,cassia,cassia,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,8
+goodscents,castoreum,castoreum,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,8
+goodscents,catty,catty,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,8
+goodscents,cedarwood,cedarwood,cedarwood,exact,True,accepted,mapped_but_below_train_support,8
+goodscents,chicken fat,chicken fat,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,8
+goodscents,cilantro,cilantro,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,8
+goodscents,clover,clover,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,8
+goodscents,faint,faint,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,8
+goodscents,guaiacol,guaiacol,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,8
+goodscents,malty,malty,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,8
+goodscents,myrrh,myrrh,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,8
+goodscents,orange peel,orange peel,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,8
+goodscents,peanut roasted peanut,peanut roasted peanut,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,8
+goodscents,peely,peely,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,8
+goodscents,tart,tart,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,8
+goodscents,watermelon,watermelon,watermelon,exact,True,accepted,mapped_but_below_train_support,8
+goodscents,wet,wet,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,8
+goodscents,woody old wood,woody old wood,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,8
+ifra,Buttery,buttery,buttery,exact,True,accepted,retained_label,8
+ifra,Cinnamon,cinnamon,cinnamon,exact,True,accepted,retained_label,8
+ifra,Fermented,fermented,fermented,exact,True,accepted,retained_label,8
+ifra,Grassy,grassy,grassy,exact,True,accepted,retained_label,8
+ifra,Leathery,leathery,leathery,exact,True,accepted,retained_label,8
+ifra,Medicinal,medicinal,medicinal,exact,True,accepted,retained_label,8
+ifra,Vegetable,vegetable,vegetable,exact,True,accepted,retained_label,8
+ifra,Vetiver,vetiver,vetiver,exact,True,accepted,mapped_but_below_train_support,8
+sigma,almond,almond,almond,exact,False,missing_identity,row_missing_identity,8
+sigma,cinnamon,cinnamon,cinnamon,exact,True,accepted,retained_label,8
+sigma,fatty,fatty,fatty,exact,False,missing_identity,row_missing_identity,8
+sigma,fishy,fishy,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,8
+sigma,grapefruit,grapefruit,grapefruit,exact,True,accepted,retained_label,8
+sigma,honey,honey,honey,exact,False,missing_identity,row_missing_identity,8
+sigma,musty,musty,musty,exact,False,missing_identity,row_missing_identity,8
+sigma,peanut,peanut,peanut,exact,True,accepted,mapped_but_below_train_support,8
+arctander,ambre,ambre,,unmapped,False,missing_identity,row_missing_identity,7
+arctander,metallic,metallic,metallic,exact,False,missing_identity,row_missing_identity,7
+arctander,sandalwood,sandalwood,sandalwood,exact,False,missing_identity,row_missing_identity,7
+arctander,spicy,spicy,spicy,exact,False,multifragment,row_multifragment,7
+arctander,sulfuraceous,sulfuraceous,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,7
+arctander,sulfuraceous,sulfuraceous,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,7
+goodscents,blackberry,blackberry,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,7
+goodscents,bubble gum,bubble gum,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,7
+goodscents,camphor,camphor,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,7
+goodscents,civet,civet,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,7
+goodscents,custard,custard,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,7
+goodscents,fecal,fecal,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,7
+goodscents,flower,flower,floral,alias,True,accepted,retained_label,7
+goodscents,fruit overripe fruit,fruit overripe fruit,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,7
+goodscents,honeydew,honeydew,honeydew,exact,True,accepted,mapped_but_below_train_support,7
+goodscents,raisin,raisin,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,7
+goodscents,saffron,saffron,saffron,exact,True,accepted,mapped_but_below_train_support,7
+goodscents,sawdust,sawdust,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,7
+goodscents,soft,soft,soft,exact,True,accepted,mapped_but_below_train_support,7
+goodscents,spice,spice,spicy,alias,True,accepted,retained_label,7
+goodscents,storax,storax,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,7
+goodscents,sugar brown sugar,sugar brown sugar,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,7
+goodscents,sugar burnt sugar,sugar burnt sugar,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,7
+goodscents,tomato leaf,tomato leaf,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,7
+goodscents,wasabi,wasabi,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,7
+goodscents,watercress,watercress,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,7
+ifra,Blackcurrant,blackcurrant,blackcurrant,exact,True,accepted,mapped_but_below_train_support,7
+ifra,Coconut,coconut,coconut,exact,True,accepted,retained_label,7
+ifra,Coffee,coffee,coffee,exact,True,accepted,retained_label,7
+ifra,Grape,grape,grape,exact,True,accepted,retained_label,7
+ifra,Plum,plum,plum,exact,True,accepted,retained_label,7
+ifra,Raspberry,raspberry,raspberry,exact,True,accepted,retained_label,7
+ifra,Strawberry,strawberry,strawberry,exact,True,accepted,retained_label,7
+ifra,Sweet,sweet,sweet,exact,False,multifragment,row_multifragment,7
+leffingwell,fishy,fishy,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,7
+sigma,apricot,apricot,apricot,exact,False,missing_identity,row_missing_identity,7
+sigma,camphoraceous,camphoraceous,camphoraceous,exact,False,missing_identity,row_missing_identity,7
+sigma,soapy,soapy,soapy,exact,True,accepted,retained_label,7
+sigma,vegetable,vegetable,vegetable,exact,False,missing_identity,row_missing_identity,7
+sigma,violet,violet,violet,exact,True,accepted,retained_label,7
+arctander,animal,animal,animal like,alias,False,missing_identity,row_missing_identity,6
+arctander,berry,berry,berry,exact,False,missing_identity,row_missing_identity,6
+arctander,gassy,gassy,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,6
+arctander,green,green,green,exact,False,multifragment,row_multifragment,6
+arctander,medicinal,medicinal,medicinal,exact,False,missing_identity,row_missing_identity,6
+arctander,orange-blossom,orange blossom,,unmapped,False,multifragment,row_multifragment,6
+arctander,tobacco,tobacco,tobacco,exact,False,missing_identity,row_missing_identity,6
+goodscents,acacia,acacia,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,6
+goodscents,ammonia,ammonia,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,6
+goodscents,ammoniacal,ammoniacal,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,6
+goodscents,bean green bean,bean green bean,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,6
+goodscents,camphor,camphor,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,6
+goodscents,cantaloupe,cantaloupe,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,6
+goodscents,cereal,cereal,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,6
+goodscents,cherry maraschino cherry,cherry maraschino cherry,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,6
+goodscents,coriander,coriander,coriander,exact,True,accepted,mapped_but_below_train_support,6
+goodscents,costus,costus,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,6
+goodscents,cranberry,cranberry,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,6
+goodscents,cypress,cypress,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,6
+goodscents,dewy,dewy,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,6
+goodscents,fresh outdoors,fresh outdoors,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,6
+goodscents,moldy,moldy,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,6
+goodscents,nutmeg,nutmeg,nutmeg,exact,True,accepted,mapped_but_below_train_support,6
+goodscents,opoponax,opoponax,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,6
+goodscents,pea green pea,pea green pea,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,6
+goodscents,pork,pork,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,6
+goodscents,potato raw potato,potato raw potato,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,6
+goodscents,root beer,root beer,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,6
+goodscents,sage,sage,sage,exact,True,accepted,mapped_but_below_train_support,6
+goodscents,sassafrass,sassafrass,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,6
+goodscents,seashore,seashore,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,6
+goodscents,seaweed,seaweed,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,6
+goodscents,sulfury,sulfury,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,6
+ifra,Aromatic,aromatic,aromatic,exact,False,multifragment,row_multifragment,6
+ifra,Camphoraceous,camphoraceous,camphoraceous,exact,False,multifragment,row_multifragment,6
+ifra,Cheesy,cheesy,cheesy,exact,True,accepted,retained_label,6
+ifra,Cherry,cherry,cherry,exact,True,accepted,retained_label,6
+ifra,Clean,clean,clean,exact,True,accepted,retained_label,6
+ifra,Cooling,cooling,cooling,exact,True,accepted,retained_label,6
+ifra,Galbanum,galbanum,galbanum,exact,True,accepted,mapped_but_below_train_support,6
+ifra,Mandarin,mandarin,mandarin,exact,True,accepted,mapped_but_below_train_support,6
+ifra,Minty,minty,minty,exact,False,multifragment,row_multifragment,6
+ifra,Patchouli,patchouli,patchouli,exact,True,accepted,mapped_but_below_train_support,6
+leffingwell,caramellic,caramellic,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,6
+sigma,alcohol,alcohol,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,6
+sigma,"alliaceous (onion, garlic)",alliaceous onion garlic,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,6
+sigma,cherry,cherry,cherry,exact,False,missing_identity,row_missing_identity,6
+sigma,clove,clove,clove,exact,False,missing_identity,row_missing_identity,6
+sigma,lemon,lemon,lemon,exact,True,accepted,retained_label,6
+sigma,maple,maple,maple,exact,True,accepted,mapped_but_below_train_support,6
+sigma,nutty,nutty,nutty,exact,False,missing_identity,row_missing_identity,6
+sigma,oily,oily,oily,exact,False,missing_identity,row_missing_identity,6
+sigma,peach,peach,peach,exact,False,missing_identity,row_missing_identity,6
+sigma,pepper,pepper,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,6
+sigma,pineapple,pineapple,pineapple,exact,False,missing_identity,row_missing_identity,6
+sigma,sour,sour,sour,exact,True,accepted,retained_label,6
+arctander,anisic,anisic,anisic,exact,False,multifragment,row_multifragment,5
+arctander,apple,apple,apple,exact,False,missing_identity,row_missing_identity,5
+goodscents,acetone,acetone,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,5
+goodscents,acorn,acorn,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,5
+goodscents,barley roasted barley,barley roasted barley,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,5
+goodscents,beefy roasted beefy,beefy roasted beefy,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,5
+goodscents,camphoreous,camphoreous,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,5
+goodscents,cardamom,cardamom,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,5
+goodscents,carrot,carrot,carrot,exact,True,accepted,mapped_but_below_train_support,5
+goodscents,citronella,citronella,citronella,exact,True,accepted,mapped_but_below_train_support,5
+goodscents,citrus peel,citrus peel,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,5
+goodscents,cotton candy,cotton candy,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,5
+goodscents,fenugreek,fenugreek,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,5
+goodscents,fig,fig,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,5
+goodscents,fleshy,fleshy,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,5
+goodscents,ginger,ginger,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,5
+goodscents,gooseberry,gooseberry,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,5
+goodscents,grape skin,grape skin,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,5
+goodscents,guava,guava,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,5
+goodscents,juicy fruit,juicy fruit,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,5
+goodscents,lamb,lamb,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,5
+goodscents,lemon peel,lemon peel,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,5
+goodscents,lemongrass,lemongrass,lemongrass,exact,True,accepted,mapped_but_below_train_support,5
+goodscents,painty,painty,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,5
+goodscents,parsley,parsley,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,5
+goodscents,potato baked potato,potato baked potato,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,5
+goodscents,reseda,reseda,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,5
+goodscents,rose tea rose,rose tea rose,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,5
+goodscents,rue,rue,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,5
+goodscents,scallion,scallion,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,5
+goodscents,skunk,skunk,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,5
+goodscents,sweet,sweet,sweet,exact,False,multifragment,row_multifragment,5
+goodscents,sweet pea,sweet pea,sweet pea,exact,True,accepted,mapped_but_below_train_support,5
+goodscents,truffle,truffle,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,5
+ifra,Apricot,apricot,apricot,exact,True,accepted,retained_label,5
+ifra,Bergamot,bergamot,bergamot,exact,True,accepted,mapped_but_below_train_support,5
+ifra,Chamomile,chamomile,chamomile,exact,True,accepted,mapped_but_below_train_support,5
+ifra,Cinnamon,cinnamon,cinnamon,exact,False,multifragment,row_multifragment,5
+ifra,Clove,clove,clove,exact,True,accepted,mapped_but_below_train_support,5
+ifra,Fatty,fatty,fatty,exact,True,accepted,retained_label,5
+ifra,Garlic,garlic,garlic,exact,True,accepted,retained_label,5
+ifra,Lily,lily,lily,exact,True,accepted,retained_label,5
+ifra,Mossy,mossy,mossy,exact,True,accepted,mapped_but_below_train_support,5
+ifra,Mushroom,mushroom,mushroom,exact,True,accepted,retained_label,5
+ifra,Musk Like,musk like,musk like,exact,True,accepted,retained_label,5
+ifra,Musty,musty,musty,exact,True,accepted,retained_label,5
+ifra,Peppery,peppery,peppery,exact,True,accepted,mapped_but_below_train_support,5
+ifra,Pungent,pungent,pungent,exact,True,accepted,retained_label,5
+ifra,Rhubarb,rhubarb,rhubarb,exact,True,accepted,mapped_but_below_train_support,5
+ifra,Tea,tea,tea,exact,True,accepted,retained_label,5
+ifra,Watery,watery,watery,exact,True,accepted,mapped_but_below_train_support,5
+leffingwell,alcoholic,alcoholic,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,5
+leffingwell,solvent,solvent,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,5
+sigma,"alliaceous (onion, garlic)",alliaceous onion garlic,,unmapped,False,missing_identity,row_missing_identity,5
+sigma,butter,butter,buttery,alias,False,missing_identity,row_missing_identity,5
+sigma,cheese,cheese,,unmapped,False,missing_identity,row_missing_identity,5
+sigma,cheese,cheese,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,5
+sigma,chocolate,chocolate,chocolate,exact,False,missing_identity,row_missing_identity,5
+sigma,earthy,earthy,earthy,exact,False,missing_identity,row_missing_identity,5
+sigma,ethereal,ethereal,ethereal,exact,False,missing_identity,row_missing_identity,5
+sigma,jasmine,jasmine,jasmin,alias,False,missing_identity,row_missing_identity,5
+sigma,meaty,meaty,,unmapped,False,missing_identity,row_missing_identity,5
+sigma,orange,orange,orange,exact,False,missing_identity,row_missing_identity,5
+sigma,walnut,walnut,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,5
+arctander,hyacinth,hyacinth,hyacinth,exact,False,missing_identity,row_missing_identity,4
+arctander,jasmin,jasmin,jasmin,exact,False,missing_identity,row_missing_identity,4
+arctander,narcissus,narcissus,narcissus,exact,False,missing_identity,row_missing_identity,4
+arctander,nutty,nutty,nutty,exact,False,missing_identity,row_missing_identity,4
+arctander,powdery,powdery,powdery,exact,False,missing_identity,row_missing_identity,4
+arctander,vanillin,vanillin,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,4
+arctander,winey,winey,,unmapped,False,multifragment,row_multifragment,4
+goodscents,allspice,allspice,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,4
+goodscents,almond roasted almond,almond roasted almond,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,4
+goodscents,almost odorless,almost odorless,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,4
+goodscents,asparagus,asparagus,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,4
+goodscents,autumn,autumn,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,4
+goodscents,baked,baked,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,4
+goodscents,banana peel,banana peel,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,4
+goodscents,banana ripe banana,banana ripe banana,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,4
+goodscents,bread baked,bread baked,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,4
+goodscents,buttermilk,buttermilk,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,4
+goodscents,butterscotch,butterscotch,butterscotch,exact,True,accepted,mapped_but_below_train_support,4
+goodscents,cabbage,cabbage,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,4
+goodscents,cananga,cananga,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,4
+goodscents,chicken coup,chicken coup,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,4
+goodscents,citrus rind,citrus rind,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,4
+goodscents,cool,cool,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,4
+goodscents,durian,durian,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,4
+goodscents,faint,faint,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,4
+goodscents,fatty,fatty,fatty,exact,False,multifragment,row_multifragment,4
+goodscents,flowery,flowery,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,4
+goodscents,forest,forest,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,4
+goodscents,goaty,goaty,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,4
+goodscents,goaty,goaty,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,4
+goodscents,gourmand,gourmand,gourmand,exact,True,accepted,retained_label,4
+goodscents,grain toasted grain,grain toasted grain,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,4
+goodscents,grapefruit peel,grapefruit peel,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,4
+goodscents,green,green,green,exact,False,multifragment,row_multifragment,4
+goodscents,grilled,grilled,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,4
+goodscents,guaiacwood,guaiacwood,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,4
+goodscents,ham,ham,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,4
+goodscents,leek,leek,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,4
+goodscents,licorice black licorice,licorice black licorice,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,4
+goodscents,lovage,lovage,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,4
+goodscents,meaty roasted meaty,meaty roasted meaty,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,4
+goodscents,mentholic,mentholic,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,4
+goodscents,molasses,molasses,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,4
+goodscents,nitromusk,nitromusk,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,4
+goodscents,pear skin,pear skin,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,4
+goodscents,pulpy,pulpy,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,4
+goodscents,seafood,seafood,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,4
+goodscents,shellfish,shellfish,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,4
+goodscents,strong,strong,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,4
+goodscents,tagette,tagette,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,4
+goodscents,valerian root,valerian root,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,4
+goodscents,verbena,verbena,verbena,exact,True,accepted,mapped_but_below_train_support,4
+goodscents,vinegar,vinegar,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,4
+ifra,Licorice,licorice,licorice,exact,True,accepted,mapped_but_below_train_support,4
+ifra,Lime,lime,lime,exact,True,accepted,mapped_but_below_train_support,4
+ifra,Sage,sage,sage,exact,True,accepted,mapped_but_below_train_support,4
+ifra,Terpenic,terpenic,terpenic,exact,True,accepted,retained_label,4
+ifra,Verbena,verbena,verbena,exact,True,accepted,mapped_but_below_train_support,4
+sigma,alliaceous,alliaceous,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,4
+sigma,anise,anise,,unmapped,False,missing_identity,row_missing_identity,4
+sigma,banana,banana,banana,exact,False,missing_identity,row_missing_identity,4
+sigma,beef,beef,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,4
+sigma,camphoraceous,camphoraceous,camphoraceous,exact,True,accepted,retained_label,4
+sigma,clove,clove,clove,exact,True,accepted,mapped_but_below_train_support,4
+sigma,grape,grape,grape,exact,False,missing_identity,row_missing_identity,4
+sigma,hawthorne,hawthorne,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,4
+sigma,jam,jam,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,4
+sigma,lime,lime,lime,exact,True,accepted,mapped_but_below_train_support,4
+sigma,medicinal,medicinal,medicinal,exact,False,missing_identity,row_missing_identity,4
+sigma,sour,sour,sour,exact,False,missing_identity,row_missing_identity,4
+sigma,waxy,waxy,waxy,exact,False,missing_identity,row_missing_identity,4
+arctander,apricot,apricot,apricot,exact,False,missing_identity,row_missing_identity,3
+arctander,balsamic,balsamic,balsamic,exact,False,multifragment,row_multifragment,3
+arctander,caramelic,caramelic,,unmapped,False,multifragment,row_multifragment,3
+arctander,ethereal,ethereal,ethereal,exact,False,missing_identity,row_missing_identity,3
+arctander,ethereal,ethereal,ethereal,exact,False,multifragment,row_multifragment,3
+arctander,fatty,fatty,fatty,exact,False,multifragment,row_multifragment,3
+arctander,geranium,geranium,geranium,exact,False,missing_identity,row_missing_identity,3
+arctander,minty,minty,minty,exact,False,missing_identity,row_missing_identity,3
+arctander,mossy,mossy,mossy,exact,False,multifragment,row_multifragment,3
+arctander,orris,orris,orris,exact,False,missing_identity,row_missing_identity,3
+arctander,peach,peach,peach,exact,False,missing_identity,row_missing_identity,3
+arctander,pear,pear,pear,exact,False,missing_identity,row_missing_identity,3
+arctander,pine,pine,pine,exact,False,multifragment,row_multifragment,3
+arctander,pineapple,pineapple,pineapple,exact,False,missing_identity,row_missing_identity,3
+arctander,rooty,rooty,rooty,exact,False,multifragment,row_multifragment,3
+arctander,waxy,waxy,waxy,exact,False,missing_identity,row_missing_identity,3
+goodscents,algae,algae,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,3
+goodscents,ammoniacal,ammoniacal,,unmapped,False,multifragment,row_multifragment,3
+goodscents,animal,animal,animal like,alias,False,multifragment,row_multifragment,3
+goodscents,apple cooked apple,apple cooked apple,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,3
+goodscents,beeswax,beeswax,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,3
+goodscents,blossom,blossom,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,3
+goodscents,bread crust,bread crust,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,3
+goodscents,bready,bready,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,3
+goodscents,cashew,cashew,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,3
+goodscents,clam,clam,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,3
+goodscents,cooked,cooked,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,3
+goodscents,cookie,cookie,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,3
+goodscents,deep,deep,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,3
+goodscents,dill,dill,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,3
+goodscents,fish,fish,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,3
+goodscents,freesia,freesia,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,3
+goodscents,fruit,fruit,fruity,alias,True,accepted,retained_label,3
+goodscents,fruity,fruity,fruity,exact,False,multifragment,row_multifragment,3
+goodscents,gasoline,gasoline,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,3
+goodscents,graham cracker,graham cracker,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,3
+goodscents,grain,grain,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,3
+goodscents,hairy,hairy,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,3
+goodscents,hay new mown hay,hay new mown hay,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,3
+goodscents,heavy,heavy,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,3
+goodscents,juniper,juniper,juniper,exact,True,accepted,mapped_but_below_train_support,3
+goodscents,lard,lard,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,3
+goodscents,lettuce,lettuce,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,3
+goodscents,linden flower,linden flower,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,3
+goodscents,mahogany,mahogany,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,3
+goodscents,menthol,menthol,menthol,exact,True,accepted,mapped_but_below_train_support,3
+goodscents,metal,metal,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,3
+goodscents,mutton,mutton,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,3
+goodscents,nut flesh,nut flesh,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,3
+goodscents,nutty,nutty,nutty,exact,False,multifragment,row_multifragment,3
+goodscents,oil,oil,oily,alias,True,accepted,retained_label,3
+goodscents,paper,paper,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,3
+goodscents,peanut butter,peanut butter,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,3
+goodscents,pepper black pepper,pepper black pepper,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,3
+goodscents,potato chip,potato chip,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,3
+goodscents,powerful,powerful,powerful,exact,True,accepted,mapped_but_below_train_support,3
+goodscents,prune,prune,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,3
+goodscents,pumpkin,pumpkin,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,3
+goodscents,radish,radish,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,3
+goodscents,rich,rich,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,3
+goodscents,rose dried rose,rose dried rose,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,3
+goodscents,soup,soup,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,3
+goodscents,sweaty,sweaty,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,3
+goodscents,tarragon,tarragon,tarragon,exact,True,accepted,mapped_but_below_train_support,3
+goodscents,tea green tea,tea green tea,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,3
+ifra,Celery,celery,celery,exact,True,accepted,retained_label,3
+ifra,Citrus,citrus,citrus,exact,False,multifragment,row_multifragment,3
+ifra,Coriander,coriander,coriander,exact,True,accepted,mapped_but_below_train_support,3
+ifra,Cyclamen,cyclamen,cyclamen,exact,True,accepted,mapped_but_below_train_support,3
+ifra,Ethereal,ethereal,ethereal,exact,True,accepted,retained_label,3
+ifra,Fruity,fruity,fruity,exact,False,multifragment,row_multifragment,3
+ifra,Lemon,lemon,lemon,exact,False,multifragment,row_multifragment,3
+ifra,Light,light,light,exact,True,accepted,mapped_but_below_train_support,3
+ifra,Mango,mango,mango,exact,True,accepted,mapped_but_below_train_support,3
+ifra,Milky,milky,milky,exact,True,accepted,retained_label,3
+ifra,Nutmeg,nutmeg,nutmeg,exact,True,accepted,mapped_but_below_train_support,3
+ifra,Orris,orris,orris,exact,True,accepted,retained_label,3
+ifra,Tobacco like,tobacco like,tobacco like,exact,True,accepted,mapped_but_below_train_support,3
+ifra,Tuberose,tuberose,tuberose,exact,True,accepted,mapped_but_below_train_support,3
+ifra,Woody,woody,woody,exact,False,multifragment,row_multifragment,3
+leffingwell,catty,catty,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,3
+sigma,alcohol,alcohol,,unmapped,False,missing_identity,row_missing_identity,3
+sigma,blossom,blossom,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,3
+sigma,carnation,carnation,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,3
+sigma,coconut,coconut,coconut,exact,False,missing_identity,row_missing_identity,3
+sigma,creamy,creamy,creamy,exact,False,missing_identity,row_missing_identity,3
+sigma,gardenia,gardenia,gardenia,exact,True,accepted,mapped_but_below_train_support,3
+sigma,geranium,geranium,geranium,exact,True,accepted,retained_label,3
+sigma,horseradish,horseradish,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,3
+sigma,lime,lime,lime,exact,False,missing_identity,row_missing_identity,3
+sigma,pepper,pepper,,unmapped,False,missing_identity,row_missing_identity,3
+sigma,plastic,plastic,plastic,exact,True,accepted,mapped_but_below_train_support,3
+sigma,rich,rich,,unmapped,False,missing_identity,row_missing_identity,3
+sigma,sulfurous,sulfurous,sulfurous,exact,False,missing_identity,row_missing_identity,3
+sigma,warm,warm,warm,exact,False,missing_identity,row_missing_identity,3
+arctander,acid,acid,,unmapped,False,multifragment,row_multifragment,2
+arctander,acid,acid,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,2
+arctander,aldehydic,aldehydic,aldehydic,exact,False,missing_identity,row_missing_identity,2
+arctander,anisic,anisic,anisic,exact,False,missing_identity,row_missing_identity,2
+arctander,banana,banana,banana,exact,False,multifragment,row_multifragment,2
+arctander,berry,berry,berry,exact,False,multifragment,row_multifragment,2
+arctander,camphoraceous,camphoraceous,camphoraceous,exact,False,multifragment,row_multifragment,2
+arctander,coco,coco,,unmapped,False,missing_identity,row_missing_identity,2
+arctander,gassy,gassy,,unmapped,False,multifragment,row_multifragment,2
+arctander,hay,hay,hay,exact,False,missing_identity,row_missing_identity,2
+arctander,honey,honey,honey,exact,False,multifragment,row_multifragment,2
+arctander,hyacinth,hyacinth,hyacinth,exact,False,multifragment,row_multifragment,2
+arctander,leather,leather,,unmapped,False,missing_identity,row_missing_identity,2
+arctander,leather,leather,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,2
+arctander,lilac,lilac,,unmapped,False,missing_identity,row_missing_identity,2
+arctander,medicinal,medicinal,medicinal,exact,False,multifragment,row_multifragment,2
+arctander,mimosa,mimosa,,unmapped,False,missing_identity,row_missing_identity,2
+arctander,mossy,mossy,mossy,exact,False,missing_identity,row_missing_identity,2
+arctander,narcissus,narcissus,narcissus,exact,False,multifragment,row_multifragment,2
+arctander,oily,oily,oily,exact,False,multifragment,row_multifragment,2
+arctander,orange,orange,orange,exact,False,multifragment,row_multifragment,2
+arctander,orange-blossom,orange blossom,,unmapped,False,missing_identity,row_missing_identity,2
+arctander,orange-blossom,orange blossom,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,2
+arctander,peach,peach,peach,exact,False,multifragment,row_multifragment,2
+arctander,pear,pear,pear,exact,False,multifragment,row_multifragment,2
+arctander,phenolic,phenolic,phenolic,exact,False,missing_identity,row_missing_identity,2
+arctander,pine,pine,pine,exact,False,missing_identity,row_missing_identity,2
+arctander,pineapple,pineapple,pineapple,exact,False,multifragment,row_multifragment,2
+arctander,rooty,rooty,rooty,exact,False,missing_identity,row_missing_identity,2
+arctander,rose,rose,rose,exact,False,multifragment,row_multifragment,2
+arctander,smoky,smoky,smoky,exact,False,missing_identity,row_missing_identity,2
+arctander,tarry,tarry,,unmapped,False,multifragment,row_multifragment,2
+arctander,tarry,tarry,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,2
+arctander,tea,tea,tea,exact,False,missing_identity,row_missing_identity,2
+arctander,tobacco,tobacco,tobacco,exact,False,multifragment,row_multifragment,2
+arctander,vanillin,vanillin,,unmapped,False,multifragment,row_multifragment,2
+arctander,violet,violet,violet,exact,False,missing_identity,row_missing_identity,2
+goodscents,acetic,acetic,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,2
+goodscents,agarwood,agarwood,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,2
+goodscents,alliaceous,alliaceous,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,2
+goodscents,amine,amine,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,2
+goodscents,angelica,angelica,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,2
+goodscents,anise,anise,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,2
+goodscents,arrack,arrack,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,2
+goodscents,artichoke,artichoke,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,2
+goodscents,astringent,astringent,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,2
+goodscents,beef juice,beef juice,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,2
+goodscents,beefy,beefy,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,2
+goodscents,bloody,bloody,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,2
+goodscents,bread rye bread,bread rye bread,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,2
+goodscents,broccoli,broccoli,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,2
+goodscents,brothy,brothy,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,2
+goodscents,brown,brown,,unmapped,False,multifragment,row_multifragment,2
+goodscents,brown,brown,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,2
+goodscents,caprylic,caprylic,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,2
+goodscents,caramel,caramel,caramel,exact,True,accepted,retained_label,2
+goodscents,caramellic,caramellic,,unmapped,False,multifragment,row_multifragment,2
+goodscents,cauliflower,cauliflower,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,2
+goodscents,cheese,cheese,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,2
+goodscents,cheesy bleu cheese,cheesy bleu cheese,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,2
+goodscents,cheesy parmesan cheese,cheesy parmesan cheese,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,2
+goodscents,chocolate,chocolate,chocolate,exact,False,multifragment,row_multifragment,2
+goodscents,chocolate dark chocolate,chocolate dark chocolate,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,2
+goodscents,cider,cider,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,2
+goodscents,cistus,cistus,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,2
+goodscents,citral,citral,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,2
+goodscents,citric,citric,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,2
+goodscents,cotton candy,cotton candy,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,2
+goodscents,coumarin,coumarin,coumarin,exact,True,accepted,mapped_but_below_train_support,2
+goodscents,cucumber skin,cucumber skin,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,2
+goodscents,davana,davana,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,2
+goodscents,dill,dill,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,2
+goodscents,egg nog,egg nog,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,2
+goodscents,elderberry,elderberry,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,2
+goodscents,elderflower,elderflower,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,2
+goodscents,fecal,fecal,,unmapped,False,multifragment,row_multifragment,2
+goodscents,fennel,fennel,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,2
+goodscents,filbert,filbert,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,2
+goodscents,floral,floral,floral,exact,False,multifragment,row_multifragment,2
+goodscents,fresh,fresh,fresh,exact,False,multifragment,row_multifragment,2
+goodscents,fruit ripe fruit,fruit ripe fruit,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,2
+goodscents,hazelnut,hazelnut,,unmapped,False,multifragment,row_multifragment,2
+goodscents,hydrocarbon,hydrocarbon,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,2
+goodscents,immortelle,immortelle,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,2
+goodscents,jasmin,jasmin,jasmin,exact,False,multifragment,row_multifragment,2
+goodscents,lactone,lactone,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,2
+goodscents,leaf,leaf,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,2
+goodscents,lily-of-the-valley,lily of the valley,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,2
+goodscents,liver,liver,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,2
+goodscents,loganberry,loganberry,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,2
+goodscents,lychee,lychee,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,2
+goodscents,marzipan,marzipan,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,2
+goodscents,methyl,methyl,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,2
+goodscents,musky,musky,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,2
+goodscents,mutton,mutton,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,2
+goodscents,nitrile,nitrile,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,2
+goodscents,oakmoss,oakmoss,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,2
+goodscents,orange bitter orange,orange bitter orange,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,2
+goodscents,oriental,oriental,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,2
+goodscents,peel,peel,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,2
+goodscents,petroleum,petroleum,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,2
+goodscents,petroleum,petroleum,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,2
+goodscents,plum skin,plum skin,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,2
+goodscents,praline,praline,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,2
+goodscents,quince,quince,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,2
+goodscents,roasted,roasted,roasted,exact,False,multifragment,row_multifragment,2
+goodscents,rotten,rotten,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,2
+goodscents,rubber,rubber,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,2
+goodscents,salty,salty,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,2
+goodscents,sappy,sappy,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,2
+goodscents,sausage smoked sausage,sausage smoked sausage,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,2
+goodscents,seafood,seafood,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,2
+goodscents,seaweed,seaweed,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,2
+goodscents,shrimp,shrimp,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,2
+goodscents,slight,slight,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,2
+goodscents,spruce,spruce,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,2
+goodscents,sulfurous,sulfurous,sulfurous,exact,False,multifragment,row_multifragment,2
+goodscents,taco,taco,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,2
+goodscents,tequila,tequila,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,2
+goodscents,terpene,terpene,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,2
+goodscents,toffee,toffee,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,2
+goodscents,turnup,turnup,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,2
+goodscents,vanilla,vanilla,vanilla,exact,False,multifragment,row_multifragment,2
+goodscents,watermelon rind,watermelon rind,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,2
+goodscents,waxy,waxy,waxy,exact,False,multifragment,row_multifragment,2
+goodscents,wild,wild,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,2
+goodscents,wine,wine,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,2
+goodscents,winey,winey,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,2
+goodscents,woody,woody,woody,exact,False,multifragment,row_multifragment,2
+goodscents,woody burnt wood,woody burnt wood,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,2
+ifra,Bell Pepper,bell pepper,bell pepper,exact,True,accepted,mapped_but_below_train_support,2
+ifra,Blueberry,blueberry,blueberry,exact,True,accepted,mapped_but_below_train_support,2
+ifra,Butterscotch,butterscotch,butterscotch,exact,True,accepted,mapped_but_below_train_support,2
+ifra,Carrot,carrot,carrot,exact,True,accepted,mapped_but_below_train_support,2
+ifra,Cherry-Blossom,cherry blossom,cherry blossom,exact,True,accepted,mapped_but_below_train_support,2
+ifra,Chocolate,chocolate,chocolate,exact,True,accepted,retained_label,2
+ifra,Cocoa,cocoa,cocoa,exact,True,accepted,retained_label,2
+ifra,Creamy,creamy,creamy,exact,False,multifragment,row_multifragment,2
+ifra,Food like,food like,food like,exact,True,accepted,mapped_but_below_train_support,2
+ifra,Fungal,fungal,fungal,exact,True,accepted,mapped_but_below_train_support,2
+ifra,Gardenia,gardenia,gardenia,exact,True,accepted,mapped_but_below_train_support,2
+ifra,Indolic,indolic,indolic,exact,True,accepted,mapped_but_below_train_support,2
+ifra,Lemongrass,lemongrass,lemongrass,exact,True,accepted,mapped_but_below_train_support,2
+ifra,Magnolia,magnolia,magnolia,exact,True,accepted,mapped_but_below_train_support,2
+ifra,Menthol,menthol,menthol,exact,True,accepted,mapped_but_below_train_support,2
+ifra,Narcissus,narcissus,narcissus,exact,True,accepted,retained_label,2
+ifra,Neutral,neutral,neutral,exact,True,accepted,mapped_but_below_train_support,2
+ifra,Plastic,plastic,plastic,exact,True,accepted,mapped_but_below_train_support,2
+ifra,Popcorn,popcorn,popcorn,exact,True,accepted,retained_label,2
+ifra,Sandalwood,sandalwood,sandalwood,exact,False,multifragment,row_multifragment,2
+ifra,Savoury,savoury,savoury,exact,True,accepted,retained_label,2
+ifra,Tangerine,tangerine,tangerine,exact,True,accepted,mapped_but_below_train_support,2
+leffingwell,beefy,beefy,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,2
+leffingwell,cabbage,cabbage,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,2
+leffingwell,camphoreous,camphoreous,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,2
+leffingwell,winey,winey,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,2
+sigma,animal,animal,animal like,alias,False,missing_identity,row_missing_identity,2
+sigma,anise,anise,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,2
+sigma,balsamic,balsamic,balsamic,exact,True,accepted,retained_label,2
+sigma,caramel,caramel,caramel,exact,False,missing_identity,row_missing_identity,2
+sigma,caraway,caraway,,unmapped,False,missing_identity,row_missing_identity,2
+sigma,carnation,carnation,,unmapped,False,missing_identity,row_missing_identity,2
+sigma,celery,celery,celery,exact,True,accepted,retained_label,2
+sigma,cucumber,cucumber,cucumber,exact,True,accepted,retained_label,2
+sigma,fennel,fennel,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,2
+sigma,horseradish,horseradish,,unmapped,False,missing_identity,row_missing_identity,2
+sigma,iris,iris,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,2
+sigma,lavender,lavender,lavender,exact,False,missing_identity,row_missing_identity,2
+sigma,lavender,lavender,lavender,exact,True,accepted,retained_label,2
+sigma,lilac,lilac,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,2
+sigma,lily,lily,lily,exact,False,missing_identity,row_missing_identity,2
+sigma,mango,mango,mango,exact,True,accepted,mapped_but_below_train_support,2
+sigma,melon,melon,melon,exact,False,missing_identity,row_missing_identity,2
+sigma,mossy,mossy,mossy,exact,True,accepted,mapped_but_below_train_support,2
+sigma,mushroom,mushroom,mushroom,exact,True,accepted,retained_label,2
+sigma,pear,pear,pear,exact,False,missing_identity,row_missing_identity,2
+sigma,plum,plum,plum,exact,False,missing_identity,row_missing_identity,2
+sigma,potato,potato,potato,exact,True,accepted,retained_label,2
+sigma,sage,sage,sage,exact,False,missing_identity,row_missing_identity,2
+sigma,seedy,seedy,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,2
+sigma,strawberry,strawberry,strawberry,exact,False,missing_identity,row_missing_identity,2
+sigma,tobacco,tobacco,tobacco,exact,False,missing_identity,row_missing_identity,2
+sigma,tobacco,tobacco,tobacco,exact,True,accepted,retained_label,2
+sigma,violet,violet,violet,exact,False,missing_identity,row_missing_identity,2
+sigma,walnut,walnut,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,2
+sigma,wine-like,wine like,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,2
+sigma,winelike,winelike,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,2
+arctander,acid,acid,,unmapped,False,missing_identity,row_missing_identity,1
+arctander,almond,almond,almond,exact,False,missing_identity,row_missing_identity,1
+arctander,apple,apple,apple,exact,False,multifragment,row_multifragment,1
+arctander,aromatic,aromatic,aromatic,exact,False,missing_identity,row_missing_identity,1
+arctander,aromatic,aromatic,aromatic,exact,False,multifragment,row_multifragment,1
+arctander,banana,banana,banana,exact,False,missing_identity,row_missing_identity,1
+arctander,brandy,brandy,brandy,exact,False,missing_identity,row_missing_identity,1
+arctander,buttery,buttery,buttery,exact,False,missing_identity,row_missing_identity,1
+arctander,citrus,citrus,citrus,exact,False,multifragment,row_multifragment,1
+arctander,coconut,coconut,coconut,exact,True,accepted,retained_label,1
+arctander,creamy,creamy,creamy,exact,False,missing_identity,row_missing_identity,1
+arctander,grape,grape,grape,exact,False,missing_identity,row_missing_identity,1
+arctander,grape,grape,grape,exact,False,multifragment,row_multifragment,1
+arctander,hay,hay,hay,exact,False,multifragment,row_multifragment,1
+arctander,jasmin,jasmin,jasmin,exact,False,multifragment,row_multifragment,1
+arctander,juicy,juicy,juicy,exact,False,missing_identity,row_missing_identity,1
+arctander,leafy,leafy,leafy,exact,False,multifragment,row_multifragment,1
+arctander,leather,leather,,unmapped,False,multifragment,row_multifragment,1
+arctander,lilac,lilac,,unmapped,False,multifragment,row_multifragment,1
+arctander,lily,lily,lily,exact,False,missing_identity,row_missing_identity,1
+arctander,lily,lily,lily,exact,False,multifragment,row_multifragment,1
+arctander,metallic,metallic,metallic,exact,False,multifragment,row_multifragment,1
+arctander,minty,minty,minty,exact,False,multifragment,row_multifragment,1
+arctander,musty,musty,musty,exact,False,multifragment,row_multifragment,1
+arctander,pepper,pepper,,unmapped,False,missing_identity,row_missing_identity,1
+arctander,pepper,pepper,,unmapped,False,multifragment,row_multifragment,1
+arctander,phenolic,phenolic,phenolic,exact,False,multifragment,row_multifragment,1
+arctander,smoky,smoky,smoky,exact,False,multifragment,row_multifragment,1
+arctander,sour,sour,sour,exact,False,multifragment,row_multifragment,1
+arctander,sulfuraceous,sulfuraceous,,unmapped,False,missing_identity,row_missing_identity,1
+arctander,tarry,tarry,,unmapped,False,missing_identity,row_missing_identity,1
+arctander,vanilla,vanilla,vanilla,exact,True,accepted,retained_label,1
+arctander,vanillin,vanillin,,unmapped,False,missing_identity,row_missing_identity,1
+arctander,waxy,waxy,waxy,exact,False,multifragment,row_multifragment,1
+goodscents,absinthe,absinthe,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,absolute,absolute,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,acetaldehyde,acetaldehyde,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,1
+goodscents,acetic,acetic,,unmapped,False,multifragment,row_multifragment,1
+goodscents,acidic,acidic,acidic,exact,False,multifragment,row_multifragment,1
+goodscents,acrylate,acrylate,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,1
+goodscents,aldehydic,aldehydic,aldehydic,exact,False,multifragment,row_multifragment,1
+goodscents,algae,algae,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,1
+goodscents,alkane,alkane,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,1
+goodscents,almond bitter almond,almond bitter almond,,unmapped,False,multifragment,row_multifragment,1
+goodscents,almond toasted almond,almond toasted almond,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,almost odorless,almost odorless,,unmapped,False,multifragment,row_multifragment,1
+goodscents,almost odorless,almost odorless,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,amber,amber,amber,exact,False,multifragment,row_multifragment,1
+goodscents,ambergris,ambergris,,unmapped,False,multifragment,row_multifragment,1
+goodscents,ammonia,ammonia,,unmapped,False,multifragment,row_multifragment,1
+goodscents,ammonia,ammonia,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,apple dried apple,apple dried apple,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,armoise,armoise,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,baked,baked,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,1
+goodscents,barley roasted barley,barley roasted barley,,unmapped,False,multifragment,row_multifragment,1
+goodscents,bay,bay,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,beef,beef,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,1
+goodscents,beef juice,beef juice,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,1
+goodscents,benzaldehyde,benzaldehyde,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,1
+goodscents,benzoate,benzoate,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,1
+goodscents,benzoin,benzoin,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,berry,berry,berry,exact,False,multifragment,row_multifragment,1
+goodscents,berry ripe berry,berry ripe berry,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,bitter,bitter,bitter,exact,False,multifragment,row_multifragment,1
+goodscents,blossom,blossom,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,1
+goodscents,boiled,boiled,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,1
+goodscents,bois,bois,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,bonbon,bonbon,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,borneol,borneol,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,1
+goodscents,boronia,boronia,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,bouillon,bouillon,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,bouillon,bouillon,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,1
+goodscents,bread,bread,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,1
+goodscents,bread baked,bread baked,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,1
+goodscents,broccoli,broccoli,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,1
+goodscents,bud,bud,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,butter,butter,buttery,alias,True,accepted,retained_label,1
+goodscents,butter rancid,butter rancid,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,buttery,buttery,buttery,exact,False,multifragment,row_multifragment,1
+goodscents,cacao,cacao,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,candy,candy,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,1
+goodscents,capers,capers,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,cardboard,cardboard,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,1
+goodscents,carrot seed,carrot seed,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,carvone,carvone,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,cashew,cashew,,unmapped,False,multifragment,row_multifragment,1
+goodscents,cassie,cassie,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,catechu,catechu,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,cedar,cedar,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,1
+goodscents,cellar,cellar,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,cereal,cereal,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,1
+goodscents,characteristic,characteristic,,unmapped,False,multifragment,row_multifragment,1
+goodscents,charred,charred,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,chavicol,chavicol,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,cheesy,cheesy,cheesy,exact,False,multifragment,row_multifragment,1
+goodscents,cheesy feta cheese,cheesy feta cheese,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,cheesy limburger cheese,cheesy limburger cheese,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,cheesy roquefort cheese,cheesy roquefort cheese,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,chervil,chervil,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,chicken,chicken,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,1
+goodscents,chicken roasted chicken,chicken roasted chicken,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,chicory,chicory,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,chlorine,chlorine,,unmapped,False,multifragment,row_multifragment,1
+goodscents,chloroform,chloroform,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,1
+goodscents,cider,cider,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,1
+goodscents,citralva,citralva,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,citronellal,citronellal,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,clove,clove,clove,exact,False,multifragment,row_multifragment,1
+goodscents,clover,clover,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,1
+goodscents,coal,coal,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,cocoa,cocoa,cocoa,exact,False,multifragment,row_multifragment,1
+goodscents,coffee roasted coffee,coffee roasted coffee,,unmapped,False,multifragment,row_multifragment,1
+goodscents,concord grape,concord grape,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,cooked,cooked,,unmapped,False,multifragment,row_multifragment,1
+goodscents,corn chip,corn chip,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,1
+goodscents,cornmint,cornmint,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,cortex,cortex,,unmapped,False,multifragment,row_multifragment,1
+goodscents,costus,costus,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,1
+goodscents,cotton,cotton,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,cotton,cotton,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,1
+goodscents,creamy,creamy,creamy,exact,False,multifragment,row_multifragment,1
+goodscents,creosote,creosote,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,1
+goodscents,cresol,cresol,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,damascone,damascone,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,1
+goodscents,dank,dank,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,date,date,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,de,de,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,dead,dead,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,1
+goodscents,diffuse,diffuse,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,dihydrojasmonate,dihydrojasmonate,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,dried,dried,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,dry,dry,dry,exact,False,multifragment,row_multifragment,1
+goodscents,dull,dull,,unmapped,False,multifragment,row_multifragment,1
+goodscents,earthy,earthy,earthy,exact,False,multifragment,row_multifragment,1
+goodscents,egg,egg,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,1
+goodscents,egg yolk,egg yolk,,unmapped,False,multifragment,row_multifragment,1
+goodscents,eggy,eggy,,unmapped,False,multifragment,row_multifragment,1
+goodscents,elemi,elemi,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,estery,estery,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,1
+goodscents,ether,ether,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,ethyl,ethyl,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,1
+goodscents,evil,evil,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,1
+goodscents,faint,faint,,unmapped,False,multifragment,row_multifragment,1
+goodscents,fenugreek,fenugreek,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,1
+goodscents,fish,fish,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,flat,flat,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,flowers,flowers,floral,alias,True,accepted,retained_label,1
+goodscents,fragrant,fragrant,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,1
+goodscents,frankincense,frankincense,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,freshly,freshly,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,fried,fried,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,1
+goodscents,gasoline,gasoline,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,gassy,gassy,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,1
+goodscents,genet,genet,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,goats,goats,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,grapfruit,grapfruit,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,grass,grass,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,gravy,gravy,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,greasy,greasy,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,1
+goodscents,harsh,harsh,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,1
+goodscents,herb,herb,herbal,alias,True,accepted,retained_label,1
+goodscents,herbaceous,herbaceous,herbal,alias,True,accepted,retained_label,1
+goodscents,herbal,herbal,herbal,exact,False,multifragment,row_multifragment,1
+goodscents,hesperidic,hesperidic,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,honey,honey,honey,exact,False,multifragment,row_multifragment,1
+goodscents,horseradish,horseradish,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,1
+goodscents,impacting,impacting,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,indole,indole,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,iodine,iodine,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,jackfruit,jackfruit,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,jam,jam,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,kernel,kernel,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,kimchi,kimchi,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,lamb,lamb,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,1
+goodscents,leafy,leafy,leafy,exact,False,multifragment,row_multifragment,1
+goodscents,leather,leather,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,light,light,light,exact,True,accepted,mapped_but_below_train_support,1
+goodscents,lilial,lilial,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,linalool,linalool,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,linalool,linalool,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,1
+goodscents,linden,linden,linden,exact,True,accepted,mapped_but_below_train_support,1
+goodscents,liquid,liquid,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,1
+goodscents,liver,liver,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,1
+goodscents,lovage,lovage,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,1
+goodscents,mace,mace,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,malty,malty,,unmapped,False,multifragment,row_multifragment,1
+goodscents,malty,malty,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,1
+goodscents,marjoram,marjoram,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,may,may,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,1
+goodscents,meat,meat,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,medical,medical,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,melon unripe melon,melon unripe melon,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,mercaptan,mercaptan,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,1
+goodscents,metallic,metallic,metallic,exact,False,multifragment,row_multifragment,1
+goodscents,methyl heptine carbonate,methyl heptine carbonate,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,mignonette,mignonette,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,milk,milk,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,milky,milky,milky,exact,False,multifragment,row_multifragment,1
+goodscents,mint,mint,minty,alias,True,accepted,retained_label,1
+goodscents,moldy,moldy,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,1
+goodscents,moss,moss,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,mouldy,mouldy,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,1
+goodscents,mustard,mustard,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,1
+goodscents,musty,musty,musty,exact,False,multifragment,row_multifragment,1
+goodscents,muttony,muttony,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,1
+goodscents,naphtha,naphtha,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,needle,needle,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,needles,needles,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,nerol,nerol,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,new mown hay,new mown hay,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,nice,nice,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,1
+goodscents,nut,nut,nutty,alias,True,accepted,retained_label,1
+goodscents,nut skin,nut skin,,unmapped,False,multifragment,row_multifragment,1
+goodscents,ocean,ocean,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,oily,oily,oily,exact,False,multifragment,row_multifragment,1
+goodscents,old,old,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,orange rind,orange rind,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,orris,orris,orris,exact,False,multifragment,row_multifragment,1
+goodscents,osmanthus,osmanthus,osmanthus,exact,True,accepted,mapped_but_below_train_support,1
+goodscents,oxide,oxide,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,palmarosa,palmarosa,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,pastry,pastry,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,peanut,peanut,peanut,exact,False,multifragment,row_multifragment,1
+goodscents,peanut roasted peanut,peanut roasted peanut,,unmapped,False,multifragment,row_multifragment,1
+goodscents,phenolic,phenolic,phenolic,exact,False,multifragment,row_multifragment,1
+goodscents,pistachio,pistachio,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,pleasant,pleasant,,unmapped,False,multifragment,row_multifragment,1
+goodscents,pleasant,pleasant,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,1
+goodscents,plowed,plowed,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,pomegranate,pomegranate,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,pork,pork,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,1
+goodscents,potato,potato,potato,exact,False,multifragment,row_multifragment,1
+goodscents,potato baked potato,potato baked potato,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,1
+goodscents,powdery,powdery,powdery,exact,False,multifragment,row_multifragment,1
+goodscents,privetblossom,privetblossom,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,pyrazine,pyrazine,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,pyridine,pyridine,,unmapped,False,multifragment,row_multifragment,1
+goodscents,rancid,rancid,,unmapped,False,multifragment,row_multifragment,1
+goodscents,rancid,rancid,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,1
+goodscents,red,red,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,resin,resin,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,rindy,rindy,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,rosey,rosey,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,rosy,rosy,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,rotting,rotting,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,rubbery,rubbery,rubbery,exact,False,multifragment,row_multifragment,1
+goodscents,rum,rum,rum,exact,True,accepted,retained_label,1
+goodscents,rummy,rummy,,unmapped,False,multifragment,row_multifragment,1
+goodscents,salmon,salmon,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,sandy,sandy,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,sarsaparilla,sarsaparilla,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,sassafras,sassafras,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,sauerkraut,sauerkraut,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,sharp,sharp,sharp,exact,False,multifragment,row_multifragment,1
+goodscents,shell,shell,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,shrimp,shrimp,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,skin,skin,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,slight,slight,,unmapped,False,multifragment,row_multifragment,1
+goodscents,smelling,smelling,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,1
+goodscents,soil,soil,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,soup,soup,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,1
+goodscents,sour,sour,sour,exact,False,multifragment,row_multifragment,1
+goodscents,spicy,spicy,spicy,exact,False,multifragment,row_multifragment,1
+goodscents,spinach,spinach,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,stalk,stalk,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,starfruit,starfruit,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,straw,straw,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,strong,strong,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,1
+goodscents,styrax,styrax,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,styrene,styrene,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,sugar brown sugar,sugar brown sugar,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,1
+goodscents,sugar burnt sugar,sugar burnt sugar,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,1
+goodscents,sulfury,sulfury,,unmapped,False,multifragment,row_multifragment,1
+goodscents,sulfury,sulfury,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,sweat,sweat,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,1
+goodscents,taco,taco,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,1
+goodscents,tar,tar,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,tea black tea,tea black tea,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,terpentine,terpentine,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,1
+goodscents,thiamine,thiamine,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,1
+goodscents,thujone,thujone,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,thujone,thujone,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,1
+goodscents,thujonic,thujonic,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,1
+goodscents,tolu balsam,tolu balsam,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,tomato,tomato,,unmapped,False,multifragment,row_multifragment,1
+goodscents,truffle,truffle,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,1
+goodscents,turkey,turkey,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,umami,umami,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,urine,urine,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,urine,urine,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,1
+goodscents,vegetables,vegetables,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,verdox,verdox,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,vinyl,vinyl,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,violet,violet,violet,exact,False,multifragment,row_multifragment,1
+goodscents,watery,watery,watery,exact,False,multifragment,row_multifragment,1
+goodscents,whiskey,whiskey,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,1
+goodscents,wood,wood,woody,alias,True,accepted,retained_label,1
+goodscents,woody-lactone,woody lactone,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,1
+goodscents,wormwood,wormwood,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,worty,worty,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,yeasty,yeasty,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,1
+goodscents,yogurt,yogurt,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+goodscents,zesty,zesty,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+ifra,Acidic,acidic,acidic,exact,False,multifragment,row_multifragment,1
+ifra,Amber,amber,amber,exact,False,multifragment,row_multifragment,1
+ifra,Animal like,animal like,animal like,exact,False,multifragment,row_multifragment,1
+ifra,Artemisia,artemisia,artemisia,exact,True,accepted,mapped_but_below_train_support,1
+ifra,Bayleaf,bayleaf,bayleaf,exact,True,accepted,mapped_but_below_train_support,1
+ifra,Bitter,bitter,bitter,exact,True,accepted,mapped_but_below_train_support,1
+ifra,Brandy,brandy,brandy,exact,True,accepted,retained_label,1
+ifra,Burnt,burnt,burnt,exact,True,accepted,retained_label,1
+ifra,Citronella,citronella,citronella,exact,True,accepted,mapped_but_below_train_support,1
+ifra,Corn,corn,corn,exact,True,accepted,mapped_but_below_train_support,1
+ifra,Coumarin,coumarin,coumarin,exact,True,accepted,mapped_but_below_train_support,1
+ifra,Cumin,cumin,cumin,exact,True,accepted,mapped_but_below_train_support,1
+ifra,Dairy,dairy,dairy,exact,True,accepted,retained_label,1
+ifra,Dry,dry,dry,exact,False,multifragment,row_multifragment,1
+ifra,Ethereal,ethereal,ethereal,exact,False,multifragment,row_multifragment,1
+ifra,Eucalyptus,eucalyptus,eucalyptus,exact,True,accepted,mapped_but_below_train_support,1
+ifra,Fermented,fermented,fermented,exact,False,multifragment,row_multifragment,1
+ifra,Floral,floral,floral,exact,False,multifragment,row_multifragment,1
+ifra,Foliage,foliage,foliage,exact,True,accepted,mapped_but_below_train_support,1
+ifra,Fresh,fresh,fresh,exact,False,multifragment,row_multifragment,1
+ifra,Green,green,green,exact,False,multifragment,row_multifragment,1
+ifra,Hawthorn,hawthorn,hawthorn,exact,True,accepted,mapped_but_below_train_support,1
+ifra,Honeydew,honeydew,honeydew,exact,True,accepted,mapped_but_below_train_support,1
+ifra,Jasmin,jasmin,jasmin,exact,False,multifragment,row_multifragment,1
+ifra,Juicy,juicy,juicy,exact,True,accepted,mapped_but_below_train_support,1
+ifra,Juniper,juniper,juniper,exact,True,accepted,mapped_but_below_train_support,1
+ifra,Kiwi,kiwi,kiwi,exact,True,accepted,mapped_but_below_train_support,1
+ifra,Lactonic,lactonic,lactonic,exact,True,accepted,retained_label,1
+ifra,Leathery,leathery,leathery,exact,False,multifragment,row_multifragment,1
+ifra,Linden,linden,linden,exact,True,accepted,mapped_but_below_train_support,1
+ifra,Maple,maple,maple,exact,True,accepted,mapped_but_below_train_support,1
+ifra,Marigold,marigold,marigold,exact,True,accepted,mapped_but_below_train_support,1
+ifra,Metallic,metallic,metallic,exact,True,accepted,retained_label,1
+ifra,Nasturtium,nasturtium,nasturtium,exact,True,accepted,mapped_but_below_train_support,1
+ifra,Neutral,neutral,neutral,exact,False,multifragment,row_multifragment,1
+ifra,Oak,oak,oak,exact,True,accepted,mapped_but_below_train_support,1
+ifra,Osmanthus,osmanthus,osmanthus,exact,True,accepted,mapped_but_below_train_support,1
+ifra,Peanut,peanut,peanut,exact,True,accepted,mapped_but_below_train_support,1
+ifra,Peppermint,peppermint,peppermint,exact,True,accepted,mapped_but_below_train_support,1
+ifra,Petitgrain,petitgrain,petitgrain,exact,True,accepted,mapped_but_below_train_support,1
+ifra,Potato,potato,potato,exact,True,accepted,retained_label,1
+ifra,Powerful,powerful,powerful,exact,True,accepted,mapped_but_below_train_support,1
+ifra,Rooty,rooty,rooty,exact,True,accepted,retained_label,1
+ifra,Rosemary,rosemary,rosemary,exact,True,accepted,mapped_but_below_train_support,1
+ifra,Rubbery,rubbery,rubbery,exact,True,accepted,mapped_but_below_train_support,1
+ifra,Rum,rum,rum,exact,True,accepted,retained_label,1
+ifra,Saffron,saffron,saffron,exact,True,accepted,mapped_but_below_train_support,1
+ifra,Soapy,soapy,soapy,exact,True,accepted,retained_label,1
+ifra,Sour,sour,sour,exact,True,accepted,retained_label,1
+ifra,Spearmint,spearmint,spearmint,exact,True,accepted,mapped_but_below_train_support,1
+ifra,Sweet-Pea,sweet pea,sweet pea,exact,True,accepted,mapped_but_below_train_support,1
+ifra,Tarragon,tarragon,tarragon,exact,True,accepted,mapped_but_below_train_support,1
+ifra,Tonka,tonka,tonka,exact,True,accepted,mapped_but_below_train_support,1
+ifra,Watermelon,watermelon,watermelon,exact,True,accepted,mapped_but_below_train_support,1
+ifra,Yeast,yeast,yeast,exact,True,accepted,mapped_but_below_train_support,1
+ifra,cocoa,cocoa,cocoa,exact,True,accepted,retained_label,1
+ifra,green,green,green,exact,True,accepted,retained_label,1
+ifra,sweet,sweet,sweet,exact,True,accepted,retained_label,1
+ifra,warm,warm,warm,exact,False,multifragment,row_multifragment,1
+ifra,warm,warm,warm,exact,True,accepted,retained_label,1
+leffingwell,coumarinic,coumarinic,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,1
+sigma,balsamic,balsamic,balsamic,exact,False,missing_identity,row_missing_identity,1
+sigma,beef,beef,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,1
+sigma,beer,beer,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+sigma,blossom,blossom,,unmapped,False,missing_identity,row_missing_identity,1
+sigma,blueberry,blueberry,blueberry,exact,True,accepted,mapped_but_below_train_support,1
+sigma,brandy,brandy,brandy,exact,True,accepted,retained_label,1
+sigma,butterscotch,butterscotch,butterscotch,exact,False,missing_identity,row_missing_identity,1
+sigma,cabbage,cabbage,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,1
+sigma,cantaloupe,cantaloupe,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+sigma,cedar,cedar,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+sigma,corn,corn,corn,exact,True,accepted,mapped_but_below_train_support,1
+sigma,coumarin,coumarin,coumarin,exact,False,missing_identity,row_missing_identity,1
+sigma,coumarin,coumarin,coumarin,exact,True,accepted,mapped_but_below_train_support,1
+sigma,cranberry,cranberry,,unmapped,False,missing_identity,row_missing_identity,1
+sigma,cranberry,cranberry,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+sigma,fishy,fishy,,unmapped,False,missing_identity,row_missing_identity,1
+sigma,fishy,fishy,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,1
+sigma,geranium,geranium,geranium,exact,False,missing_identity,row_missing_identity,1
+sigma,grapefruit,grapefruit,grapefruit,exact,False,missing_identity,row_missing_identity,1
+sigma,hazelnut,hazelnut,,unmapped,False,missing_identity,row_missing_identity,1
+sigma,herba-,herba,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+sigma,hyacinth,hyacinth,hyacinth,exact,False,missing_identity,row_missing_identity,1
+sigma,jam,jam,,unmapped,False,missing_identity,row_missing_identity,1
+sigma,leafy,leafy,leafy,exact,True,accepted,retained_label,1
+sigma,lilac,lilac,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,1
+sigma,lily,lily,lily,exact,True,accepted,retained_label,1
+sigma,marigold,marigold,marigold,exact,False,missing_identity,row_missing_identity,1
+sigma,mossy,mossy,mossy,exact,False,missing_identity,row_missing_identity,1
+sigma,plastic,plastic,plastic,exact,False,missing_identity,row_missing_identity,1
+sigma,quince,quince,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+sigma,rum,rum,rum,exact,True,accepted,retained_label,1
+sigma,sage,sage,sage,exact,True,accepted,mapped_but_below_train_support,1
+sigma,tart,tart,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1
+sigma,tropical,tropical,tropical fruit,alias,False,missing_identity,row_missing_identity,1
+sigma,tropical,tropical,tropical fruit,alias,True,accepted,retained_label,1
+sigma,turpentine,turpentine,,unmapped,True,unmapped_labels,not_in_taxonomy_or_valid_alias,1
+sigma,warm,warm,warm,exact,True,accepted,retained_label,1
+sigma,whiskey,whiskey,,unmapped,False,missing_identity,row_missing_identity,1
+sigma,whiskey,whiskey,,unmapped,True,accepted,not_in_taxonomy_or_valid_alias,1

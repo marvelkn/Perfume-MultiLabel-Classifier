@@ -1,0 +1,128 @@
+{
+  "run": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\.local-tools\\campus-transfer-full-20260909\\perfume-campus-grouped-v7-m2048-d8\\perfume-campus-grouped-v7-m2048-d8\\runs\\perfume-five-grouped-v7-m2048-d8",
+  "no_fit_or_project_write": true,
+  "folds": {
+    "7": {
+      "identical_all_eight_candidates": true,
+      "regenerated_exact": true
+    },
+    "21": {
+      "identical_all_eight_candidates": true,
+      "regenerated_exact": true
+    },
+    "42": {
+      "identical_all_eight_candidates": true,
+      "regenerated_exact": true
+    },
+    "84": {
+      "identical_all_eight_candidates": true,
+      "regenerated_exact": true
+    },
+    "100": {
+      "identical_all_eight_candidates": true,
+      "regenerated_exact": true
+    }
+  },
+  "candidates": {
+    "xgb_A": {
+      "oof_cohort_and_average_correct": true,
+      "all_109_thresholds_recomputed_exactly": true,
+      "cv_macro_ap": 0.2495892514804475
+    },
+    "xgb_B": {
+      "oof_cohort_and_average_correct": true,
+      "all_109_thresholds_recomputed_exactly": true,
+      "cv_macro_ap": 0.2774121584989916
+    },
+    "xgb_C": {
+      "oof_cohort_and_average_correct": true,
+      "all_109_thresholds_recomputed_exactly": true,
+      "cv_macro_ap": 0.26704928912680964
+    },
+    "xgb_D": {
+      "oof_cohort_and_average_correct": true,
+      "all_109_thresholds_recomputed_exactly": true,
+      "cv_macro_ap": 0.29695872070474794
+    },
+    "lgbm_A": {
+      "oof_cohort_and_average_correct": true,
+      "all_109_thresholds_recomputed_exactly": true,
+      "cv_macro_ap": 0.2516809457669366
+    },
+    "lgbm_B": {
+      "oof_cohort_and_average_correct": true,
+      "all_109_thresholds_recomputed_exactly": true,
+      "cv_macro_ap": 0.2832113756377057
+    },
+    "lgbm_C": {
+      "oof_cohort_and_average_correct": true,
+      "all_109_thresholds_recomputed_exactly": true,
+      "cv_macro_ap": 0.2691136510192022
+    },
+    "lgbm_D": {
+      "oof_cohort_and_average_correct": true,
+      "all_109_thresholds_recomputed_exactly": true,
+      "cv_macro_ap": 0.29973097800377524
+    }
+  },
+  "tuning": {
+    "xgb_C": {
+      "complete_trials": 12,
+      "failed_at_budget": 1,
+      "best_trial": 2,
+      "best_objective": 0.2673518801626136,
+      "seed42_cv_objective": 0.2673518801626136,
+      "recipes_match_winner": true,
+      "actual_params_match_optuna": true,
+      "walltime_trial_span_seconds": 28800.014524
+    },
+    "xgb_D": {
+      "complete_trials": 12,
+      "failed_at_budget": 1,
+      "best_trial": 2,
+      "best_objective": 0.298033140930765,
+      "seed42_cv_objective": 0.298033140930765,
+      "recipes_match_winner": true,
+      "actual_params_match_optuna": true,
+      "walltime_trial_span_seconds": 28800.012294
+    },
+    "lgbm_C": {
+      "complete_trials": 104,
+      "failed_at_budget": 1,
+      "best_trial": 56,
+      "best_objective": 0.2700960586871789,
+      "seed42_cv_objective": 0.27009605868717895,
+      "recipes_match_winner": true,
+      "actual_params_match_optuna": true,
+      "walltime_trial_span_seconds": 28800.001209
+    },
+    "lgbm_D": {
+      "complete_trials": 74,
+      "failed_at_budget": 1,
+      "best_trial": 73,
+      "best_objective": 0.3019790225473553,
+      "seed42_cv_objective": 0.3019790225473553,
+      "recipes_match_winner": true,
+      "actual_params_match_optuna": true,
+      "walltime_trial_span_seconds": 28800.001946
+    }
+  },
+  "folds_checked": 2725,
+  "fold_count_values": [
+    5
+  ],
+  "selection_recomputed": {
+    "overall": "lgbm_D",
+    "by_algorithm": {
+      "xgb": "xgb_D",
+      "lgbm": "lgbm_D"
+    }
+  },
+  "test_positive_counts": {
+    "minimum": 2,
+    "maximum": 511,
+    "one_class_labels": 0
+  },
+  "freeze_time": "2026-09-28T13:18:55.185355+00:00",
+  "first_final_fit_and_test_event": "2026-09-28T13:19:04.346625+00:00"
+}

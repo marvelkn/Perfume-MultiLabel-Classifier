@@ -7,7 +7,7 @@ import pandas as pd
 from _lokasi import PROTOKOL, ROOT, baca_json, hasil_penelitian
 
 sys.path.insert(0, str(ROOT))
-from alignment.tuning_v6 import suggest  # noqa: E402
+from research.tuning import suggest  # noqa: E402
 
 
 def ringkas_optuna() -> None:
@@ -28,7 +28,7 @@ def ringkas_optuna() -> None:
             f"trial terbaik={int(terbaik['number']):>3}, "
             f"macro AP CV={terbaik['value']:.6f}"
         )
-    print("Detail ruang pencarian ada di alignment/protocol_v7.json.")
+    print("Detail ruang pencarian ada di research/config/experiment.json.")
 
 
 if __name__ == "__main__":

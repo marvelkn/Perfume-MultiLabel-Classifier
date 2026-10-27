@@ -1,0 +1,12 @@
+{
+  "date": "2026-10-27",
+  "models": 109,
+  "training_vectors": 32,
+  "score_pairs": 3488,
+  "max_absolute_score_difference": 4.0010130453183024e-07,
+  "threshold_decision_differences": 0,
+  "rtol": 1e-05,
+  "atol": 1e-06,
+  "feature_api_vectors_exact": 3,
+  "scope": "desktop ONNX CPU execution, read-only; no Android device or HTTP server test"
+}

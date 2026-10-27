@@ -1,0 +1,43 @@
+{
+  "id": "perfume-five-frozen-cohort",
+  "revision": "8054ea98ed675005ec10e67359902f500e4911b0",
+  "sources": {
+    "goodscents": {
+      "molecules": "goodscents/molecules.csv",
+      "stimuli": "goodscents/stimuli.csv",
+      "behavior": "goodscents/behavior.csv"
+    },
+    "ifra": {
+      "molecules": "ifra_2019/molecules.csv",
+      "stimuli": "ifra_2019/stimuli.csv",
+      "behavior": "ifra_2019/behavior.csv"
+    },
+    "leffingwell": {
+      "molecules": "leffingwell/molecules.csv",
+      "stimuli": "leffingwell/stimuli.csv",
+      "behavior": "leffingwell/behavior.csv"
+    },
+    "arctander": {
+      "molecules": "arctander_1960/molecules.csv",
+      "stimuli": "arctander_1960/stimuli.csv",
+      "behavior": "arctander_1960/behavior_1_sparse.csv"
+    },
+    "sigma": {
+      "molecules": "sigma_2014/molecules.csv",
+      "stimuli": "sigma_2014/stimuli.csv",
+      "behavior": "sigma_2014/behavior.csv"
+    }
+  },
+  "labels": {
+    "taxonomy": "IFRA 2019 observed descriptors",
+    "min_train_positive": 30,
+    "max_labels": null
+  },
+  "split": {
+    "seed": 42,
+    "test_size": 0.2,
+    "max_folds": 5,
+    "group_policy": "structure-or-morgan-components-v1",
+    "policy_note": "Reuse frozen indices and groups. Historical groups: identical structure without stereo OR identical Morgan 1024. Do not regroup from 2048."
+  }
+}

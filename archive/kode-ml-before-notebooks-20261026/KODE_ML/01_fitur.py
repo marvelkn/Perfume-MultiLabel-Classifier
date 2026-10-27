@@ -8,8 +8,8 @@ import numpy as np
 from _lokasi import ROOT
 
 sys.path.insert(0, str(ROOT))
-from alignment.descriptors_v7 import DESCRIPTORS8, calculate, calculate_morgan  # noqa: E402
-from alignment.experiments_v7 import features  # noqa: E402
+from research.features import DESCRIPTORS8, calculate, calculate_morgan  # noqa: E402
+from research.experiment import features  # noqa: E402
 
 
 def periksa_fitur(smiles: str) -> None:

@@ -7,7 +7,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data" / "builds" / "perfume-five-grouped-v2"
 FITUR = ROOT / "data" / "builds" / "perfume-m2048-d8-v7"
-PROTOKOL = ROOT / "alignment" / "protocol_v7.json"
+PROTOKOL = ROOT / "research" / "config" / "experiment.json"
 RUN_ID = "perfume-five-grouped-v7-m2048-d8"
 RUN_KAMPUS = (
     ROOT

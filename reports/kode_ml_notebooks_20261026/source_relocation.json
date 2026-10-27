@@ -1,0 +1,538 @@
+{
+  "status": "staged_only",
+  "old_canonical": "research/",
+  "new_canonical": "KODE_ML/research/",
+  "compatibility_entry": "research/__init__.py",
+  "changes": {
+    "runtime.py": "ROOT now resolved from the deeper package; SOURCE_ROOT gives local configs.",
+    "dataset.py": "Config path only.",
+    "preprocessing.py": "Config path only.",
+    "experiment.py": "Protocol path and source-hash keys only. Existing-run identity rejects old source location.",
+    "tests/test_research_readonly.py": "Use canonical source location and replace retired monolithic notebook check with source-location check.",
+    "KODE_ML/_lokasi.py": "Protocol path updated.",
+    "KODE_ML/03_optuna.py": "Printed protocol path updated."
+  },
+  "config_files_byte_identical": true,
+  "function_ast_audit": [
+    {
+      "file": "dataset.py",
+      "symbol": "verify",
+      "ast_identical": true,
+      "difference": null
+    },
+    {
+      "file": "dataset.py",
+      "symbol": "load_partition",
+      "ast_identical": true,
+      "difference": null
+    },
+    {
+      "file": "dataset.py",
+      "symbol": "encode_frozen_records",
+      "ast_identical": true,
+      "difference": null
+    },
+    {
+      "file": "experiment.py",
+      "symbol": "verify_files",
+      "ast_identical": true,
+      "difference": null
+    },
+    {
+      "file": "experiment.py",
+      "symbol": "preflight",
+      "ast_identical": true,
+      "difference": null
+    },
+    {
+      "file": "experiment.py",
+      "symbol": "select_candidates",
+      "ast_identical": true,
+      "difference": null
+    },
+    {
+      "file": "experiment.py",
+      "symbol": "evaluate_test",
+      "ast_identical": true,
+      "difference": null
+    },
+    {
+      "file": "experiment.py",
+      "symbol": "paired_cv",
+      "ast_identical": true,
+      "difference": null
+    },
+    {
+      "file": "experiment.py",
+      "symbol": "summaries",
+      "ast_identical": true,
+      "difference": null
+    },
+    {
+      "file": "experiment.py",
+      "symbol": "reject_historical_run",
+      "ast_identical": false,
+      "difference": "Source identity path changes only; ML statements unchanged."
+    },
+    {
+      "file": "experiment.py",
+      "symbol": "run_all",
+      "ast_identical": false,
+      "difference": "Source identity path changes only; ML statements unchanged."
+    },
+    {
+      "file": "experiment.py",
+      "symbol": "main",
+      "ast_identical": true,
+      "difference": null
+    },
+    {
+      "file": "features.py",
+      "symbol": "molecule",
+      "ast_identical": true,
+      "difference": null
+    },
+    {
+      "file": "features.py",
+      "symbol": "calculate",
+      "ast_identical": true,
+      "difference": null
+    },
+    {
+      "file": "features.py",
+      "symbol": "calculate_morgan",
+      "ast_identical": true,
+      "difference": null
+    },
+    {
+      "file": "features.py",
+      "symbol": "descriptor_count",
+      "ast_identical": true,
+      "difference": null
+    },
+    {
+      "file": "features.py",
+      "symbol": "features",
+      "ast_identical": true,
+      "difference": null
+    },
+    {
+      "file": "features.py",
+      "symbol": "verify",
+      "ast_identical": true,
+      "difference": null
+    },
+    {
+      "file": "inference.py",
+      "symbol": "predict",
+      "ast_identical": true,
+      "difference": null
+    },
+    {
+      "file": "inference.py",
+      "symbol": "main",
+      "ast_identical": true,
+      "difference": null
+    },
+    {
+      "file": "metrics.py",
+      "symbol": "binary_metrics",
+      "ast_identical": true,
+      "difference": null
+    },
+    {
+      "file": "metrics.py",
+      "symbol": "summarize",
+      "ast_identical": true,
+      "difference": null
+    },
+    {
+      "file": "metrics.py",
+      "symbol": "compare",
+      "ast_identical": true,
+      "difference": null
+    },
+    {
+      "file": "preprocessing.py",
+      "symbol": "load_config",
+      "ast_identical": true,
+      "difference": null
+    },
+    {
+      "file": "preprocessing.py",
+      "symbol": "load_sources",
+      "ast_identical": true,
+      "difference": null
+    },
+    {
+      "file": "preprocessing.py",
+      "symbol": "taxonomy_from_ifra",
+      "ast_identical": true,
+      "difference": null
+    },
+    {
+      "file": "preprocessing.py",
+      "symbol": "map_labels",
+      "ast_identical": true,
+      "difference": null
+    },
+    {
+      "file": "preprocessing.py",
+      "symbol": "tokens_for",
+      "ast_identical": true,
+      "difference": null
+    },
+    {
+      "file": "preprocessing.py",
+      "symbol": "merge_sources",
+      "ast_identical": true,
+      "difference": null
+    },
+    {
+      "file": "preprocessing.py",
+      "symbol": "review_frozen_preprocessing",
+      "ast_identical": true,
+      "difference": null
+    },
+    {
+      "file": "results.py",
+      "symbol": "main_run",
+      "ast_identical": true,
+      "difference": null
+    },
+    {
+      "file": "runtime.py",
+      "symbol": "digest",
+      "ast_identical": true,
+      "difference": null
+    },
+    {
+      "file": "runtime.py",
+      "symbol": "read",
+      "ast_identical": true,
+      "difference": null
+    },
+    {
+      "file": "runtime.py",
+      "symbol": "write",
+      "ast_identical": true,
+      "difference": null
+    },
+    {
+      "file": "runtime.py",
+      "symbol": "environment",
+      "ast_identical": true,
+      "difference": null
+    },
+    {
+      "file": "runtime.py",
+      "symbol": "compute_profile",
+      "ast_identical": true,
+      "difference": null
+    },
+    {
+      "file": "runtime.py",
+      "symbol": "check_host",
+      "ast_identical": true,
+      "difference": null
+    },
+    {
+      "file": "runtime.py",
+      "symbol": "run_lock",
+      "ast_identical": true,
+      "difference": null
+    },
+    {
+      "file": "runtime.py",
+      "symbol": "Limits",
+      "ast_identical": true,
+      "difference": null
+    },
+    {
+      "file": "runtime.py",
+      "symbol": "save_npz",
+      "ast_identical": true,
+      "difference": null
+    },
+    {
+      "file": "source_identity.py",
+      "symbol": "MoleculeError",
+      "ast_identical": true,
+      "difference": null
+    },
+    {
+      "file": "source_identity.py",
+      "symbol": "parse_molecule",
+      "ast_identical": true,
+      "difference": null
+    },
+    {
+      "file": "source_identity.py",
+      "symbol": "canonical_smiles",
+      "ast_identical": true,
+      "difference": null
+    },
+    {
+      "file": "source_identity.py",
+      "symbol": "normalize",
+      "ast_identical": true,
+      "difference": null
+    },
+    {
+      "file": "source_identity.py",
+      "symbol": "_columns",
+      "ast_identical": true,
+      "difference": null
+    },
+    {
+      "file": "source_identity.py",
+      "symbol": "_key",
+      "ast_identical": true,
+      "difference": null
+    },
+    {
+      "file": "source_identity.py",
+      "symbol": "_unique",
+      "ast_identical": true,
+      "difference": null
+    },
+    {
+      "file": "source_identity.py",
+      "symbol": "_attach_smiles",
+      "ast_identical": true,
+      "difference": null
+    },
+    {
+      "file": "source_identity.py",
+      "symbol": "_truthy",
+      "ast_identical": true,
+      "difference": null
+    },
+    {
+      "file": "source_identity.py",
+      "symbol": "_attach_sigma",
+      "ast_identical": true,
+      "difference": null
+    },
+    {
+      "file": "source_identity.py",
+      "symbol": "_cas_bridge",
+      "ast_identical": true,
+      "difference": null
+    },
+    {
+      "file": "splits.py",
+      "symbol": "inner_folds",
+      "ast_identical": true,
+      "difference": null
+    },
+    {
+      "file": "splits.py",
+      "symbol": "validate_grouped_split",
+      "ast_identical": true,
+      "difference": null
+    },
+    {
+      "file": "training.py",
+      "symbol": "make_model",
+      "ast_identical": true,
+      "difference": null
+    },
+    {
+      "file": "training.py",
+      "symbol": "balanced_sample_weights",
+      "ast_identical": true,
+      "difference": null
+    },
+    {
+      "file": "training.py",
+      "symbol": "fit",
+      "ast_identical": true,
+      "difference": null
+    },
+    {
+      "file": "training.py",
+      "symbol": "fit_final_models",
+      "ast_identical": true,
+      "difference": null
+    },
+    {
+      "file": "tuning.py",
+      "symbol": "atomic_dump",
+      "ast_identical": true,
+      "difference": null
+    },
+    {
+      "file": "tuning.py",
+      "symbol": "event",
+      "ast_identical": true,
+      "difference": null
+    },
+    {
+      "file": "tuning.py",
+      "symbol": "suggest",
+      "ast_identical": true,
+      "difference": null
+    },
+    {
+      "file": "tuning.py",
+      "symbol": "initialize",
+      "ast_identical": true,
+      "difference": null
+    },
+    {
+      "file": "tuning.py",
+      "symbol": "BudgetLimits",
+      "ast_identical": true,
+      "difference": null
+    },
+    {
+      "file": "tuning.py",
+      "symbol": "tune",
+      "ast_identical": true,
+      "difference": null
+    },
+    {
+      "file": "validation.py",
+      "symbol": "cross_validate",
+      "ast_identical": true,
+      "difference": null
+    },
+    {
+      "file": "validation.py",
+      "symbol": "f1_from_metrics",
+      "ast_identical": true,
+      "difference": null
+    },
+    {
+      "file": "validation.py",
+      "symbol": "prediction_diagnostics",
+      "ast_identical": true,
+      "difference": null
+    },
+    {
+      "file": "validation.py",
+      "symbol": "select_validation_thresholds",
+      "ast_identical": true,
+      "difference": null
+    },
+    {
+      "file": "validation.py",
+      "symbol": "repeated_grouped_cv",
+      "ast_identical": true,
+      "difference": null
+    }
+  ],
+  "files_to_install": [
+    {
+      "path": "KODE_ML/03_optuna.py",
+      "sha256": "684e9e0d737098e16839675ff59816befa1288d36abd7fb71e025b4e1a21e41e"
+    },
+    {
+      "path": "KODE_ML/_lokasi.py",
+      "sha256": "61cb5c82c903f6b32bb5c74978f90e05e682105025b26810c5414b38ded8201a"
+    },
+    {
+      "path": "KODE_ML/research/__init__.py",
+      "sha256": "2fcc417bb5637f2c1a86493ace45d5aed29546d47798564b448242537120369a"
+    },
+    {
+      "path": "KODE_ML/research/config/compute.json",
+      "sha256": "d5a3c037be1845cb3fef3458cde8d130807e2c1fbe84cb4e2f53a16e1794fc55"
+    },
+    {
+      "path": "KODE_ML/research/config/dataset.json",
+      "sha256": "c2f990ea905c01f46d21224041f4826f6f5de73b65b957d892fdff3b5610f5f2"
+    },
+    {
+      "path": "KODE_ML/research/config/experiment.json",
+      "sha256": "9c65c0bb98e06d8ddfa2f6505c7a84f094cd3fe8db182db39d56563a2a75779e"
+    },
+    {
+      "path": "KODE_ML/research/config/sources.json",
+      "sha256": "781ce2a3cdb915b2ba62be55647aea96ffe0bba85981437879a0dfad67587ccf"
+    },
+    {
+      "path": "KODE_ML/research/dataset.py",
+      "sha256": "8dc2ecbc33f556fd0f4b1b655fe8c728de1ccc141bfc1af7b6fd45781b2caeb3"
+    },
+    {
+      "path": "KODE_ML/research/experiment.py",
+      "sha256": "45db31726b7d08049b93aa36da731f5db7610a4ff51bc75789c9bf1ab1b32d79"
+    },
+    {
+      "path": "KODE_ML/research/features.py",
+      "sha256": "8a1774f10afe12c65985b1e326903f5509ad68814a61f6cb2d7df086f14564d0"
+    },
+    {
+      "path": "KODE_ML/research/inference.py",
+      "sha256": "a9cdd7d49ed7a308134c9d6b82b47f1cbfcd720a9c58d02511ecf78a9b432a4a"
+    },
+    {
+      "path": "KODE_ML/research/metrics.py",
+      "sha256": "b476b48133b6b5c9f62f2424f68c72c33cc8ffd2c4a531a64d659878a86f0d67"
+    },
+    {
+      "path": "KODE_ML/research/preprocessing.py",
+      "sha256": "91aaeca7a9a9b6bb0cfae5349168c1205f62fb588496961c58193be96fb7ef14"
+    },
+    {
+      "path": "KODE_ML/research/results.py",
+      "sha256": "724762a4e03ec358000821ecddff0d86436e1983256b8b0e6b3adacdb63b5f2d"
+    },
+    {
+      "path": "KODE_ML/research/runtime.py",
+      "sha256": "9a66f6e7d64d453435ba9320cce169065fa6a85cbcc9b7edcfccb1951c30a867"
+    },
+    {
+      "path": "KODE_ML/research/source_identity.py",
+      "sha256": "36fb057eb35996f5a0f386712d6ce07896cb4ff9ef3675ead78325e8fecbccc6"
+    },
+    {
+      "path": "KODE_ML/research/splits.py",
+      "sha256": "9386cb3804ad90592c9a3b9e11cbffcb28023754ab069e10fc82c4aa1e90d2f0"
+    },
+    {
+      "path": "KODE_ML/research/tests/test_research_readonly.py",
+      "sha256": "aaa51ee9fc686fe24082927224658da728994167be17d1343f57e1162c541f66"
+    },
+    {
+      "path": "KODE_ML/research/training.py",
+      "sha256": "4b8f34ca70a8263b3a8a25e7c0e2b3e46bc1e8767be2149ec7cf4c804024e184"
+    },
+    {
+      "path": "KODE_ML/research/tuning.py",
+      "sha256": "af497eb63c357a7f08bd7f1e3a3a73966ca925bf267b96d2de09bb1122b92531"
+    },
+    {
+      "path": "KODE_ML/research/validation.py",
+      "sha256": "7c0f86601d8c619b7a2c1d76e86659ab41bd0533f0cdac2a5f99700624877c6c"
+    },
+    {
+      "path": "research/__init__.py",
+      "sha256": "ae12b2df28303bf7d61c9c46f4891df3c0b2ce6370556bb66b5ac9a0863f7e2a"
+    }
+  ],
+  "original_files_to_archive_before_install": [
+    "research/__init__.py",
+    "research/config/compute.json",
+    "research/config/dataset.json",
+    "research/config/experiment.json",
+    "research/config/sources.json",
+    "research/dataset.py",
+    "research/experiment.py",
+    "research/features.py",
+    "research/inference.py",
+    "research/metrics.py",
+    "research/preprocessing.py",
+    "research/results.py",
+    "research/runtime.py",
+    "research/source_identity.py",
+    "research/splits.py",
+    "research/tests/test_research_readonly.py",
+    "research/training.py",
+    "research/tuning.py",
+    "research/validation.py"
+  ],
+  "execution_limit": "No training; full notebook tests belong to parent integration. Old source remains untouched."
+}

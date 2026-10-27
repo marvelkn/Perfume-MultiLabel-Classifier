@@ -1,0 +1,182 @@
+{
+  "date": "2026-10-27",
+  "scope": "read-only, no fitting or dataset modification",
+  "run": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\.local-tools\\campus-transfer-full-20260909\\perfume-campus-grouped-v7-m2048-d8\\perfume-campus-grouped-v7-m2048-d8\\runs\\perfume-five-grouped-v7-m2048-d8",
+  "primary_manifest_files_verified": 1199,
+  "source_changed_since_oct26": [],
+  "all_eight_test_results_independently_recomputed": [
+    {
+      "candidate": "xgb_A",
+      "metrics": {
+        "accuracy": 0.9354081639675974,
+        "auroc": 0.8092324041736538,
+        "auprc": 0.24904336857499657,
+        "specificity": 0.9484943706075754,
+        "precision": 0.22832404373841908,
+        "recall": 0.38592147347284406,
+        "macro_f1_0_5": 0.27489921335700046
+      },
+      "max_abs_error": 2.7755575615628914e-17,
+      "exact_match_accuracy": 0.0037509377344336083,
+      "hamming_loss": 0.0645918360324026
+    },
+    {
+      "candidate": "xgb_B",
+      "metrics": {
+        "accuracy": 0.9459107896240114,
+        "auroc": 0.8226356254890262,
+        "auprc": 0.2881245127414022,
+        "specificity": 0.9602845019212957,
+        "precision": 0.2847628607141487,
+        "recall": 0.37044971154911,
+        "macro_f1_0_5": 0.3118348171340479
+      },
+      "max_abs_error": 5.551115123125783e-17,
+      "exact_match_accuracy": 0.007501875468867217,
+      "hamming_loss": 0.054089210375988496
+    },
+    {
+      "candidate": "xgb_C",
+      "metrics": {
+        "accuracy": 0.9204112954844216,
+        "auroc": 0.8250342034564736,
+        "auprc": 0.27302900360725957,
+        "specificity": 0.9304005019557173,
+        "precision": 0.197872998221746,
+        "recall": 0.4866152837287541,
+        "macro_f1_0_5": 0.27036936535551914
+      },
+      "max_abs_error": 5.551115123125783e-17,
+      "exact_match_accuracy": 0.0,
+      "hamming_loss": 0.07958870451557844
+    },
+    {
+      "candidate": "xgb_D",
+      "metrics": {
+        "accuracy": 0.9336875503279489,
+        "auroc": 0.8385461654476637,
+        "auprc": 0.30882705928454685,
+        "specificity": 0.944486725016124,
+        "precision": 0.2348199390641535,
+        "recall": 0.4755210645578712,
+        "macro_f1_0_5": 0.3059022781505884
+      },
+      "max_abs_error": 0.0,
+      "exact_match_accuracy": 0.003000750187546887,
+      "hamming_loss": 0.06631244967205104
+    },
+    {
+      "candidate": "lgbm_A",
+      "metrics": {
+        "accuracy": 0.9393793402479059,
+        "auroc": 0.8094169689198496,
+        "auprc": 0.2528367419087412,
+        "specificity": 0.9530522899888152,
+        "precision": 0.24015994753170036,
+        "recall": 0.36074893852818557,
+        "macro_f1_0_5": 0.27718435550030784
+      },
+      "max_abs_error": 0.0,
+      "exact_match_accuracy": 0.002250562640660165,
+      "hamming_loss": 0.060620659752093985
+    },
+    {
+      "candidate": "lgbm_B",
+      "metrics": {
+        "accuracy": 0.9488495977205311,
+        "auroc": 0.8258132849586343,
+        "auprc": 0.29637954623823043,
+        "specificity": 0.963098016223098,
+        "precision": 0.2988004536851239,
+        "recall": 0.3684955710002642,
+        "macro_f1_0_5": 0.32072117263695604
+      },
+      "max_abs_error": 0.0,
+      "exact_match_accuracy": 0.01350337584396099,
+      "hamming_loss": 0.05115040227946895
+    },
+    {
+      "candidate": "lgbm_C",
+      "metrics": {
+        "accuracy": 0.9031982766333785,
+        "auroc": 0.8279120094445422,
+        "auprc": 0.27646066435684397,
+        "specificity": 0.9108729664735815,
+        "precision": 0.17302959937553392,
+        "recall": 0.546477854223878,
+        "macro_f1_0_5": 0.25221954454812795
+      },
+      "max_abs_error": 1.1102230246251565e-16,
+      "exact_match_accuracy": 0.0,
+      "hamming_loss": 0.09680172336662148
+    },
+    {
+      "candidate": "lgbm_D",
+      "metrics": {
+        "accuracy": 0.9236598140360778,
+        "auroc": 0.8429847228194061,
+        "auprc": 0.31053132430322494,
+        "specificity": 0.9326110489793744,
+        "precision": 0.21386187491251393,
+        "recall": 0.5150894752128065,
+        "macro_f1_0_5": 0.2931560845565358
+      },
+      "max_abs_error": 0.0,
+      "exact_match_accuracy": 0.0007501875468867217,
+      "hamming_loss": 0.07634018596392217
+    }
+  ],
+  "primary_selected": "lgbm_D",
+  "all_zero_prediction_accuracy": 0.9609696001982146,
+  "label_test_support_min": 2,
+  "label_test_support_max": 511,
+  "notebooks_saved_outputs": {
+    "01_Sumber_Data.ipynb": {
+      "code_cells": 16,
+      "unexecuted": 0,
+      "error_outputs": 0
+    },
+    "02_Preprocessing_dan_Audit_Label.ipynb": {
+      "code_cells": 16,
+      "unexecuted": 0,
+      "error_outputs": 0
+    },
+    "03_Dataset_dan_Fitur.ipynb": {
+      "code_cells": 14,
+      "unexecuted": 0,
+      "error_outputs": 0
+    },
+    "04_Grup_Split_dan_Fold.ipynb": {
+      "code_cells": 9,
+      "unexecuted": 0,
+      "error_outputs": 0
+    },
+    "05_Model_dan_Bobot.ipynb": {
+      "code_cells": 10,
+      "unexecuted": 0,
+      "error_outputs": 0
+    },
+    "06_Optuna_CV_dan_OOF.ipynb": {
+      "code_cells": 19,
+      "unexecuted": 0,
+      "error_outputs": 0
+    },
+    "07_Evaluasi_dan_Pemilihan.ipynb": {
+      "code_cells": 31,
+      "unexecuted": 0,
+      "error_outputs": 0
+    },
+    "08_Prediksi_Molekul.ipynb": {
+      "code_cells": 10,
+      "unexecuted": 0,
+      "error_outputs": 0
+    }
+  },
+  "notebook_packages_installed": {
+    "nbformat": true,
+    "IPython": false,
+    "ipykernel": false,
+    "nbclient": false,
+    "nbconvert": false
+  }
+}
