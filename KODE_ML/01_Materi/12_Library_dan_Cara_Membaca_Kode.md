@@ -55,7 +55,7 @@ Python sudah membawa **standard library**. Pada sumber aktif, kelompoknya antara
 
 ## Contoh membaca fungsi per baris
 
-Buka `KODE_ML/research/features.py`, fungsi `molecule`, baris 12–16. Ini potongan asli:
+Buka `KODE_ML/03_Kode/features.py`, fungsi `molecule`, baris 12–16. Ini potongan asli:
 
 ```python
 def molecule(smiles, index):

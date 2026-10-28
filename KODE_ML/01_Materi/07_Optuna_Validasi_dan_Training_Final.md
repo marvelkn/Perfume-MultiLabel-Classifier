@@ -21,7 +21,7 @@ A/C memakai Morgan 2.048 saja; B/D memakai Morgan 2.048 ditambah delapan deskrip
 
 ## Baca satu trial dahulu
 
-Sumber: `KODE_ML/research/tuning.py`, fungsi `tune`, mulai baris 72. Potongan asli baris 98–105:
+Sumber: `KODE_ML/03_Kode/tuning.py`, fungsi `tune`, mulai baris 72. Potongan asli baris 98–105:
 
 ```python
                     params=suggest(trial,algorithm,protocol)
@@ -44,7 +44,7 @@ Nama kunci `auprc` di sini dihitung sebagai **Average Precision atau AP**, bukan
 
 **Fold** adalah bagian data untuk latihan dan pengecekan bergantian. Pada satu putaran, sebagian baris menjadi train fold dan sebagian menjadi validation fold. Model hanya belajar dari train fold, lalu menebak validation fold yang belum dipakai belajar pada putaran tersebut.
 
-Lihat `KODE_ML/research/validation.py`, fungsi `cross_validate`, baris 34–41:
+Lihat `KODE_ML/03_Kode/validation.py`, fungsi `cross_validate`, baris 34–41:
 
 ```python
         for fold_index, fold in enumerate(folds[name]):
@@ -71,7 +71,7 @@ Pemilihan memakai rata-rata macro AP kelima seed. Nilainya bisa berbeda dari AP 
 
 ## Model final dan batas kesimpulan
 
-`KODE_ML/research/experiment.py`, `run_all`, baris 232–301 mengatur urutan ini. Setelah keputusan dibekukan, `fit_final_models` belajar ulang memakai seluruh train. Model final ini berbeda dari model sementara setiap fold. Test tidak ikut final fit.
+`KODE_ML/03_Kode/experiment.py`, `run_all`, baris 232–301 mengatur urutan ini. Setelah keputusan dibekukan, `fit_final_models` belajar ulang memakai seluruh train. Model final ini berbeda dari model sementara setiap fold. Test tidak ikut final fit.
 
 Hasil tersimpan memilih **xgb_D** dalam XGBoost dan **lgbm_D** dalam LightGBM. Pilihan keseluruhan adalah **lgbm_D**. Bukti dibaca dari `complete.json`, melalui lokasi hasil yang ditetapkan `results.main_run()`, bukan menebak folder dengan angka versi terbesar.
 

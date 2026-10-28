@@ -2,7 +2,7 @@
 
 ## Tujuan dan file yang dibuka
 
-Di akhir bab ini kamu bisa memperlihatkan data sebelum preprocessing dan menjelaskan bagaimana satu anotasi aroma ditemukan SMILES-nya. Mulai dari notebook **01_Sumber_Data.ipynb** dan folder **DATA_UNTUK_BELAJAR/01_SEBELUM_PREPROCESSING/**.
+Di akhir bab ini kamu bisa memperlihatkan data sebelum preprocessing dan menjelaskan bagaimana satu anotasi aroma ditemukan SMILES-nya. Mulai dari notebook **01_Sumber_Data.ipynb** dan folder **02_Data/01_Data_Mentah/**.
 
 Jangan membayangkan dataset awal sudah berupa satu tabel rapi berisi 2056 angka dan 109 target. Snapshot awal punya **15 CSV dari lima sumber**. Tiap sumber punya tabel molekul, tabel penghubung stimulus, dan tabel anotasi aroma.
 
@@ -12,7 +12,7 @@ Jangan membayangkan dataset awal sudah berupa satu tabel rapi berisi 2056 angka 
 | stimuli.csv | Stimulus dan penghubung CID/CAS | Menyambungkan anotasi ke molekul |
 | behavior.csv | Anotasi aroma | Mengetahui label yang dicatat sumber |
 
-Arctander memakai nama `behavior_1_sparse.csv`. Nama kolom tidak seragam, jadi cara membaca anotasinya mengikuti sumbernya. GoodScents memakai teks yang dipisahkan titik koma; IFRA punya tiga kolom descriptor; Leffingwell memakai kolom 0/1; Sigma memakai nilai True/False. Aturan ini benar-benar ada di `research/preprocessing.py`, fungsi `tokens_for`.
+Arctander memakai nama `behavior_1_sparse.csv`. Nama kolom tidak seragam, jadi cara membaca anotasinya mengikuti sumbernya. GoodScents memakai teks yang dipisahkan titik koma; IFRA punya tiga kolom descriptor; Leffingwell memakai kolom 0/1; Sigma memakai nilai True/False. Aturan ini benar-benar ada di `03_Kode/preprocessing.py`, fungsi `tokens_for`.
 
 ## Mengapa ada penghubung identitas?
 
@@ -31,7 +31,7 @@ Untuk mencarinya, buka CSV GoodScents lalu cari CID `1183` di molecules dan `121
 
 ## Kode asli: menyambungkan tabel
 
-Buka `research/source_identity.py`, fungsi `_attach_smiles`. Potongan berikut benar-benar bagian implementasinya:
+Buka `03_Kode/source_identity.py`, fungsi `_attach_smiles`. Potongan berikut benar-benar bagian implementasinya:
 
 ```python
 frame = beh.merge(bridge, on="Stimulus", how="left", validate="many_to_one")
@@ -44,9 +44,9 @@ Sigma punya jalur khusus `_attach_sigma` dan `_cas_bridge`: alias CAS harus menu
 
 ## Snapshot dan config itu untuk apa?
 
-`research/config/sources.json` mencatat lima sumber, nama CSV, commit snapshot, aturan dukungan label dan split. Commit adalah penanda versi data. `load_sources()` membaca snapshot lokal dan membandingkan SHA256 file dengan manifest. SHA256 bisa dibayangkan sebagai sidik jari isi file: perubahan isi akan membuat nilainya berubah.
+`03_Kode/config/sources.json` mencatat lima sumber, nama CSV, commit snapshot, aturan dukungan label dan split. Commit adalah penanda versi data. `load_sources()` membaca snapshot lokal dan membandingkan SHA256 file dengan manifest. SHA256 bisa dibayangkan sebagai sidik jari isi file: perubahan isi akan membuat nilainya berubah.
 
-Ini membantu memastikan data yang diperiksa sama dengan arsip penelitian. Tidak ada unduhan otomatis ketika notebook belajar membaca snapshot. Konfigurasi fitur model saat ini ada di `research/config/experiment.json`; jangan menyamakan seluruh config dengan pengaturan fingerprint.
+Ini membantu memastikan data yang diperiksa sama dengan arsip penelitian. Tidak ada unduhan otomatis ketika notebook belajar membaca snapshot. Konfigurasi fitur model saat ini ada di `03_Kode/config/experiment.json`; jangan menyamakan seluruh config dengan pengaturan fingerprint.
 
 ## Alur jumlah data yang benar
 
@@ -59,7 +59,7 @@ Ini membantu memastikan data yang diperiksa sama dengan arsip penelitian. Tidak 
 
 13.337 bukan jumlah molekul unik. Satu molekul bisa muncul di beberapa sumber atau beberapa catatan. Penggabungan dilakukan berdasarkan SMILES canonical yang masih mempertahankan informasi stereo.
 
-Ini bukti yang dipakai: `02_SETELAH_PREPROCESSING/audit.json`, `records.csv` dan `provenance.json`. Provenance menjawab 'baris bersih ini berasal dari sumber/baris yang mana?'. Mengetahui asal data membantu kamu menjawab dosen tanpa menyebut hasil gabungan sebagai data mentah.
+Ini bukti yang dipakai: `02_Data_Bersih/audit.json`, `records.csv` dan `provenance.json`. Provenance menjawab 'baris bersih ini berasal dari sumber/baris yang mana?'. Mengetahui asal data membantu kamu menjawab dosen tanpa menyebut hasil gabungan sebagai data mentah.
 
 ## Latihan dan pertanyaan sidang
 

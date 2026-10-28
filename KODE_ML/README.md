@@ -1,20 +1,41 @@
 # Mulai belajar di sini
 
+## Folder mana yang perlu dibuka?
+
+| Folder | Isinya |
+|---|---|
+| **01_Materi** | Penjelasan dari nol sampai latihan sidang |
+| **02_Data** | Data mentah, data bersih, dan angka siap training |
+| **03_Kode** | Kode asli preprocessing, model, training, evaluasi dan prediksi |
+| **04_Hasil** | Angka hasil eksperimen dan parameter model |
+| **05_Referensi** | Paper acuan dan salinan bab skripsi |
+| **06_Audit_Label** | Pemeriksaan istilah dan label aroma |
+
+**Mulai dari MULAI_BELAJAR.md**, lalu 01_Materi. Notebook 01-08 tetap ada di folder utama ini.
+Di dalam 02_Data, urutannya **01_Data_Mentah -> 02_Data_Bersih -> 03_Siap_Training**.
+
+Folder kode sekarang bernama **03_Kode**, tetapi nama import Python tetap **research**. Jadi command `python -m research.experiment --check` tetap berlaku. Setelah pindah folder, restart kernel notebook sebelum menjalankan sel.
+
+Nama sumber data serta xgb_A sampai lgbm_D dipertahankan sebagai identitas sumber/kandidat. `xgb` berarti XGBoost; `lgbm` berarti LightGBM; `robustness` berisi hasil validasi berulang. Tidak perlu membuka semuanya saat mulai belajar.
+
+Catatan verifikasi lama tetap menyimpan alamat pada tanggal auditnya. Gunakan **PETA_FOLDER.json** untuk mencocokkan alamat lama dengan lokasi sekarang.
+
+
 ## Panduan dari nol sampai sidang
 
 Buka **[MULAI_BELAJAR.md](MULAI_BELAJAR.md)** sebelum masuk notebook. Ada urutan belajar 10 sesi, **[PDF lengkap](PANDUAN_BELAJAR_DARI_NOL.pdf)**, materi per bab, contoh hitungan, penjelasan library, peta fungsi, latihan sidang dan **[checklist progres](CHECKLIST_BELAJAR.md)**. Hari pertama cukup pengantar dan bab 01.
 
-[HASIL_UNTUK_BELAJAR](HASIL_UNTUK_BELAJAR/README.md) menyimpan salinan hasil asli; [REFERENSI_BELAJAR](REFERENSI_BELAJAR/README.md) berisi paper dan snapshot bab laporan. Source aktif tetap research di folder ini.
+[04_Hasil](04_Hasil/README.md) menyimpan salinan hasil asli; [05_Referensi](05_Referensi/README.md) berisi paper dan snapshot bab laporan. Source aktif ada di 03_Kode.
 
-**Status aplikasi terbaru (27 Oktober 2026):** prototipe API RDKit + 109 ONNX tersedia dan telah diuji terbatas. Parity desktop diverifikasi; demo Android sebelumnya tercatat. Pengujian luas dan hosting produksi belum selesai. Ikuti [audit terbaru](HASIL_UNTUK_BELAJAR/audit_27_oktober/README.md); tulisan ONNX ditunda pada dokumen backend lama sudah usang.
+**Status aplikasi terbaru (27 Oktober 2026):** prototipe API RDKit + 109 ONNX tersedia dan telah diuji terbatas. Parity desktop diverifikasi; demo Android sebelumnya tercatat. Pengujian luas dan hosting produksi belum selesai. Ikuti [audit terbaru](04_Hasil/audit_27_oktober/README.md); tulisan ONNX ditunda pada dokumen backend lama sudah usang.
 
 ## Salinan data sebelum dan sesudah preprocessing
 
-Buka [DATA_UNTUK_BELAJAR/README.md](DATA_UNTUK_BELAJAR/README.md) kalau mau langsung melihat datanya.
+Buka [02_Data/README.md](02_Data/README.md) kalau mau langsung melihat datanya.
 
-- **01_SEBELUM_PREPROCESSING:** 15 CSV mentah dari lima sumber, disalin persis.
-- **02_SETELAH_PREPROCESSING:** 6.686 molekul hasil cleaning/gabung, beserta alasan penolakan dan pembagian data.
-- **03_SIAP_TRAINING_2048_8:** fitur 2048+8 dan target 109 label yang sudah dipisahkan menjadi train/test; ada CSV target supaya mudah dibuka.
+- **01_Data_Mentah:** 15 CSV mentah dari lima sumber, disalin persis.
+- **02_Data_Bersih:** 6.686 molekul hasil cleaning/gabung, beserta alasan penolakan dan pembagian data.
+- **03_Siap_Training:** fitur 2048+8 dan target 109 label yang sudah dipisahkan menjadi train/test; ada CSV target supaya mudah dibuka.
 
 Ini salinan tambahan untuk belajar. Notebook dan program penelitian tetap membaca data asli; tidak ada training ulang atau perubahan model.
 
@@ -64,7 +85,7 @@ tanpa mengubah environment ML penelitian.
 
 ## Mengapa masih ada file Python?
 
-`research/` **di dalam folder ini** adalah satu-satunya source aktif penelitian.
+`03_Kode/` **di dalam folder ini** adalah satu-satunya source aktif penelitian.
 Notebook mengimpor fungsi dari sana, menampilkan source fungsi yang sama lengkap dengan file/baris/SHA,
 lalu memanggilnya pada data nyata. Ini mencegah dua implementasi berbeda antara notebook dan program.
 Source tidak disalin menjadi definisi fungsi kedua di notebook.
@@ -75,29 +96,29 @@ Jika source berubah, jalankan ulang notebook agar tampilan source/output ikut di
 
 | Source dalam KODE_ML | Notebook utama | Peran |
 |---|---|---|
-| research/source_identity.py | 01, 02 | Validasi molekul, join identitas, normalisasi istilah |
-| research/preprocessing.py | 01, 02 | Membaca snapshot, taksonomi, alias, cleaning dan gabung molekul |
+| 03_Kode/source_identity.py | 01, 02 | Validasi molekul, join identitas, normalisasi istilah |
+| 03_Kode/preprocessing.py | 01, 02 | Membaca snapshot, taksonomi, alias, cleaning dan gabung molekul |
 | audit_labels.py | 02 | Pemeriksaan token/alias dan rekonsiliasi tambahan; bukan perubahan mapper |
-| research/dataset.py | 03 | Verifikasi data dan memasangkan X aktual dengan y/indeks beku |
-| research/features.py | 03 | Morgan 2048 dan delapan angka deskriptor |
+| 03_Kode/dataset.py | 03 | Verifikasi data dan memasangkan X aktual dengan y/indeks beku |
+| 03_Kode/features.py | 03 | Morgan 2048 dan delapan angka deskriptor |
 | asal_kohor.py | 04 | Kode asli grup/outer split/seleksi target untuk audit sejarah kohor |
-| research/splits.py | 04 | Fold per label dan pemeriksaan pemisahan kelompok |
-| research/training.py | 05 | Estimator, bobot, fit, final fit dan checkpoint |
-| research/tuning.py | 06 | Ruang pencarian, TPE, budget dan resume |
-| research/validation.py | 06 | CV, OOF dan pemilihan ambang tambahan |
-| research/experiment.py | 07 | Urutan delapan kandidat, freeze sebelum test, hasil akhir |
-| research/metrics.py | 07 | Enam metrik dan perbandingan |
-| research/inference.py, research/results.py | 08 | Prediksi dan lokasi hasil utama |
-| research/runtime.py | 07 | Input/output, identitas source, profil CPU dan penjagaan eksekusi |
+| 03_Kode/splits.py | 04 | Fold per label dan pemeriksaan pemisahan kelompok |
+| 03_Kode/training.py | 05 | Estimator, bobot, fit, final fit dan checkpoint |
+| 03_Kode/tuning.py | 06 | Ruang pencarian, TPE, budget dan resume |
+| 03_Kode/validation.py | 06 | CV, OOF dan pemilihan ambang tambahan |
+| 03_Kode/experiment.py | 07 | Urutan delapan kandidat, freeze sebelum test, hasil akhir |
+| 03_Kode/metrics.py | 07 | Enam metrik dan perbandingan |
+| 03_Kode/inference.py, 03_Kode/results.py | 08 | Prediksi dan lokasi hasil utama |
+| 03_Kode/runtime.py | 07 | Input/output, identitas source, profil CPU dan penjagaan eksekusi |
 | belajar.py | Semua | Menampilkan source; tidak menentukan hasil ML |
 
 Folder `research/` di **root proyek** hanya berisi penghubung import,
-agar perintah `python -m research.experiment` tetap memakai source di **KODE_ML/research/**.
+agar perintah `python -m research.experiment` tetap memakai source di **KODE_ML/03_Kode/**.
 Tidak ada salinan logika kedua di sana. File API/src aplikasi lama tidak termasuk jalur penelitian ini.
 
 ## Konfigurasi yang benar-benar dipakai
 
-| File di research/config | Isi |
+| File di 03_Kode/config | Isi |
 |---|---|
 | sources.json | Lima sumber, commit snapshot, syarat dukungan label, kebijakan split |
 | dataset.json | Kontrak ukuran/urutan dan hash artefak beku |
@@ -119,19 +140,19 @@ Dari 45.689 kemunculan istilah yang mencapai mapper, 37.940 cocok exact setelah 
 3.898 baris diterima tetap mempunyai sebagian token yang tidak ikut sebagai label.
 Ini berbeda dari 1.230 token yang berhasil dipetakan, tetapi labelnya kemudian tidak memenuhi dukungan train.
 
-Semua daftar lengkap ada di [hasil_audit_label](hasil_audit_label/), khususnya
-[temuan audit](hasil_audit_label/LABEL_AUDIT_FINDINGS.md), [unmatched_terms.csv](hasil_audit_label/unmatched_terms.csv),
-dan [taxonomy_selection.csv](hasil_audit_label/taxonomy_selection.csv).
+Semua daftar lengkap ada di [06_Audit_Label](06_Audit_Label/), khususnya
+[temuan audit](06_Audit_Label/LABEL_AUDIT_FINDINGS.md), [unmatched_terms.csv](06_Audit_Label/unmatched_terms.csv),
+dan [taxonomy_selection.csv](06_Audit_Label/taxonomy_selection.csv).
 Belum ada penambahan fuzzy/alias baru: kesetaraan aturan terbukti, validitas makna semua istilah belum terbukti.
 
 ## Data dan hasil berada di mana?
 
-Data dan model utama tetap di lokasi asli berikut. Salinan data tambahan untuk belajar ada di DATA_UNTUK_BELAJAR; model tidak disalin ke sana:
+Data dan model utama tetap di lokasi asli berikut. Salinan data tambahan untuk belajar ada di 02_Data; model tidak disalin ke sana:
 
 - `../data/snapshots/perfume-five-v1/8054ea98ed675005ec10e67359902f500e4911b0/`: CSV mentah.
 - `../data/builds/perfume-five-grouped-v2/`: 6.686 records, 109 target, train 5.353/test 1.333, grup dan split.
 - `../data/builds/perfume-m2048-d8-v7/features.npz`: fitur model aktual 2048+8.
-- Folder hasil berikut, ditentukan secara eksplisit oleh `research/results.py`:
+- Folder hasil berikut, ditentukan secara eksplisit oleh `03_Kode/results.py`:
 
 ```text
 ../.local-tools/campus-transfer-full-20260909/

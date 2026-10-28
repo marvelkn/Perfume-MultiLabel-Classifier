@@ -2,7 +2,7 @@
 
 Kamu nggak perlu langsung paham semua kode. Target awalnya cukup: kamu bisa cerita apa yang masuk, apa yang dikerjakan, dan apa yang keluar. Setelah alurnya nyambung, baru kita bongkar satu bagian setiap sesi.
 
-Panduan ini diperiksa terhadap source, data, dan hasil yang tersedia pada **27 Oktober 2026**. Hasil utama yang dibahas adalah arsip eksperimen utama lima sumber, Morgan 2048 dan delapan deskriptor. Nama arsip V7 bukan nama metode. Eksperimen tambahan V8/V9 tidak dicampur ke tabel hasil utama.
+Isi penelitian diperiksa pada **27 Oktober 2026**; nama folder dan tautannya dirapikan pada **28 Oktober 2026**. Hasil utama yang dibahas adalah arsip eksperimen utama lima sumber, Morgan 2048 dan delapan deskriptor. Nama arsip V7 bukan nama metode. Eksperimen tambahan V8/V9 tidak dicampur ke tabel hasil utama.
 
 ## Satu cerita yang perlu kamu pegang
 
@@ -33,19 +33,20 @@ Kenapa teori dulu? Kalau langsung lihat `fit()` sebelum tahu apa itu X dan y, ko
 
 ## Cara menggunakan folder ini
 
-Folder `MATERI_BELAJAR/` berisi versi per bab dari panduan ini. Baca materi konsep dulu, lalu buka notebook yang disebutkan. Source asli ada di **KODE_ML/research/**. Notebook memanggil dan menampilkan fungsi dari source itu; kamu tidak sedang belajar algoritma pengganti.
+Folder `01_Materi/` berisi versi per bab dari panduan ini. Baca materi konsep dulu, lalu buka notebook yang disebutkan. Source asli ada di **KODE_ML/03_Kode/**. Nama import Python tetap **research** lewat penghubung di root proyek. Restart kernel notebook setelah perubahan lokasi folder. Notebook memanggil dan menampilkan fungsi dari source itu; kamu tidak sedang belajar algoritma pengganti.
 
 | Yang kamu cari | Buka dari KODE_ML |
 |---|---|
 | Urutan belajar dan progres | MULAI_BELAJAR.md dan CHECKLIST_BELAJAR.md |
 | Panduan lengkap untuk dibaca | PANDUAN_BELAJAR_DARI_NOL.pdf |
-| Penjelasan tiap bab | MATERI_BELAJAR/00 sampai 10 |
+| Penjelasan tiap bab | 01_Materi/00 sampai 10 |
 | Praktik tahap demi tahap | Delapan notebook bernomor 01 sampai 08 |
-| Implementasi aktif | `research/*.py` dan `research/config/*.json` |
-| Data mentah, bersih dan siap training | DATA_UNTUK_BELAJAR/README.md |
-| Angka hasil dan parameter tersimpan | HASIL_UNTUK_BELAJAR/README.md |
-| Paper acuan dan daftar bacaan | REFERENSI_BELAJAR/README.md |
-| Cuplikan source dengan baris dan hash | MATERI_BELAJAR/11_Peta_Source_dan_Cuplikan.md |
+| Implementasi aktif | `03_Kode/*.py` dan `03_Kode/config/*.json` |
+| Data mentah, bersih dan siap training | 02_Data/README.md |
+| Angka hasil dan parameter tersimpan | 04_Hasil/README.md |
+| Paper acuan dan daftar bacaan | 05_Referensi/README.md |
+| Pemeriksaan istilah dan label | 06_Audit_Label/README.md |
+| Cuplikan source dengan baris dan hash | 01_Materi/11_Peta_Source_dan_Cuplikan.md |
 
 Nama notebook panjang `BELAJAR_KODE_ML_LENGKAP.ipynb` sudah menjadi arsip. Yang aktif sekarang delapan notebook. Urutannya untuk belajar, bukan kewajiban menjalankan notebook 01 dulu agar notebook 08 bisa berjalan.
 

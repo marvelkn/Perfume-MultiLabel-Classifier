@@ -19,6 +19,6 @@ Ini salinan byte-identik dari hasil utama yang dikunci. Bukan training baru. Buk
 | audit_label_summary.json | Rekonsiliasi mapping istilah |
 | audit_27_oktober/README.md | Audit dan keterbatasan terbaru |
 
-Nama file arsip bukan nama metode. Hasil tambahan V8/V9 tidak dimasukkan ke sini. Notebook tetap membaca artefak asli melalui research/results.py. Model .joblib tidak diduplikasi; notebook08 otomatis memuatnya dari hasil utama.
+Nama file arsip bukan nama metode. Hasil tambahan V8/V9 tidak dimasukkan ke sini. Notebook tetap membaca artefak asli melalui 03_Kode/results.py. Model .joblib tidak diduplikasi; notebook08 otomatis memuatnya dari hasil utama.
 
 Daftar asal, checksum dan ukuran setiap salinan tercatat di **../ASAL_BAHAN_BELAJAR.json**. Jika hasil asli berubah pada masa mendatang, ini tetap snapshot tanggal 27 Oktober 2026. Cocokkan kembali sebelum memakai untuk laporan baru.

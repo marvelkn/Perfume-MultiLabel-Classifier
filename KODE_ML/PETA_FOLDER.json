@@ -1,0 +1,1446 @@
+{
+  "tanggal": "2026-10-28",
+  "penjelasan": "Nama folder dan navigasi diperbarui. Bukti audit/manifest lama tetap menyimpan lokasi pada tanggal asalnya. Cocokkan lokasi tersebut dengan tabel ini; checksum bukti lama tidak ditulis ulang.",
+  "folder_mapping": {
+    "MATERI_BELAJAR": "01_Materi",
+    "DATA_UNTUK_BELAJAR": "02_Data",
+    "research": "03_Kode",
+    "HASIL_UNTUK_BELAJAR": "04_Hasil",
+    "REFERENSI_BELAJAR": "05_Referensi",
+    "hasil_audit_label": "06_Audit_Label",
+    "01_SEBELUM_PREPROCESSING": "01_Data_Mentah",
+    "02_SETELAH_PREPROCESSING": "02_Data_Bersih",
+    "03_SIAP_TRAINING_2048_8": "03_Siap_Training",
+    "laporan_snapshot": "Laporan"
+  },
+  "files": [
+    {
+      "sebelum": "KODE_ML/01_Sumber_Data.ipynb",
+      "sekarang": "KODE_ML/01_Sumber_Data.ipynb",
+      "sha256_sebelum": "e81157c966aa06973c5afaa73f7b7bef302c4035a338774890cd55a0c0ba4648",
+      "sha256_sekarang": "5c302310c3da431b6e4b43f02f0df452e8d8cfc6e7f5eef8e6ff3aacb5ac5334",
+      "isi_sama": false
+    },
+    {
+      "sebelum": "KODE_ML/02_Preprocessing_dan_Audit_Label.ipynb",
+      "sekarang": "KODE_ML/02_Preprocessing_dan_Audit_Label.ipynb",
+      "sha256_sebelum": "07ba2fc200366950e9be4cb54716185cb5082a187417517971137e80c621ccb6",
+      "sha256_sekarang": "d98609b0407773686529140d58e68ec1245a330a0ce93fab1debbac6b611896b",
+      "isi_sama": false
+    },
+    {
+      "sebelum": "KODE_ML/03_Dataset_dan_Fitur.ipynb",
+      "sekarang": "KODE_ML/03_Dataset_dan_Fitur.ipynb",
+      "sha256_sebelum": "ae09e21b999dd546b4e220d88fabf3fff1e4a1f6e2a81d21f3e74b369ecdf3cf",
+      "sha256_sekarang": "2f606125f5e13bebcbc773e167299ccc423caf57bdb0be2295afa7df74782e2a",
+      "isi_sama": false
+    },
+    {
+      "sebelum": "KODE_ML/04_Grup_Split_dan_Fold.ipynb",
+      "sekarang": "KODE_ML/04_Grup_Split_dan_Fold.ipynb",
+      "sha256_sebelum": "12bf117028960c063f420987681f1c39b889244a99daee93cf09a31a64e989bc",
+      "sha256_sekarang": "eb5d5bd2d82fd35f3f343062664b4b434cf144ebea846ce556acd37163ec21a7",
+      "isi_sama": false
+    },
+    {
+      "sebelum": "KODE_ML/05_Model_dan_Bobot.ipynb",
+      "sekarang": "KODE_ML/05_Model_dan_Bobot.ipynb",
+      "sha256_sebelum": "7078ae1168bd493752607cbdb8c69d7fc264381997b6b91201e644dc6116feea",
+      "sha256_sekarang": "ba186e1092948cee49f7599b4ae1b0a4f12337aa8b68504ac9bf99c76d3dfb45",
+      "isi_sama": false
+    },
+    {
+      "sebelum": "KODE_ML/06_Optuna_CV_dan_OOF.ipynb",
+      "sekarang": "KODE_ML/06_Optuna_CV_dan_OOF.ipynb",
+      "sha256_sebelum": "96bb7b01281a42362522aec7deedfee1ceff30c6c451c8edc07a52e4e05b6dc9",
+      "sha256_sekarang": "7038e0c7e8e2c56562efdb9fd656a68a939924582fc07a25d96ef56a765289ee",
+      "isi_sama": false
+    },
+    {
+      "sebelum": "KODE_ML/07_Evaluasi_dan_Pemilihan.ipynb",
+      "sekarang": "KODE_ML/07_Evaluasi_dan_Pemilihan.ipynb",
+      "sha256_sebelum": "2f57034619dab26999a45de01fdb6f14d0e536b6946e9398b71b3bc6d726c788",
+      "sha256_sekarang": "6770ea405c3bd1a2f9f31bdcb07ef293ea3c280f75e813962bfc05863635248e",
+      "isi_sama": false
+    },
+    {
+      "sebelum": "KODE_ML/08_Prediksi_Molekul.ipynb",
+      "sekarang": "KODE_ML/08_Prediksi_Molekul.ipynb",
+      "sha256_sebelum": "4bc0698877eb011cb0af7bb2aac937e5a4257a0b2201023bd9ff1a3188d6bb38",
+      "sha256_sekarang": "29184583444aa47e06c3cd20ba897e6f6222f6b4720880443b7255f5ef424d93",
+      "isi_sama": false
+    },
+    {
+      "sebelum": "KODE_ML/ASAL_BAHAN_BELAJAR.json",
+      "sekarang": "KODE_ML/ASAL_BAHAN_BELAJAR.json",
+      "sha256_sebelum": "c3da7531ebc21576b035a2d7f0bb2f8fc29f5176a54ccd1c33efd3c563abe40c",
+      "sha256_sekarang": "c3da7531ebc21576b035a2d7f0bb2f8fc29f5176a54ccd1c33efd3c563abe40c",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/asal_kohor.py",
+      "sekarang": "KODE_ML/asal_kohor.py",
+      "sha256_sebelum": "c0b4fab50851629f320eacb5c41b6d41b592d9fecd703dde1da13788e0c066e5",
+      "sha256_sekarang": "c0b4fab50851629f320eacb5c41b6d41b592d9fecd703dde1da13788e0c066e5",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/audit_labels.py",
+      "sekarang": "KODE_ML/audit_labels.py",
+      "sha256_sebelum": "ad7f3aba393868af10b2a07ac4d43889c04caec1a5b561405004b29fe0dd7c86",
+      "sha256_sekarang": "ad7f3aba393868af10b2a07ac4d43889c04caec1a5b561405004b29fe0dd7c86",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/belajar.py",
+      "sekarang": "KODE_ML/belajar.py",
+      "sha256_sebelum": "7c838acb27257ef6f74504954bd2225a67c776ad3a1ecdf1baedd34ffd07a24f",
+      "sha256_sekarang": "7c838acb27257ef6f74504954bd2225a67c776ad3a1ecdf1baedd34ffd07a24f",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/CHECKLIST_BELAJAR.md",
+      "sekarang": "KODE_ML/CHECKLIST_BELAJAR.md",
+      "sha256_sebelum": "e90db0f11eb73b5731a2951167eb7c534134f38df99a05bd88dccda131ff32a7",
+      "sha256_sekarang": "e90db0f11eb73b5731a2951167eb7c534134f38df99a05bd88dccda131ff32a7",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/DAFTAR_PERUBAHAN.json",
+      "sekarang": "KODE_ML/DAFTAR_PERUBAHAN.json",
+      "sha256_sebelum": "ec561021fcae573a9d478e15c5921399ddd194053e49d9a937320258e918ee00",
+      "sha256_sekarang": "ec561021fcae573a9d478e15c5921399ddd194053e49d9a937320258e918ee00",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/HASIL_VERIFIKASI.json",
+      "sekarang": "KODE_ML/HASIL_VERIFIKASI.json",
+      "sha256_sebelum": "ca079972c4c9b71af778d509156d3978caa3e86a7a09f927c0dcef0227b0f685",
+      "sha256_sekarang": "ca079972c4c9b71af778d509156d3978caa3e86a7a09f927c0dcef0227b0f685",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/HASIL_VERIFIKASI.md",
+      "sekarang": "KODE_ML/HASIL_VERIFIKASI.md",
+      "sha256_sebelum": "ded26d1f90aac86565a094773d31bb492ec7259ec52619d3eb2a297a7b076a91",
+      "sha256_sekarang": "ded26d1f90aac86565a094773d31bb492ec7259ec52619d3eb2a297a7b076a91",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/MULAI_BELAJAR.md",
+      "sekarang": "KODE_ML/MULAI_BELAJAR.md",
+      "sha256_sebelum": "2ed9cafb58af6c6c6ad52a653a639fd5e5816f0437e96404662cef078a4315b6",
+      "sha256_sekarang": "e17b5b265f512fd2edefcea7e9d848ad371f2b9828d2723a7982fe06e6b0bd9a",
+      "isi_sama": false
+    },
+    {
+      "sebelum": "KODE_ML/PANDUAN_BELAJAR_DARI_NOL.pdf",
+      "sekarang": "KODE_ML/PANDUAN_BELAJAR_DARI_NOL.pdf",
+      "sha256_sebelum": "a135516a611ab529d60b0771906b52cc8bf3fd17589a321d84c8d27fbed56f08",
+      "sha256_sekarang": "996a5c54e55320442211ed799b760679029064ebcff7251f243c2ee27ff29838",
+      "isi_sama": false
+    },
+    {
+      "sebelum": "KODE_ML/PANDUAN_SIDANG_KODE.md",
+      "sekarang": "KODE_ML/PANDUAN_SIDANG_KODE.md",
+      "sha256_sebelum": "df001349b1b720d1675dce2b0fc0b3e5b0387c88ed4d5cd69dcde148055b1961",
+      "sha256_sekarang": "26ed5e3e4b2541047e21e24832aae8c9da5b2eecc75ab5c0ea44c0efdf2038af",
+      "isi_sama": false
+    },
+    {
+      "sebelum": "KODE_ML/README.md",
+      "sekarang": "KODE_ML/README.md",
+      "sha256_sebelum": "a8f74cb5c95ae9841dd9959f271f101a4c94d72b6362485d315365d7a5f73d6a",
+      "sha256_sekarang": "c9188b65d15917733a4711dba2b05329074e5998ee7bd50ca62758ef7684dd1f",
+      "isi_sama": false
+    },
+    {
+      "sebelum": "KODE_ML/requirements_belajar.txt",
+      "sekarang": "KODE_ML/requirements_belajar.txt",
+      "sha256_sebelum": "56fb8b316f54e118690fa049da993847b5e991ef956b397ec934be9c9b68f32e",
+      "sha256_sekarang": "56fb8b316f54e118690fa049da993847b5e991ef956b397ec934be9c9b68f32e",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/VERIFIKASI_PANDUAN.json",
+      "sekarang": "KODE_ML/VERIFIKASI_PANDUAN.json",
+      "sha256_sebelum": "8a20721fee43d98a4e47e41de4080f3ee7172f1135e0cdc4d114886036bb5f97",
+      "sha256_sekarang": "8a20721fee43d98a4e47e41de4080f3ee7172f1135e0cdc4d114886036bb5f97",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/VERIFIKASI_PANDUAN.md",
+      "sekarang": "KODE_ML/VERIFIKASI_PANDUAN.md",
+      "sha256_sebelum": "252407a8a45dd13dede648670405dcc4d765d69690f64210e3dec5c66aaffc27",
+      "sha256_sekarang": "252407a8a45dd13dede648670405dcc4d765d69690f64210e3dec5c66aaffc27",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/DATA_UNTUK_BELAJAR/ASAL_DAN_VERIFIKASI.json",
+      "sekarang": "KODE_ML/02_Data/ASAL_DAN_VERIFIKASI.json",
+      "sha256_sebelum": "6c8484b0c567bc8708d9e12cf48a3e45d3f5cfdb8296fc463893e3504b4c9c8b",
+      "sha256_sekarang": "6c8484b0c567bc8708d9e12cf48a3e45d3f5cfdb8296fc463893e3504b4c9c8b",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/DATA_UNTUK_BELAJAR/README.md",
+      "sekarang": "KODE_ML/02_Data/README.md",
+      "sha256_sebelum": "f3751bab7496f3dc77e940091db9a7d1f488d72376a07523967b1b91b891fa6d",
+      "sha256_sekarang": "a0f51551d0b8a2771c9cbaf6613f38123025a5fe6a7f4c2694da2041d4e8d5f9",
+      "isi_sama": false
+    },
+    {
+      "sebelum": "KODE_ML/hasil_audit_label/aliases.csv",
+      "sekarang": "KODE_ML/06_Audit_Label/aliases.csv",
+      "sha256_sebelum": "9e8d92d484ac23808c748e5476a080ceab645d378e0a5b518f83c40bd5887873",
+      "sha256_sekarang": "9e8d92d484ac23808c748e5476a080ceab645d378e0a5b518f83c40bd5887873",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/hasil_audit_label/LABEL_AUDIT_FINDINGS.md",
+      "sekarang": "KODE_ML/06_Audit_Label/LABEL_AUDIT_FINDINGS.md",
+      "sha256_sebelum": "06271276d302e8c2dd3fa7b947574dbc6534e4664dffd8bf513b5108c8029357",
+      "sha256_sekarang": "06271276d302e8c2dd3fa7b947574dbc6534e4664dffd8bf513b5108c8029357",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/hasil_audit_label/mappings.csv",
+      "sekarang": "KODE_ML/06_Audit_Label/mappings.csv",
+      "sha256_sebelum": "9f5d6b84cb60786447761c20958245bf37bfde24d4c9ea1aa874d0843a76e045",
+      "sha256_sekarang": "9f5d6b84cb60786447761c20958245bf37bfde24d4c9ea1aa874d0843a76e045",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/hasil_audit_label/per_source.csv",
+      "sekarang": "KODE_ML/06_Audit_Label/per_source.csv",
+      "sha256_sebelum": "6de561592c325dee925ce2ade1d4f1dcdd983cdac3501d2ea24f209d4bbf7ced",
+      "sha256_sekarang": "6de561592c325dee925ce2ade1d4f1dcdd983cdac3501d2ea24f209d4bbf7ced",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/hasil_audit_label/raw_row_status.csv",
+      "sekarang": "KODE_ML/06_Audit_Label/raw_row_status.csv",
+      "sha256_sebelum": "bbbf9c23122d735aabf757d61b31b7773c41bd3c4f6b2bb1ba4dca1f3677736d",
+      "sha256_sekarang": "bbbf9c23122d735aabf757d61b31b7773c41bd3c4f6b2bb1ba4dca1f3677736d",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/hasil_audit_label/rejected_rows.csv",
+      "sekarang": "KODE_ML/06_Audit_Label/rejected_rows.csv",
+      "sha256_sebelum": "ae0527dc074165483e08d53209d3880549a94c7baa6e9d7270dc8d360b01338c",
+      "sha256_sekarang": "ae0527dc074165483e08d53209d3880549a94c7baa6e9d7270dc8d360b01338c",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/hasil_audit_label/summary.json",
+      "sekarang": "KODE_ML/06_Audit_Label/summary.json",
+      "sha256_sebelum": "276d330dad6446b5ee1b941c6e2c8bd4e20e32b67e40ecc3065cf3d72e02bc14",
+      "sha256_sekarang": "276d330dad6446b5ee1b941c6e2c8bd4e20e32b67e40ecc3065cf3d72e02bc14",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/hasil_audit_label/taxonomy_selection.csv",
+      "sekarang": "KODE_ML/06_Audit_Label/taxonomy_selection.csv",
+      "sha256_sebelum": "50ca362243a7729ed22442cb90b345aa77fed0ed3f60fd6ff1940a46e1f0613c",
+      "sha256_sekarang": "50ca362243a7729ed22442cb90b345aa77fed0ed3f60fd6ff1940a46e1f0613c",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/hasil_audit_label/token_inventory.csv",
+      "sekarang": "KODE_ML/06_Audit_Label/token_inventory.csv",
+      "sha256_sebelum": "082702f05e1f5eae47c4e57ef9c08d7ca8069bf7edb224d0a095735ccfa1533a",
+      "sha256_sekarang": "082702f05e1f5eae47c4e57ef9c08d7ca8069bf7edb224d0a095735ccfa1533a",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/hasil_audit_label/unmapped_by_source.csv",
+      "sekarang": "KODE_ML/06_Audit_Label/unmapped_by_source.csv",
+      "sha256_sebelum": "898084ee4737c4613fd5cc01088452fa447288df5ba2612458caab1dc4161d1d",
+      "sha256_sekarang": "898084ee4737c4613fd5cc01088452fa447288df5ba2612458caab1dc4161d1d",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/hasil_audit_label/unmatched_terms.csv",
+      "sekarang": "KODE_ML/06_Audit_Label/unmatched_terms.csv",
+      "sha256_sebelum": "71d62bbafe52152fc4c4155671a883052aac327634926fe56ec6c249c8bab949",
+      "sha256_sekarang": "71d62bbafe52152fc4c4155671a883052aac327634926fe56ec6c249c8bab949",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/HASIL_UNTUK_BELAJAR/audit_label_summary.json",
+      "sekarang": "KODE_ML/04_Hasil/audit_label_summary.json",
+      "sha256_sebelum": "276d330dad6446b5ee1b941c6e2c8bd4e20e32b67e40ecc3065cf3d72e02bc14",
+      "sha256_sekarang": "276d330dad6446b5ee1b941c6e2c8bd4e20e32b67e40ecc3065cf3d72e02bc14",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/HASIL_UNTUK_BELAJAR/comparison_all.csv",
+      "sekarang": "KODE_ML/04_Hasil/comparison_all.csv",
+      "sha256_sebelum": "da2833146a20e35a0c21da2b482154e085b3a2e2051a467a2bced8b131f3fc6e",
+      "sha256_sekarang": "da2833146a20e35a0c21da2b482154e085b3a2e2051a467a2bced8b131f3fc6e",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/HASIL_UNTUK_BELAJAR/complete.json",
+      "sekarang": "KODE_ML/04_Hasil/complete.json",
+      "sha256_sebelum": "4d84cd8b8f75e1b9de954d8a55c73b4cef50f7f3c89001c1fd600bbc18b0e5ca",
+      "sha256_sekarang": "4d84cd8b8f75e1b9de954d8a55c73b4cef50f7f3c89001c1fd600bbc18b0e5ca",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/HASIL_UNTUK_BELAJAR/inference_bundle.json",
+      "sekarang": "KODE_ML/04_Hasil/inference_bundle.json",
+      "sha256_sebelum": "e29f8216b0b4ed0dcdbd0f28bac28a485ec0ceebbf81619f8609f5ee637898a9",
+      "sha256_sekarang": "e29f8216b0b4ed0dcdbd0f28bac28a485ec0ceebbf81619f8609f5ee637898a9",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/HASIL_UNTUK_BELAJAR/README.md",
+      "sekarang": "KODE_ML/04_Hasil/README.md",
+      "sha256_sebelum": "267fe122afc9d6f521801f7a429a06f9fdfbe4aeed3ad4e6a079cea36ea914bb",
+      "sha256_sekarang": "88a2b8f4535101e737dc34d94194eac848844bdb380e87fe8b5d23ba9a8b273c",
+      "isi_sama": false
+    },
+    {
+      "sebelum": "KODE_ML/HASIL_UNTUK_BELAJAR/selection_frozen.json",
+      "sekarang": "KODE_ML/04_Hasil/selection_frozen.json",
+      "sha256_sebelum": "e046ebe287fb55afe2cda81e60dbb06f244af9539d45198b6606ece33749ef0e",
+      "sha256_sekarang": "e046ebe287fb55afe2cda81e60dbb06f244af9539d45198b6606ece33749ef0e",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/MATERI_BELAJAR/00_Mulai_di_Sini.md",
+      "sekarang": "KODE_ML/01_Materi/00_Mulai_di_Sini.md",
+      "sha256_sebelum": "04b735a2c33e8f1a554a02200bdef7ab07be2fe2a0985503fcdbee6e33be1573",
+      "sha256_sekarang": "e4c1b64ff4321c04099717a7018f9dc2f1731d4af9c1cdfb63dc18b3f39705b6",
+      "isi_sama": false
+    },
+    {
+      "sebelum": "KODE_ML/MATERI_BELAJAR/01_Dasar_dan_Penelitian_Terdahulu.md",
+      "sekarang": "KODE_ML/01_Materi/01_Dasar_dan_Penelitian_Terdahulu.md",
+      "sha256_sebelum": "b3ceed0126588a3a6ef7a952f4ba418393b4e100069488624c7549b4f8fda7b5",
+      "sha256_sekarang": "180ac906ba0e05b8f21202268752a04a5527bcd4cafc4977e3f838e0b5c1018d",
+      "isi_sama": false
+    },
+    {
+      "sebelum": "KODE_ML/MATERI_BELAJAR/02_Molekul_Fitur_dan_Target.md",
+      "sekarang": "KODE_ML/01_Materi/02_Molekul_Fitur_dan_Target.md",
+      "sha256_sebelum": "556b89b8b134fb73171a1a213186bb0498a2a8ce06f200c5d70e546ebca32c9c",
+      "sha256_sekarang": "e5b050b3eca4cc57957c2e5c39b03a0039e51364a3f20d5c6918860d3773fa0f",
+      "isi_sama": false
+    },
+    {
+      "sebelum": "KODE_ML/MATERI_BELAJAR/03_Dataset_dan_Sumber.md",
+      "sekarang": "KODE_ML/01_Materi/03_Dataset_dan_Sumber.md",
+      "sha256_sebelum": "6b8174ecb91f004de98530f8b2078035b62746f9666086942e6fb42bd74b9576",
+      "sha256_sekarang": "69757eee944099e4f96a4ffccdc9021786d861c267244c8d46053710a836ed5d",
+      "isi_sama": false
+    },
+    {
+      "sebelum": "KODE_ML/MATERI_BELAJAR/04_Preprocessing_dan_Audit_Label.md",
+      "sekarang": "KODE_ML/01_Materi/04_Preprocessing_dan_Audit_Label.md",
+      "sha256_sebelum": "96c1b565cdf65e1a7099e67a0827b23e158176820563db4ae3b3cc9754afe7db",
+      "sha256_sekarang": "c1681f19800e9a30d32fa707b77b4133eac3dc89fdbf56c3fd79e9c49dd2852c",
+      "isi_sama": false
+    },
+    {
+      "sebelum": "KODE_ML/MATERI_BELAJAR/05_Grup_Split_dan_Fold.md",
+      "sekarang": "KODE_ML/01_Materi/05_Grup_Split_dan_Fold.md",
+      "sha256_sebelum": "c35e66700057a258219907ef21e055568878cdcb0c18309c31162674a45a1ee7",
+      "sha256_sekarang": "cb90305b53b7ff282f8f17989580c23bbee33e6184f60073cc6e944ab75a05e4",
+      "isi_sama": false
+    },
+    {
+      "sebelum": "KODE_ML/MATERI_BELAJAR/06_Model_dan_Proses_Belajar.md",
+      "sekarang": "KODE_ML/01_Materi/06_Model_dan_Proses_Belajar.md",
+      "sha256_sebelum": "10cf1b938d7eb9468d96b5fe896d63215a1b8ff140a0f34863dd04bdb258f430",
+      "sha256_sekarang": "c43804925fe405ceaa6479b1812ec0af0cfa4283f40a42710ecaadae110ebb76",
+      "isi_sama": false
+    },
+    {
+      "sebelum": "KODE_ML/MATERI_BELAJAR/07_Optuna_Validasi_dan_Training_Final.md",
+      "sekarang": "KODE_ML/01_Materi/07_Optuna_Validasi_dan_Training_Final.md",
+      "sha256_sebelum": "e0c38842148178721cea78def2cf2e1844a040fefa4a1adc070b1b52e5edde80",
+      "sha256_sekarang": "71f4fc7eb49c9b382e7d18294e4a7fae20c582b99b8934fcba0938fd1d9f79c6",
+      "isi_sama": false
+    },
+    {
+      "sebelum": "KODE_ML/MATERI_BELAJAR/08_Evaluasi_dan_Hasil_Penelitian.md",
+      "sekarang": "KODE_ML/01_Materi/08_Evaluasi_dan_Hasil_Penelitian.md",
+      "sha256_sebelum": "6a457924a401609886dd074ff487425d21ac92ec4ee53076082e05dcb55cafa1",
+      "sha256_sekarang": "d6076a191048177c191604b177564619c0ce6260756b3c319a0ddc2e8a0c28cb",
+      "isi_sama": false
+    },
+    {
+      "sebelum": "KODE_ML/MATERI_BELAJAR/09_Menjalankan_Project_dan_Prediksi.md",
+      "sekarang": "KODE_ML/01_Materi/09_Menjalankan_Project_dan_Prediksi.md",
+      "sha256_sebelum": "839c95a63dbec1998ed8f447198c970b702c9a5d3c3262d4b69ecf387c4c8804",
+      "sha256_sekarang": "b2644a00623548aeeaacf6ca094b09c72990034e1c86f72cf54e6b16ac8dc30c",
+      "isi_sama": false
+    },
+    {
+      "sebelum": "KODE_ML/MATERI_BELAJAR/10_Latihan_Sidang_dan_Kamus.md",
+      "sekarang": "KODE_ML/01_Materi/10_Latihan_Sidang_dan_Kamus.md",
+      "sha256_sebelum": "d6e580847bdd65a9a00971a21e589dcb4ec8160567d69f31de981b184b6babc3",
+      "sha256_sekarang": "cf892afca6ca9de2858e82649c4381cb4f98f407ef2ed821b84d00269f262372",
+      "isi_sama": false
+    },
+    {
+      "sebelum": "KODE_ML/MATERI_BELAJAR/11_Peta_Source_dan_Cuplikan.md",
+      "sekarang": "KODE_ML/01_Materi/11_Peta_Source_dan_Cuplikan.md",
+      "sha256_sebelum": "130d82cdf75a7cea02cebc5c4813dbfbfcd8c8634a490aef4227778aef481899",
+      "sha256_sekarang": "adf885375a5b40ea53f25d3db5042fee09220ad279a387fc244881df72bb7a3b",
+      "isi_sama": false
+    },
+    {
+      "sebelum": "KODE_ML/MATERI_BELAJAR/12_Library_dan_Cara_Membaca_Kode.md",
+      "sekarang": "KODE_ML/01_Materi/12_Library_dan_Cara_Membaca_Kode.md",
+      "sha256_sebelum": "f7230456ffe0aea8ac76ed9d107f179d66ce9cf1bf20fac97c860d969790e4fb",
+      "sha256_sekarang": "00d5d16d7c20aa634a7142312de8a2874ec197b9374dc155a5050e13fc282dda",
+      "isi_sama": false
+    },
+    {
+      "sebelum": "KODE_ML/REFERENSI_BELAJAR/README.md",
+      "sekarang": "KODE_ML/05_Referensi/README.md",
+      "sha256_sebelum": "b47259591a78fd60283136997108a973397cdfdcea0e74e7883b46e12dc1c2f3",
+      "sha256_sekarang": "8242bacb10ce1f163222554016ab57fd44696c74c22eb8ec135d4beeab5b9342",
+      "isi_sama": false
+    },
+    {
+      "sebelum": "KODE_ML/REFERENSI_BELAJAR/requirements_research_asli.txt",
+      "sekarang": "KODE_ML/05_Referensi/requirements_research_asli.txt",
+      "sha256_sebelum": "11dd1a14763c08dceb51eb60c2eebff9fe5eeaf2c19188d559c08c8ffae5b6e3",
+      "sha256_sekarang": "11dd1a14763c08dceb51eb60c2eebff9fe5eeaf2c19188d559c08c8ffae5b6e3",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/REFERENSI_BELAJAR/Suh_2025_paper.pdf",
+      "sekarang": "KODE_ML/05_Referensi/Suh_2025_paper.pdf",
+      "sha256_sebelum": "32cadd8ac8ac024e64943645e0ca7f26cee672ca79e7720578ee4c00fe9c1bb0",
+      "sha256_sekarang": "32cadd8ac8ac024e64943645e0ca7f26cee672ca79e7720578ee4c00fe9c1bb0",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/research/dataset.py",
+      "sekarang": "KODE_ML/03_Kode/dataset.py",
+      "sha256_sebelum": "8dc2ecbc33f556fd0f4b1b655fe8c728de1ccc141bfc1af7b6fd45781b2caeb3",
+      "sha256_sekarang": "8dc2ecbc33f556fd0f4b1b655fe8c728de1ccc141bfc1af7b6fd45781b2caeb3",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/research/experiment.py",
+      "sekarang": "KODE_ML/03_Kode/experiment.py",
+      "sha256_sebelum": "45db31726b7d08049b93aa36da731f5db7610a4ff51bc75789c9bf1ab1b32d79",
+      "sha256_sekarang": "58d7eb60a4d861625d5bd08256c0e4f69b36ca9a078a814240032ef4ad1825e4",
+      "isi_sama": false
+    },
+    {
+      "sebelum": "KODE_ML/research/features.py",
+      "sekarang": "KODE_ML/03_Kode/features.py",
+      "sha256_sebelum": "8a1774f10afe12c65985b1e326903f5509ad68814a61f6cb2d7df086f14564d0",
+      "sha256_sekarang": "8a1774f10afe12c65985b1e326903f5509ad68814a61f6cb2d7df086f14564d0",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/research/inference.py",
+      "sekarang": "KODE_ML/03_Kode/inference.py",
+      "sha256_sebelum": "a9cdd7d49ed7a308134c9d6b82b47f1cbfcd720a9c58d02511ecf78a9b432a4a",
+      "sha256_sekarang": "a9cdd7d49ed7a308134c9d6b82b47f1cbfcd720a9c58d02511ecf78a9b432a4a",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/research/metrics.py",
+      "sekarang": "KODE_ML/03_Kode/metrics.py",
+      "sha256_sebelum": "b476b48133b6b5c9f62f2424f68c72c33cc8ffd2c4a531a64d659878a86f0d67",
+      "sha256_sekarang": "b476b48133b6b5c9f62f2424f68c72c33cc8ffd2c4a531a64d659878a86f0d67",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/research/preprocessing.py",
+      "sekarang": "KODE_ML/03_Kode/preprocessing.py",
+      "sha256_sebelum": "91aaeca7a9a9b6bb0cfae5349168c1205f62fb588496961c58193be96fb7ef14",
+      "sha256_sekarang": "91aaeca7a9a9b6bb0cfae5349168c1205f62fb588496961c58193be96fb7ef14",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/research/results.py",
+      "sekarang": "KODE_ML/03_Kode/results.py",
+      "sha256_sebelum": "724762a4e03ec358000821ecddff0d86436e1983256b8b0e6b3adacdb63b5f2d",
+      "sha256_sekarang": "724762a4e03ec358000821ecddff0d86436e1983256b8b0e6b3adacdb63b5f2d",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/research/runtime.py",
+      "sekarang": "KODE_ML/03_Kode/runtime.py",
+      "sha256_sebelum": "9a66f6e7d64d453435ba9320cce169065fa6a85cbcc9b7edcfccb1951c30a867",
+      "sha256_sekarang": "9a66f6e7d64d453435ba9320cce169065fa6a85cbcc9b7edcfccb1951c30a867",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/research/source_identity.py",
+      "sekarang": "KODE_ML/03_Kode/source_identity.py",
+      "sha256_sebelum": "36fb057eb35996f5a0f386712d6ce07896cb4ff9ef3675ead78325e8fecbccc6",
+      "sha256_sekarang": "36fb057eb35996f5a0f386712d6ce07896cb4ff9ef3675ead78325e8fecbccc6",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/research/splits.py",
+      "sekarang": "KODE_ML/03_Kode/splits.py",
+      "sha256_sebelum": "9386cb3804ad90592c9a3b9e11cbffcb28023754ab069e10fc82c4aa1e90d2f0",
+      "sha256_sekarang": "9386cb3804ad90592c9a3b9e11cbffcb28023754ab069e10fc82c4aa1e90d2f0",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/research/training.py",
+      "sekarang": "KODE_ML/03_Kode/training.py",
+      "sha256_sebelum": "4b8f34ca70a8263b3a8a25e7c0e2b3e46bc1e8767be2149ec7cf4c804024e184",
+      "sha256_sekarang": "4b8f34ca70a8263b3a8a25e7c0e2b3e46bc1e8767be2149ec7cf4c804024e184",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/research/tuning.py",
+      "sekarang": "KODE_ML/03_Kode/tuning.py",
+      "sha256_sebelum": "af497eb63c357a7f08bd7f1e3a3a73966ca925bf267b96d2de09bb1122b92531",
+      "sha256_sekarang": "af497eb63c357a7f08bd7f1e3a3a73966ca925bf267b96d2de09bb1122b92531",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/research/validation.py",
+      "sekarang": "KODE_ML/03_Kode/validation.py",
+      "sha256_sebelum": "7c0f86601d8c619b7a2c1d76e86659ab41bd0533f0cdac2a5f99700624877c6c",
+      "sha256_sekarang": "7c0f86601d8c619b7a2c1d76e86659ab41bd0533f0cdac2a5f99700624877c6c",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/research/__init__.py",
+      "sekarang": "KODE_ML/03_Kode/__init__.py",
+      "sha256_sebelum": "2fcc417bb5637f2c1a86493ace45d5aed29546d47798564b448242537120369a",
+      "sha256_sekarang": "2fcc417bb5637f2c1a86493ace45d5aed29546d47798564b448242537120369a",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/DATA_UNTUK_BELAJAR/01_SEBELUM_PREPROCESSING/manifest_sumber_asli.json",
+      "sekarang": "KODE_ML/02_Data/01_Data_Mentah/manifest_sumber_asli.json",
+      "sha256_sebelum": "34b6aabfa9cfc98bdc5e43498a20728d48c2c636568a855819539b8f1f99b0f3",
+      "sha256_sekarang": "34b6aabfa9cfc98bdc5e43498a20728d48c2c636568a855819539b8f1f99b0f3",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/DATA_UNTUK_BELAJAR/01_SEBELUM_PREPROCESSING/pengaturan_sumber.json",
+      "sekarang": "KODE_ML/02_Data/01_Data_Mentah/pengaturan_sumber.json",
+      "sha256_sebelum": "781ce2a3cdb915b2ba62be55647aea96ffe0bba85981437879a0dfad67587ccf",
+      "sha256_sekarang": "781ce2a3cdb915b2ba62be55647aea96ffe0bba85981437879a0dfad67587ccf",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/DATA_UNTUK_BELAJAR/01_SEBELUM_PREPROCESSING/README.md",
+      "sekarang": "KODE_ML/02_Data/01_Data_Mentah/README.md",
+      "sha256_sebelum": "e97058edac514715377d9047701f5c067211a1708ba0fffc1b708cc36fd740f5",
+      "sha256_sekarang": "e97058edac514715377d9047701f5c067211a1708ba0fffc1b708cc36fd740f5",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/DATA_UNTUK_BELAJAR/02_SETELAH_PREPROCESSING/audit.json",
+      "sekarang": "KODE_ML/02_Data/02_Data_Bersih/audit.json",
+      "sha256_sebelum": "1790c4e6f231e2a8903538844bb3c91f3c468ca37e4d2529d0182f3b7408fcc4",
+      "sha256_sekarang": "1790c4e6f231e2a8903538844bb3c91f3c468ca37e4d2529d0182f3b7408fcc4",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/DATA_UNTUK_BELAJAR/02_SETELAH_PREPROCESSING/groups.csv",
+      "sekarang": "KODE_ML/02_Data/02_Data_Bersih/groups.csv",
+      "sha256_sebelum": "16085d79d665558eb1c8ae05bfb1543fe28495d417acc58416104434bdebfd49",
+      "sha256_sekarang": "16085d79d665558eb1c8ae05bfb1543fe28495d417acc58416104434bdebfd49",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/DATA_UNTUK_BELAJAR/02_SETELAH_PREPROCESSING/label_mappings.csv",
+      "sekarang": "KODE_ML/02_Data/02_Data_Bersih/label_mappings.csv",
+      "sha256_sebelum": "9f5d6b84cb60786447761c20958245bf37bfde24d4c9ea1aa874d0843a76e045",
+      "sha256_sekarang": "9f5d6b84cb60786447761c20958245bf37bfde24d4c9ea1aa874d0843a76e045",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/DATA_UNTUK_BELAJAR/02_SETELAH_PREPROCESSING/label_selection.csv",
+      "sekarang": "KODE_ML/02_Data/02_Data_Bersih/label_selection.csv",
+      "sha256_sebelum": "8a0cddc493382f260d7149c7eb4e690f6d470d4b4fc903a59ff4a01c9d5289af",
+      "sha256_sekarang": "8a0cddc493382f260d7149c7eb4e690f6d470d4b4fc903a59ff4a01c9d5289af",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/DATA_UNTUK_BELAJAR/02_SETELAH_PREPROCESSING/pembagian_train_test.csv",
+      "sekarang": "KODE_ML/02_Data/02_Data_Bersih/pembagian_train_test.csv",
+      "sha256_sebelum": "48a2b62119f3fe783003f8a560ef1c729e03801d930e2011f4dcab3d33c2cbb3",
+      "sha256_sekarang": "48a2b62119f3fe783003f8a560ef1c729e03801d930e2011f4dcab3d33c2cbb3",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/DATA_UNTUK_BELAJAR/02_SETELAH_PREPROCESSING/provenance.json",
+      "sekarang": "KODE_ML/02_Data/02_Data_Bersih/provenance.json",
+      "sha256_sebelum": "d1228b1ec5bcbee91fbc1007c6e10c6dbb0f2fab90b46c7be6587b35d844cb85",
+      "sha256_sekarang": "d1228b1ec5bcbee91fbc1007c6e10c6dbb0f2fab90b46c7be6587b35d844cb85",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/DATA_UNTUK_BELAJAR/02_SETELAH_PREPROCESSING/README.md",
+      "sekarang": "KODE_ML/02_Data/02_Data_Bersih/README.md",
+      "sha256_sebelum": "1027f1ae1517c860ed32298e5f9745494380cf79e7a2526d2f1909b1d0a0126e",
+      "sha256_sekarang": "1027f1ae1517c860ed32298e5f9745494380cf79e7a2526d2f1909b1d0a0126e",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/DATA_UNTUK_BELAJAR/02_SETELAH_PREPROCESSING/records.csv",
+      "sekarang": "KODE_ML/02_Data/02_Data_Bersih/records.csv",
+      "sha256_sebelum": "e62cbe41c117c8ffb72e88e4b67bd5831ec6d5f47d7ffdb40f40c352836f9671",
+      "sha256_sekarang": "e62cbe41c117c8ffb72e88e4b67bd5831ec6d5f47d7ffdb40f40c352836f9671",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/DATA_UNTUK_BELAJAR/02_SETELAH_PREPROCESSING/rejected_records.json",
+      "sekarang": "KODE_ML/02_Data/02_Data_Bersih/rejected_records.json",
+      "sha256_sebelum": "179b13066cc77af3e784fd30f57a49234ec27f2242362a293897a5d670105835",
+      "sha256_sekarang": "179b13066cc77af3e784fd30f57a49234ec27f2242362a293897a5d670105835",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/DATA_UNTUK_BELAJAR/02_SETELAH_PREPROCESSING/splits.json",
+      "sekarang": "KODE_ML/02_Data/02_Data_Bersih/splits.json",
+      "sha256_sebelum": "ae2ce0dda7ffeed2c397d4b631e1e3de39485aedf648b3365bd16272bdf7a4c4",
+      "sha256_sekarang": "ae2ce0dda7ffeed2c397d4b631e1e3de39485aedf648b3365bd16272bdf7a4c4",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/DATA_UNTUK_BELAJAR/02_SETELAH_PREPROCESSING/train_label_support.csv",
+      "sekarang": "KODE_ML/02_Data/02_Data_Bersih/train_label_support.csv",
+      "sha256_sebelum": "3a53661ffaa52c3d49fe25497cdfe07597757891df652d5bbd6161d2bdb00222",
+      "sha256_sekarang": "3a53661ffaa52c3d49fe25497cdfe07597757891df652d5bbd6161d2bdb00222",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/DATA_UNTUK_BELAJAR/02_SETELAH_PREPROCESSING/unmapped_descriptors.csv",
+      "sekarang": "KODE_ML/02_Data/02_Data_Bersih/unmapped_descriptors.csv",
+      "sha256_sebelum": "898084ee4737c4613fd5cc01088452fa447288df5ba2612458caab1dc4161d1d",
+      "sha256_sekarang": "898084ee4737c4613fd5cc01088452fa447288df5ba2612458caab1dc4161d1d",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/DATA_UNTUK_BELAJAR/03_SIAP_TRAINING_2048_8/descriptors.csv",
+      "sekarang": "KODE_ML/02_Data/03_Siap_Training/descriptors.csv",
+      "sha256_sebelum": "2879580d79f184428ac6e206e1fb073f0bb9bb0952adecfbda89a45e8805f627",
+      "sha256_sekarang": "2879580d79f184428ac6e206e1fb073f0bb9bb0952adecfbda89a45e8805f627",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/DATA_UNTUK_BELAJAR/03_SIAP_TRAINING_2048_8/features_semua_molekul_2048_8.npz",
+      "sekarang": "KODE_ML/02_Data/03_Siap_Training/features_semua_molekul_2048_8.npz",
+      "sha256_sebelum": "81531d2ba87102b56b610b9ec2c084ca147b8e5d218a5b87a21f8387a81c33a5",
+      "sha256_sekarang": "81531d2ba87102b56b610b9ec2c084ca147b8e5d218a5b87a21f8387a81c33a5",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/DATA_UNTUK_BELAJAR/03_SIAP_TRAINING_2048_8/labels_109.json",
+      "sekarang": "KODE_ML/02_Data/03_Siap_Training/labels_109.json",
+      "sha256_sebelum": "c38464d66440c1395a4781ec36e62ae0fdfcf941f615aac416433b8976fdb920",
+      "sha256_sekarang": "c38464d66440c1395a4781ec36e62ae0fdfcf941f615aac416433b8976fdb920",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/DATA_UNTUK_BELAJAR/03_SIAP_TRAINING_2048_8/nama_fitur_2056.json",
+      "sekarang": "KODE_ML/02_Data/03_Siap_Training/nama_fitur_2056.json",
+      "sha256_sebelum": "32f81f05aac067f43aabee42db03a8b90d6ea8f05ce1b68c9e2b5f89e7b7c899",
+      "sha256_sekarang": "32f81f05aac067f43aabee42db03a8b90d6ea8f05ce1b68c9e2b5f89e7b7c899",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/DATA_UNTUK_BELAJAR/03_SIAP_TRAINING_2048_8/pengaturan_eksperimen.json",
+      "sekarang": "KODE_ML/02_Data/03_Siap_Training/pengaturan_eksperimen.json",
+      "sha256_sebelum": "9c65c0bb98e06d8ddfa2f6505c7a84f094cd3fe8db182db39d56563a2a75779e",
+      "sha256_sekarang": "9c65c0bb98e06d8ddfa2f6505c7a84f094cd3fe8db182db39d56563a2a75779e",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/DATA_UNTUK_BELAJAR/03_SIAP_TRAINING_2048_8/README.md",
+      "sekarang": "KODE_ML/02_Data/03_Siap_Training/README.md",
+      "sha256_sebelum": "1e2efa899b0f024c1811b24dd3d5b022a92e8649ab9465d0b2af94c3f99b85e9",
+      "sha256_sekarang": "cee40c6adb1e1b2317cfdbde4207a7e0e4dcec02c40e9befb58cff13f4512582",
+      "isi_sama": false
+    },
+    {
+      "sebelum": "KODE_ML/DATA_UNTUK_BELAJAR/03_SIAP_TRAINING_2048_8/target_test_109_label.csv",
+      "sekarang": "KODE_ML/02_Data/03_Siap_Training/target_test_109_label.csv",
+      "sha256_sebelum": "a9881cbabdbaa95986c1375e36ceb46ab06083aeed95a7ad8d898d9dcbc606b9",
+      "sha256_sekarang": "a9881cbabdbaa95986c1375e36ceb46ab06083aeed95a7ad8d898d9dcbc606b9",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/DATA_UNTUK_BELAJAR/03_SIAP_TRAINING_2048_8/target_train_109_label.csv",
+      "sekarang": "KODE_ML/02_Data/03_Siap_Training/target_train_109_label.csv",
+      "sha256_sebelum": "e0b5f28df77eaa527e2f34762de677766ccb9619481c9237be46d27f476e8cf1",
+      "sha256_sekarang": "e0b5f28df77eaa527e2f34762de677766ccb9619481c9237be46d27f476e8cf1",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/DATA_UNTUK_BELAJAR/03_SIAP_TRAINING_2048_8/test_2048_8.npz",
+      "sekarang": "KODE_ML/02_Data/03_Siap_Training/test_2048_8.npz",
+      "sha256_sebelum": "670547defc05b3901a26f9ae4c1fbdcc13d07c083140543ad945b12ae10a15ee",
+      "sha256_sekarang": "670547defc05b3901a26f9ae4c1fbdcc13d07c083140543ad945b12ae10a15ee",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/DATA_UNTUK_BELAJAR/03_SIAP_TRAINING_2048_8/train_2048_8.npz",
+      "sekarang": "KODE_ML/02_Data/03_Siap_Training/train_2048_8.npz",
+      "sha256_sebelum": "bd19ac4cb0a02f81d234d2c833d685732e293dd5a73fe7513800d4836558c2b2",
+      "sha256_sekarang": "bd19ac4cb0a02f81d234d2c833d685732e293dd5a73fe7513800d4836558c2b2",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/DATA_UNTUK_BELAJAR/01_SEBELUM_PREPROCESSING/arctander_1960/behavior_1_sparse.csv",
+      "sekarang": "KODE_ML/02_Data/01_Data_Mentah/arctander_1960/behavior_1_sparse.csv",
+      "sha256_sebelum": "825bc5c902bfd420ece29a32cec6863c9ba8152e5c3f9144a31f4887158a0cf5",
+      "sha256_sekarang": "825bc5c902bfd420ece29a32cec6863c9ba8152e5c3f9144a31f4887158a0cf5",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/DATA_UNTUK_BELAJAR/01_SEBELUM_PREPROCESSING/arctander_1960/molecules.csv",
+      "sekarang": "KODE_ML/02_Data/01_Data_Mentah/arctander_1960/molecules.csv",
+      "sha256_sebelum": "244f633d0ab62daf7b9de826712403e80be86672df66b206853219a08febcd5b",
+      "sha256_sekarang": "244f633d0ab62daf7b9de826712403e80be86672df66b206853219a08febcd5b",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/DATA_UNTUK_BELAJAR/01_SEBELUM_PREPROCESSING/arctander_1960/stimuli.csv",
+      "sekarang": "KODE_ML/02_Data/01_Data_Mentah/arctander_1960/stimuli.csv",
+      "sha256_sebelum": "ba66d9979e5e85cb72a37511ae79e08be4cbde407a89a6d500d78fac76e9512d",
+      "sha256_sekarang": "ba66d9979e5e85cb72a37511ae79e08be4cbde407a89a6d500d78fac76e9512d",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/DATA_UNTUK_BELAJAR/01_SEBELUM_PREPROCESSING/goodscents/behavior.csv",
+      "sekarang": "KODE_ML/02_Data/01_Data_Mentah/goodscents/behavior.csv",
+      "sha256_sebelum": "18968aa66cab974ee2f942ad0abd0875ccf2bcc9501c1cb306a54bd639a22219",
+      "sha256_sekarang": "18968aa66cab974ee2f942ad0abd0875ccf2bcc9501c1cb306a54bd639a22219",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/DATA_UNTUK_BELAJAR/01_SEBELUM_PREPROCESSING/goodscents/molecules.csv",
+      "sekarang": "KODE_ML/02_Data/01_Data_Mentah/goodscents/molecules.csv",
+      "sha256_sebelum": "0d9bd38c54a40a051ae7b771d51f11ac1fcf021e0369fc53583e5f634e6e8bb4",
+      "sha256_sekarang": "0d9bd38c54a40a051ae7b771d51f11ac1fcf021e0369fc53583e5f634e6e8bb4",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/DATA_UNTUK_BELAJAR/01_SEBELUM_PREPROCESSING/goodscents/stimuli.csv",
+      "sekarang": "KODE_ML/02_Data/01_Data_Mentah/goodscents/stimuli.csv",
+      "sha256_sebelum": "356cdd74a859ab1e8e061952dbb21587afc8981bb460cc670481d688afac923f",
+      "sha256_sekarang": "356cdd74a859ab1e8e061952dbb21587afc8981bb460cc670481d688afac923f",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/DATA_UNTUK_BELAJAR/01_SEBELUM_PREPROCESSING/ifra_2019/behavior.csv",
+      "sekarang": "KODE_ML/02_Data/01_Data_Mentah/ifra_2019/behavior.csv",
+      "sha256_sebelum": "346deb88ad4560f509734329254651704a269826dd3145b5b8e8e59bce4466ff",
+      "sha256_sekarang": "346deb88ad4560f509734329254651704a269826dd3145b5b8e8e59bce4466ff",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/DATA_UNTUK_BELAJAR/01_SEBELUM_PREPROCESSING/ifra_2019/molecules.csv",
+      "sekarang": "KODE_ML/02_Data/01_Data_Mentah/ifra_2019/molecules.csv",
+      "sha256_sebelum": "405ae4f6a20620450287a2b192580bbe4f240193984d0abc07d505e283d776ac",
+      "sha256_sekarang": "405ae4f6a20620450287a2b192580bbe4f240193984d0abc07d505e283d776ac",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/DATA_UNTUK_BELAJAR/01_SEBELUM_PREPROCESSING/ifra_2019/stimuli.csv",
+      "sekarang": "KODE_ML/02_Data/01_Data_Mentah/ifra_2019/stimuli.csv",
+      "sha256_sebelum": "6764952fde3aaf937734e43572a845edec558d121c54fd85c07916968d2cc6be",
+      "sha256_sekarang": "6764952fde3aaf937734e43572a845edec558d121c54fd85c07916968d2cc6be",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/DATA_UNTUK_BELAJAR/01_SEBELUM_PREPROCESSING/leffingwell/behavior.csv",
+      "sekarang": "KODE_ML/02_Data/01_Data_Mentah/leffingwell/behavior.csv",
+      "sha256_sebelum": "afe0846b159ac00691ba4c07074829f7ff262b80fa32a3280661457153e70c41",
+      "sha256_sekarang": "afe0846b159ac00691ba4c07074829f7ff262b80fa32a3280661457153e70c41",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/DATA_UNTUK_BELAJAR/01_SEBELUM_PREPROCESSING/leffingwell/molecules.csv",
+      "sekarang": "KODE_ML/02_Data/01_Data_Mentah/leffingwell/molecules.csv",
+      "sha256_sebelum": "a06841a275c35b9db9253a24ac913ad97bf39f2c778e4f8a5c4df641e7dc0fa6",
+      "sha256_sekarang": "a06841a275c35b9db9253a24ac913ad97bf39f2c778e4f8a5c4df641e7dc0fa6",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/DATA_UNTUK_BELAJAR/01_SEBELUM_PREPROCESSING/leffingwell/stimuli.csv",
+      "sekarang": "KODE_ML/02_Data/01_Data_Mentah/leffingwell/stimuli.csv",
+      "sha256_sebelum": "ff4be9ba6a66523bc5a165ded09eee125ccb79d4988090d682b323d9331a44c8",
+      "sha256_sekarang": "ff4be9ba6a66523bc5a165ded09eee125ccb79d4988090d682b323d9331a44c8",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/DATA_UNTUK_BELAJAR/01_SEBELUM_PREPROCESSING/sigma_2014/behavior.csv",
+      "sekarang": "KODE_ML/02_Data/01_Data_Mentah/sigma_2014/behavior.csv",
+      "sha256_sebelum": "2365cab1b166b1c4298fdfe196cce5721045848e3f9b05254a86e3fca5bcf37c",
+      "sha256_sekarang": "2365cab1b166b1c4298fdfe196cce5721045848e3f9b05254a86e3fca5bcf37c",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/DATA_UNTUK_BELAJAR/01_SEBELUM_PREPROCESSING/sigma_2014/molecules.csv",
+      "sekarang": "KODE_ML/02_Data/01_Data_Mentah/sigma_2014/molecules.csv",
+      "sha256_sebelum": "0c61ea5683646e91070323e7c56a1225d831686e8d6e6960393b45a8d3e439da",
+      "sha256_sekarang": "0c61ea5683646e91070323e7c56a1225d831686e8d6e6960393b45a8d3e439da",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/DATA_UNTUK_BELAJAR/01_SEBELUM_PREPROCESSING/sigma_2014/stimuli.csv",
+      "sekarang": "KODE_ML/02_Data/01_Data_Mentah/sigma_2014/stimuli.csv",
+      "sha256_sebelum": "2e345eb1247de1dd10439ef2a3d7e850e331f54db0a61de857247175d9dbc156",
+      "sha256_sekarang": "2e345eb1247de1dd10439ef2a3d7e850e331f54db0a61de857247175d9dbc156",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/HASIL_UNTUK_BELAJAR/audit_27_oktober/domain_boundary.json",
+      "sekarang": "KODE_ML/04_Hasil/audit_27_oktober/domain_boundary.json",
+      "sha256_sebelum": "039a9ee7840eb27cb5f5650f8b01101dd922ba815eac5995094b57719ffa3c5e",
+      "sha256_sekarang": "039a9ee7840eb27cb5f5650f8b01101dd922ba815eac5995094b57719ffa3c5e",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/HASIL_UNTUK_BELAJAR/audit_27_oktober/onnx_parity.json",
+      "sekarang": "KODE_ML/04_Hasil/audit_27_oktober/onnx_parity.json",
+      "sha256_sebelum": "e7fed42fd2429ecdce7150d87147387ac070fe02aaf2698bcc3d6d595baaded4",
+      "sha256_sekarang": "e7fed42fd2429ecdce7150d87147387ac070fe02aaf2698bcc3d6d595baaded4",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/HASIL_UNTUK_BELAJAR/audit_27_oktober/README.md",
+      "sekarang": "KODE_ML/04_Hasil/audit_27_oktober/README.md",
+      "sha256_sebelum": "ed751a3d7bcb6581d7386d47951726a6c9cbdd8e51892c73912566596fdbbfe0",
+      "sha256_sekarang": "ed751a3d7bcb6581d7386d47951726a6c9cbdd8e51892c73912566596fdbbfe0",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/HASIL_UNTUK_BELAJAR/audit_27_oktober/test_status.json",
+      "sekarang": "KODE_ML/04_Hasil/audit_27_oktober/test_status.json",
+      "sha256_sebelum": "2fb2d4e591344cb58b88c099c04e5d8d6ea7c0e8a1a06bbf3cebe3cec6ed6864",
+      "sha256_sekarang": "2fb2d4e591344cb58b88c099c04e5d8d6ea7c0e8a1a06bbf3cebe3cec6ed6864",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/HASIL_UNTUK_BELAJAR/lgbm_A/recipe.json",
+      "sekarang": "KODE_ML/04_Hasil/lgbm_A/recipe.json",
+      "sha256_sebelum": "32f5dde2c705f41ef7fc92a360aa739daaae30d46ac7e91826adc3e2185e6416",
+      "sha256_sekarang": "32f5dde2c705f41ef7fc92a360aa739daaae30d46ac7e91826adc3e2185e6416",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/HASIL_UNTUK_BELAJAR/lgbm_A/test_per_label.json",
+      "sekarang": "KODE_ML/04_Hasil/lgbm_A/test_per_label.json",
+      "sha256_sebelum": "edfcbcda47087200b7907fd61ae021e7471b5f154dcea2490985ec5a5e06ac71",
+      "sha256_sekarang": "edfcbcda47087200b7907fd61ae021e7471b5f154dcea2490985ec5a5e06ac71",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/HASIL_UNTUK_BELAJAR/lgbm_A/test_predictions.npz",
+      "sekarang": "KODE_ML/04_Hasil/lgbm_A/test_predictions.npz",
+      "sha256_sebelum": "03004698b4b68cfa4ea81683708a12dcc4a6e5330652189919324765f1698764",
+      "sha256_sekarang": "03004698b4b68cfa4ea81683708a12dcc4a6e5330652189919324765f1698764",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/HASIL_UNTUK_BELAJAR/lgbm_A/test_summary.json",
+      "sekarang": "KODE_ML/04_Hasil/lgbm_A/test_summary.json",
+      "sha256_sebelum": "f8a5be66b385ff8a53aa0bddaac147b53548a1d990b8d3fac1e5428104411515",
+      "sha256_sekarang": "f8a5be66b385ff8a53aa0bddaac147b53548a1d990b8d3fac1e5428104411515",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/HASIL_UNTUK_BELAJAR/lgbm_A/test_summary_validation_thresholds.json",
+      "sekarang": "KODE_ML/04_Hasil/lgbm_A/test_summary_validation_thresholds.json",
+      "sha256_sebelum": "cdb38abb34d64f158b867260ea9310d442c670fbc892c57c03ff0d044fbfedca",
+      "sha256_sekarang": "cdb38abb34d64f158b867260ea9310d442c670fbc892c57c03ff0d044fbfedca",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/HASIL_UNTUK_BELAJAR/lgbm_A/training_policy.json",
+      "sekarang": "KODE_ML/04_Hasil/lgbm_A/training_policy.json",
+      "sha256_sebelum": "919b234a95ccdf51cf3e0839a3f6bc14de3f248d26662641a2f9d3c45e8f77e9",
+      "sha256_sekarang": "919b234a95ccdf51cf3e0839a3f6bc14de3f248d26662641a2f9d3c45e8f77e9",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/HASIL_UNTUK_BELAJAR/lgbm_B/recipe.json",
+      "sekarang": "KODE_ML/04_Hasil/lgbm_B/recipe.json",
+      "sha256_sebelum": "32f5dde2c705f41ef7fc92a360aa739daaae30d46ac7e91826adc3e2185e6416",
+      "sha256_sekarang": "32f5dde2c705f41ef7fc92a360aa739daaae30d46ac7e91826adc3e2185e6416",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/HASIL_UNTUK_BELAJAR/lgbm_B/test_per_label.json",
+      "sekarang": "KODE_ML/04_Hasil/lgbm_B/test_per_label.json",
+      "sha256_sebelum": "571a41a9e6df5b02b40ee97349ac69b0de16c6cec1adb07e2ae842e7ae19784c",
+      "sha256_sekarang": "571a41a9e6df5b02b40ee97349ac69b0de16c6cec1adb07e2ae842e7ae19784c",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/HASIL_UNTUK_BELAJAR/lgbm_B/test_predictions.npz",
+      "sekarang": "KODE_ML/04_Hasil/lgbm_B/test_predictions.npz",
+      "sha256_sebelum": "2d062dbf36c75f69f285abaedd2acc65c5ef07b3023deda9813cebae721aa8f6",
+      "sha256_sekarang": "2d062dbf36c75f69f285abaedd2acc65c5ef07b3023deda9813cebae721aa8f6",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/HASIL_UNTUK_BELAJAR/lgbm_B/test_summary.json",
+      "sekarang": "KODE_ML/04_Hasil/lgbm_B/test_summary.json",
+      "sha256_sebelum": "188b548e83f70fe713eff0ac0143ce71679f4ed4dcc21e7e08300e61b93b352f",
+      "sha256_sekarang": "188b548e83f70fe713eff0ac0143ce71679f4ed4dcc21e7e08300e61b93b352f",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/HASIL_UNTUK_BELAJAR/lgbm_B/test_summary_validation_thresholds.json",
+      "sekarang": "KODE_ML/04_Hasil/lgbm_B/test_summary_validation_thresholds.json",
+      "sha256_sebelum": "070a22a191e4d5386caec07e7f34b3b9bab2b32868bc66c44beb7a7ad75cff49",
+      "sha256_sekarang": "070a22a191e4d5386caec07e7f34b3b9bab2b32868bc66c44beb7a7ad75cff49",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/HASIL_UNTUK_BELAJAR/lgbm_B/training_policy.json",
+      "sekarang": "KODE_ML/04_Hasil/lgbm_B/training_policy.json",
+      "sha256_sebelum": "78c0c24ea6ea3b4b50e83a7b96ad54a408c2f392d880def2cb2c3ef28adcdde6",
+      "sha256_sekarang": "78c0c24ea6ea3b4b50e83a7b96ad54a408c2f392d880def2cb2c3ef28adcdde6",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/HASIL_UNTUK_BELAJAR/lgbm_C/budget.json",
+      "sekarang": "KODE_ML/04_Hasil/lgbm_C/budget.json",
+      "sha256_sebelum": "4cd4513925743f3e7b518d886f18eb06459409baddfe8bec5c332d8889cd2abf",
+      "sha256_sekarang": "4cd4513925743f3e7b518d886f18eb06459409baddfe8bec5c332d8889cd2abf",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/HASIL_UNTUK_BELAJAR/lgbm_C/recipe.json",
+      "sekarang": "KODE_ML/04_Hasil/lgbm_C/recipe.json",
+      "sha256_sebelum": "27081f047ee70ffcd582d8c5eb978aadf6e4515338e052de0347d2230eacd3bc",
+      "sha256_sekarang": "27081f047ee70ffcd582d8c5eb978aadf6e4515338e052de0347d2230eacd3bc",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/HASIL_UNTUK_BELAJAR/lgbm_C/test_per_label.json",
+      "sekarang": "KODE_ML/04_Hasil/lgbm_C/test_per_label.json",
+      "sha256_sebelum": "0d5a874779e7c7a24b323ec58ec5961234ad5672ca23f7415d9ce0f57ac13360",
+      "sha256_sekarang": "0d5a874779e7c7a24b323ec58ec5961234ad5672ca23f7415d9ce0f57ac13360",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/HASIL_UNTUK_BELAJAR/lgbm_C/test_predictions.npz",
+      "sekarang": "KODE_ML/04_Hasil/lgbm_C/test_predictions.npz",
+      "sha256_sebelum": "4283d4cadd3211f48d26ec6e1407b08f94890b69697579cf630dda89b26718ac",
+      "sha256_sekarang": "4283d4cadd3211f48d26ec6e1407b08f94890b69697579cf630dda89b26718ac",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/HASIL_UNTUK_BELAJAR/lgbm_C/test_summary.json",
+      "sekarang": "KODE_ML/04_Hasil/lgbm_C/test_summary.json",
+      "sha256_sebelum": "cd26b5c03bb4c597a98328407d5d0b134683706252571a4d1461969bc2dc250c",
+      "sha256_sekarang": "cd26b5c03bb4c597a98328407d5d0b134683706252571a4d1461969bc2dc250c",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/HASIL_UNTUK_BELAJAR/lgbm_C/test_summary_validation_thresholds.json",
+      "sekarang": "KODE_ML/04_Hasil/lgbm_C/test_summary_validation_thresholds.json",
+      "sha256_sebelum": "e8b6b110ed91cfc8cfcbfcbd4efd5e711cdc0d1ca88a310eef11971d8bc002c1",
+      "sha256_sekarang": "e8b6b110ed91cfc8cfcbfcbd4efd5e711cdc0d1ca88a310eef11971d8bc002c1",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/HASIL_UNTUK_BELAJAR/lgbm_C/training_policy.json",
+      "sekarang": "KODE_ML/04_Hasil/lgbm_C/training_policy.json",
+      "sha256_sebelum": "30fcb255bd4241ff9b5cedbc1ba4a98fdfe594ec2f1d50e2fc8739125b00ae68",
+      "sha256_sekarang": "30fcb255bd4241ff9b5cedbc1ba4a98fdfe594ec2f1d50e2fc8739125b00ae68",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/HASIL_UNTUK_BELAJAR/lgbm_C/trials.csv",
+      "sekarang": "KODE_ML/04_Hasil/lgbm_C/trials.csv",
+      "sha256_sebelum": "4393c53babfd9611abb5511102fee859fe6973a892e2ee17b078c38d52c90fce",
+      "sha256_sekarang": "4393c53babfd9611abb5511102fee859fe6973a892e2ee17b078c38d52c90fce",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/HASIL_UNTUK_BELAJAR/lgbm_C/tuning_summary.json",
+      "sekarang": "KODE_ML/04_Hasil/lgbm_C/tuning_summary.json",
+      "sha256_sebelum": "97a003c836843b3152131299e711336409b814c6fceb1a378c307c3c4a570488",
+      "sha256_sekarang": "97a003c836843b3152131299e711336409b814c6fceb1a378c307c3c4a570488",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/HASIL_UNTUK_BELAJAR/lgbm_D/budget.json",
+      "sekarang": "KODE_ML/04_Hasil/lgbm_D/budget.json",
+      "sha256_sebelum": "ec5863931b6a6b8c1dc5fc4c57739e34f7199596effeb803353f977c3d7b5048",
+      "sha256_sekarang": "ec5863931b6a6b8c1dc5fc4c57739e34f7199596effeb803353f977c3d7b5048",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/HASIL_UNTUK_BELAJAR/lgbm_D/recipe.json",
+      "sekarang": "KODE_ML/04_Hasil/lgbm_D/recipe.json",
+      "sha256_sebelum": "6bfbeff4eac27f735242d17c9ebd39c4de26c7ee1abac27444d5d27b170d0b7f",
+      "sha256_sekarang": "6bfbeff4eac27f735242d17c9ebd39c4de26c7ee1abac27444d5d27b170d0b7f",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/HASIL_UNTUK_BELAJAR/lgbm_D/test_per_label.json",
+      "sekarang": "KODE_ML/04_Hasil/lgbm_D/test_per_label.json",
+      "sha256_sebelum": "5c9750af6cdd7ff6962f6173b9eddd4618aa02749431a4e30cfbf979f3a7f3e1",
+      "sha256_sekarang": "5c9750af6cdd7ff6962f6173b9eddd4618aa02749431a4e30cfbf979f3a7f3e1",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/HASIL_UNTUK_BELAJAR/lgbm_D/test_predictions.npz",
+      "sekarang": "KODE_ML/04_Hasil/lgbm_D/test_predictions.npz",
+      "sha256_sebelum": "a9276f8e322a0b63a9c269e288d8259bfec7d2b41e1f0cb10fe8ad1583a227b1",
+      "sha256_sekarang": "a9276f8e322a0b63a9c269e288d8259bfec7d2b41e1f0cb10fe8ad1583a227b1",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/HASIL_UNTUK_BELAJAR/lgbm_D/test_summary.json",
+      "sekarang": "KODE_ML/04_Hasil/lgbm_D/test_summary.json",
+      "sha256_sebelum": "98938052611b31730cc2ce47c9f766111f9e60046b5f7f5b0e8f7314ae6be0bb",
+      "sha256_sekarang": "98938052611b31730cc2ce47c9f766111f9e60046b5f7f5b0e8f7314ae6be0bb",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/HASIL_UNTUK_BELAJAR/lgbm_D/test_summary_validation_thresholds.json",
+      "sekarang": "KODE_ML/04_Hasil/lgbm_D/test_summary_validation_thresholds.json",
+      "sha256_sebelum": "2ece48684d78d54306539e82ce29ba4017ed80ab76c99a8d152a92f5dea90a00",
+      "sha256_sekarang": "2ece48684d78d54306539e82ce29ba4017ed80ab76c99a8d152a92f5dea90a00",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/HASIL_UNTUK_BELAJAR/lgbm_D/training_policy.json",
+      "sekarang": "KODE_ML/04_Hasil/lgbm_D/training_policy.json",
+      "sha256_sebelum": "06a083db41665fc06351e7cf6b2715d5e847009aff51c96e082685aafbd04853",
+      "sha256_sekarang": "06a083db41665fc06351e7cf6b2715d5e847009aff51c96e082685aafbd04853",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/HASIL_UNTUK_BELAJAR/lgbm_D/trials.csv",
+      "sekarang": "KODE_ML/04_Hasil/lgbm_D/trials.csv",
+      "sha256_sebelum": "2d76b721411ba8b69d8c2df5b3c7567666e3c912061067e1f5cd0e281771206a",
+      "sha256_sekarang": "2d76b721411ba8b69d8c2df5b3c7567666e3c912061067e1f5cd0e281771206a",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/HASIL_UNTUK_BELAJAR/lgbm_D/tuning_summary.json",
+      "sekarang": "KODE_ML/04_Hasil/lgbm_D/tuning_summary.json",
+      "sha256_sebelum": "d9b11269e2036f8bddb9b5b25d76edcad65615303fa04ca0f09c5c22de9ea238",
+      "sha256_sekarang": "d9b11269e2036f8bddb9b5b25d76edcad65615303fa04ca0f09c5c22de9ea238",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/HASIL_UNTUK_BELAJAR/xgb_A/recipe.json",
+      "sekarang": "KODE_ML/04_Hasil/xgb_A/recipe.json",
+      "sha256_sebelum": "32f5dde2c705f41ef7fc92a360aa739daaae30d46ac7e91826adc3e2185e6416",
+      "sha256_sekarang": "32f5dde2c705f41ef7fc92a360aa739daaae30d46ac7e91826adc3e2185e6416",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/HASIL_UNTUK_BELAJAR/xgb_A/test_per_label.json",
+      "sekarang": "KODE_ML/04_Hasil/xgb_A/test_per_label.json",
+      "sha256_sebelum": "a6389da36c9b382a89408f983ea75258a171724f6a0bd6364e2951d998be7477",
+      "sha256_sekarang": "a6389da36c9b382a89408f983ea75258a171724f6a0bd6364e2951d998be7477",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/HASIL_UNTUK_BELAJAR/xgb_A/test_predictions.npz",
+      "sekarang": "KODE_ML/04_Hasil/xgb_A/test_predictions.npz",
+      "sha256_sebelum": "f390a8d1247e681a5dfbb386cd4c1190dddf6deaba50a5f06dbc5cf45d8f0266",
+      "sha256_sekarang": "f390a8d1247e681a5dfbb386cd4c1190dddf6deaba50a5f06dbc5cf45d8f0266",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/HASIL_UNTUK_BELAJAR/xgb_A/test_summary.json",
+      "sekarang": "KODE_ML/04_Hasil/xgb_A/test_summary.json",
+      "sha256_sebelum": "2885a9c35c34679f90432dd0dc8cbb286835dca51d4deca13442e6a54fcf8007",
+      "sha256_sekarang": "2885a9c35c34679f90432dd0dc8cbb286835dca51d4deca13442e6a54fcf8007",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/HASIL_UNTUK_BELAJAR/xgb_A/test_summary_validation_thresholds.json",
+      "sekarang": "KODE_ML/04_Hasil/xgb_A/test_summary_validation_thresholds.json",
+      "sha256_sebelum": "705ed1676269539b150b28164411495d31ce91947c667b019fee2f671cdaa72e",
+      "sha256_sekarang": "705ed1676269539b150b28164411495d31ce91947c667b019fee2f671cdaa72e",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/HASIL_UNTUK_BELAJAR/xgb_A/training_policy.json",
+      "sekarang": "KODE_ML/04_Hasil/xgb_A/training_policy.json",
+      "sha256_sebelum": "919b234a95ccdf51cf3e0839a3f6bc14de3f248d26662641a2f9d3c45e8f77e9",
+      "sha256_sekarang": "919b234a95ccdf51cf3e0839a3f6bc14de3f248d26662641a2f9d3c45e8f77e9",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/HASIL_UNTUK_BELAJAR/xgb_B/recipe.json",
+      "sekarang": "KODE_ML/04_Hasil/xgb_B/recipe.json",
+      "sha256_sebelum": "32f5dde2c705f41ef7fc92a360aa739daaae30d46ac7e91826adc3e2185e6416",
+      "sha256_sekarang": "32f5dde2c705f41ef7fc92a360aa739daaae30d46ac7e91826adc3e2185e6416",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/HASIL_UNTUK_BELAJAR/xgb_B/test_per_label.json",
+      "sekarang": "KODE_ML/04_Hasil/xgb_B/test_per_label.json",
+      "sha256_sebelum": "ab26a96e2c67fcfb28d02b05e413325ba896ced12dbb5a251d17228ed23a9642",
+      "sha256_sekarang": "ab26a96e2c67fcfb28d02b05e413325ba896ced12dbb5a251d17228ed23a9642",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/HASIL_UNTUK_BELAJAR/xgb_B/test_predictions.npz",
+      "sekarang": "KODE_ML/04_Hasil/xgb_B/test_predictions.npz",
+      "sha256_sebelum": "3dc59fb2ca3b9c396d18c52985b6464225470d77945c8824f5ed3444e72a504e",
+      "sha256_sekarang": "3dc59fb2ca3b9c396d18c52985b6464225470d77945c8824f5ed3444e72a504e",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/HASIL_UNTUK_BELAJAR/xgb_B/test_summary.json",
+      "sekarang": "KODE_ML/04_Hasil/xgb_B/test_summary.json",
+      "sha256_sebelum": "695a9e4991f82699ab18b353061b1be397a2b3a704a9ef77dfba935b27d96b3c",
+      "sha256_sekarang": "695a9e4991f82699ab18b353061b1be397a2b3a704a9ef77dfba935b27d96b3c",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/HASIL_UNTUK_BELAJAR/xgb_B/test_summary_validation_thresholds.json",
+      "sekarang": "KODE_ML/04_Hasil/xgb_B/test_summary_validation_thresholds.json",
+      "sha256_sebelum": "a12d1587c075c103068145e32a5a89b457725b5a9b93945ed49529b1791efbcc",
+      "sha256_sekarang": "a12d1587c075c103068145e32a5a89b457725b5a9b93945ed49529b1791efbcc",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/HASIL_UNTUK_BELAJAR/xgb_B/training_policy.json",
+      "sekarang": "KODE_ML/04_Hasil/xgb_B/training_policy.json",
+      "sha256_sebelum": "78c0c24ea6ea3b4b50e83a7b96ad54a408c2f392d880def2cb2c3ef28adcdde6",
+      "sha256_sekarang": "78c0c24ea6ea3b4b50e83a7b96ad54a408c2f392d880def2cb2c3ef28adcdde6",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/HASIL_UNTUK_BELAJAR/xgb_C/budget.json",
+      "sekarang": "KODE_ML/04_Hasil/xgb_C/budget.json",
+      "sha256_sebelum": "b631d62b145f89506c146af7c93ab54bd5d6bbb98a3f577adf7a5dde638f966b",
+      "sha256_sekarang": "b631d62b145f89506c146af7c93ab54bd5d6bbb98a3f577adf7a5dde638f966b",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/HASIL_UNTUK_BELAJAR/xgb_C/recipe.json",
+      "sekarang": "KODE_ML/04_Hasil/xgb_C/recipe.json",
+      "sha256_sebelum": "ff9f3737a3f8f211521a846b2cee8ea350288a1c635dd3910255b8250a0dd898",
+      "sha256_sekarang": "ff9f3737a3f8f211521a846b2cee8ea350288a1c635dd3910255b8250a0dd898",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/HASIL_UNTUK_BELAJAR/xgb_C/test_per_label.json",
+      "sekarang": "KODE_ML/04_Hasil/xgb_C/test_per_label.json",
+      "sha256_sebelum": "be67c31e9253d7f6799047e0d4b3da6e5e53c8937c2d96b4c26f218d8918c8db",
+      "sha256_sekarang": "be67c31e9253d7f6799047e0d4b3da6e5e53c8937c2d96b4c26f218d8918c8db",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/HASIL_UNTUK_BELAJAR/xgb_C/test_predictions.npz",
+      "sekarang": "KODE_ML/04_Hasil/xgb_C/test_predictions.npz",
+      "sha256_sebelum": "109ffefe28399ebc14e12380796337dccb06518fba65231e55c2d1353cda9d7f",
+      "sha256_sekarang": "109ffefe28399ebc14e12380796337dccb06518fba65231e55c2d1353cda9d7f",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/HASIL_UNTUK_BELAJAR/xgb_C/test_summary.json",
+      "sekarang": "KODE_ML/04_Hasil/xgb_C/test_summary.json",
+      "sha256_sebelum": "b7bc6099810e57ae8eb267c5499f3d293ecbd028740e9c867d9c45a9a34f0d72",
+      "sha256_sekarang": "b7bc6099810e57ae8eb267c5499f3d293ecbd028740e9c867d9c45a9a34f0d72",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/HASIL_UNTUK_BELAJAR/xgb_C/test_summary_validation_thresholds.json",
+      "sekarang": "KODE_ML/04_Hasil/xgb_C/test_summary_validation_thresholds.json",
+      "sha256_sebelum": "8064609def7fddeea94ec55c6776f14e8b84f0c84f3c75bf5ead2becbaa0f186",
+      "sha256_sekarang": "8064609def7fddeea94ec55c6776f14e8b84f0c84f3c75bf5ead2becbaa0f186",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/HASIL_UNTUK_BELAJAR/xgb_C/training_policy.json",
+      "sekarang": "KODE_ML/04_Hasil/xgb_C/training_policy.json",
+      "sha256_sebelum": "30fcb255bd4241ff9b5cedbc1ba4a98fdfe594ec2f1d50e2fc8739125b00ae68",
+      "sha256_sekarang": "30fcb255bd4241ff9b5cedbc1ba4a98fdfe594ec2f1d50e2fc8739125b00ae68",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/HASIL_UNTUK_BELAJAR/xgb_C/trials.csv",
+      "sekarang": "KODE_ML/04_Hasil/xgb_C/trials.csv",
+      "sha256_sebelum": "f44d244113e58792547b0747a3e105e2e4122e227f5b7cf38ca8c759076edd90",
+      "sha256_sekarang": "f44d244113e58792547b0747a3e105e2e4122e227f5b7cf38ca8c759076edd90",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/HASIL_UNTUK_BELAJAR/xgb_C/tuning_summary.json",
+      "sekarang": "KODE_ML/04_Hasil/xgb_C/tuning_summary.json",
+      "sha256_sebelum": "df448d0b9e821c3cfbe262d7c8fab72cb55f6be1c3f3e9b933c3f903620cf28c",
+      "sha256_sekarang": "df448d0b9e821c3cfbe262d7c8fab72cb55f6be1c3f3e9b933c3f903620cf28c",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/HASIL_UNTUK_BELAJAR/xgb_D/budget.json",
+      "sekarang": "KODE_ML/04_Hasil/xgb_D/budget.json",
+      "sha256_sebelum": "e64ff1af90e02997dffe5a1832748a18c9ed468ed167c5461809ac22d201bdc7",
+      "sha256_sekarang": "e64ff1af90e02997dffe5a1832748a18c9ed468ed167c5461809ac22d201bdc7",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/HASIL_UNTUK_BELAJAR/xgb_D/recipe.json",
+      "sekarang": "KODE_ML/04_Hasil/xgb_D/recipe.json",
+      "sha256_sebelum": "ff9f3737a3f8f211521a846b2cee8ea350288a1c635dd3910255b8250a0dd898",
+      "sha256_sekarang": "ff9f3737a3f8f211521a846b2cee8ea350288a1c635dd3910255b8250a0dd898",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/HASIL_UNTUK_BELAJAR/xgb_D/test_per_label.json",
+      "sekarang": "KODE_ML/04_Hasil/xgb_D/test_per_label.json",
+      "sha256_sebelum": "884addd1cb2b083fd6b76302871d3f69cc714872a5f9937013e8052fd69d7729",
+      "sha256_sekarang": "884addd1cb2b083fd6b76302871d3f69cc714872a5f9937013e8052fd69d7729",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/HASIL_UNTUK_BELAJAR/xgb_D/test_predictions.npz",
+      "sekarang": "KODE_ML/04_Hasil/xgb_D/test_predictions.npz",
+      "sha256_sebelum": "23fe57d769e86d5ff5f0f1ad52f6081b35f2c47bcc6a5fd6ffbf918f7a0fa1b1",
+      "sha256_sekarang": "23fe57d769e86d5ff5f0f1ad52f6081b35f2c47bcc6a5fd6ffbf918f7a0fa1b1",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/HASIL_UNTUK_BELAJAR/xgb_D/test_summary.json",
+      "sekarang": "KODE_ML/04_Hasil/xgb_D/test_summary.json",
+      "sha256_sebelum": "bfc7bb44240c325acc85faa5660b6c12340e079347382a46a324bef779fb6770",
+      "sha256_sekarang": "bfc7bb44240c325acc85faa5660b6c12340e079347382a46a324bef779fb6770",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/HASIL_UNTUK_BELAJAR/xgb_D/test_summary_validation_thresholds.json",
+      "sekarang": "KODE_ML/04_Hasil/xgb_D/test_summary_validation_thresholds.json",
+      "sha256_sebelum": "f19ece06543c541316a4cdbdf64aba1c6d4fc4ce0e27c0f10c689c065e4abe58",
+      "sha256_sekarang": "f19ece06543c541316a4cdbdf64aba1c6d4fc4ce0e27c0f10c689c065e4abe58",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/HASIL_UNTUK_BELAJAR/xgb_D/training_policy.json",
+      "sekarang": "KODE_ML/04_Hasil/xgb_D/training_policy.json",
+      "sha256_sebelum": "06a083db41665fc06351e7cf6b2715d5e847009aff51c96e082685aafbd04853",
+      "sha256_sekarang": "06a083db41665fc06351e7cf6b2715d5e847009aff51c96e082685aafbd04853",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/HASIL_UNTUK_BELAJAR/xgb_D/trials.csv",
+      "sekarang": "KODE_ML/04_Hasil/xgb_D/trials.csv",
+      "sha256_sebelum": "1684ca481f456fdb1abf76ae61fb98d5aefef4d7fc424797384583de707bbeee",
+      "sha256_sekarang": "1684ca481f456fdb1abf76ae61fb98d5aefef4d7fc424797384583de707bbeee",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/HASIL_UNTUK_BELAJAR/xgb_D/tuning_summary.json",
+      "sekarang": "KODE_ML/04_Hasil/xgb_D/tuning_summary.json",
+      "sha256_sebelum": "e668e986c7cb30af3f24517412b20c1dc98a8fcea466062fe951e337f717224f",
+      "sha256_sekarang": "e668e986c7cb30af3f24517412b20c1dc98a8fcea466062fe951e337f717224f",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/HASIL_UNTUK_BELAJAR/robustness/lgbm_A/robustness_summary.json",
+      "sekarang": "KODE_ML/04_Hasil/robustness/lgbm_A/robustness_summary.json",
+      "sha256_sebelum": "58dce05724ec088bc9413f7fb39070df135dc1315037bd2b4073555bf57b8a58",
+      "sha256_sekarang": "58dce05724ec088bc9413f7fb39070df135dc1315037bd2b4073555bf57b8a58",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/HASIL_UNTUK_BELAJAR/robustness/lgbm_A/thresholds.json",
+      "sekarang": "KODE_ML/04_Hasil/robustness/lgbm_A/thresholds.json",
+      "sha256_sebelum": "c22454baff3521d108aa8db60bb420c906c48c870ddb4a304169f5c416afdb88",
+      "sha256_sekarang": "c22454baff3521d108aa8db60bb420c906c48c870ddb4a304169f5c416afdb88",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/HASIL_UNTUK_BELAJAR/robustness/lgbm_B/robustness_summary.json",
+      "sekarang": "KODE_ML/04_Hasil/robustness/lgbm_B/robustness_summary.json",
+      "sha256_sebelum": "2b249345d3d11b0076931b8e835f1fb305a3fc2a2ae826ef2d67b225029769e6",
+      "sha256_sekarang": "2b249345d3d11b0076931b8e835f1fb305a3fc2a2ae826ef2d67b225029769e6",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/HASIL_UNTUK_BELAJAR/robustness/lgbm_B/thresholds.json",
+      "sekarang": "KODE_ML/04_Hasil/robustness/lgbm_B/thresholds.json",
+      "sha256_sebelum": "e4727440b997124338b6826ed69383582b9ec091268284e8530590e3bb4489ed",
+      "sha256_sekarang": "e4727440b997124338b6826ed69383582b9ec091268284e8530590e3bb4489ed",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/HASIL_UNTUK_BELAJAR/robustness/lgbm_C/robustness_summary.json",
+      "sekarang": "KODE_ML/04_Hasil/robustness/lgbm_C/robustness_summary.json",
+      "sha256_sebelum": "b4c255790bc5c3b15716f2bd7eaa6b09c438fa765bea83be3b6a45999d2443fd",
+      "sha256_sekarang": "b4c255790bc5c3b15716f2bd7eaa6b09c438fa765bea83be3b6a45999d2443fd",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/HASIL_UNTUK_BELAJAR/robustness/lgbm_C/thresholds.json",
+      "sekarang": "KODE_ML/04_Hasil/robustness/lgbm_C/thresholds.json",
+      "sha256_sebelum": "773c31a207df060d356685cd660481a6be306aa394f55e935ab2a16194227c54",
+      "sha256_sekarang": "773c31a207df060d356685cd660481a6be306aa394f55e935ab2a16194227c54",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/HASIL_UNTUK_BELAJAR/robustness/lgbm_D/pooled_oof_predictions.npz",
+      "sekarang": "KODE_ML/04_Hasil/robustness/lgbm_D/pooled_oof_predictions.npz",
+      "sha256_sebelum": "96cbf16f5849598f71731382b85ad532620a4bbcdc7242d422109663b2410a3a",
+      "sha256_sekarang": "96cbf16f5849598f71731382b85ad532620a4bbcdc7242d422109663b2410a3a",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/HASIL_UNTUK_BELAJAR/robustness/lgbm_D/robustness_summary.json",
+      "sekarang": "KODE_ML/04_Hasil/robustness/lgbm_D/robustness_summary.json",
+      "sha256_sebelum": "049aeadd0d3e5514e34d7ca3208285b1e310efc8783c0f471d9b93af34919952",
+      "sha256_sekarang": "049aeadd0d3e5514e34d7ca3208285b1e310efc8783c0f471d9b93af34919952",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/HASIL_UNTUK_BELAJAR/robustness/lgbm_D/thresholds.json",
+      "sekarang": "KODE_ML/04_Hasil/robustness/lgbm_D/thresholds.json",
+      "sha256_sebelum": "15e42d9b3a0e09f39a6b607e092696a655d468f7f2b3cdcc83410c27e6852500",
+      "sha256_sekarang": "15e42d9b3a0e09f39a6b607e092696a655d468f7f2b3cdcc83410c27e6852500",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/HASIL_UNTUK_BELAJAR/robustness/xgb_A/robustness_summary.json",
+      "sekarang": "KODE_ML/04_Hasil/robustness/xgb_A/robustness_summary.json",
+      "sha256_sebelum": "b6ba5aef38b514167a640fc8e27630e72c8433183fbef98e8405a2add7518907",
+      "sha256_sekarang": "b6ba5aef38b514167a640fc8e27630e72c8433183fbef98e8405a2add7518907",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/HASIL_UNTUK_BELAJAR/robustness/xgb_A/thresholds.json",
+      "sekarang": "KODE_ML/04_Hasil/robustness/xgb_A/thresholds.json",
+      "sha256_sebelum": "063f16966e7f8a061a02f3a288f44e3e989e80aa5d2b3de1cc085dd420cc75b2",
+      "sha256_sekarang": "063f16966e7f8a061a02f3a288f44e3e989e80aa5d2b3de1cc085dd420cc75b2",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/HASIL_UNTUK_BELAJAR/robustness/xgb_B/robustness_summary.json",
+      "sekarang": "KODE_ML/04_Hasil/robustness/xgb_B/robustness_summary.json",
+      "sha256_sebelum": "207f473e6df9adeebf84193beb5cda5182de5c135e797310019f36ca17177997",
+      "sha256_sekarang": "207f473e6df9adeebf84193beb5cda5182de5c135e797310019f36ca17177997",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/HASIL_UNTUK_BELAJAR/robustness/xgb_B/thresholds.json",
+      "sekarang": "KODE_ML/04_Hasil/robustness/xgb_B/thresholds.json",
+      "sha256_sebelum": "252b9032913a9bed7c2661069049c77e3544d3b9ebef5057d2bafe1e244f7562",
+      "sha256_sekarang": "252b9032913a9bed7c2661069049c77e3544d3b9ebef5057d2bafe1e244f7562",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/HASIL_UNTUK_BELAJAR/robustness/xgb_C/robustness_summary.json",
+      "sekarang": "KODE_ML/04_Hasil/robustness/xgb_C/robustness_summary.json",
+      "sha256_sebelum": "20e1105c29bf7511f807a05e29035f5af5c0efaba341a81d96ca0859cfb654f0",
+      "sha256_sekarang": "20e1105c29bf7511f807a05e29035f5af5c0efaba341a81d96ca0859cfb654f0",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/HASIL_UNTUK_BELAJAR/robustness/xgb_C/thresholds.json",
+      "sekarang": "KODE_ML/04_Hasil/robustness/xgb_C/thresholds.json",
+      "sha256_sebelum": "dc27b1529b701e068ccd2bf667d83db1375ace93121115fea78284dca9f4dafb",
+      "sha256_sekarang": "dc27b1529b701e068ccd2bf667d83db1375ace93121115fea78284dca9f4dafb",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/HASIL_UNTUK_BELAJAR/robustness/xgb_D/robustness_summary.json",
+      "sekarang": "KODE_ML/04_Hasil/robustness/xgb_D/robustness_summary.json",
+      "sha256_sebelum": "4264374a9850658e910504b40bf857bc48f0e2e3ec9d08d24ba57d628532df1c",
+      "sha256_sekarang": "4264374a9850658e910504b40bf857bc48f0e2e3ec9d08d24ba57d628532df1c",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/HASIL_UNTUK_BELAJAR/robustness/xgb_D/thresholds.json",
+      "sekarang": "KODE_ML/04_Hasil/robustness/xgb_D/thresholds.json",
+      "sha256_sebelum": "6ed635c8ade7a3182ee0e613ce69bd4ce46929e231efa0a06002034f8f6f93ed",
+      "sha256_sekarang": "6ed635c8ade7a3182ee0e613ce69bd4ce46929e231efa0a06002034f8f6f93ed",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/REFERENSI_BELAJAR/laporan_snapshot/Bab1.tex",
+      "sekarang": "KODE_ML/05_Referensi/Laporan/Bab1.tex",
+      "sha256_sebelum": "4ce458a27eb745a245f09578e31f0e275a4046793069da31aeff4560d0c13607",
+      "sha256_sekarang": "4ce458a27eb745a245f09578e31f0e275a4046793069da31aeff4560d0c13607",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/REFERENSI_BELAJAR/laporan_snapshot/Bab2.tex",
+      "sekarang": "KODE_ML/05_Referensi/Laporan/Bab2.tex",
+      "sha256_sebelum": "50a58b45ebfe9ad0bdbf491070216762464142c4fc391e595626c16218aae572",
+      "sha256_sekarang": "50a58b45ebfe9ad0bdbf491070216762464142c4fc391e595626c16218aae572",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/REFERENSI_BELAJAR/laporan_snapshot/Bab3.tex",
+      "sekarang": "KODE_ML/05_Referensi/Laporan/Bab3.tex",
+      "sha256_sebelum": "8ce93e010662e9d21bb5457cfec396a68776525df9b47b0cfbd1e2856956736d",
+      "sha256_sekarang": "8ce93e010662e9d21bb5457cfec396a68776525df9b47b0cfbd1e2856956736d",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/REFERENSI_BELAJAR/laporan_snapshot/Bab4.tex",
+      "sekarang": "KODE_ML/05_Referensi/Laporan/Bab4.tex",
+      "sha256_sebelum": "286e6391cc63304ec519cae68c8ecaa975eb350b0bb03d7dbea043fadcb9cdbc",
+      "sha256_sekarang": "286e6391cc63304ec519cae68c8ecaa975eb350b0bb03d7dbea043fadcb9cdbc",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/REFERENSI_BELAJAR/laporan_snapshot/Bab5.tex",
+      "sekarang": "KODE_ML/05_Referensi/Laporan/Bab5.tex",
+      "sha256_sebelum": "d28ba985f16be2f5bf070cb7ee60ac75042f1c0ea2764f9a116adc1cb8f8c150",
+      "sha256_sekarang": "d28ba985f16be2f5bf070cb7ee60ac75042f1c0ea2764f9a116adc1cb8f8c150",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/REFERENSI_BELAJAR/laporan_snapshot/pustaka.bib",
+      "sekarang": "KODE_ML/05_Referensi/Laporan/pustaka.bib",
+      "sha256_sebelum": "cb8fe5cf8c4f186f514ad7bcefcf8c165e508c963547d496059b67d5f45769a3",
+      "sha256_sekarang": "cb8fe5cf8c4f186f514ad7bcefcf8c165e508c963547d496059b67d5f45769a3",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/research/config/compute.json",
+      "sekarang": "KODE_ML/03_Kode/config/compute.json",
+      "sha256_sebelum": "d5a3c037be1845cb3fef3458cde8d130807e2c1fbe84cb4e2f53a16e1794fc55",
+      "sha256_sekarang": "d5a3c037be1845cb3fef3458cde8d130807e2c1fbe84cb4e2f53a16e1794fc55",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/research/config/dataset.json",
+      "sekarang": "KODE_ML/03_Kode/config/dataset.json",
+      "sha256_sebelum": "c2f990ea905c01f46d21224041f4826f6f5de73b65b957d892fdff3b5610f5f2",
+      "sha256_sekarang": "c2f990ea905c01f46d21224041f4826f6f5de73b65b957d892fdff3b5610f5f2",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/research/config/experiment.json",
+      "sekarang": "KODE_ML/03_Kode/config/experiment.json",
+      "sha256_sebelum": "9c65c0bb98e06d8ddfa2f6505c7a84f094cd3fe8db182db39d56563a2a75779e",
+      "sha256_sekarang": "9c65c0bb98e06d8ddfa2f6505c7a84f094cd3fe8db182db39d56563a2a75779e",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/research/config/sources.json",
+      "sekarang": "KODE_ML/03_Kode/config/sources.json",
+      "sha256_sebelum": "781ce2a3cdb915b2ba62be55647aea96ffe0bba85981437879a0dfad67587ccf",
+      "sha256_sekarang": "781ce2a3cdb915b2ba62be55647aea96ffe0bba85981437879a0dfad67587ccf",
+      "isi_sama": true
+    },
+    {
+      "sebelum": "KODE_ML/research/tests/test_research_readonly.py",
+      "sekarang": "KODE_ML/03_Kode/tests/test_research_readonly.py",
+      "sha256_sebelum": "aaa51ee9fc686fe24082927224658da728994167be17d1343f57e1162c541f66",
+      "sha256_sekarang": "0ed453be2d9a8dc28c0b005670f3ef95b592052a44865dc183febfb62a66c524",
+      "isi_sama": false
+    }
+  ]
+}

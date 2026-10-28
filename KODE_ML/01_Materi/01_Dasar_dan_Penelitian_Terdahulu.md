@@ -42,7 +42,7 @@ Fitur molekul yang sama
   └─ ... sampai 109 label
 ```
 
-Cuplikan dipersingkat dari kode aslinya terlihat di [training.py, fungsi fit_final_models, baris 55](<C:/Users/ACER/Documents/Marvel/Skripsi/Project Skripsi/Perfume-MultiLabel-Classifier/KODE_ML/research/training.py:55>):
+Cuplikan dipersingkat dari kode aslinya terlihat di [training.py, fungsi fit_final_models, baris 55](<C:/Users/ACER/Documents/Marvel/Skripsi/Project Skripsi/Perfume-MultiLabel-Classifier/KODE_ML/03_Kode/training.py:55>):
 
 ```python
 for j, name in enumerate(labels):
@@ -83,8 +83,8 @@ Untuk dasar algoritmanya, rujukan primer adalah [Chen dan Guestrin, XGBoost, 201
 
 ## 1.6 Urutan baca dan latihan
 
-1. Baca [SAFE_EXECUTION_PLAN.md](<C:/Users/ACER/Documents/Marvel/Skripsi/Project Skripsi/Perfume-MultiLabel-Classifier/SAFE_EXECUTION_PLAN.md>) untuk keputusan penelitian. Untuk status aplikasi, prioritaskan audit 27 Oktober di HASIL_UNTUK_BELAJAR/audit_27_oktober/README.md karena status ONNX pada plan belum diperbarui.
-2. Baca [Bab2.tex](<C:/Users/ACER/Documents/Marvel/Skripsi/Project Skripsi/Perfume-MultiLabel-Classifier/KODE_ML/REFERENSI_BELAJAR/laporan_snapshot/Bab2.tex:3>), terutama penelitian terdahulu dan multi-label. Ini bab yang dipanggil laporan utama `SKRIPSI.tex`.
+1. Baca [SAFE_EXECUTION_PLAN.md](<C:/Users/ACER/Documents/Marvel/Skripsi/Project Skripsi/Perfume-MultiLabel-Classifier/SAFE_EXECUTION_PLAN.md>) untuk keputusan penelitian. Untuk status aplikasi, prioritaskan audit 27 Oktober di 04_Hasil/audit_27_oktober/README.md karena status ONNX pada plan belum diperbarui.
+2. Baca [Bab2.tex](<C:/Users/ACER/Documents/Marvel/Skripsi/Project Skripsi/Perfume-MultiLabel-Classifier/KODE_ML/05_Referensi/Laporan/Bab2.tex:3>), terutama penelitian terdahulu dan multi-label. Ini bab yang dipanggil laporan utama `SKRIPSI.tex`.
 3. Lihat [05_Model_dan_Bobot.ipynb](<C:/Users/ACER/Documents/Marvel/Skripsi/Project Skripsi/Perfume-MultiLabel-Classifier/KODE_ML/05_Model_dan_Bobot.ipynb>) setelah gambaran besar ini terasa masuk akal.
 
 **Latihan:** kalau ada tiga aroma dan dua algoritma, berapa classifier untuk satu kondisi tiap algoritma? Jawaban: **enam**. Kalau tiap classifier punya 100 pohon, jumlah pohonnya 600. Ini hanya contoh.

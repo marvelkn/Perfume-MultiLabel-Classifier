@@ -12,7 +12,7 @@ Buka folder utama repository:
 
 Gunakan interpreter `.venv` project. Baca `KODE_ML/README.md`, lalu delapan notebook `01_...ipynb` sampai `08_Prediksi_Molekul.ipynb`. Setiap notebook dirancang mandiri dari **kernel baru**, yaitu sesi Python kosong. Audit 27 Oktober menemukan alat kernel notebook belum terpasang di environment ML lokal. Output tersimpan tetap bisa dibaca. Untuk menjalankan cell, ikuti pemasangan `KODE_ML/requirements_belajar.txt` pada README; panduan ini tidak memasang dependency.
 
-Notebook memakai helper `belajar.tampilkan_sumber` untuk menampilkan fungsi sumber aktif, lokasi, nomor baris, dan sidik jari kodenya. Jadi ikuti sumber `KODE_ML/research`, bukan mengira seluruh cell merupakan salinan training mandiri. Notebook prediksi menjalankan inferensi ringan dari model yang sudah ada.
+Notebook memakai helper `belajar.tampilkan_sumber` untuk menampilkan fungsi sumber aktif, lokasi, nomor baris, dan sidik jari kodenya. Jadi ikuti sumber `KODE_ML/03_Kode`, bukan mengira seluruh cell merupakan salinan training mandiri. Notebook prediksi menjalankan inferensi ringan dari model yang sudah ada.
 
 Kalau mau menjalankan sel, langkahnya dari PowerShell di root repository:
 
@@ -32,13 +32,13 @@ Command berikut ditulis untuk PowerShell dari root repository. Ini petunjuk; tid
 .\.venv\Scripts\python.exe -B -m research.experiment --check
 ```
 
-Lihat `KODE_ML/research/experiment.py`, fungsi `main`, baris 302–313. Tanpa `--train`, CLI juga masuk jalur pemeriksaan. Output sukses mencantumkan `MAIN_M2048_D8_INPUTS_VERIFIED` dan `training_started: False`. Pemeriksaan ini memastikan input sesuai protokol; ini bukan evaluasi akurasi baru.
+Lihat `KODE_ML/03_Kode/experiment.py`, fungsi `main`, baris 302–313. Tanpa `--train`, CLI juga masuk jalur pemeriksaan. Output sukses mencantumkan `MAIN_M2048_D8_INPUTS_VERIFIED` dan `training_started: False`. Pemeriksaan ini memastikan input sesuai protokol; ini bukan evaluasi akurasi baru.
 
 Di notebook `07_Evaluasi_dan_Pemilihan.ipynb`, gate `JALANKAN_EKSPERIMEN_BARU = False` harus tetap False untuk belajar. Training baru memerlukan tugas dan izin terpisah, folder run baru, serta lolos `runtime.check_host` baris 49–55. Guard memblokir laptop asal yang dicatat protokol. Profil yang didukung adalah CPU. Jangan mengubah guard demi menjalankan cell belajar.
 
 ## Ikuti satu SMILES sampai jadi fitur
 
-Sumber: `KODE_ML/research/inference.py`, fungsi `predict`. Potongan asli baris 31–39:
+Sumber: `KODE_ML/03_Kode/inference.py`, fungsi `predict`. Potongan asli baris 31–39:
 
 ```python
     mol = Chem.MolFromSmiles(smiles)

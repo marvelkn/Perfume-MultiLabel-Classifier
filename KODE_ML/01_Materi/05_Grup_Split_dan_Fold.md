@@ -2,7 +2,7 @@
 
 ## Tujuan dan file yang dibuka
 
-Buka notebook **04_Grup_Split_dan_Fold.ipynb**, `research/splits.py`, `asal_kohor.py` dan `DATA_UNTUK_BELAJAR/02_SETELAH_PREPROCESSING/pembagian_train_test.csv`. Kamu perlu bisa membedakan train, validation, test, fold dan seed sebelum membaca Optuna.
+Buka notebook **04_Grup_Split_dan_Fold.ipynb**, `03_Kode/splits.py`, `asal_kohor.py` dan `02_Data/02_Data_Bersih/pembagian_train_test.csv`. Kamu perlu bisa membedakan train, validation, test, fold dan seed sebelum membaca Optuna.
 
 | Istilah | Arti dalam penelitian ini |
 |---|---|
@@ -43,7 +43,7 @@ Seleksi 109 label memakai dukungan pada train setelah split ini. Jadi bukan memi
 
 ## Inner fold: latihan penilaian di dalam train
 
-`inner_folds()` di `research/splits.py` menggunakan `StratifiedGroupKFold`. Anggota satu grup wajib tetap bersama; stratified berusaha menjaga pembagian kelas 0/1 untuk label yang sedang dinilai. Setiap classifier memiliki target biner sendiri, sehingga **fold dibentuk per label dan per seed**. Jangan menganggap satu daftar fold universal dipakai untuk seluruh 109 label.
+`inner_folds()` di `03_Kode/splits.py` menggunakan `StratifiedGroupKFold`. Anggota satu grup wajib tetap bersama; stratified berusaha menjaga pembagian kelas 0/1 untuk label yang sedang dinilai. Setiap classifier memiliki target biner sendiri, sehingga **fold dibentuk per label dan per seed**. Jangan menganggap satu daftar fold universal dipakai untuk seluruh 109 label.
 
 ```python
 cv = StratifiedGroupKFold(n_splits=k, shuffle=True, random_state=seed)

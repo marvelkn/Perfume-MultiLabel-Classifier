@@ -69,7 +69,7 @@ def test_single_molecule_schema_and_invalid_input():
 
 def test_canonical_source_lives_inside_learning_folder():
     import research
-    assert SOURCE_ROOT == ROOT / "KODE_ML/research"
+    assert SOURCE_ROOT == ROOT / "KODE_ML/03_Kode"
     assert Path(experiment.__file__).resolve().parent == SOURCE_ROOT
     assert Path(inference.__file__).resolve().parent == SOURCE_ROOT
     assert list(research.__path__) == [str(SOURCE_ROOT)]

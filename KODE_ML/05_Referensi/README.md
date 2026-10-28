@@ -14,7 +14,7 @@ Mulai dari bab01 materi belajar sebelum membaca paper lengkap. Tujuannya memaham
 
 ## Laporan yang benar
 
-Laporan sumber diidentifikasi dari **SKRIPSI.tex** yang memanggil Bab1-Bab5 dan pustaka.bib dalam folder 2521_skripsi_Marvel_Kevin_Nathanael. Bukan menebak dari PDF paling baru. Salinan baca-saja bab dan bibliografinya ada di **laporan_snapshot/**.
+Laporan sumber diidentifikasi dari **SKRIPSI.tex** yang memanggil Bab1-Bab5 dan pustaka.bib dalam folder 2521_skripsi_Marvel_Kevin_Nathanael. Bukan menebak dari PDF paling baru. Salinan baca-saja bab dan bibliografinya ada di **Laporan/**.
 
 - Bab1: masalah, tujuan dan batasan.
 - Bab2: penelitian terdahulu dan dasar teori.

@@ -7,30 +7,30 @@ File aslinya tetap ada. Notebook dan program utama masih membaca lokasi asli, bu
 
 | Kalau mau melihat... | Buka ini |
 |---|---|
-| Bentuk data sebelum dibersihkan | [01_SEBELUM_PREPROCESSING](01_SEBELUM_PREPROCESSING/) |
-| Daftar molekul setelah dibersihkan dan digabung | [records.csv](02_SETELAH_PREPROCESSING/records.csv) |
-| Target aroma 0/1 pada data latihan | [target_train_109_label.csv](03_SIAP_TRAINING_2048_8/target_train_109_label.csv) |
-| Delapan angka deskriptor | [descriptors.csv](03_SIAP_TRAINING_2048_8/descriptors.csv) |
-| Semua angka X dan y yang siap dimuat untuk training | [train_2048_8.npz](03_SIAP_TRAINING_2048_8/train_2048_8.npz) |
+| Bentuk data sebelum dibersihkan | [01_Data_Mentah](01_Data_Mentah/) |
+| Daftar molekul setelah dibersihkan dan digabung | [records.csv](02_Data_Bersih/records.csv) |
+| Target aroma 0/1 pada data latihan | [target_train_109_label.csv](03_Siap_Training/target_train_109_label.csv) |
+| Delapan angka deskriptor | [descriptors.csv](03_Siap_Training/descriptors.csv) |
+| Semua angka X dan y yang siap dimuat untuk training | [train_2048_8.npz](03_Siap_Training/train_2048_8.npz) |
 
 ```text
-01_SEBELUM_PREPROCESSING    13.337 catatan aroma dari lima sumber
+01_Data_Mentah    13.337 catatan aroma dari lima sumber
            ↓ cek identitas, struktur dan label
                            11.777 diterima; 1.560 ditolak
            ↓ gabungkan catatan molekul yang sama
-02_SETELAH_PREPROCESSING     6.686 molekul dalam records.csv
+02_Data_Bersih     6.686 molekul dalam records.csv
            ↓ pakai pembagian dan 109 label yang sudah ditetapkan
-03_SIAP_TRAINING_2048_8      train: 5.353 molekul; test: 1.333 molekul
+03_Siap_Training      train: 5.353 molekul; test: 1.333 molekul
 ```
 
 **Ini bukan hasil eksperimen baru.** Tidak ada training, tuning, prediksi model, atau penghitungan fitur molekul ulang ketika paket ini dibuat. Fitur dan targetnya diambil dari hasil yang sudah tersimpan, lalu dipasangkan sesuai nomor baris yang sama.
 
 ## Contoh yang gampang ditunjukkan ke dosen: vanilin
 
-1. Buka `01_SEBELUM_PREPROCESSING/goodscents/molecules.csv`, cari CID **1183** atau nama **vanillin**.
+1. Buka `01_Data_Mentah/goodscents/molecules.csv`, cari CID **1183** atau nama **vanillin**.
 2. Buka `goodscents/stimuli.csv`, cari Stimulus **121-33-5** yang terhubung ke CID tadi.
 3. Buka `goodscents/behavior.csv`, cari Stimulus yang sama. Label GoodScents-nya: **sweet;vanilla;creamy;chocolate**.
-4. Buka `02_SETELAH_PREPROCESSING/records.csv`, cari SMILES **COc1cc(C=O)ccc1O** atau `source_row` **5737**.
+4. Buka `02_Data_Bersih/records.csv`, cari SMILES **COc1cc(C=O)ccc1O** atau `source_row` **5737**.
 5. Di hasil gabungan, labelnya **caramel, chocolate, creamy, gourmand, powdery, sweet, vanilla**, dari lima sumber. Ini catatan dataset, bukan skor prediksi model.
 
 SMILES sebelum/sesudah bisa berbeda tulisannya, tetapi strukturnya sama. RDKit menyeragamkan penulisannya.

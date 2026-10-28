@@ -1,6 +1,6 @@
 # 11. Peta source dan cuplikan aktual
 Ini penunjuk file dan fungsi aktif pada 27 Oktober 2026. Semua lokasi di tabel dihitung langsung dari AST source. Cuplikan di bawah dibaca dari file tersebut, bukan ditulis ulang sebagai algoritma lain. Nomor baris dan SHA256 membantu mencocokkan versi; keduanya bukan parameter ML.
-| Source di research | Fungsi | Baris | Peran singkat |
+| Source di 03_Kode | Fungsi | Baris | Peran singkat |
 |---|---|---|---|
 | source_identity.py | normalize | 32-36 | Identitas dan istilah |
 | source_identity.py | _attach_smiles | 57-71 | Identitas dan istilah |
@@ -57,7 +57,7 @@ Ini penunjuk file dan fungsi aktif pada 27 Oktober 2026. Semua lokasi di tabel d
 | results.py | main_run | 5-13 | Alamat hasil utama |
 
 ## Cuplikan inti yang bisa kamu ikuti
-Baca ini setelah bab 01-10. Source lengkap tetap ada di research dan ditampilkan notebook lewat tampilkan_sumber. Penjelasan input, output dan alasannya ada di bab terkait.
+Baca ini setelah bab 01-10. Source lengkap ada di 03_Kode dan ditampilkan notebook lewat tampilkan_sumber. Penjelasan input, output dan alasannya ada di bab terkait.
 
 ## features.py: calculate_morgan
 

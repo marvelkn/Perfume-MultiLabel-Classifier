@@ -31,12 +31,12 @@
 
 ## Coba buka tanpa training
 
-Jalankan contoh ini dari folder `DATA_UNTUK_BELAJAR`:
+Jalankan contoh ini dari folder `02_Data`:
 
 ```python
 import numpy as np
 
-with np.load("03_SIAP_TRAINING_2048_8/train_2048_8.npz", allow_pickle=False) as data:
+with np.load("03_Siap_Training/train_2048_8.npz", allow_pickle=False) as data:
     print("Fitur:", data["X"].shape)       # (5353, 2056)
     print("Target:", data["y"].shape)      # (5353, 109)
     print("Nama aroma:", data["labels"][:5])

@@ -1,10 +1,10 @@
 # 10 — Latihan jawab dosen pakai pemahaman sendiri
 
-Status aplikasi terbaru ada di HASIL_UNTUK_BELAJAR/audit_27_oktober/README.md; catatan penundaan ONNX pada plan lama sudah usang.
+Status aplikasi terbaru ada di 04_Hasil/audit_27_oktober/README.md; catatan penundaan ONNX pada plan lama sudah usang.
 
 **Target belajar:** jelaskan alur, tunjukkan bukti, sebutkan batasnya. Sesuaikan jawaban dengan pekerjaan yang benar-benar kamu lakukan.
 
-Pegangan utama: [SAFE_EXECUTION_PLAN.md](<C:/Users/ACER/Documents/Marvel/Skripsi/Project Skripsi/Perfume-MultiLabel-Classifier/SAFE_EXECUTION_PLAN.md>), [config penelitian](<C:/Users/ACER/Documents/Marvel/Skripsi/Project Skripsi/Perfume-MultiLabel-Classifier/KODE_ML/research/config/experiment.json>), serta kode aktif di `KODE_ML/research/`. Nama arsip V7 menunjukkan hasil yang dikunci, bukan nama algoritma baru. V9 adalah eksperimen tambahan.
+Pegangan utama: [SAFE_EXECUTION_PLAN.md](<C:/Users/ACER/Documents/Marvel/Skripsi/Project Skripsi/Perfume-MultiLabel-Classifier/SAFE_EXECUTION_PLAN.md>), [config penelitian](<C:/Users/ACER/Documents/Marvel/Skripsi/Project Skripsi/Perfume-MultiLabel-Classifier/KODE_ML/03_Kode/config/experiment.json>), serta kode aktif di `KODE_ML/03_Kode/`. Nama arsip V7 menunjukkan hasil yang dikunci, bukan nama algoritma baru. V9 adalah eksperimen tambahan.
 
 ## Putaran pertama: jelaskan alurnya
 
@@ -18,7 +18,7 @@ Pegangan utama: [SAFE_EXECUTION_PLAN.md](<C:/Users/ACER/Documents/Marvel/Skripsi
 
 **3. Model membaca huruf SMILES langsung?**
 
-“RDKit membaca struktur SMILES, lalu menghitung Morgan dan deskriptor.” Bukti: [features.py, calculate_morgan(), baris 29](<C:/Users/ACER/Documents/Marvel/Skripsi/Project Skripsi/Perfume-MultiLabel-Classifier/KODE_ML/research/features.py:29>) dan `calculate()` baris 19. Struktur tidak valid atau multikomponen ditolak.
+“RDKit membaca struktur SMILES, lalu menghitung Morgan dan deskriptor.” Bukti: [features.py, calculate_morgan(), baris 29](<C:/Users/ACER/Documents/Marvel/Skripsi/Project Skripsi/Perfume-MultiLabel-Classifier/KODE_ML/03_Kode/features.py:29>) dan `calculate()` baris 19. Struktur tidak valid atau multikomponen ditolak.
 
 **4. Kenapa 2.048+8?**
 
@@ -30,7 +30,7 @@ Pegangan utama: [SAFE_EXECUTION_PLAN.md](<C:/Users/ACER/Documents/Marvel/Skripsi
 
 **6. Berarti ada 109 pohon?**
 
-“Ada 109 classifier biner untuk satu kandidat algoritma. Setiap classifier punya banyak pohon boosting.” XGBoost dan LightGBM dibandingkan sebagai dua pilihan algoritma. Satu prediksi dengan kandidat terpilih menggunakan 109 classifier kandidat itu. Lihat [training.py, fit_final_models(), baris 55](<C:/Users/ACER/Documents/Marvel/Skripsi/Project Skripsi/Perfume-MultiLabel-Classifier/KODE_ML/research/training.py:55>).
+“Ada 109 classifier biner untuk satu kandidat algoritma. Setiap classifier punya banyak pohon boosting.” XGBoost dan LightGBM dibandingkan sebagai dua pilihan algoritma. Satu prediksi dengan kandidat terpilih menggunakan 109 classifier kandidat itu. Lihat [training.py, fit_final_models(), baris 55](<C:/Users/ACER/Documents/Marvel/Skripsi/Project Skripsi/Perfume-MultiLabel-Classifier/KODE_ML/03_Kode/training.py:55>).
 
 **7. Pohon-pohon itu bekerjanya gimana?**
 
@@ -38,7 +38,7 @@ Pegangan utama: [SAFE_EXECUTION_PLAN.md](<C:/Users/ACER/Documents/Marvel/Skripsi
 
 **8. Kalau labelnya jarang muncul gimana?**
 
-“Kode memberi bobot sampel berdasarkan frekuensi kelas pada bagian training yang sedang dipakai. Kelas langka mendapat bobot lebih besar.” Rumusnya **bobot kelas = N/(2×jumlah kelas itu)**; N adalah jumlah sampel training. Jika N=100 dan positif=10, bobot positif=5, negatif=100/180≈0,556. Bukti: [training.py, balanced_sample_weights(), baris 21](<C:/Users/ACER/Documents/Marvel/Skripsi/Project Skripsi/Perfume-MultiLabel-Classifier/KODE_ML/research/training.py:21>). Ini bobot saat menghitung loss, bukan membuat molekul baru.
+“Kode memberi bobot sampel berdasarkan frekuensi kelas pada bagian training yang sedang dipakai. Kelas langka mendapat bobot lebih besar.” Rumusnya **bobot kelas = N/(2×jumlah kelas itu)**; N adalah jumlah sampel training. Jika N=100 dan positif=10, bobot positif=5, negatif=100/180≈0,556. Bukti: [training.py, balanced_sample_weights(), baris 21](<C:/Users/ACER/Documents/Marvel/Skripsi/Project Skripsi/Perfume-MultiLabel-Classifier/KODE_ML/03_Kode/training.py:21>). Ini bobot saat menghitung loss, bukan membuat molekul baru.
 
 ## Putaran kedua: alasan eksperimen dan hasil
 
@@ -55,7 +55,7 @@ Pegangan utama: [SAFE_EXECUTION_PLAN.md](<C:/Users/ACER/Documents/Marvel/Skripsi
 
 **10. Optuna memilih berdasarkan apa?**
 
-“Setiap trial mencoba satu kombinasi parameter. Nilainya dihitung dari rata-rata AP fold per label, lalu rata-rata seluruh 109 label pada data training. Nilai lebih tinggi lebih baik.” Empat studi C/D mendapat anggaran sama, delapan jam per studi. Bukan memilih parameter dari AP test. Detailnya di [tuning.py](<C:/Users/ACER/Documents/Marvel/Skripsi/Project Skripsi/Perfume-MultiLabel-Classifier/KODE_ML/research/tuning.py>).
+“Setiap trial mencoba satu kombinasi parameter. Nilainya dihitung dari rata-rata AP fold per label, lalu rata-rata seluruh 109 label pada data training. Nilai lebih tinggi lebih baik.” Empat studi C/D mendapat anggaran sama, delapan jam per studi. Bukan memilih parameter dari AP test. Detailnya di [tuning.py](<C:/Users/ACER/Documents/Marvel/Skripsi/Project Skripsi/Perfume-MultiLabel-Classifier/KODE_ML/03_Kode/tuning.py>).
 
 **11. Train, validasi, test bedanya apa?**
 
@@ -63,11 +63,11 @@ Pegangan utama: [SAFE_EXECUTION_PLAN.md](<C:/Users/ACER/Documents/Marvel/Skripsi
 
 **12. Kenapa pakai grup? Ada jejak 1.024 bit?**
 
-“Pembagian mempertahankan grup historis supaya anggota grup tidak menyeberang train dan test. Asal grup memakai kesamaan struktur tanpa stereo atau fingerprint Morgan 1.024 yang identik. Fitur model utama sekarang tetap Morgan 2.048.” Jangan bilang seluruh molekul mirip pasti terpisah; aturan ini hanya melindungi grup yang didefinisikan. [splits.py, validate_grouped_split(), baris 21](<C:/Users/ACER/Documents/Marvel/Skripsi/Project Skripsi/Perfume-MultiLabel-Classifier/KODE_ML/research/splits.py:21>) memeriksa pemisahannya.
+“Pembagian mempertahankan grup historis supaya anggota grup tidak menyeberang train dan test. Asal grup memakai kesamaan struktur tanpa stereo atau fingerprint Morgan 1.024 yang identik. Fitur model utama sekarang tetap Morgan 2.048.” Jangan bilang seluruh molekul mirip pasti terpisah; aturan ini hanya melindungi grup yang didefinisikan. [splits.py, validate_grouped_split(), baris 21](<C:/Users/ACER/Documents/Marvel/Skripsi/Project Skripsi/Perfume-MultiLabel-Classifier/KODE_ML/03_Kode/splits.py:21>) memeriksa pemisahannya.
 
 **13. Seed itu apa, dan apakah semua label punya fold sama?**
 
-“Seed mengendalikan pengacakan. Evaluasi memakai lima seed; fold dibuat per label memakai target dan grup, jadi antarlabel bisa berbeda.” Kode mengizinkan pengurangan fold saat kelas tidak mencukupi; audit hasil utama menemukan lima fold setiap label/seed. Lihat [splits.py, inner_folds(), baris 6](<C:/Users/ACER/Documents/Marvel/Skripsi/Project Skripsi/Perfume-MultiLabel-Classifier/KODE_ML/research/splits.py:6>).
+“Seed mengendalikan pengacakan. Evaluasi memakai lima seed; fold dibuat per label memakai target dan grup, jadi antarlabel bisa berbeda.” Kode mengizinkan pengurangan fold saat kelas tidak mencukupi; audit hasil utama menemukan lima fold setiap label/seed. Lihat [splits.py, inner_folds(), baris 6](<C:/Users/ACER/Documents/Marvel/Skripsi/Project Skripsi/Perfume-MultiLabel-Classifier/KODE_ML/03_Kode/splits.py:6>).
 
 **14. Kenapa LightGBM D dipilih?**
 
@@ -97,7 +97,7 @@ Pegangan utama: [SAFE_EXECUTION_PLAN.md](<C:/Users/ACER/Documents/Marvel/Skripsi
 
 **20. Aplikasinya sudah terbukti siap produksi?**
 
-“Integrasi prototipe tersedia. Audit desktop mengecek 109 ONNX pada 32 vektor: selisih skor maksimum 4,001013×10⁻⁷ dan keputusan ambang 0,5 sama dengan native.” Bukti Android sebelumnya tersedia, tetapi audit ini tidak menguji ulang HP. Pengujian terbatas belum membuktikan kesiapan produksi atau validitas sensoris. Rujukan temuan dan batas terbaru: [audit 27 Oktober](<C:/Users/ACER/Documents/Marvel/Skripsi/Project Skripsi/Perfume-MultiLabel-Classifier/KODE_ML/HASIL_UNTUK_BELAJAR/audit_27_oktober/README.md>).
+“Integrasi prototipe tersedia. Audit desktop mengecek 109 ONNX pada 32 vektor: selisih skor maksimum 4,001013×10⁻⁷ dan keputusan ambang 0,5 sama dengan native.” Bukti Android sebelumnya tersedia, tetapi audit ini tidak menguji ulang HP. Pengujian terbatas belum membuktikan kesiapan produksi atau validitas sensoris. Rujukan temuan dan batas terbaru: [audit 27 Oktober](<C:/Users/ACER/Documents/Marvel/Skripsi/Project Skripsi/Perfume-MultiLabel-Classifier/KODE_ML/04_Hasil/audit_27_oktober/README.md>).
 
 ## Kamus cepat
 

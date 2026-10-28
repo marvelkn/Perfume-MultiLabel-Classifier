@@ -2,7 +2,7 @@
 
 ## Tujuan dan urutan proses
 
-Buka notebook **02_Preprocessing_dan_Audit_Label.ipynb**, `research/preprocessing.py` dan **DATA_UNTUK_BELAJAR/02_SETELAH_PREPROCESSING/**. Targetnya: kamu bisa menjelaskan apa yang dibuang, apa yang dirapikan, dan apa yang tetap menjadi batasan data.
+Buka notebook **02_Preprocessing_dan_Audit_Label.ipynb**, `03_Kode/preprocessing.py` dan **02_Data/02_Data_Bersih/**. Targetnya: kamu bisa menjelaskan apa yang dibuang, apa yang dirapikan, dan apa yang tetap menjadi batasan data.
 
 `merge_sources()` menerima tabel lima sumber. Untuk setiap baris: cari SMILES, periksa molekul, ambil istilah aroma sesuai format sumber, petakan ke istilah IFRA, lalu gabungkan anotasi untuk molekul yang sama. Ini aturan pengolahan data, jadi tidak perlu dipaksakan menjadi rumus ML.
 
@@ -50,7 +50,7 @@ Bedakan tiga angka ini: **31 aturan alias**, **184 istilah IFRA**, dan **109 tar
 
 Misalnya secara ilustrasi satu baris punya `sweet` dan istilah yang tidak dikenali. Baris masih diterima karena `sweet` berhasil dipetakan, tetapi istilah lain tidak masuk target. Jadi 'baris diterima' tidak berarti seluruh informasi labelnya ikut.
 
-Audit aktual `hasil_audit_label/summary.json` mencatat **45.689 kemunculan istilah** yang mencapai mapper: 37.940 exact, 1.255 alias, 6.494 tidak terpetakan. Istilah gagal itu terdiri dari 498 bentuk berbeda. Ada **3.898 baris diterima** yang sebagian istilahnya tidak terpetakan. Itu berbeda dari 552 baris yang ditolak karena tidak ada satu pun label terpetakan.
+Audit aktual `06_Audit_Label/summary.json` mencatat **45.689 kemunculan istilah** yang mencapai mapper: 37.940 exact, 1.255 alias, 6.494 tidak terpetakan. Istilah gagal itu terdiri dari 498 bentuk berbeda. Ada **3.898 baris diterima** yang sebagian istilahnya tidak terpetakan. Itu berbeda dari 552 baris yang ditolak karena tidak ada satu pun label terpetakan.
 
 Ada juga 1.230 kemunculan istilah yang berhasil dipetakan tetapi labelnya tidak masuk 109 target karena dukungan training tidak cukup. Jangan mencampur kegagalan mapping dengan seleksi target. Lihat `unmatched_terms.csv` dan `taxonomy_selection.csv` untuk mengecek rincian.
 

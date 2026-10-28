@@ -33,9 +33,9 @@ Huruf pada rumus adalah jumlah kejadian tadi.
 
 F1 juga bisa dihitung sebagai **2PR/(P+R)**. P berarti precision dan R berarti recall untuk **label yang sama**. Jangan menghitung macro F1 dari macro precision dan macro recall: hitung F1 setiap label dulu, baru rata-ratakan.
 
-Di kode, [metrics.py baris 10](<C:/Users/ACER/Documents/Marvel/Skripsi/Project Skripsi/Perfume-MultiLabel-Classifier/KODE_ML/research/metrics.py:10>) menerima tiga vektor: `truth` = target asli, `probabilities` = skor, `predicted` = keputusan. Untuk satu label test, masing-masing panjangnya 1.333. Implementasi precision dan recall memakai scikit-learn; kasus pembagi nol dikembalikan sebagai nol melalui `zero_division=0`.
+Di kode, [metrics.py baris 10](<C:/Users/ACER/Documents/Marvel/Skripsi/Project Skripsi/Perfume-MultiLabel-Classifier/KODE_ML/03_Kode/metrics.py:10>) menerima tiga vektor: `truth` = target asli, `probabilities` = skor, `predicted` = keputusan. Untuk satu label test, masing-masing panjangnya 1.333. Implementasi precision dan recall memakai scikit-learn; kasus pembagi nol dikembalikan sebagai nol melalui `zero_division=0`.
 
-Potongan asli [validation.py baris 69](<C:/Users/ACER/Documents/Marvel/Skripsi/Project Skripsi/Perfume-MultiLabel-Classifier/KODE_ML/research/validation.py:69>):
+Potongan asli [validation.py baris 69](<C:/Users/ACER/Documents/Marvel/Skripsi/Project Skripsi/Perfume-MultiLabel-Classifier/KODE_ML/03_Kode/validation.py:69>):
 
 ```python
 def f1_from_metrics(value):
@@ -51,7 +51,7 @@ def f1_from_metrics(value):
 
 **AP = (1 + 2/3 + 3/5)/3 = 0,756.**
 
-Pembagi 3 adalah jumlah positif. Rumus sederhana ini berlaku untuk contoh tanpa skor kembar. Secara umum AP menjumlahkan precision yang dibobot kenaikan recall. Kode benar-benar memanggil `average_precision_score(y, p)` di [metrics.py baris 23](<C:/Users/ACER/Documents/Marvel/Skripsi/Project Skripsi/Perfume-MultiLabel-Classifier/KODE_ML/research/metrics.py:23>). Kolom `auprc` dalam artefak berarti **AP dari fungsi tersebut**, bukan integrasi trapesium kurva precision–recall.
+Pembagi 3 adalah jumlah positif. Rumus sederhana ini berlaku untuk contoh tanpa skor kembar. Secara umum AP menjumlahkan precision yang dibobot kenaikan recall. Kode benar-benar memanggil `average_precision_score(y, p)` di [metrics.py baris 23](<C:/Users/ACER/Documents/Marvel/Skripsi/Project Skripsi/Perfume-MultiLabel-Classifier/KODE_ML/03_Kode/metrics.py:23>). Kolom `auprc` dalam artefak berarti **AP dari fungsi tersebut**, bukan integrasi trapesium kurva precision–recall.
 
 **AUROC** bisa dibayangkan dengan memasangkan setiap positif melawan setiap negatif. Positif punya skor 0,9; 0,7; 0,4. Negatif punya 0,8; 0,6; 0,1. Ada 3×3=9 pasangan. Skor positif menang masing-masing 3, 2, dan 1 kali. Jadi **AUROC = 6/9 = 0,667**. Skor sama mendapat setengah kemenangan. Implementasinya `roc_auc_score(y, p)` di baris 26.
 
@@ -59,15 +59,15 @@ Pembagi 3 adalah jumlah positif. Rumus sederhana ini berlaku untuk contoh tanpa 
 
 ## Dari satu label ke 109 label
 
-Kode menghitung metrik **per label**, lalu `summarize()` di [metrics.py baris 33](<C:/Users/ACER/Documents/Marvel/Skripsi/Project Skripsi/Perfume-MultiLabel-Classifier/KODE_ML/research/metrics.py:33>) mengambil rata-ratanya. Itulah **macro**. Secara umum helper mengabaikan nilai metrik None jika suatu kelas tidak tersedia. Pada test utama, seluruh 109 label mempunyai kedua kelas sehingga rata-rata memakai 109 label. Contoh: AP sweet 0,6 dan woody 0,2 menghasilkan macro AP (0,6+0,2)/2=0,4. Setiap label mendapat bobot sama, meskipun jumlah contohnya berbeda.
+Kode menghitung metrik **per label**, lalu `summarize()` di [metrics.py baris 33](<C:/Users/ACER/Documents/Marvel/Skripsi/Project Skripsi/Perfume-MultiLabel-Classifier/KODE_ML/03_Kode/metrics.py:33>) mengambil rata-ratanya. Itulah **macro**. Secara umum helper mengabaikan nilai metrik None jika suatu kelas tidak tersedia. Pada test utama, seluruh 109 label mempunyai kedua kelas sehingga rata-rata memakai 109 label. Contoh: AP sweet 0,6 dan woody 0,2 menghasilkan macro AP (0,6+0,2)/2=0,4. Setiap label mendapat bobot sama, meskipun jumlah contohnya berbeda.
 
-Untuk seleksi, urutannya: **AP setiap fold → rata-rata fold tiap label → rata-rata label → rata-rata lima seed**. Seed yang dipakai 7, 21, 42, 84, 100; fold maksimal lima per label. Lihat `cross_validate()` baris 8 dan `repeated_grouped_cv()` baris 119 pada [validation.py](<C:/Users/ACER/Documents/Marvel/Skripsi/Project Skripsi/Perfume-MultiLabel-Classifier/KODE_ML/research/validation.py:119>).
+Untuk seleksi, urutannya: **AP setiap fold → rata-rata fold tiap label → rata-rata label → rata-rata lima seed**. Seed yang dipakai 7, 21, 42, 84, 100; fold maksimal lima per label. Lihat `cross_validate()` baris 8 dan `repeated_grouped_cv()` baris 119 pada [validation.py](<C:/Users/ACER/Documents/Marvel/Skripsi/Project Skripsi/Perfume-MultiLabel-Classifier/KODE_ML/03_Kode/validation.py:119>).
 
 Ini beda dengan menggabungkan seluruh skor **OOF** lalu menghitung AP sekali. OOF berarti skor suatu baris dibuat saat baris itu menjadi validasi. Kode merata-ratakan skor OOF antarseed untuk memilih ambang tambahan. Karena AP bergantung peringkat, **rata-rata AP fold tidak harus sama dengan AP gabungan OOF**.
 
 ## Hasil asli: delapan kandidat utama
 
-A/C memakai Morgan 2.048 fitur. B/D menambah delapan deskriptor, menjadi 2.056 fitur. A/B memakai baseline; C/D memakai parameter hasil Optuna. Tabel berasal dari [comparison_all.csv](<C:/Users/ACER/Documents/Marvel/Skripsi/Project Skripsi/Perfume-MultiLabel-Classifier/KODE_ML/HASIL_UNTUK_BELAJAR/comparison_all.csv>). Angka dibulatkan enam desimal; F1 memakai ambang utama 0,5.
+A/C memakai Morgan 2.048 fitur. B/D menambah delapan deskriptor, menjadi 2.056 fitur. A/B memakai baseline; C/D memakai parameter hasil Optuna. Tabel berasal dari [comparison_all.csv](<C:/Users/ACER/Documents/Marvel/Skripsi/Project Skripsi/Perfume-MultiLabel-Classifier/KODE_ML/04_Hasil/comparison_all.csv>). Angka dibulatkan enam desimal; F1 memakai ambang utama 0,5.
 
 | Kandidat | AP validasi | AP test | AUROC test | Macro F1 test |
 |---|---:|---:|---:|---:|
@@ -80,15 +80,15 @@ A/C memakai Morgan 2.048 fitur. B/D menambah delapan deskriptor, menjadi 2.056 f
 | LightGBM C | 0,269114 | 0,276461 | 0,827912 | 0,252220 |
 | LightGBM D | **0,299731** | **0,310531** | **0,842985** | 0,293156 |
 
-**LightGBM D dipilih dari AP validasi tertinggi**, sesuai [experiment.py fungsi select_candidates(), baris 66](<C:/Users/ACER/Documents/Marvel/Skripsi/Project Skripsi/Perfume-MultiLabel-Classifier/KODE_ML/research/experiment.py:66>). AP 0,310531 bukan berarti “akurasi aroma 31,05%”. Itu ringkasan kualitas peringkat skor pada label test.
+**LightGBM D dipilih dari AP validasi tertinggi**, sesuai [experiment.py fungsi select_candidates(), baris 66](<C:/Users/ACER/Documents/Marvel/Skripsi/Project Skripsi/Perfume-MultiLabel-Classifier/KODE_ML/03_Kode/experiment.py:66>). AP 0,310531 bukan berarti “akurasi aroma 31,05%”. Itu ringkasan kualitas peringkat skor pada label test.
 
 D nggak unggul di semua metrik. LightGBM B memiliki F1 lebih tinggi pada ambang 0,5. Peringkat yang membaik belum tentu memberi keputusan terbaik pada ambang tetap. Dibanding B, D menaikkan recall tetapi menurunkan precision.
 
 ## Kenapa ada hasil ambang OOF?
 
-`select_validation_thresholds()` di [validation.py baris 89](<C:/Users/ACER/Documents/Marvel/Skripsi/Project Skripsi/Perfume-MultiLabel-Classifier/KODE_ML/research/validation.py:89>) mencoba ambang 0,05 sampai 0,95, langkah 0,05, lalu memilih F1 OOF tertinggi **masing-masing label**. Kalau seri, pilih yang paling dekat 0,5; kalau masih seri, pilih yang lebih besar. Ini evaluasi tambahan; hasil utama tetap ambang 0,5.
+`select_validation_thresholds()` di [validation.py baris 89](<C:/Users/ACER/Documents/Marvel/Skripsi/Project Skripsi/Perfume-MultiLabel-Classifier/KODE_ML/03_Kode/validation.py:89>) mencoba ambang 0,05 sampai 0,95, langkah 0,05, lalu memilih F1 OOF tertinggi **masing-masing label**. Kalau seri, pilih yang paling dekat 0,5; kalau masih seri, pilih yang lebih besar. Ini evaluasi tambahan; hasil utama tetap ambang 0,5.
 
-Hasil LightGBM D dari [test_summary.json](<C:/Users/ACER/Documents/Marvel/Skripsi/Project Skripsi/Perfume-MultiLabel-Classifier/KODE_ML/HASIL_UNTUK_BELAJAR/lgbm_D/test_summary.json>) dan [test_summary_validation_thresholds.json](<C:/Users/ACER/Documents/Marvel/Skripsi/Project Skripsi/Perfume-MultiLabel-Classifier/KODE_ML/HASIL_UNTUK_BELAJAR/lgbm_D/test_summary_validation_thresholds.json>):
+Hasil LightGBM D dari [test_summary.json](<C:/Users/ACER/Documents/Marvel/Skripsi/Project Skripsi/Perfume-MultiLabel-Classifier/KODE_ML/04_Hasil/lgbm_D/test_summary.json>) dan [test_summary_validation_thresholds.json](<C:/Users/ACER/Documents/Marvel/Skripsi/Project Skripsi/Perfume-MultiLabel-Classifier/KODE_ML/04_Hasil/lgbm_D/test_summary_validation_thresholds.json>):
 
 | Metrik test | Ambang 0,5 | Ambang dari OOF |
 |---|---:|---:|
@@ -101,9 +101,9 @@ Model jadi lebih selektif secara keseluruhan: precision naik, tetapi lebih banya
 
 ## Batas kesimpulan dan latihan
 
-Menurut [experiment.json baris 171](<C:/Users/ACER/Documents/Marvel/Skripsi/Project Skripsi/Perfume-MultiLabel-Classifier/KODE_ML/research/config/experiment.json:171>), test pernah diperiksa pada riwayat pengembangan dan repeated CV ini bukan nested CV. Jadi hasil bersifat **eksploratori**. Simpangan baku AP validasi D sebesar 0,001360 menggambarkan variasi lima seed; itu bukan bukti perbedaan signifikan atau jaminan pada molekul baru.
+Menurut [experiment.json baris 171](<C:/Users/ACER/Documents/Marvel/Skripsi/Project Skripsi/Perfume-MultiLabel-Classifier/KODE_ML/03_Kode/config/experiment.json:171>), test pernah diperiksa pada riwayat pengembangan dan repeated CV ini bukan nested CV. Jadi hasil bersifat **eksploratori**. Simpangan baku AP validasi D sebesar 0,001360 menggambarkan variasi lima seed; itu bukan bukti perbedaan signifikan atau jaminan pada molekul baru.
 
-[Audit 27 Oktober](<C:/Users/ACER/Documents/Marvel/Skripsi/Project Skripsi/Perfume-MultiLabel-Classifier/KODE_ML/HASIL_UNTUK_BELAJAR/audit_27_oktober/README.md>) juga membandingkan prediksi semua nol: macro accuracy-nya **0,960970**, melampaui D **0,923660**, tetapi recall dan F1 nol. Ini alasan konkret kenapa accuracy bukan dasar seleksi.
+[Audit 27 Oktober](<C:/Users/ACER/Documents/Marvel/Skripsi/Project Skripsi/Perfume-MultiLabel-Classifier/KODE_ML/04_Hasil/audit_27_oktober/README.md>) juga membandingkan prediksi semua nol: macro accuracy-nya **0,960970**, melampaui D **0,923660**, tetapi recall dan F1 nol. Ini alasan konkret kenapa accuracy bukan dasar seleksi.
 
 Jawaban sidang singkat: “Saya memilih LightGBM D berdasarkan macro AP validasi. AP test-nya 0,310531. Pada ambang 0,5, F1-nya masih di bawah baseline B. Ambang tambahan dari OOF meningkatkan F1 dengan konsekuensi recall turun. Saya melaporkan kedua kondisi dan batas evaluasinya.”
 

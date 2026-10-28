@@ -1,5 +1,10 @@
 # Rencana Eksekusi Aman Proyek Skripsi Essenza
 
+## Status 28 Oktober 2026: nama folder belajar disederhanakan
+
+Folder KODE_ML sekarang berisi 01_Materi, 02_Data, 03_Kode, 04_Hasil, 05_Referensi dan 06_Audit_Label. Source aktif berada di KODE_ML/03_Kode; import/CLI tetap research melalui shim root. Delapan notebook, panduan PDF dan tautan diperbarui. Data, fitur, label, parameter, grup/split dan model tidak berubah; tidak ada training/tuning. Peta lokasi lama-baru ada di KODE_ML/PETA_FOLDER.json. Status prototipe aplikasi mengikuti audit 27 Oktober; bagian terdahulu di bawah adalah riwayat.
+
+
 ## Status 26 Oktober 2026: source dan delapan notebook di KODE_ML
 
 Source utama tunggal di `KODE_ML/research/`; root `research/__init__.py` hanya penghubung import.

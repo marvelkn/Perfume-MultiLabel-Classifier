@@ -225,7 +225,7 @@ def reject_historical_run(run):
         raise ValueError("Historical run is read-only. Use a new run directory for refactored source.")
     if run.exists() and any(run.iterdir()):
         identity = core.read(run / "identity.json") if (run / "identity.json").exists() else {}
-        if identity.get("protocol") != digest(PROTOCOL) or not identity.get("source") or not all(k.startswith("KODE_ML/research/") for k in identity["source"]):
+        if identity.get("protocol") != digest(PROTOCOL) or not identity.get("source") or not all(k.startswith(SOURCE_ROOT.relative_to(ROOT).as_posix() + "/") for k in identity["source"]):
             raise ValueError("Cannot resume a run with a historical or unknown source identity.")
 
 

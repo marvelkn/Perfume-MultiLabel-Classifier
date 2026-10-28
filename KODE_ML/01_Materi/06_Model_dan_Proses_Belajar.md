@@ -23,7 +23,7 @@ Angka 872 hanya model final. Model sementara saat tuning dan validasi jauh lebih
 
 ## Mulai baca kode dari sini
 
-Sumber aktif: `KODE_ML/research/training.py`. Buka juga notebook `05_Model_dan_Bobot.ipynb` sebagai teman membaca. Library **XGBoost** menyediakan `XGBClassifier`; **LightGBM** menyediakan `LGBMClassifier`. Kita mengatur dan memanggilnya, sedangkan pencarian percabangan pohon dilakukan di dalam library.
+Sumber aktif: `KODE_ML/03_Kode/training.py`. Buka juga notebook `05_Model_dan_Bobot.ipynb` sebagai teman membaca. Library **XGBoost** menyediakan `XGBClassifier`; **LightGBM** menyediakan `LGBMClassifier`. Kita mengatur dan memanggilnya, sedangkan pencarian percabangan pohon dilakukan di dalam library.
 
 Potongan asli `make_model`, baris 9–18:
 

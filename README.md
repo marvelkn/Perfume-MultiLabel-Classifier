@@ -1,7 +1,7 @@
 # Penelitian ML aroma molekul — Essenza
 
 **Mulai belajar:** [KODE_ML/README.md](KODE_ML/README.md) — delapan notebook bertahap.
-**Kode utama:** [KODE_ML/research/](KODE_ML/research/). **Peta file:** [KODE_ML/README.md](KODE_ML/README.md).
+**Kode utama:** [KODE_ML/03_Kode/](KODE_ML/03_Kode/). **Peta file:** [KODE_ML/README.md](KODE_ML/README.md).
 
 Penelitian membandingkan XGBoost dan LightGBM untuk memprediksi 109 label aroma dari satu molekul. Lima sumber Pyrfume: GoodScents, IFRA 2019, Leffingwell, Arctander 1960, Sigma-Aldrich 2014. Sumber ini relevan untuk konteks parfum, tetapi tidak menjamin setiap molekul hanya digunakan dalam parfum.
 
@@ -37,13 +37,13 @@ Semua perintah di atas hanya pemeriksaan, membaca hasil, atau inferensi. CLI `re
 
 - Kohor, target, indeks, grup dan split: `data/builds/perfume-five-grouped-v2/`.
 - **X aktual:** `data/builds/perfume-m2048-d8-v7/features.npz`.
-- Hasil utama ditemukan oleh [KODE_ML/research/results.py](KODE_ML/research/results.py); alamat lengkap ada di notebook.
+- Hasil utama ditemukan oleh [KODE_ML/03_Kode/results.py](KODE_ML/03_Kode/results.py); alamat lengkap ada di notebook.
 - Audit hasil utama: [HASIL_ANALISIS_V7.md](reports/grouped_v7_analysis_20260928/HASIL_ANALISIS_V7.md).
 - Audit perapian: [REFACTOR_REPORT.md](reports/research_cleanup_20261025/REFACTOR_REPORT.md).
 - Source lama: [archive/README.md](archive/README.md).
 
 Grup historis berasal dari struktur tanpa stereo atau fingerprint Morgan 1024 yang identik. Loader aktif membaca grup/split tersebut, tidak menghitung fitur 1024+5. Ia memeriksa checksum, identitas baris, seluruh fold, serta fitur 2048+8. Mengganti aturan grup membutuhkan rancangan dan eksperimen baru.
 
-`config.yaml`, `feature_spec.json`, `src/` dan API di root adalah jalur kompatibilitas aplikasi lama, bukan konfigurasi penelitian utama. Tes ringan utama: `python -B -m pytest KODE_ML/research/tests/test_research_readonly.py -q -p no:cacheprovider`. Sebagian tes lama melakukan fitting; jangan jalankan seluruh suite untuk audit baca-saja.
+`config.yaml`, `feature_spec.json`, `src/` dan API di root adalah jalur kompatibilitas aplikasi lama, bukan konfigurasi penelitian utama. Tes ringan utama: `python -B -m pytest KODE_ML/03_Kode/tests/test_research_readonly.py -q -p no:cacheprovider`. Sebagian tes lama melakukan fitting; jangan jalankan seluruh suite untuk audit baca-saja.
 
 Audit label dan hasil perapian terbaru: [KODE_ML/HASIL_VERIFIKASI.md](KODE_ML/HASIL_VERIFIKASI.md). `research/__init__.py` di root hanya penghubung import ke source dalam KODE_ML.

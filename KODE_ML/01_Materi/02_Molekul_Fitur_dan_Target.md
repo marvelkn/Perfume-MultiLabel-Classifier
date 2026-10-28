@@ -20,11 +20,11 @@ COc1cc(C=O)ccc1O
 
 Keduanya adalah penulisan struktur yang sama dalam contoh ini. **Kanonik** berarti perangkat lunak memilih penulisan yang konsisten. Jadi teks berubah tidak otomatis berarti molekulnya berubah. Di kode preprocessing, `Chem.MolToSmiles(mol, isomericSmiles=True)` mempertahankan informasi stereokimia yang tersedia; Morgan yang dipakai model kemudian dikonfigurasi tanpa kiralitas.
 
-Lihat bukti aktualnya di [molecules.csv GoodScents, baris 102](<C:/Users/ACER/Documents/Marvel/Skripsi/Project Skripsi/Perfume-MultiLabel-Classifier/KODE_ML/DATA_UNTUK_BELAJAR/01_SEBELUM_PREPROCESSING/goodscents/molecules.csv:102>) dan [records.csv hasil preprocessing, baris 5739](<C:/Users/ACER/Documents/Marvel/Skripsi/Project Skripsi/Perfume-MultiLabel-Classifier/KODE_ML/DATA_UNTUK_BELAJAR/02_SETELAH_PREPROCESSING/records.csv:5739>). Nomor `source_row` vanillin adalah **5737**; ini berbeda dari nomor baris teks karena ada header dan penomoran dimulai dari nol.
+Lihat bukti aktualnya di [molecules.csv GoodScents, baris 102](<C:/Users/ACER/Documents/Marvel/Skripsi/Project Skripsi/Perfume-MultiLabel-Classifier/KODE_ML/02_Data/01_Data_Mentah/goodscents/molecules.csv:102>) dan [records.csv hasil preprocessing, baris 5739](<C:/Users/ACER/Documents/Marvel/Skripsi/Project Skripsi/Perfume-MultiLabel-Classifier/KODE_ML/02_Data/02_Data_Bersih/records.csv:5739>). Nomor `source_row` vanillin adalah **5737**; ini berbeda dari nomor baris teks karena ada header dan penomoran dimulai dari nol.
 
 ## 2.2 Library apa yang mengerjakan bagian ini?
 
-Di [features.py, baris 2](<C:/Users/ACER/Documents/Marvel/Skripsi/Project Skripsi/Perfume-MultiLabel-Classifier/KODE_ML/research/features.py:2>):
+Di [features.py, baris 2](<C:/Users/ACER/Documents/Marvel/Skripsi/Project Skripsi/Perfume-MultiLabel-Classifier/KODE_ML/03_Kode/features.py:2>):
 
 ```python
 import numpy as np
@@ -45,7 +45,7 @@ from rdkit.Chem import Descriptors, rdFingerprintGenerator
 
 Bayangkan struktur molekul sebagai jaringan: atom adalah titik dan ikatan adalah garis. Morgan memeriksa lingkungan sekitar setiap atom, lalu memperluasnya sampai **radius 2**, yaitu sampai dua langkah ikatan dari pusat atom. Identitas pola-pola itu dipetakan ke posisi dalam vektor biner. **Biner** berarti isinya 0 atau 1.
 
-Kode aktual, [features.py, fungsi calculate_morgan, baris 29](<C:/Users/ACER/Documents/Marvel/Skripsi/Project Skripsi/Perfume-MultiLabel-Classifier/KODE_ML/research/features.py:29>):
+Kode aktual, [features.py, fungsi calculate_morgan, baris 29](<C:/Users/ACER/Documents/Marvel/Skripsi/Project Skripsi/Perfume-MultiLabel-Classifier/KODE_ML/03_Kode/features.py:29>):
 
 ```python
 generator = rdFingerprintGenerator.GetMorganGenerator(
@@ -66,7 +66,7 @@ Angka 1 berarti ada pola yang terpetakan ke posisi tersebut. Angka 0 berarti pos
 
 ## 2.4 Delapan deskriptor itu apa?
 
-Deskriptor adalah **angka ringkasan sifat struktur**. Nilai berikut berasal dari file hasil aktual, bukan contoh karangan: [descriptors.csv, baris 5739](<C:/Users/ACER/Documents/Marvel/Skripsi/Project Skripsi/Perfume-MultiLabel-Classifier/KODE_ML/DATA_UNTUK_BELAJAR/03_SIAP_TRAINING_2048_8/descriptors.csv:5739>).
+Deskriptor adalah **angka ringkasan sifat struktur**. Nilai berikut berasal dari file hasil aktual, bukan contoh karangan: [descriptors.csv, baris 5739](<C:/Users/ACER/Documents/Marvel/Skripsi/Project Skripsi/Perfume-MultiLabel-Classifier/KODE_ML/02_Data/03_Siap_Training/descriptors.csv:5739>).
 
 | Urutan | Nama kode | Cara membayangkannya | Vanillin |
 |---|---|---|---:|
@@ -109,7 +109,7 @@ Rumus ringkasnya:
 y(i,j) = 1 jika label j ada pada daftar label molekul i; selain itu 0.
 ```
 
-`i` adalah nomor molekul, `j` nomor label. Ini persis aturan pada [dataset.py, fungsi encode_frozen_records, baris 103](<C:/Users/ACER/Documents/Marvel/Skripsi/Project Skripsi/Perfume-MultiLabel-Classifier/KODE_ML/research/dataset.py:103>):
+`i` adalah nomor molekul, `j` nomor label. Ini persis aturan pada [dataset.py, fungsi encode_frozen_records, baris 103](<C:/Users/ACER/Documents/Marvel/Skripsi/Project Skripsi/Perfume-MultiLabel-Classifier/KODE_ML/03_Kode/dataset.py:103>):
 
 ```python
 target = np.asarray([[int(name in row) for name in meta["labels"]]
