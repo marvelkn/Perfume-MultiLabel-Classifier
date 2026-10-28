@@ -1,0 +1,1027 @@
+{
+  "date": "2026-10-27",
+  "scope": "Salinan tambahan dan dokumentasi; tidak ada training, tuning, perubahan pipeline atau model.",
+  "copied_files": [
+    {
+      "copy": "HASIL_UNTUK_BELAJAR/comparison_all.csv",
+      "source": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\.local-tools\\campus-transfer-full-20260909\\perfume-campus-grouped-v7-m2048-d8\\perfume-campus-grouped-v7-m2048-d8\\runs\\perfume-five-grouped-v7-m2048-d8\\comparison_all.csv",
+      "sha256": "da2833146a20e35a0c21da2b482154e085b3a2e2051a467a2bced8b131f3fc6e",
+      "bytes": 1952
+    },
+    {
+      "copy": "HASIL_UNTUK_BELAJAR/selection_frozen.json",
+      "source": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\.local-tools\\campus-transfer-full-20260909\\perfume-campus-grouped-v7-m2048-d8\\perfume-campus-grouped-v7-m2048-d8\\runs\\perfume-five-grouped-v7-m2048-d8\\selection_frozen.json",
+      "sha256": "e046ebe287fb55afe2cda81e60dbb06f244af9539d45198b6606ece33749ef0e",
+      "bytes": 30879
+    },
+    {
+      "copy": "HASIL_UNTUK_BELAJAR/inference_bundle.json",
+      "source": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\.local-tools\\campus-transfer-full-20260909\\perfume-campus-grouped-v7-m2048-d8\\perfume-campus-grouped-v7-m2048-d8\\runs\\perfume-five-grouped-v7-m2048-d8\\inference_bundle.json",
+      "sha256": "e29f8216b0b4ed0dcdbd0f28bac28a485ec0ceebbf81619f8609f5ee637898a9",
+      "bytes": 59967
+    },
+    {
+      "copy": "HASIL_UNTUK_BELAJAR/complete.json",
+      "source": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\.local-tools\\campus-transfer-full-20260909\\perfume-campus-grouped-v7-m2048-d8\\perfume-campus-grouped-v7-m2048-d8\\runs\\perfume-five-grouped-v7-m2048-d8\\complete.json",
+      "sha256": "4d84cd8b8f75e1b9de954d8a55c73b4cef50f7f3c89001c1fd600bbc18b0e5ca",
+      "bytes": 10166
+    },
+    {
+      "copy": "HASIL_UNTUK_BELAJAR/xgb_A/recipe.json",
+      "source": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\.local-tools\\campus-transfer-full-20260909\\perfume-campus-grouped-v7-m2048-d8\\perfume-campus-grouped-v7-m2048-d8\\runs\\perfume-five-grouped-v7-m2048-d8\\xgb_A\\recipe.json",
+      "sha256": "32f5dde2c705f41ef7fc92a360aa739daaae30d46ac7e91826adc3e2185e6416",
+      "bytes": 29
+    },
+    {
+      "copy": "HASIL_UNTUK_BELAJAR/xgb_A/training_policy.json",
+      "source": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\.local-tools\\campus-transfer-full-20260909\\perfume-campus-grouped-v7-m2048-d8\\perfume-campus-grouped-v7-m2048-d8\\runs\\perfume-five-grouped-v7-m2048-d8\\xgb_A\\training_policy.json",
+      "sha256": "919b234a95ccdf51cf3e0839a3f6bc14de3f248d26662641a2f9d3c45e8f77e9",
+      "bytes": 126
+    },
+    {
+      "copy": "HASIL_UNTUK_BELAJAR/xgb_A/test_summary.json",
+      "source": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\.local-tools\\campus-transfer-full-20260909\\perfume-campus-grouped-v7-m2048-d8\\perfume-campus-grouped-v7-m2048-d8\\runs\\perfume-five-grouped-v7-m2048-d8\\xgb_A\\test_summary.json",
+      "sha256": "2885a9c35c34679f90432dd0dc8cbb286835dca51d4deca13442e6a54fcf8007",
+      "bytes": 15788
+    },
+    {
+      "copy": "HASIL_UNTUK_BELAJAR/xgb_A/test_per_label.json",
+      "source": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\.local-tools\\campus-transfer-full-20260909\\perfume-campus-grouped-v7-m2048-d8\\perfume-campus-grouped-v7-m2048-d8\\runs\\perfume-five-grouped-v7-m2048-d8\\xgb_A\\test_per_label.json",
+      "sha256": "a6389da36c9b382a89408f983ea75258a171724f6a0bd6364e2951d998be7477",
+      "bytes": 25274
+    },
+    {
+      "copy": "HASIL_UNTUK_BELAJAR/xgb_A/test_predictions.npz",
+      "source": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\.local-tools\\campus-transfer-full-20260909\\perfume-campus-grouped-v7-m2048-d8\\perfume-campus-grouped-v7-m2048-d8\\runs\\perfume-five-grouped-v7-m2048-d8\\xgb_A\\test_predictions.npz",
+      "sha256": "f390a8d1247e681a5dfbb386cd4c1190dddf6deaba50a5f06dbc5cf45d8f0266",
+      "bytes": 467911
+    },
+    {
+      "copy": "HASIL_UNTUK_BELAJAR/xgb_A/test_summary_validation_thresholds.json",
+      "source": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\.local-tools\\campus-transfer-full-20260909\\perfume-campus-grouped-v7-m2048-d8\\perfume-campus-grouped-v7-m2048-d8\\runs\\perfume-five-grouped-v7-m2048-d8\\xgb_A\\test_summary_validation_thresholds.json",
+      "sha256": "705ed1676269539b150b28164411495d31ce91947c667b019fee2f671cdaa72e",
+      "bytes": 15947
+    },
+    {
+      "copy": "HASIL_UNTUK_BELAJAR/robustness/xgb_A/thresholds.json",
+      "source": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\.local-tools\\campus-transfer-full-20260909\\perfume-campus-grouped-v7-m2048-d8\\perfume-campus-grouped-v7-m2048-d8\\runs\\perfume-five-grouped-v7-m2048-d8\\robustness\\xgb_A\\thresholds.json",
+      "sha256": "063f16966e7f8a061a02f3a288f44e3e989e80aa5d2b3de1cc085dd420cc75b2",
+      "bytes": 27440
+    },
+    {
+      "copy": "HASIL_UNTUK_BELAJAR/robustness/xgb_A/robustness_summary.json",
+      "source": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\.local-tools\\campus-transfer-full-20260909\\perfume-campus-grouped-v7-m2048-d8\\perfume-campus-grouped-v7-m2048-d8\\runs\\perfume-five-grouped-v7-m2048-d8\\robustness\\xgb_A\\robustness_summary.json",
+      "sha256": "b6ba5aef38b514167a640fc8e27630e72c8433183fbef98e8405a2add7518907",
+      "bytes": 84467
+    },
+    {
+      "copy": "HASIL_UNTUK_BELAJAR/xgb_B/recipe.json",
+      "source": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\.local-tools\\campus-transfer-full-20260909\\perfume-campus-grouped-v7-m2048-d8\\perfume-campus-grouped-v7-m2048-d8\\runs\\perfume-five-grouped-v7-m2048-d8\\xgb_B\\recipe.json",
+      "sha256": "32f5dde2c705f41ef7fc92a360aa739daaae30d46ac7e91826adc3e2185e6416",
+      "bytes": 29
+    },
+    {
+      "copy": "HASIL_UNTUK_BELAJAR/xgb_B/training_policy.json",
+      "source": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\.local-tools\\campus-transfer-full-20260909\\perfume-campus-grouped-v7-m2048-d8\\perfume-campus-grouped-v7-m2048-d8\\runs\\perfume-five-grouped-v7-m2048-d8\\xgb_B\\training_policy.json",
+      "sha256": "78c0c24ea6ea3b4b50e83a7b96ad54a408c2f392d880def2cb2c3ef28adcdde6",
+      "bytes": 126
+    },
+    {
+      "copy": "HASIL_UNTUK_BELAJAR/xgb_B/test_summary.json",
+      "source": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\.local-tools\\campus-transfer-full-20260909\\perfume-campus-grouped-v7-m2048-d8\\perfume-campus-grouped-v7-m2048-d8\\runs\\perfume-five-grouped-v7-m2048-d8\\xgb_B\\test_summary.json",
+      "sha256": "695a9e4991f82699ab18b353061b1be397a2b3a704a9ef77dfba935b27d96b3c",
+      "bytes": 15784
+    },
+    {
+      "copy": "HASIL_UNTUK_BELAJAR/xgb_B/test_per_label.json",
+      "source": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\.local-tools\\campus-transfer-full-20260909\\perfume-campus-grouped-v7-m2048-d8\\perfume-campus-grouped-v7-m2048-d8\\runs\\perfume-five-grouped-v7-m2048-d8\\xgb_B\\test_per_label.json",
+      "sha256": "ab26a96e2c67fcfb28d02b05e413325ba896ced12dbb5a251d17228ed23a9642",
+      "bytes": 25253
+    },
+    {
+      "copy": "HASIL_UNTUK_BELAJAR/xgb_B/test_predictions.npz",
+      "source": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\.local-tools\\campus-transfer-full-20260909\\perfume-campus-grouped-v7-m2048-d8\\perfume-campus-grouped-v7-m2048-d8\\runs\\perfume-five-grouped-v7-m2048-d8\\xgb_B\\test_predictions.npz",
+      "sha256": "3dc59fb2ca3b9c396d18c52985b6464225470d77945c8824f5ed3444e72a504e",
+      "bytes": 503599
+    },
+    {
+      "copy": "HASIL_UNTUK_BELAJAR/xgb_B/test_summary_validation_thresholds.json",
+      "source": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\.local-tools\\campus-transfer-full-20260909\\perfume-campus-grouped-v7-m2048-d8\\perfume-campus-grouped-v7-m2048-d8\\runs\\perfume-five-grouped-v7-m2048-d8\\xgb_B\\test_summary_validation_thresholds.json",
+      "sha256": "a12d1587c075c103068145e32a5a89b457725b5a9b93945ed49529b1791efbcc",
+      "bytes": 15946
+    },
+    {
+      "copy": "HASIL_UNTUK_BELAJAR/robustness/xgb_B/thresholds.json",
+      "source": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\.local-tools\\campus-transfer-full-20260909\\perfume-campus-grouped-v7-m2048-d8\\perfume-campus-grouped-v7-m2048-d8\\runs\\perfume-five-grouped-v7-m2048-d8\\robustness\\xgb_B\\thresholds.json",
+      "sha256": "252b9032913a9bed7c2661069049c77e3544d3b9ebef5057d2bafe1e244f7562",
+      "bytes": 27349
+    },
+    {
+      "copy": "HASIL_UNTUK_BELAJAR/robustness/xgb_B/robustness_summary.json",
+      "source": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\.local-tools\\campus-transfer-full-20260909\\perfume-campus-grouped-v7-m2048-d8\\perfume-campus-grouped-v7-m2048-d8\\runs\\perfume-five-grouped-v7-m2048-d8\\robustness\\xgb_B\\robustness_summary.json",
+      "sha256": "207f473e6df9adeebf84193beb5cda5182de5c135e797310019f36ca17177997",
+      "bytes": 84472
+    },
+    {
+      "copy": "HASIL_UNTUK_BELAJAR/xgb_C/recipe.json",
+      "source": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\.local-tools\\campus-transfer-full-20260909\\perfume-campus-grouped-v7-m2048-d8\\perfume-campus-grouped-v7-m2048-d8\\runs\\perfume-five-grouped-v7-m2048-d8\\xgb_C\\recipe.json",
+      "sha256": "ff9f3737a3f8f211521a846b2cee8ea350288a1c635dd3910255b8250a0dd898",
+      "bytes": 324
+    },
+    {
+      "copy": "HASIL_UNTUK_BELAJAR/xgb_C/training_policy.json",
+      "source": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\.local-tools\\campus-transfer-full-20260909\\perfume-campus-grouped-v7-m2048-d8\\perfume-campus-grouped-v7-m2048-d8\\runs\\perfume-five-grouped-v7-m2048-d8\\xgb_C\\training_policy.json",
+      "sha256": "30fcb255bd4241ff9b5cedbc1ba4a98fdfe594ec2f1d50e2fc8739125b00ae68",
+      "bytes": 130
+    },
+    {
+      "copy": "HASIL_UNTUK_BELAJAR/xgb_C/test_summary.json",
+      "source": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\.local-tools\\campus-transfer-full-20260909\\perfume-campus-grouped-v7-m2048-d8\\perfume-campus-grouped-v7-m2048-d8\\runs\\perfume-five-grouped-v7-m2048-d8\\xgb_C\\test_summary.json",
+      "sha256": "b7bc6099810e57ae8eb267c5499f3d293ecbd028740e9c867d9c45a9a34f0d72",
+      "bytes": 15785
+    },
+    {
+      "copy": "HASIL_UNTUK_BELAJAR/xgb_C/test_per_label.json",
+      "source": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\.local-tools\\campus-transfer-full-20260909\\perfume-campus-grouped-v7-m2048-d8\\perfume-campus-grouped-v7-m2048-d8\\runs\\perfume-five-grouped-v7-m2048-d8\\xgb_C\\test_per_label.json",
+      "sha256": "be67c31e9253d7f6799047e0d4b3da6e5e53c8937c2d96b4c26f218d8918c8db",
+      "bytes": 25373
+    },
+    {
+      "copy": "HASIL_UNTUK_BELAJAR/xgb_C/test_predictions.npz",
+      "source": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\.local-tools\\campus-transfer-full-20260909\\perfume-campus-grouped-v7-m2048-d8\\perfume-campus-grouped-v7-m2048-d8\\runs\\perfume-five-grouped-v7-m2048-d8\\xgb_C\\test_predictions.npz",
+      "sha256": "109ffefe28399ebc14e12380796337dccb06518fba65231e55c2d1353cda9d7f",
+      "bytes": 464266
+    },
+    {
+      "copy": "HASIL_UNTUK_BELAJAR/xgb_C/test_summary_validation_thresholds.json",
+      "source": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\.local-tools\\campus-transfer-full-20260909\\perfume-campus-grouped-v7-m2048-d8\\perfume-campus-grouped-v7-m2048-d8\\runs\\perfume-five-grouped-v7-m2048-d8\\xgb_C\\test_summary_validation_thresholds.json",
+      "sha256": "8064609def7fddeea94ec55c6776f14e8b84f0c84f3c75bf5ead2becbaa0f186",
+      "bytes": 15945
+    },
+    {
+      "copy": "HASIL_UNTUK_BELAJAR/xgb_C/trials.csv",
+      "source": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\.local-tools\\campus-transfer-full-20260909\\perfume-campus-grouped-v7-m2048-d8\\perfume-campus-grouped-v7-m2048-d8\\runs\\perfume-five-grouped-v7-m2048-d8\\xgb_C\\trials.csv",
+      "sha256": "f44d244113e58792547b0747a3e105e2e4122e227f5b7cf38ca8c759076edd90",
+      "bytes": 7356
+    },
+    {
+      "copy": "HASIL_UNTUK_BELAJAR/xgb_C/tuning_summary.json",
+      "source": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\.local-tools\\campus-transfer-full-20260909\\perfume-campus-grouped-v7-m2048-d8\\perfume-campus-grouped-v7-m2048-d8\\runs\\perfume-five-grouped-v7-m2048-d8\\xgb_C\\tuning_summary.json",
+      "sha256": "df448d0b9e821c3cfbe262d7c8fab72cb55f6be1c3f3e9b933c3f903620cf28c",
+      "bytes": 466
+    },
+    {
+      "copy": "HASIL_UNTUK_BELAJAR/xgb_C/budget.json",
+      "source": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\.local-tools\\campus-transfer-full-20260909\\perfume-campus-grouped-v7-m2048-d8\\perfume-campus-grouped-v7-m2048-d8\\runs\\perfume-five-grouped-v7-m2048-d8\\xgb_C\\budget.json",
+      "sha256": "b631d62b145f89506c146af7c93ab54bd5d6bbb98a3f577adf7a5dde638f966b",
+      "bytes": 248
+    },
+    {
+      "copy": "HASIL_UNTUK_BELAJAR/robustness/xgb_C/thresholds.json",
+      "source": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\.local-tools\\campus-transfer-full-20260909\\perfume-campus-grouped-v7-m2048-d8\\perfume-campus-grouped-v7-m2048-d8\\runs\\perfume-five-grouped-v7-m2048-d8\\robustness\\xgb_C\\thresholds.json",
+      "sha256": "dc27b1529b701e068ccd2bf667d83db1375ace93121115fea78284dca9f4dafb",
+      "bytes": 27443
+    },
+    {
+      "copy": "HASIL_UNTUK_BELAJAR/robustness/xgb_C/robustness_summary.json",
+      "source": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\.local-tools\\campus-transfer-full-20260909\\perfume-campus-grouped-v7-m2048-d8\\perfume-campus-grouped-v7-m2048-d8\\runs\\perfume-five-grouped-v7-m2048-d8\\robustness\\xgb_C\\robustness_summary.json",
+      "sha256": "20e1105c29bf7511f807a05e29035f5af5c0efaba341a81d96ca0859cfb654f0",
+      "bytes": 84475
+    },
+    {
+      "copy": "HASIL_UNTUK_BELAJAR/xgb_D/recipe.json",
+      "source": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\.local-tools\\campus-transfer-full-20260909\\perfume-campus-grouped-v7-m2048-d8\\perfume-campus-grouped-v7-m2048-d8\\runs\\perfume-five-grouped-v7-m2048-d8\\xgb_D\\recipe.json",
+      "sha256": "ff9f3737a3f8f211521a846b2cee8ea350288a1c635dd3910255b8250a0dd898",
+      "bytes": 324
+    },
+    {
+      "copy": "HASIL_UNTUK_BELAJAR/xgb_D/training_policy.json",
+      "source": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\.local-tools\\campus-transfer-full-20260909\\perfume-campus-grouped-v7-m2048-d8\\perfume-campus-grouped-v7-m2048-d8\\runs\\perfume-five-grouped-v7-m2048-d8\\xgb_D\\training_policy.json",
+      "sha256": "06a083db41665fc06351e7cf6b2715d5e847009aff51c96e082685aafbd04853",
+      "bytes": 130
+    },
+    {
+      "copy": "HASIL_UNTUK_BELAJAR/xgb_D/test_summary.json",
+      "source": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\.local-tools\\campus-transfer-full-20260909\\perfume-campus-grouped-v7-m2048-d8\\perfume-campus-grouped-v7-m2048-d8\\runs\\perfume-five-grouped-v7-m2048-d8\\xgb_D\\test_summary.json",
+      "sha256": "bfc7bb44240c325acc85faa5660b6c12340e079347382a46a324bef779fb6770",
+      "bytes": 15785
+    },
+    {
+      "copy": "HASIL_UNTUK_BELAJAR/xgb_D/test_per_label.json",
+      "source": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\.local-tools\\campus-transfer-full-20260909\\perfume-campus-grouped-v7-m2048-d8\\perfume-campus-grouped-v7-m2048-d8\\runs\\perfume-five-grouped-v7-m2048-d8\\xgb_D\\test_per_label.json",
+      "sha256": "884addd1cb2b083fd6b76302871d3f69cc714872a5f9937013e8052fd69d7729",
+      "bytes": 25256
+    },
+    {
+      "copy": "HASIL_UNTUK_BELAJAR/xgb_D/test_predictions.npz",
+      "source": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\.local-tools\\campus-transfer-full-20260909\\perfume-campus-grouped-v7-m2048-d8\\perfume-campus-grouped-v7-m2048-d8\\runs\\perfume-five-grouped-v7-m2048-d8\\xgb_D\\test_predictions.npz",
+      "sha256": "23fe57d769e86d5ff5f0f1ad52f6081b35f2c47bcc6a5fd6ffbf918f7a0fa1b1",
+      "bytes": 498289
+    },
+    {
+      "copy": "HASIL_UNTUK_BELAJAR/xgb_D/test_summary_validation_thresholds.json",
+      "source": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\.local-tools\\campus-transfer-full-20260909\\perfume-campus-grouped-v7-m2048-d8\\perfume-campus-grouped-v7-m2048-d8\\runs\\perfume-five-grouped-v7-m2048-d8\\xgb_D\\test_summary_validation_thresholds.json",
+      "sha256": "f19ece06543c541316a4cdbdf64aba1c6d4fc4ce0e27c0f10c689c065e4abe58",
+      "bytes": 15946
+    },
+    {
+      "copy": "HASIL_UNTUK_BELAJAR/xgb_D/trials.csv",
+      "source": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\.local-tools\\campus-transfer-full-20260909\\perfume-campus-grouped-v7-m2048-d8\\perfume-campus-grouped-v7-m2048-d8\\runs\\perfume-five-grouped-v7-m2048-d8\\xgb_D\\trials.csv",
+      "sha256": "1684ca481f456fdb1abf76ae61fb98d5aefef4d7fc424797384583de707bbeee",
+      "bytes": 7357
+    },
+    {
+      "copy": "HASIL_UNTUK_BELAJAR/xgb_D/tuning_summary.json",
+      "source": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\.local-tools\\campus-transfer-full-20260909\\perfume-campus-grouped-v7-m2048-d8\\perfume-campus-grouped-v7-m2048-d8\\runs\\perfume-five-grouped-v7-m2048-d8\\xgb_D\\tuning_summary.json",
+      "sha256": "e668e986c7cb30af3f24517412b20c1dc98a8fcea466062fe951e337f717224f",
+      "bytes": 465
+    },
+    {
+      "copy": "HASIL_UNTUK_BELAJAR/xgb_D/budget.json",
+      "source": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\.local-tools\\campus-transfer-full-20260909\\perfume-campus-grouped-v7-m2048-d8\\perfume-campus-grouped-v7-m2048-d8\\runs\\perfume-five-grouped-v7-m2048-d8\\xgb_D\\budget.json",
+      "sha256": "e64ff1af90e02997dffe5a1832748a18c9ed468ed167c5461809ac22d201bdc7",
+      "bytes": 248
+    },
+    {
+      "copy": "HASIL_UNTUK_BELAJAR/robustness/xgb_D/thresholds.json",
+      "source": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\.local-tools\\campus-transfer-full-20260909\\perfume-campus-grouped-v7-m2048-d8\\perfume-campus-grouped-v7-m2048-d8\\runs\\perfume-five-grouped-v7-m2048-d8\\robustness\\xgb_D\\thresholds.json",
+      "sha256": "6ed635c8ade7a3182ee0e613ce69bd4ce46929e231efa0a06002034f8f6f93ed",
+      "bytes": 27334
+    },
+    {
+      "copy": "HASIL_UNTUK_BELAJAR/robustness/xgb_D/robustness_summary.json",
+      "source": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\.local-tools\\campus-transfer-full-20260909\\perfume-campus-grouped-v7-m2048-d8\\perfume-campus-grouped-v7-m2048-d8\\runs\\perfume-five-grouped-v7-m2048-d8\\robustness\\xgb_D\\robustness_summary.json",
+      "sha256": "4264374a9850658e910504b40bf857bc48f0e2e3ec9d08d24ba57d628532df1c",
+      "bytes": 84472
+    },
+    {
+      "copy": "HASIL_UNTUK_BELAJAR/lgbm_A/recipe.json",
+      "source": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\.local-tools\\campus-transfer-full-20260909\\perfume-campus-grouped-v7-m2048-d8\\perfume-campus-grouped-v7-m2048-d8\\runs\\perfume-five-grouped-v7-m2048-d8\\lgbm_A\\recipe.json",
+      "sha256": "32f5dde2c705f41ef7fc92a360aa739daaae30d46ac7e91826adc3e2185e6416",
+      "bytes": 29
+    },
+    {
+      "copy": "HASIL_UNTUK_BELAJAR/lgbm_A/training_policy.json",
+      "source": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\.local-tools\\campus-transfer-full-20260909\\perfume-campus-grouped-v7-m2048-d8\\perfume-campus-grouped-v7-m2048-d8\\runs\\perfume-five-grouped-v7-m2048-d8\\lgbm_A\\training_policy.json",
+      "sha256": "919b234a95ccdf51cf3e0839a3f6bc14de3f248d26662641a2f9d3c45e8f77e9",
+      "bytes": 126
+    },
+    {
+      "copy": "HASIL_UNTUK_BELAJAR/lgbm_A/test_summary.json",
+      "source": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\.local-tools\\campus-transfer-full-20260909\\perfume-campus-grouped-v7-m2048-d8\\perfume-campus-grouped-v7-m2048-d8\\runs\\perfume-five-grouped-v7-m2048-d8\\lgbm_A\\test_summary.json",
+      "sha256": "f8a5be66b385ff8a53aa0bddaac147b53548a1d990b8d3fac1e5428104411515",
+      "bytes": 15788
+    },
+    {
+      "copy": "HASIL_UNTUK_BELAJAR/lgbm_A/test_per_label.json",
+      "source": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\.local-tools\\campus-transfer-full-20260909\\perfume-campus-grouped-v7-m2048-d8\\perfume-campus-grouped-v7-m2048-d8\\runs\\perfume-five-grouped-v7-m2048-d8\\lgbm_A\\test_per_label.json",
+      "sha256": "edfcbcda47087200b7907fd61ae021e7471b5f154dcea2490985ec5a5e06ac71",
+      "bytes": 25319
+    },
+    {
+      "copy": "HASIL_UNTUK_BELAJAR/lgbm_A/test_predictions.npz",
+      "source": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\.local-tools\\campus-transfer-full-20260909\\perfume-campus-grouped-v7-m2048-d8\\perfume-campus-grouped-v7-m2048-d8\\runs\\perfume-five-grouped-v7-m2048-d8\\lgbm_A\\test_predictions.npz",
+      "sha256": "03004698b4b68cfa4ea81683708a12dcc4a6e5330652189919324765f1698764",
+      "bytes": 469390
+    },
+    {
+      "copy": "HASIL_UNTUK_BELAJAR/lgbm_A/test_summary_validation_thresholds.json",
+      "source": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\.local-tools\\campus-transfer-full-20260909\\perfume-campus-grouped-v7-m2048-d8\\perfume-campus-grouped-v7-m2048-d8\\runs\\perfume-five-grouped-v7-m2048-d8\\lgbm_A\\test_summary_validation_thresholds.json",
+      "sha256": "cdb38abb34d64f158b867260ea9310d442c670fbc892c57c03ff0d044fbfedca",
+      "bytes": 15945
+    },
+    {
+      "copy": "HASIL_UNTUK_BELAJAR/robustness/lgbm_A/thresholds.json",
+      "source": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\.local-tools\\campus-transfer-full-20260909\\perfume-campus-grouped-v7-m2048-d8\\perfume-campus-grouped-v7-m2048-d8\\runs\\perfume-five-grouped-v7-m2048-d8\\robustness\\lgbm_A\\thresholds.json",
+      "sha256": "c22454baff3521d108aa8db60bb420c906c48c870ddb4a304169f5c416afdb88",
+      "bytes": 27305
+    },
+    {
+      "copy": "HASIL_UNTUK_BELAJAR/robustness/lgbm_A/robustness_summary.json",
+      "source": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\.local-tools\\campus-transfer-full-20260909\\perfume-campus-grouped-v7-m2048-d8\\perfume-campus-grouped-v7-m2048-d8\\runs\\perfume-five-grouped-v7-m2048-d8\\robustness\\lgbm_A\\robustness_summary.json",
+      "sha256": "58dce05724ec088bc9413f7fb39070df135dc1315037bd2b4073555bf57b8a58",
+      "bytes": 84472
+    },
+    {
+      "copy": "HASIL_UNTUK_BELAJAR/lgbm_B/recipe.json",
+      "source": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\.local-tools\\campus-transfer-full-20260909\\perfume-campus-grouped-v7-m2048-d8\\perfume-campus-grouped-v7-m2048-d8\\runs\\perfume-five-grouped-v7-m2048-d8\\lgbm_B\\recipe.json",
+      "sha256": "32f5dde2c705f41ef7fc92a360aa739daaae30d46ac7e91826adc3e2185e6416",
+      "bytes": 29
+    },
+    {
+      "copy": "HASIL_UNTUK_BELAJAR/lgbm_B/training_policy.json",
+      "source": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\.local-tools\\campus-transfer-full-20260909\\perfume-campus-grouped-v7-m2048-d8\\perfume-campus-grouped-v7-m2048-d8\\runs\\perfume-five-grouped-v7-m2048-d8\\lgbm_B\\training_policy.json",
+      "sha256": "78c0c24ea6ea3b4b50e83a7b96ad54a408c2f392d880def2cb2c3ef28adcdde6",
+      "bytes": 126
+    },
+    {
+      "copy": "HASIL_UNTUK_BELAJAR/lgbm_B/test_summary.json",
+      "source": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\.local-tools\\campus-transfer-full-20260909\\perfume-campus-grouped-v7-m2048-d8\\perfume-campus-grouped-v7-m2048-d8\\runs\\perfume-five-grouped-v7-m2048-d8\\lgbm_B\\test_summary.json",
+      "sha256": "188b548e83f70fe713eff0ac0143ce71679f4ed4dcc21e7e08300e61b93b352f",
+      "bytes": 15787
+    },
+    {
+      "copy": "HASIL_UNTUK_BELAJAR/lgbm_B/test_per_label.json",
+      "source": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\.local-tools\\campus-transfer-full-20260909\\perfume-campus-grouped-v7-m2048-d8\\perfume-campus-grouped-v7-m2048-d8\\runs\\perfume-five-grouped-v7-m2048-d8\\lgbm_B\\test_per_label.json",
+      "sha256": "571a41a9e6df5b02b40ee97349ac69b0de16c6cec1adb07e2ae842e7ae19784c",
+      "bytes": 25183
+    },
+    {
+      "copy": "HASIL_UNTUK_BELAJAR/lgbm_B/test_predictions.npz",
+      "source": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\.local-tools\\campus-transfer-full-20260909\\perfume-campus-grouped-v7-m2048-d8\\perfume-campus-grouped-v7-m2048-d8\\runs\\perfume-five-grouped-v7-m2048-d8\\lgbm_B\\test_predictions.npz",
+      "sha256": "2d062dbf36c75f69f285abaedd2acc65c5ef07b3023deda9813cebae721aa8f6",
+      "bytes": 500823
+    },
+    {
+      "copy": "HASIL_UNTUK_BELAJAR/lgbm_B/test_summary_validation_thresholds.json",
+      "source": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\.local-tools\\campus-transfer-full-20260909\\perfume-campus-grouped-v7-m2048-d8\\perfume-campus-grouped-v7-m2048-d8\\runs\\perfume-five-grouped-v7-m2048-d8\\lgbm_B\\test_summary_validation_thresholds.json",
+      "sha256": "070a22a191e4d5386caec07e7f34b3b9bab2b32868bc66c44beb7a7ad75cff49",
+      "bytes": 15946
+    },
+    {
+      "copy": "HASIL_UNTUK_BELAJAR/robustness/lgbm_B/thresholds.json",
+      "source": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\.local-tools\\campus-transfer-full-20260909\\perfume-campus-grouped-v7-m2048-d8\\perfume-campus-grouped-v7-m2048-d8\\runs\\perfume-five-grouped-v7-m2048-d8\\robustness\\lgbm_B\\thresholds.json",
+      "sha256": "e4727440b997124338b6826ed69383582b9ec091268284e8530590e3bb4489ed",
+      "bytes": 27216
+    },
+    {
+      "copy": "HASIL_UNTUK_BELAJAR/robustness/lgbm_B/robustness_summary.json",
+      "source": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\.local-tools\\campus-transfer-full-20260909\\perfume-campus-grouped-v7-m2048-d8\\perfume-campus-grouped-v7-m2048-d8\\runs\\perfume-five-grouped-v7-m2048-d8\\robustness\\lgbm_B\\robustness_summary.json",
+      "sha256": "2b249345d3d11b0076931b8e835f1fb305a3fc2a2ae826ef2d67b225029769e6",
+      "bytes": 84468
+    },
+    {
+      "copy": "HASIL_UNTUK_BELAJAR/lgbm_C/recipe.json",
+      "source": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\.local-tools\\campus-transfer-full-20260909\\perfume-campus-grouped-v7-m2048-d8\\perfume-campus-grouped-v7-m2048-d8\\runs\\perfume-five-grouped-v7-m2048-d8\\lgbm_C\\recipe.json",
+      "sha256": "27081f047ee70ffcd582d8c5eb978aadf6e4515338e052de0347d2230eacd3bc",
+      "bytes": 313
+    },
+    {
+      "copy": "HASIL_UNTUK_BELAJAR/lgbm_C/training_policy.json",
+      "source": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\.local-tools\\campus-transfer-full-20260909\\perfume-campus-grouped-v7-m2048-d8\\perfume-campus-grouped-v7-m2048-d8\\runs\\perfume-five-grouped-v7-m2048-d8\\lgbm_C\\training_policy.json",
+      "sha256": "30fcb255bd4241ff9b5cedbc1ba4a98fdfe594ec2f1d50e2fc8739125b00ae68",
+      "bytes": 130
+    },
+    {
+      "copy": "HASIL_UNTUK_BELAJAR/lgbm_C/test_summary.json",
+      "source": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\.local-tools\\campus-transfer-full-20260909\\perfume-campus-grouped-v7-m2048-d8\\perfume-campus-grouped-v7-m2048-d8\\runs\\perfume-five-grouped-v7-m2048-d8\\lgbm_C\\test_summary.json",
+      "sha256": "cd26b5c03bb4c597a98328407d5d0b134683706252571a4d1461969bc2dc250c",
+      "bytes": 15788
+    },
+    {
+      "copy": "HASIL_UNTUK_BELAJAR/lgbm_C/test_per_label.json",
+      "source": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\.local-tools\\campus-transfer-full-20260909\\perfume-campus-grouped-v7-m2048-d8\\perfume-campus-grouped-v7-m2048-d8\\runs\\perfume-five-grouped-v7-m2048-d8\\lgbm_C\\test_per_label.json",
+      "sha256": "0d5a874779e7c7a24b323ec58ec5961234ad5672ca23f7415d9ce0f57ac13360",
+      "bytes": 25290
+    },
+    {
+      "copy": "HASIL_UNTUK_BELAJAR/lgbm_C/test_predictions.npz",
+      "source": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\.local-tools\\campus-transfer-full-20260909\\perfume-campus-grouped-v7-m2048-d8\\perfume-campus-grouped-v7-m2048-d8\\runs\\perfume-five-grouped-v7-m2048-d8\\lgbm_C\\test_predictions.npz",
+      "sha256": "4283d4cadd3211f48d26ec6e1407b08f94890b69697579cf630dda89b26718ac",
+      "bytes": 466047
+    },
+    {
+      "copy": "HASIL_UNTUK_BELAJAR/lgbm_C/test_summary_validation_thresholds.json",
+      "source": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\.local-tools\\campus-transfer-full-20260909\\perfume-campus-grouped-v7-m2048-d8\\perfume-campus-grouped-v7-m2048-d8\\runs\\perfume-five-grouped-v7-m2048-d8\\lgbm_C\\test_summary_validation_thresholds.json",
+      "sha256": "e8b6b110ed91cfc8cfcbfcbd4efd5e711cdc0d1ca88a310eef11971d8bc002c1",
+      "bytes": 15947
+    },
+    {
+      "copy": "HASIL_UNTUK_BELAJAR/lgbm_C/trials.csv",
+      "source": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\.local-tools\\campus-transfer-full-20260909\\perfume-campus-grouped-v7-m2048-d8\\perfume-campus-grouped-v7-m2048-d8\\runs\\perfume-five-grouped-v7-m2048-d8\\lgbm_C\\trials.csv",
+      "sha256": "4393c53babfd9611abb5511102fee859fe6973a892e2ee17b078c38d52c90fce",
+      "bytes": 53398
+    },
+    {
+      "copy": "HASIL_UNTUK_BELAJAR/lgbm_C/tuning_summary.json",
+      "source": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\.local-tools\\campus-transfer-full-20260909\\perfume-campus-grouped-v7-m2048-d8\\perfume-campus-grouped-v7-m2048-d8\\runs\\perfume-five-grouped-v7-m2048-d8\\lgbm_C\\tuning_summary.json",
+      "sha256": "97a003c836843b3152131299e711336409b814c6fceb1a378c307c3c4a570488",
+      "bytes": 470
+    },
+    {
+      "copy": "HASIL_UNTUK_BELAJAR/lgbm_C/budget.json",
+      "source": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\.local-tools\\campus-transfer-full-20260909\\perfume-campus-grouped-v7-m2048-d8\\perfume-campus-grouped-v7-m2048-d8\\runs\\perfume-five-grouped-v7-m2048-d8\\lgbm_C\\budget.json",
+      "sha256": "4cd4513925743f3e7b518d886f18eb06459409baddfe8bec5c332d8889cd2abf",
+      "bytes": 248
+    },
+    {
+      "copy": "HASIL_UNTUK_BELAJAR/robustness/lgbm_C/thresholds.json",
+      "source": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\.local-tools\\campus-transfer-full-20260909\\perfume-campus-grouped-v7-m2048-d8\\perfume-campus-grouped-v7-m2048-d8\\runs\\perfume-five-grouped-v7-m2048-d8\\robustness\\lgbm_C\\thresholds.json",
+      "sha256": "773c31a207df060d356685cd660481a6be306aa394f55e935ab2a16194227c54",
+      "bytes": 27347
+    },
+    {
+      "copy": "HASIL_UNTUK_BELAJAR/robustness/lgbm_C/robustness_summary.json",
+      "source": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\.local-tools\\campus-transfer-full-20260909\\perfume-campus-grouped-v7-m2048-d8\\perfume-campus-grouped-v7-m2048-d8\\runs\\perfume-five-grouped-v7-m2048-d8\\robustness\\lgbm_C\\robustness_summary.json",
+      "sha256": "b4c255790bc5c3b15716f2bd7eaa6b09c438fa765bea83be3b6a45999d2443fd",
+      "bytes": 84463
+    },
+    {
+      "copy": "HASIL_UNTUK_BELAJAR/lgbm_D/recipe.json",
+      "source": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\.local-tools\\campus-transfer-full-20260909\\perfume-campus-grouped-v7-m2048-d8\\perfume-campus-grouped-v7-m2048-d8\\runs\\perfume-five-grouped-v7-m2048-d8\\lgbm_D\\recipe.json",
+      "sha256": "6bfbeff4eac27f735242d17c9ebd39c4de26c7ee1abac27444d5d27b170d0b7f",
+      "bytes": 320
+    },
+    {
+      "copy": "HASIL_UNTUK_BELAJAR/lgbm_D/training_policy.json",
+      "source": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\.local-tools\\campus-transfer-full-20260909\\perfume-campus-grouped-v7-m2048-d8\\perfume-campus-grouped-v7-m2048-d8\\runs\\perfume-five-grouped-v7-m2048-d8\\lgbm_D\\training_policy.json",
+      "sha256": "06a083db41665fc06351e7cf6b2715d5e847009aff51c96e082685aafbd04853",
+      "bytes": 130
+    },
+    {
+      "copy": "HASIL_UNTUK_BELAJAR/lgbm_D/test_summary.json",
+      "source": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\.local-tools\\campus-transfer-full-20260909\\perfume-campus-grouped-v7-m2048-d8\\perfume-campus-grouped-v7-m2048-d8\\runs\\perfume-five-grouped-v7-m2048-d8\\lgbm_D\\test_summary.json",
+      "sha256": "98938052611b31730cc2ce47c9f766111f9e60046b5f7f5b0e8f7314ae6be0bb",
+      "bytes": 15785
+    },
+    {
+      "copy": "HASIL_UNTUK_BELAJAR/lgbm_D/test_per_label.json",
+      "source": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\.local-tools\\campus-transfer-full-20260909\\perfume-campus-grouped-v7-m2048-d8\\perfume-campus-grouped-v7-m2048-d8\\runs\\perfume-five-grouped-v7-m2048-d8\\lgbm_D\\test_per_label.json",
+      "sha256": "5c9750af6cdd7ff6962f6173b9eddd4618aa02749431a4e30cfbf979f3a7f3e1",
+      "bytes": 25428
+    },
+    {
+      "copy": "HASIL_UNTUK_BELAJAR/lgbm_D/test_predictions.npz",
+      "source": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\.local-tools\\campus-transfer-full-20260909\\perfume-campus-grouped-v7-m2048-d8\\perfume-campus-grouped-v7-m2048-d8\\runs\\perfume-five-grouped-v7-m2048-d8\\lgbm_D\\test_predictions.npz",
+      "sha256": "a9276f8e322a0b63a9c269e288d8259bfec7d2b41e1f0cb10fe8ad1583a227b1",
+      "bytes": 501836
+    },
+    {
+      "copy": "HASIL_UNTUK_BELAJAR/lgbm_D/test_summary_validation_thresholds.json",
+      "source": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\.local-tools\\campus-transfer-full-20260909\\perfume-campus-grouped-v7-m2048-d8\\perfume-campus-grouped-v7-m2048-d8\\runs\\perfume-five-grouped-v7-m2048-d8\\lgbm_D\\test_summary_validation_thresholds.json",
+      "sha256": "2ece48684d78d54306539e82ce29ba4017ed80ab76c99a8d152a92f5dea90a00",
+      "bytes": 15945
+    },
+    {
+      "copy": "HASIL_UNTUK_BELAJAR/lgbm_D/trials.csv",
+      "source": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\.local-tools\\campus-transfer-full-20260909\\perfume-campus-grouped-v7-m2048-d8\\perfume-campus-grouped-v7-m2048-d8\\runs\\perfume-five-grouped-v7-m2048-d8\\lgbm_D\\trials.csv",
+      "sha256": "2d76b721411ba8b69d8c2df5b3c7567666e3c912061067e1f5cd0e281771206a",
+      "bytes": 38562
+    },
+    {
+      "copy": "HASIL_UNTUK_BELAJAR/lgbm_D/tuning_summary.json",
+      "source": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\.local-tools\\campus-transfer-full-20260909\\perfume-campus-grouped-v7-m2048-d8\\perfume-campus-grouped-v7-m2048-d8\\runs\\perfume-five-grouped-v7-m2048-d8\\lgbm_D\\tuning_summary.json",
+      "sha256": "d9b11269e2036f8bddb9b5b25d76edcad65615303fa04ca0f09c5c22de9ea238",
+      "bytes": 467
+    },
+    {
+      "copy": "HASIL_UNTUK_BELAJAR/lgbm_D/budget.json",
+      "source": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\.local-tools\\campus-transfer-full-20260909\\perfume-campus-grouped-v7-m2048-d8\\perfume-campus-grouped-v7-m2048-d8\\runs\\perfume-five-grouped-v7-m2048-d8\\lgbm_D\\budget.json",
+      "sha256": "ec5863931b6a6b8c1dc5fc4c57739e34f7199596effeb803353f977c3d7b5048",
+      "bytes": 248
+    },
+    {
+      "copy": "HASIL_UNTUK_BELAJAR/robustness/lgbm_D/thresholds.json",
+      "source": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\.local-tools\\campus-transfer-full-20260909\\perfume-campus-grouped-v7-m2048-d8\\perfume-campus-grouped-v7-m2048-d8\\runs\\perfume-five-grouped-v7-m2048-d8\\robustness\\lgbm_D\\thresholds.json",
+      "sha256": "15e42d9b3a0e09f39a6b607e092696a655d468f7f2b3cdcc83410c27e6852500",
+      "bytes": 27364
+    },
+    {
+      "copy": "HASIL_UNTUK_BELAJAR/robustness/lgbm_D/robustness_summary.json",
+      "source": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\.local-tools\\campus-transfer-full-20260909\\perfume-campus-grouped-v7-m2048-d8\\perfume-campus-grouped-v7-m2048-d8\\runs\\perfume-five-grouped-v7-m2048-d8\\robustness\\lgbm_D\\robustness_summary.json",
+      "sha256": "049aeadd0d3e5514e34d7ca3208285b1e310efc8783c0f471d9b93af34919952",
+      "bytes": 84473
+    },
+    {
+      "copy": "HASIL_UNTUK_BELAJAR/robustness/lgbm_D/pooled_oof_predictions.npz",
+      "source": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\.local-tools\\campus-transfer-full-20260909\\perfume-campus-grouped-v7-m2048-d8\\perfume-campus-grouped-v7-m2048-d8\\runs\\perfume-five-grouped-v7-m2048-d8\\robustness\\lgbm_D\\pooled_oof_predictions.npz",
+      "sha256": "96cbf16f5849598f71731382b85ad532620a4bbcdc7242d422109663b2410a3a",
+      "bytes": 2046896
+    },
+    {
+      "copy": "HASIL_UNTUK_BELAJAR/audit_27_oktober/README.md",
+      "source": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\reports\\final_audit_20261027\\README.md",
+      "sha256": "ed751a3d7bcb6581d7386d47951726a6c9cbdd8e51892c73912566596fdbbfe0",
+      "bytes": 11174
+    },
+    {
+      "copy": "HASIL_UNTUK_BELAJAR/audit_27_oktober/onnx_parity.json",
+      "source": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\reports\\final_audit_20261027\\onnx_parity.json",
+      "sha256": "e7fed42fd2429ecdce7150d87147387ac070fe02aaf2698bcc3d6d595baaded4",
+      "bytes": 362
+    },
+    {
+      "copy": "HASIL_UNTUK_BELAJAR/audit_27_oktober/domain_boundary.json",
+      "source": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\reports\\final_audit_20261027\\domain_boundary.json",
+      "sha256": "039a9ee7840eb27cb5f5650f8b01101dd922ba815eac5995094b57719ffa3c5e",
+      "bytes": 295
+    },
+    {
+      "copy": "HASIL_UNTUK_BELAJAR/audit_27_oktober/test_status.json",
+      "source": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\reports\\final_audit_20261027\\test_status.json",
+      "sha256": "2fb2d4e591344cb58b88c099c04e5d8d6ea7c0e8a1a06bbf3cebe3cec6ed6864",
+      "bytes": 698
+    },
+    {
+      "copy": "HASIL_UNTUK_BELAJAR/audit_label_summary.json",
+      "source": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\KODE_ML\\hasil_audit_label\\summary.json",
+      "sha256": "276d330dad6446b5ee1b941c6e2c8bd4e20e32b67e40ecc3065cf3d72e02bc14",
+      "bytes": 1436
+    },
+    {
+      "copy": "REFERENSI_BELAJAR/requirements_research_asli.txt",
+      "source": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\requirements_research.txt",
+      "sha256": "11dd1a14763c08dceb51eb60c2eebff9fe5eeaf2c19188d559c08c8ffae5b6e3",
+      "bytes": 227
+    },
+    {
+      "copy": "REFERENSI_BELAJAR/Suh_2025_paper.pdf",
+      "source": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Laporan Skripsi\\s42004-025-01651-7.pdf",
+      "sha256": "32cadd8ac8ac024e64943645e0ca7f26cee672ca79e7720578ee4c00fe9c1bb0",
+      "bytes": 1055159
+    },
+    {
+      "copy": "REFERENSI_BELAJAR/laporan_snapshot/Bab1.tex",
+      "source": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Laporan Skripsi\\2521_skripsi_Marvel_Kevin_Nathanael\\src\\2.Isi\\Bab1.tex",
+      "sha256": "4ce458a27eb745a245f09578e31f0e275a4046793069da31aeff4560d0c13607",
+      "bytes": 8765
+    },
+    {
+      "copy": "REFERENSI_BELAJAR/laporan_snapshot/Bab2.tex",
+      "source": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Laporan Skripsi\\2521_skripsi_Marvel_Kevin_Nathanael\\src\\2.Isi\\Bab2.tex",
+      "sha256": "50a58b45ebfe9ad0bdbf491070216762464142c4fc391e595626c16218aae572",
+      "bytes": 18249
+    },
+    {
+      "copy": "REFERENSI_BELAJAR/laporan_snapshot/Bab3.tex",
+      "source": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Laporan Skripsi\\2521_skripsi_Marvel_Kevin_Nathanael\\src\\2.Isi\\Bab3.tex",
+      "sha256": "8ce93e010662e9d21bb5457cfec396a68776525df9b47b0cfbd1e2856956736d",
+      "bytes": 30808
+    },
+    {
+      "copy": "REFERENSI_BELAJAR/laporan_snapshot/Bab4.tex",
+      "source": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Laporan Skripsi\\2521_skripsi_Marvel_Kevin_Nathanael\\src\\2.Isi\\Bab4.tex",
+      "sha256": "286e6391cc63304ec519cae68c8ecaa975eb350b0bb03d7dbea043fadcb9cdbc",
+      "bytes": 31354
+    },
+    {
+      "copy": "REFERENSI_BELAJAR/laporan_snapshot/Bab5.tex",
+      "source": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Laporan Skripsi\\2521_skripsi_Marvel_Kevin_Nathanael\\src\\2.Isi\\Bab5.tex",
+      "sha256": "d28ba985f16be2f5bf070cb7ee60ac75042f1c0ea2764f9a116adc1cb8f8c150",
+      "bytes": 4484
+    },
+    {
+      "copy": "REFERENSI_BELAJAR/laporan_snapshot/pustaka.bib",
+      "source": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Laporan Skripsi\\2521_skripsi_Marvel_Kevin_Nathanael\\pustaka.bib",
+      "sha256": "cb8fe5cf8c4f186f514ad7bcefcf8c165e508c963547d496059b67d5f45769a3",
+      "bytes": 22864
+    }
+  ],
+  "source_function_catalog": [
+    {
+      "file": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\KODE_ML\\research\\source_identity.py",
+      "function": "parse_molecule",
+      "start": 15,
+      "end": 23,
+      "sha256": "36fb057eb35996f5a0f386712d6ce07896cb4ff9ef3675ead78325e8fecbccc6"
+    },
+    {
+      "file": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\KODE_ML\\research\\source_identity.py",
+      "function": "canonical_smiles",
+      "start": 26,
+      "end": 30,
+      "sha256": "36fb057eb35996f5a0f386712d6ce07896cb4ff9ef3675ead78325e8fecbccc6"
+    },
+    {
+      "file": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\KODE_ML\\research\\source_identity.py",
+      "function": "normalize",
+      "start": 32,
+      "end": 36,
+      "sha256": "36fb057eb35996f5a0f386712d6ce07896cb4ff9ef3675ead78325e8fecbccc6"
+    },
+    {
+      "file": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\KODE_ML\\research\\source_identity.py",
+      "function": "_columns",
+      "start": 38,
+      "end": 41,
+      "sha256": "36fb057eb35996f5a0f386712d6ce07896cb4ff9ef3675ead78325e8fecbccc6"
+    },
+    {
+      "file": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\KODE_ML\\research\\source_identity.py",
+      "function": "_key",
+      "start": 44,
+      "end": 45,
+      "sha256": "36fb057eb35996f5a0f386712d6ce07896cb4ff9ef3675ead78325e8fecbccc6"
+    },
+    {
+      "file": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\KODE_ML\\research\\source_identity.py",
+      "function": "_unique",
+      "start": 48,
+      "end": 54,
+      "sha256": "36fb057eb35996f5a0f386712d6ce07896cb4ff9ef3675ead78325e8fecbccc6"
+    },
+    {
+      "file": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\KODE_ML\\research\\source_identity.py",
+      "function": "_attach_smiles",
+      "start": 57,
+      "end": 71,
+      "sha256": "36fb057eb35996f5a0f386712d6ce07896cb4ff9ef3675ead78325e8fecbccc6"
+    },
+    {
+      "file": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\KODE_ML\\research\\source_identity.py",
+      "function": "_truthy",
+      "start": 74,
+      "end": 75,
+      "sha256": "36fb057eb35996f5a0f386712d6ce07896cb4ff9ef3675ead78325e8fecbccc6"
+    },
+    {
+      "file": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\KODE_ML\\research\\source_identity.py",
+      "function": "_attach_sigma",
+      "start": 78,
+      "end": 92,
+      "sha256": "36fb057eb35996f5a0f386712d6ce07896cb4ff9ef3675ead78325e8fecbccc6"
+    },
+    {
+      "file": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\KODE_ML\\research\\source_identity.py",
+      "function": "_cas_bridge",
+      "start": 95,
+      "end": 112,
+      "sha256": "36fb057eb35996f5a0f386712d6ce07896cb4ff9ef3675ead78325e8fecbccc6"
+    },
+    {
+      "file": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\KODE_ML\\research\\preprocessing.py",
+      "function": "load_config",
+      "start": 30,
+      "end": 40,
+      "sha256": "91aaeca7a9a9b6bb0cfae5349168c1205f62fb588496961c58193be96fb7ef14"
+    },
+    {
+      "file": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\KODE_ML\\research\\preprocessing.py",
+      "function": "load_sources",
+      "start": 42,
+      "end": 57,
+      "sha256": "91aaeca7a9a9b6bb0cfae5349168c1205f62fb588496961c58193be96fb7ef14"
+    },
+    {
+      "file": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\KODE_ML\\research\\preprocessing.py",
+      "function": "taxonomy_from_ifra",
+      "start": 60,
+      "end": 64,
+      "sha256": "91aaeca7a9a9b6bb0cfae5349168c1205f62fb588496961c58193be96fb7ef14"
+    },
+    {
+      "file": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\KODE_ML\\research\\preprocessing.py",
+      "function": "map_labels",
+      "start": 67,
+      "end": 79,
+      "sha256": "91aaeca7a9a9b6bb0cfae5349168c1205f62fb588496961c58193be96fb7ef14"
+    },
+    {
+      "file": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\KODE_ML\\research\\preprocessing.py",
+      "function": "tokens_for",
+      "start": 82,
+      "end": 94,
+      "sha256": "91aaeca7a9a9b6bb0cfae5349168c1205f62fb588496961c58193be96fb7ef14"
+    },
+    {
+      "file": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\KODE_ML\\research\\preprocessing.py",
+      "function": "merge_sources",
+      "start": 97,
+      "end": 164,
+      "sha256": "91aaeca7a9a9b6bb0cfae5349168c1205f62fb588496961c58193be96fb7ef14"
+    },
+    {
+      "file": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\KODE_ML\\research\\preprocessing.py",
+      "function": "review_frozen_preprocessing",
+      "start": 166,
+      "end": 176,
+      "sha256": "91aaeca7a9a9b6bb0cfae5349168c1205f62fb588496961c58193be96fb7ef14"
+    },
+    {
+      "file": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\KODE_ML\\research\\features.py",
+      "function": "molecule",
+      "start": 12,
+      "end": 16,
+      "sha256": "8a1774f10afe12c65985b1e326903f5509ad68814a61f6cb2d7df086f14564d0"
+    },
+    {
+      "file": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\KODE_ML\\research\\features.py",
+      "function": "calculate",
+      "start": 19,
+      "end": 26,
+      "sha256": "8a1774f10afe12c65985b1e326903f5509ad68814a61f6cb2d7df086f14564d0"
+    },
+    {
+      "file": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\KODE_ML\\research\\features.py",
+      "function": "calculate_morgan",
+      "start": 29,
+      "end": 33,
+      "sha256": "8a1774f10afe12c65985b1e326903f5509ad68814a61f6cb2d7df086f14564d0"
+    },
+    {
+      "file": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\KODE_ML\\research\\features.py",
+      "function": "descriptor_count",
+      "start": 35,
+      "end": 38,
+      "sha256": "8a1774f10afe12c65985b1e326903f5509ad68814a61f6cb2d7df086f14564d0"
+    },
+    {
+      "file": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\KODE_ML\\research\\features.py",
+      "function": "features",
+      "start": 41,
+      "end": 45,
+      "sha256": "8a1774f10afe12c65985b1e326903f5509ad68814a61f6cb2d7df086f14564d0"
+    },
+    {
+      "file": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\KODE_ML\\research\\features.py",
+      "function": "verify",
+      "start": 47,
+      "end": 50,
+      "sha256": "8a1774f10afe12c65985b1e326903f5509ad68814a61f6cb2d7df086f14564d0"
+    },
+    {
+      "file": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\KODE_ML\\research\\dataset.py",
+      "function": "verify",
+      "start": 14,
+      "end": 79,
+      "sha256": "8dc2ecbc33f556fd0f4b1b655fe8c728de1ccc141bfc1af7b6fd45781b2caeb3"
+    },
+    {
+      "file": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\KODE_ML\\research\\dataset.py",
+      "function": "load_partition",
+      "start": 82,
+      "end": 93,
+      "sha256": "8dc2ecbc33f556fd0f4b1b655fe8c728de1ccc141bfc1af7b6fd45781b2caeb3"
+    },
+    {
+      "file": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\KODE_ML\\research\\dataset.py",
+      "function": "encode_frozen_records",
+      "start": 96,
+      "end": 109,
+      "sha256": "8dc2ecbc33f556fd0f4b1b655fe8c728de1ccc141bfc1af7b6fd45781b2caeb3"
+    },
+    {
+      "file": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\KODE_ML\\research\\splits.py",
+      "function": "inner_folds",
+      "start": 6,
+      "end": 18,
+      "sha256": "9386cb3804ad90592c9a3b9e11cbffcb28023754ab069e10fc82c4aa1e90d2f0"
+    },
+    {
+      "file": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\KODE_ML\\research\\splits.py",
+      "function": "validate_grouped_split",
+      "start": 21,
+      "end": 52,
+      "sha256": "9386cb3804ad90592c9a3b9e11cbffcb28023754ab069e10fc82c4aa1e90d2f0"
+    },
+    {
+      "file": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\KODE_ML\\research\\training.py",
+      "function": "make_model",
+      "start": 9,
+      "end": 18,
+      "sha256": "4b8f34ca70a8263b3a8a25e7c0e2b3e46bc1e8767be2149ec7cf4c804024e184"
+    },
+    {
+      "file": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\KODE_ML\\research\\training.py",
+      "function": "balanced_sample_weights",
+      "start": 21,
+      "end": 30,
+      "sha256": "4b8f34ca70a8263b3a8a25e7c0e2b3e46bc1e8767be2149ec7cf4c804024e184"
+    },
+    {
+      "file": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\KODE_ML\\research\\training.py",
+      "function": "fit",
+      "start": 33,
+      "end": 53,
+      "sha256": "4b8f34ca70a8263b3a8a25e7c0e2b3e46bc1e8767be2149ec7cf4c804024e184"
+    },
+    {
+      "file": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\KODE_ML\\research\\training.py",
+      "function": "fit_final_models",
+      "start": 55,
+      "end": 66,
+      "sha256": "4b8f34ca70a8263b3a8a25e7c0e2b3e46bc1e8767be2149ec7cf4c804024e184"
+    },
+    {
+      "file": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\KODE_ML\\research\\tuning.py",
+      "function": "atomic_dump",
+      "start": 11,
+      "end": 15,
+      "sha256": "af497eb63c357a7f08bd7f1e3a3a73966ca925bf267b96d2de09bb1122b92531"
+    },
+    {
+      "file": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\KODE_ML\\research\\tuning.py",
+      "function": "event",
+      "start": 17,
+      "end": 23,
+      "sha256": "af497eb63c357a7f08bd7f1e3a3a73966ca925bf267b96d2de09bb1122b92531"
+    },
+    {
+      "file": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\KODE_ML\\research\\tuning.py",
+      "function": "suggest",
+      "start": 25,
+      "end": 36,
+      "sha256": "af497eb63c357a7f08bd7f1e3a3a73966ca925bf267b96d2de09bb1122b92531"
+    },
+    {
+      "file": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\KODE_ML\\research\\tuning.py",
+      "function": "initialize",
+      "start": 38,
+      "end": 59,
+      "sha256": "af497eb63c357a7f08bd7f1e3a3a73966ca925bf267b96d2de09bb1122b92531"
+    },
+    {
+      "file": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\KODE_ML\\research\\tuning.py",
+      "function": "tune",
+      "start": 72,
+      "end": 134,
+      "sha256": "af497eb63c357a7f08bd7f1e3a3a73966ca925bf267b96d2de09bb1122b92531"
+    },
+    {
+      "file": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\KODE_ML\\research\\validation.py",
+      "function": "cross_validate",
+      "start": 8,
+      "end": 66,
+      "sha256": "7c0f86601d8c619b7a2c1d76e86659ab41bd0533f0cdac2a5f99700624877c6c"
+    },
+    {
+      "file": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\KODE_ML\\research\\validation.py",
+      "function": "f1_from_metrics",
+      "start": 69,
+      "end": 71,
+      "sha256": "7c0f86601d8c619b7a2c1d76e86659ab41bd0533f0cdac2a5f99700624877c6c"
+    },
+    {
+      "file": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\KODE_ML\\research\\validation.py",
+      "function": "prediction_diagnostics",
+      "start": 74,
+      "end": 86,
+      "sha256": "7c0f86601d8c619b7a2c1d76e86659ab41bd0533f0cdac2a5f99700624877c6c"
+    },
+    {
+      "file": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\KODE_ML\\research\\validation.py",
+      "function": "select_validation_thresholds",
+      "start": 89,
+      "end": 116,
+      "sha256": "7c0f86601d8c619b7a2c1d76e86659ab41bd0533f0cdac2a5f99700624877c6c"
+    },
+    {
+      "file": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\KODE_ML\\research\\validation.py",
+      "function": "repeated_grouped_cv",
+      "start": 119,
+      "end": 180,
+      "sha256": "7c0f86601d8c619b7a2c1d76e86659ab41bd0533f0cdac2a5f99700624877c6c"
+    },
+    {
+      "file": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\KODE_ML\\research\\experiment.py",
+      "function": "verify_files",
+      "start": 32,
+      "end": 34,
+      "sha256": "45db31726b7d08049b93aa36da731f5db7610a4ff51bc75789c9bf1ab1b32d79"
+    },
+    {
+      "file": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\KODE_ML\\research\\experiment.py",
+      "function": "preflight",
+      "start": 36,
+      "end": 63,
+      "sha256": "45db31726b7d08049b93aa36da731f5db7610a4ff51bc75789c9bf1ab1b32d79"
+    },
+    {
+      "file": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\KODE_ML\\research\\experiment.py",
+      "function": "select_candidates",
+      "start": 66,
+      "end": 71,
+      "sha256": "45db31726b7d08049b93aa36da731f5db7610a4ff51bc75789c9bf1ab1b32d79"
+    },
+    {
+      "file": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\KODE_ML\\research\\experiment.py",
+      "function": "evaluate_test",
+      "start": 73,
+      "end": 109,
+      "sha256": "45db31726b7d08049b93aa36da731f5db7610a4ff51bc75789c9bf1ab1b32d79"
+    },
+    {
+      "file": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\KODE_ML\\research\\experiment.py",
+      "function": "paired_cv",
+      "start": 111,
+      "end": 137,
+      "sha256": "45db31726b7d08049b93aa36da731f5db7610a4ff51bc75789c9bf1ab1b32d79"
+    },
+    {
+      "file": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\KODE_ML\\research\\experiment.py",
+      "function": "summaries",
+      "start": 140,
+      "end": 219,
+      "sha256": "45db31726b7d08049b93aa36da731f5db7610a4ff51bc75789c9bf1ab1b32d79"
+    },
+    {
+      "file": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\KODE_ML\\research\\experiment.py",
+      "function": "reject_historical_run",
+      "start": 222,
+      "end": 229,
+      "sha256": "45db31726b7d08049b93aa36da731f5db7610a4ff51bc75789c9bf1ab1b32d79"
+    },
+    {
+      "file": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\KODE_ML\\research\\experiment.py",
+      "function": "run_all",
+      "start": 232,
+      "end": 300,
+      "sha256": "45db31726b7d08049b93aa36da731f5db7610a4ff51bc75789c9bf1ab1b32d79"
+    },
+    {
+      "file": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\KODE_ML\\research\\experiment.py",
+      "function": "main",
+      "start": 302,
+      "end": 313,
+      "sha256": "45db31726b7d08049b93aa36da731f5db7610a4ff51bc75789c9bf1ab1b32d79"
+    },
+    {
+      "file": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\KODE_ML\\research\\metrics.py",
+      "function": "binary_metrics",
+      "start": 10,
+      "end": 30,
+      "sha256": "b476b48133b6b5c9f62f2424f68c72c33cc8ffd2c4a531a64d659878a86f0d67"
+    },
+    {
+      "file": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\KODE_ML\\research\\metrics.py",
+      "function": "summarize",
+      "start": 33,
+      "end": 44,
+      "sha256": "b476b48133b6b5c9f62f2424f68c72c33cc8ffd2c4a531a64d659878a86f0d67"
+    },
+    {
+      "file": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\KODE_ML\\research\\metrics.py",
+      "function": "compare",
+      "start": 47,
+      "end": 54,
+      "sha256": "b476b48133b6b5c9f62f2424f68c72c33cc8ffd2c4a531a64d659878a86f0d67"
+    },
+    {
+      "file": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\KODE_ML\\research\\inference.py",
+      "function": "predict",
+      "start": 16,
+      "end": 58,
+      "sha256": "a9cdd7d49ed7a308134c9d6b82b47f1cbfcd720a9c58d02511ecf78a9b432a4a"
+    },
+    {
+      "file": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\KODE_ML\\research\\inference.py",
+      "function": "main",
+      "start": 61,
+      "end": 67,
+      "sha256": "a9cdd7d49ed7a308134c9d6b82b47f1cbfcd720a9c58d02511ecf78a9b432a4a"
+    },
+    {
+      "file": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\KODE_ML\\research\\runtime.py",
+      "function": "digest",
+      "start": 19,
+      "end": 20,
+      "sha256": "9a66f6e7d64d453435ba9320cce169065fa6a85cbcc9b7edcfccb1951c30a867"
+    },
+    {
+      "file": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\KODE_ML\\research\\runtime.py",
+      "function": "read",
+      "start": 22,
+      "end": 23,
+      "sha256": "9a66f6e7d64d453435ba9320cce169065fa6a85cbcc9b7edcfccb1951c30a867"
+    },
+    {
+      "file": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\KODE_ML\\research\\runtime.py",
+      "function": "write",
+      "start": 26,
+      "end": 31,
+      "sha256": "9a66f6e7d64d453435ba9320cce169065fa6a85cbcc9b7edcfccb1951c30a867"
+    },
+    {
+      "file": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\KODE_ML\\research\\runtime.py",
+      "function": "environment",
+      "start": 34,
+      "end": 36,
+      "sha256": "9a66f6e7d64d453435ba9320cce169065fa6a85cbcc9b7edcfccb1951c30a867"
+    },
+    {
+      "file": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\KODE_ML\\research\\runtime.py",
+      "function": "compute_profile",
+      "start": 39,
+      "end": 46,
+      "sha256": "9a66f6e7d64d453435ba9320cce169065fa6a85cbcc9b7edcfccb1951c30a867"
+    },
+    {
+      "file": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\KODE_ML\\research\\runtime.py",
+      "function": "check_host",
+      "start": 49,
+      "end": 54,
+      "sha256": "9a66f6e7d64d453435ba9320cce169065fa6a85cbcc9b7edcfccb1951c30a867"
+    },
+    {
+      "file": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\KODE_ML\\research\\runtime.py",
+      "function": "run_lock",
+      "start": 58,
+      "end": 72,
+      "sha256": "9a66f6e7d64d453435ba9320cce169065fa6a85cbcc9b7edcfccb1951c30a867"
+    },
+    {
+      "file": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\KODE_ML\\research\\runtime.py",
+      "function": "save_npz",
+      "start": 93,
+      "end": 99,
+      "sha256": "9a66f6e7d64d453435ba9320cce169065fa6a85cbcc9b7edcfccb1951c30a867"
+    },
+    {
+      "file": "C:\\Users\\ACER\\Documents\\Marvel\\Skripsi\\Project Skripsi\\Perfume-MultiLabel-Classifier\\KODE_ML\\research\\results.py",
+      "function": "main_run",
+      "start": 5,
+      "end": 13,
+      "sha256": "724762a4e03ec358000821ecddff0d86436e1983256b8b0e6b3adacdb63b5f2d"
+    }
+  ]
+}

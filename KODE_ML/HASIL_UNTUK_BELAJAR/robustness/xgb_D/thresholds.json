@@ -1,0 +1,899 @@
+{
+  "method": "per-label maximum F1 on repeated grouped OOF probabilities",
+  "selection_data": "training-validation only; held-out test is never used",
+  "grid": [
+    0.05,
+    0.1,
+    0.15,
+    0.2,
+    0.25,
+    0.3,
+    0.35,
+    0.4,
+    0.45,
+    0.5,
+    0.55,
+    0.6,
+    0.65,
+    0.7,
+    0.75,
+    0.8,
+    0.85,
+    0.9,
+    0.95
+  ],
+  "labels": {
+    "acidic": {
+      "threshold": 0.9,
+      "oof_f1": 0.29508196721311475,
+      "oof_f1_at_0_5": 0.24137931034482757,
+      "oof_precision": 0.36,
+      "oof_recall": 0.25,
+      "training_positives": 36
+    },
+    "aldehydic": {
+      "threshold": 0.7,
+      "oof_f1": 0.3519061583577712,
+      "oof_f1_at_0_5": 0.3291666666666666,
+      "oof_precision": 0.31746031746031744,
+      "oof_recall": 0.39473684210526316,
+      "training_positives": 152
+    },
+    "almond": {
+      "threshold": 0.65,
+      "oof_f1": 0.30952380952380953,
+      "oof_f1_at_0_5": 0.2677165354330709,
+      "oof_precision": 0.3170731707317073,
+      "oof_recall": 0.3023255813953488,
+      "training_positives": 86
+    },
+    "amber": {
+      "threshold": 0.6,
+      "oof_f1": 0.35483870967741943,
+      "oof_f1_at_0_5": 0.3214285714285714,
+      "oof_precision": 0.29464285714285715,
+      "oof_recall": 0.44594594594594594,
+      "training_positives": 74
+    },
+    "animal like": {
+      "threshold": 0.65,
+      "oof_f1": 0.3672131147540984,
+      "oof_f1_at_0_5": 0.33415233415233414,
+      "oof_precision": 0.37583892617449666,
+      "oof_recall": 0.358974358974359,
+      "training_positives": 156
+    },
+    "anisic": {
+      "threshold": 0.55,
+      "oof_f1": 0.43076923076923074,
+      "oof_f1_at_0_5": 0.41346153846153844,
+      "oof_precision": 0.375,
+      "oof_recall": 0.5060240963855421,
+      "training_positives": 83
+    },
+    "apple": {
+      "threshold": 0.8,
+      "oof_f1": 0.45390070921985815,
+      "oof_f1_at_0_5": 0.4228694714131608,
+      "oof_precision": 0.5,
+      "oof_recall": 0.4155844155844156,
+      "training_positives": 308
+    },
+    "apricot": {
+      "threshold": 0.45,
+      "oof_f1": 0.23796033994334279,
+      "oof_f1_at_0_5": 0.23170731707317072,
+      "oof_precision": 0.16733067729083664,
+      "oof_recall": 0.4117647058823529,
+      "training_positives": 102
+    },
+    "aromatic": {
+      "threshold": 0.8,
+      "oof_f1": 0.1142857142857143,
+      "oof_f1_at_0_5": 0.10576923076923077,
+      "oof_precision": 0.2222222222222222,
+      "oof_recall": 0.07692307692307693,
+      "training_positives": 78
+    },
+    "balsamic": {
+      "threshold": 0.65,
+      "oof_f1": 0.464804469273743,
+      "oof_f1_at_0_5": 0.43419949706621963,
+      "oof_precision": 0.4378947368421053,
+      "oof_recall": 0.49523809523809526,
+      "training_positives": 420
+    },
+    "banana": {
+      "threshold": 0.7,
+      "oof_f1": 0.3695652173913043,
+      "oof_f1_at_0_5": 0.33587786259541985,
+      "oof_precision": 0.3248407643312102,
+      "oof_recall": 0.42857142857142855,
+      "training_positives": 119
+    },
+    "berry": {
+      "threshold": 0.6,
+      "oof_f1": 0.23238095238095235,
+      "oof_f1_at_0_5": 0.20949720670391062,
+      "oof_precision": 0.18885448916408668,
+      "oof_recall": 0.30198019801980197,
+      "training_positives": 202
+    },
+    "brandy": {
+      "threshold": 0.55,
+      "oof_f1": 0.21238938053097345,
+      "oof_f1_at_0_5": 0.19512195121951217,
+      "oof_precision": 0.1791044776119403,
+      "oof_recall": 0.2608695652173913,
+      "training_positives": 46
+    },
+    "burnt": {
+      "threshold": 0.6,
+      "oof_f1": 0.28191489361702127,
+      "oof_f1_at_0_5": 0.27467811158798283,
+      "oof_precision": 0.2217573221757322,
+      "oof_recall": 0.38686131386861317,
+      "training_positives": 137
+    },
+    "buttery": {
+      "threshold": 0.55,
+      "oof_f1": 0.3069053708439898,
+      "oof_f1_at_0_5": 0.3055555555555555,
+      "oof_precision": 0.24691358024691357,
+      "oof_recall": 0.40540540540540543,
+      "training_positives": 148
+    },
+    "camphoraceous": {
+      "threshold": 0.6,
+      "oof_f1": 0.31297709923664124,
+      "oof_f1_at_0_5": 0.28213166144200624,
+      "oof_precision": 0.25308641975308643,
+      "oof_recall": 0.41,
+      "training_positives": 100
+    },
+    "caramel": {
+      "threshold": 0.65,
+      "oof_f1": 0.24390243902439024,
+      "oof_f1_at_0_5": 0.24347826086956526,
+      "oof_precision": 0.2564102564102564,
+      "oof_recall": 0.23255813953488372,
+      "training_positives": 43
+    },
+    "celery": {
+      "threshold": 0.35,
+      "oof_f1": 0.20618556701030927,
+      "oof_f1_at_0_5": 0.18750000000000003,
+      "oof_precision": 0.15873015873015872,
+      "oof_recall": 0.29411764705882354,
+      "training_positives": 34
+    },
+    "cheesy": {
+      "threshold": 0.8,
+      "oof_f1": 0.5017421602787456,
+      "oof_f1_at_0_5": 0.43383947939262474,
+      "oof_precision": 0.5669291338582677,
+      "oof_recall": 0.45,
+      "training_positives": 160
+    },
+    "cherry": {
+      "threshold": 0.5,
+      "oof_f1": 0.2379182156133829,
+      "oof_f1_at_0_5": 0.2379182156133829,
+      "oof_precision": 0.17391304347826086,
+      "oof_recall": 0.3764705882352941,
+      "training_positives": 85
+    },
+    "chocolate": {
+      "threshold": 0.55,
+      "oof_f1": 0.20100502512562812,
+      "oof_f1_at_0_5": 0.19574468085106383,
+      "oof_precision": 0.1694915254237288,
+      "oof_recall": 0.24691358024691357,
+      "training_positives": 81
+    },
+    "cinnamon": {
+      "threshold": 0.7,
+      "oof_f1": 0.421875,
+      "oof_f1_at_0_5": 0.389937106918239,
+      "oof_precision": 0.4153846153846154,
+      "oof_recall": 0.42857142857142855,
+      "training_positives": 63
+    },
+    "citrus": {
+      "threshold": 0.6,
+      "oof_f1": 0.49147442326980945,
+      "oof_f1_at_0_5": 0.47489361702127664,
+      "oof_precision": 0.44064748201438847,
+      "oof_recall": 0.5555555555555556,
+      "training_positives": 441
+    },
+    "clean": {
+      "threshold": 0.55,
+      "oof_f1": 0.1568627450980392,
+      "oof_f1_at_0_5": 0.13636363636363635,
+      "oof_precision": 0.15789473684210525,
+      "oof_recall": 0.15584415584415584,
+      "training_positives": 77
+    },
+    "cocoa": {
+      "threshold": 0.45,
+      "oof_f1": 0.37419354838709673,
+      "oof_f1_at_0_5": 0.3680555555555555,
+      "oof_precision": 0.28292682926829266,
+      "oof_recall": 0.5523809523809524,
+      "training_positives": 105
+    },
+    "coconut": {
+      "threshold": 0.9,
+      "oof_f1": 0.4503311258278146,
+      "oof_f1_at_0_5": 0.4032258064516129,
+      "oof_precision": 0.6071428571428571,
+      "oof_recall": 0.35789473684210527,
+      "training_positives": 95
+    },
+    "coffee": {
+      "threshold": 0.7,
+      "oof_f1": 0.3835616438356165,
+      "oof_f1_at_0_5": 0.33783783783783783,
+      "oof_precision": 0.34146341463414637,
+      "oof_recall": 0.4375,
+      "training_positives": 96
+    },
+    "cooling": {
+      "threshold": 0.6,
+      "oof_f1": 0.2641509433962264,
+      "oof_f1_at_0_5": 0.24615384615384617,
+      "oof_precision": 0.23076923076923078,
+      "oof_recall": 0.3088235294117647,
+      "training_positives": 68
+    },
+    "creamy": {
+      "threshold": 0.6,
+      "oof_f1": 0.2789598108747045,
+      "oof_f1_at_0_5": 0.24866785079928952,
+      "oof_precision": 0.26339285714285715,
+      "oof_recall": 0.2964824120603015,
+      "training_positives": 199
+    },
+    "cucumber": {
+      "threshold": 0.9,
+      "oof_f1": 0.42857142857142855,
+      "oof_f1_at_0_5": 0.34920634920634924,
+      "oof_precision": 0.5769230769230769,
+      "oof_recall": 0.3409090909090909,
+      "training_positives": 44
+    },
+    "dairy": {
+      "threshold": 0.5,
+      "oof_f1": 0.24418604651162787,
+      "oof_f1_at_0_5": 0.24418604651162787,
+      "oof_precision": 0.17573221757322174,
+      "oof_recall": 0.4,
+      "training_positives": 105
+    },
+    "dry": {
+      "threshold": 0.7,
+      "oof_f1": 0.22127659574468087,
+      "oof_f1_at_0_5": 0.2113022113022113,
+      "oof_precision": 0.2653061224489796,
+      "oof_recall": 0.1897810218978102,
+      "training_positives": 137
+    },
+    "earthy": {
+      "threshold": 0.65,
+      "oof_f1": 0.2784090909090909,
+      "oof_f1_at_0_5": 0.26932668329177056,
+      "oof_precision": 0.3072100313479624,
+      "oof_recall": 0.2545454545454545,
+      "training_positives": 385
+    },
+    "ethereal": {
+      "threshold": 0.75,
+      "oof_f1": 0.5279503105590062,
+      "oof_f1_at_0_5": 0.47912087912087914,
+      "oof_precision": 0.5329153605015674,
+      "oof_recall": 0.5230769230769231,
+      "training_positives": 325
+    },
+    "fatty": {
+      "threshold": 0.65,
+      "oof_f1": 0.5564342199856219,
+      "oof_f1_at_0_5": 0.5387853277209862,
+      "oof_precision": 0.5012953367875648,
+      "oof_recall": 0.6252019386106623,
+      "training_positives": 619
+    },
+    "fermented": {
+      "threshold": 0.85,
+      "oof_f1": 0.39548022598870064,
+      "oof_f1_at_0_5": 0.31952662721893493,
+      "oof_precision": 0.5645161290322581,
+      "oof_recall": 0.30434782608695654,
+      "training_positives": 115
+    },
+    "floral": {
+      "threshold": 0.5,
+      "oof_f1": 0.6377314814814815,
+      "oof_f1_at_0_5": 0.6377314814814815,
+      "oof_precision": 0.5458147597820703,
+      "oof_recall": 0.7668754349338901,
+      "training_positives": 1437
+    },
+    "fresh": {
+      "threshold": 0.55,
+      "oof_f1": 0.341744772891132,
+      "oof_f1_at_0_5": 0.3292079207920792,
+      "oof_precision": 0.26840317100792754,
+      "oof_recall": 0.47023809523809523,
+      "training_positives": 504
+    },
+    "fruity": {
+      "threshold": 0.5,
+      "oof_f1": 0.6978576705245013,
+      "oof_f1_at_0_5": 0.6978576705245013,
+      "oof_precision": 0.6832208293153327,
+      "oof_recall": 0.7131353799698037,
+      "training_positives": 1987
+    },
+    "garlic": {
+      "threshold": 0.75,
+      "oof_f1": 0.5083333333333333,
+      "oof_f1_at_0_5": 0.5017421602787457,
+      "oof_precision": 0.4295774647887324,
+      "oof_recall": 0.6224489795918368,
+      "training_positives": 98
+    },
+    "geranium": {
+      "threshold": 0.6,
+      "oof_f1": 0.3841059602649006,
+      "oof_f1_at_0_5": 0.3625730994152047,
+      "oof_precision": 0.3670886075949367,
+      "oof_recall": 0.4027777777777778,
+      "training_positives": 72
+    },
+    "gourmand": {
+      "threshold": 0.7,
+      "oof_f1": 0.2608695652173913,
+      "oof_f1_at_0_5": 0.20512820512820512,
+      "oof_precision": 0.4090909090909091,
+      "oof_recall": 0.19148936170212766,
+      "training_positives": 47
+    },
+    "grape": {
+      "threshold": 0.8,
+      "oof_f1": 0.34375,
+      "oof_f1_at_0_5": 0.2616822429906542,
+      "oof_precision": 0.55,
+      "oof_recall": 0.25,
+      "training_positives": 88
+    },
+    "grapefruit": {
+      "threshold": 0.65,
+      "oof_f1": 0.38400000000000006,
+      "oof_f1_at_0_5": 0.32911392405063294,
+      "oof_precision": 0.47058823529411764,
+      "oof_recall": 0.32432432432432434,
+      "training_positives": 74
+    },
+    "grassy": {
+      "threshold": 0.65,
+      "oof_f1": 0.15873015873015872,
+      "oof_f1_at_0_5": 0.15469613259668508,
+      "oof_precision": 0.15151515151515152,
+      "oof_recall": 0.16666666666666666,
+      "training_positives": 60
+    },
+    "green": {
+      "threshold": 0.45,
+      "oof_f1": 0.6135398451161628,
+      "oof_f1_at_0_5": 0.6048941435248831,
+      "oof_precision": 0.525235243798118,
+      "oof_recall": 0.7375375375375376,
+      "training_positives": 1665
+    },
+    "hay": {
+      "threshold": 0.6,
+      "oof_f1": 0.32786885245901637,
+      "oof_f1_at_0_5": 0.28448275862068967,
+      "oof_precision": 0.2857142857142857,
+      "oof_recall": 0.38461538461538464,
+      "training_positives": 78
+    },
+    "herbal": {
+      "threshold": 0.5,
+      "oof_f1": 0.45658914728682176,
+      "oof_f1_at_0_5": 0.45658914728682176,
+      "oof_precision": 0.37635782747603835,
+      "oof_recall": 0.5802955665024631,
+      "training_positives": 1015
+    },
+    "honey": {
+      "threshold": 0.75,
+      "oof_f1": 0.4163568773234201,
+      "oof_f1_at_0_5": 0.34192037470725994,
+      "oof_precision": 0.5137614678899083,
+      "oof_recall": 0.35,
+      "training_positives": 160
+    },
+    "hyacinth": {
+      "threshold": 0.55,
+      "oof_f1": 0.22340425531914893,
+      "oof_f1_at_0_5": 0.2180094786729858,
+      "oof_precision": 0.17796610169491525,
+      "oof_recall": 0.3,
+      "training_positives": 70
+    },
+    "jasmin": {
+      "threshold": 0.55,
+      "oof_f1": 0.3322683706070287,
+      "oof_f1_at_0_5": 0.31999999999999995,
+      "oof_precision": 0.28888888888888886,
+      "oof_recall": 0.39097744360902253,
+      "training_positives": 133
+    },
+    "lactonic": {
+      "threshold": 0.6,
+      "oof_f1": 0.2260869565217391,
+      "oof_f1_at_0_5": 0.21487603305785125,
+      "oof_precision": 0.17105263157894737,
+      "oof_recall": 0.3333333333333333,
+      "training_positives": 39
+    },
+    "lavender": {
+      "threshold": 0.65,
+      "oof_f1": 0.225,
+      "oof_f1_at_0_5": 0.2105263157894737,
+      "oof_precision": 0.25,
+      "oof_recall": 0.20454545454545456,
+      "training_positives": 44
+    },
+    "leafy": {
+      "threshold": 0.55,
+      "oof_f1": 0.21882951653944022,
+      "oof_f1_at_0_5": 0.19917012448132781,
+      "oof_precision": 0.18859649122807018,
+      "oof_recall": 0.2606060606060606,
+      "training_positives": 165
+    },
+    "leathery": {
+      "threshold": 0.8,
+      "oof_f1": 0.3243243243243243,
+      "oof_f1_at_0_5": 0.23333333333333334,
+      "oof_precision": 0.375,
+      "oof_recall": 0.2857142857142857,
+      "training_positives": 42
+    },
+    "lemon": {
+      "threshold": 0.65,
+      "oof_f1": 0.41025641025641024,
+      "oof_f1_at_0_5": 0.3537414965986394,
+      "oof_precision": 0.42857142857142855,
+      "oof_recall": 0.39344262295081966,
+      "training_positives": 61
+    },
+    "lily": {
+      "threshold": 0.6,
+      "oof_f1": 0.19801980198019803,
+      "oof_f1_at_0_5": 0.1889763779527559,
+      "oof_precision": 0.23809523809523808,
+      "oof_recall": 0.1694915254237288,
+      "training_positives": 59
+    },
+    "marine": {
+      "threshold": 0.25,
+      "oof_f1": 0.22535211267605632,
+      "oof_f1_at_0_5": 0.20253164556962025,
+      "oof_precision": 0.14953271028037382,
+      "oof_recall": 0.45714285714285713,
+      "training_positives": 35
+    },
+    "medicinal": {
+      "threshold": 0.75,
+      "oof_f1": 0.3333333333333333,
+      "oof_f1_at_0_5": 0.2666666666666666,
+      "oof_precision": 0.39705882352941174,
+      "oof_recall": 0.2872340425531915,
+      "training_positives": 94
+    },
+    "melon": {
+      "threshold": 0.6,
+      "oof_f1": 0.32608695652173914,
+      "oof_f1_at_0_5": 0.28895184135977336,
+      "oof_precision": 0.2980132450331126,
+      "oof_recall": 0.36,
+      "training_positives": 125
+    },
+    "metallic": {
+      "threshold": 0.5,
+      "oof_f1": 0.17344173441734417,
+      "oof_f1_at_0_5": 0.17344173441734417,
+      "oof_precision": 0.13168724279835392,
+      "oof_recall": 0.25396825396825395,
+      "training_positives": 126
+    },
+    "milky": {
+      "threshold": 0.5,
+      "oof_f1": 0.2201834862385321,
+      "oof_f1_at_0_5": 0.2201834862385321,
+      "oof_precision": 0.17391304347826086,
+      "oof_recall": 0.3,
+      "training_positives": 80
+    },
+    "minty": {
+      "threshold": 0.7,
+      "oof_f1": 0.4647887323943662,
+      "oof_f1_at_0_5": 0.4263565891472868,
+      "oof_precision": 0.44745762711864406,
+      "oof_recall": 0.4835164835164835,
+      "training_positives": 273
+    },
+    "muguet": {
+      "threshold": 0.55,
+      "oof_f1": 0.2926829268292683,
+      "oof_f1_at_0_5": 0.2714285714285714,
+      "oof_precision": 0.25,
+      "oof_recall": 0.35294117647058826,
+      "training_positives": 51
+    },
+    "mushroom": {
+      "threshold": 0.65,
+      "oof_f1": 0.2222222222222222,
+      "oof_f1_at_0_5": 0.21160409556313992,
+      "oof_precision": 0.1984126984126984,
+      "oof_recall": 0.25252525252525254,
+      "training_positives": 99
+    },
+    "musk like": {
+      "threshold": 0.85,
+      "oof_f1": 0.6455696202531646,
+      "oof_f1_at_0_5": 0.5961538461538461,
+      "oof_precision": 0.75,
+      "oof_recall": 0.5666666666666667,
+      "training_positives": 90
+    },
+    "musty": {
+      "threshold": 0.55,
+      "oof_f1": 0.2113095238095238,
+      "oof_f1_at_0_5": 0.20178799489144317,
+      "oof_precision": 0.16359447004608296,
+      "oof_recall": 0.29831932773109243,
+      "training_positives": 238
+    },
+    "narcissus": {
+      "threshold": 0.65,
+      "oof_f1": 0.31034482758620696,
+      "oof_f1_at_0_5": 0.2820512820512821,
+      "oof_precision": 0.375,
+      "oof_recall": 0.2647058823529412,
+      "training_positives": 34
+    },
+    "neroli": {
+      "threshold": 0.65,
+      "oof_f1": 0.28125,
+      "oof_f1_at_0_5": 0.22784810126582275,
+      "oof_precision": 0.3103448275862069,
+      "oof_recall": 0.2571428571428571,
+      "training_positives": 35
+    },
+    "nutty": {
+      "threshold": 0.6,
+      "oof_f1": 0.4597989949748743,
+      "oof_f1_at_0_5": 0.44234800838574423,
+      "oof_precision": 0.4197247706422018,
+      "oof_recall": 0.5083333333333333,
+      "training_positives": 360
+    },
+    "oily": {
+      "threshold": 0.65,
+      "oof_f1": 0.4251121076233184,
+      "oof_f1_at_0_5": 0.41008626410086263,
+      "oof_precision": 0.4232142857142857,
+      "oof_recall": 0.42702702702702705,
+      "training_positives": 555
+    },
+    "onion": {
+      "threshold": 0.7,
+      "oof_f1": 0.5181347150259068,
+      "oof_f1_at_0_5": 0.5145413870246086,
+      "oof_precision": 0.4166666666666667,
+      "oof_recall": 0.684931506849315,
+      "training_positives": 146
+    },
+    "orange": {
+      "threshold": 0.4,
+      "oof_f1": 0.26595744680851063,
+      "oof_f1_at_0_5": 0.26578073089701,
+      "oof_precision": 0.1865671641791045,
+      "oof_recall": 0.46296296296296297,
+      "training_positives": 108
+    },
+    "orris": {
+      "threshold": 0.75,
+      "oof_f1": 0.23076923076923075,
+      "oof_f1_at_0_5": 0.17977528089887643,
+      "oof_precision": 0.27906976744186046,
+      "oof_recall": 0.19672131147540983,
+      "training_positives": 61
+    },
+    "peach": {
+      "threshold": 0.5,
+      "oof_f1": 0.21406727828746175,
+      "oof_f1_at_0_5": 0.21406727828746175,
+      "oof_precision": 0.16355140186915887,
+      "oof_recall": 0.30973451327433627,
+      "training_positives": 113
+    },
+    "pear": {
+      "threshold": 0.75,
+      "oof_f1": 0.4112676056338029,
+      "oof_f1_at_0_5": 0.38759689922480617,
+      "oof_precision": 0.3613861386138614,
+      "oof_recall": 0.477124183006536,
+      "training_positives": 153
+    },
+    "phenolic": {
+      "threshold": 0.85,
+      "oof_f1": 0.504,
+      "oof_f1_at_0_5": 0.42335766423357657,
+      "oof_precision": 0.6363636363636364,
+      "oof_recall": 0.41721854304635764,
+      "training_positives": 151
+    },
+    "pine": {
+      "threshold": 0.75,
+      "oof_f1": 0.40358744394618834,
+      "oof_f1_at_0_5": 0.37785016286644946,
+      "oof_precision": 0.37815126050420167,
+      "oof_recall": 0.4326923076923077,
+      "training_positives": 104
+    },
+    "pineapple": {
+      "threshold": 0.7,
+      "oof_f1": 0.4766146993318485,
+      "oof_f1_at_0_5": 0.43966942148760324,
+      "oof_precision": 0.4403292181069959,
+      "oof_recall": 0.5194174757281553,
+      "training_positives": 206
+    },
+    "plum": {
+      "threshold": 0.25,
+      "oof_f1": 0.11401425178147269,
+      "oof_f1_at_0_5": 0.059880239520958084,
+      "oof_precision": 0.06779661016949153,
+      "oof_recall": 0.3582089552238806,
+      "training_positives": 67
+    },
+    "popcorn": {
+      "threshold": 0.75,
+      "oof_f1": 0.6301369863013699,
+      "oof_f1_at_0_5": 0.5454545454545455,
+      "oof_precision": 0.5897435897435898,
+      "oof_recall": 0.6764705882352942,
+      "training_positives": 34
+    },
+    "potato": {
+      "threshold": 0.8,
+      "oof_f1": 0.2777777777777778,
+      "oof_f1_at_0_5": 0.23140495867768593,
+      "oof_precision": 0.3125,
+      "oof_recall": 0.25,
+      "training_positives": 40
+    },
+    "powdery": {
+      "threshold": 0.55,
+      "oof_f1": 0.24329896907216494,
+      "oof_f1_at_0_5": 0.22735346358792183,
+      "oof_precision": 0.1838006230529595,
+      "oof_recall": 0.3597560975609756,
+      "training_positives": 164
+    },
+    "pungent": {
+      "threshold": 0.7,
+      "oof_f1": 0.32786885245901637,
+      "oof_f1_at_0_5": 0.29562043795620435,
+      "oof_precision": 0.28846153846153844,
+      "oof_recall": 0.379746835443038,
+      "training_positives": 158
+    },
+    "raspberry": {
+      "threshold": 0.75,
+      "oof_f1": 0.17777777777777776,
+      "oof_f1_at_0_5": 0.09876543209876543,
+      "oof_precision": 0.4,
+      "oof_recall": 0.11428571428571428,
+      "training_positives": 35
+    },
+    "roasted": {
+      "threshold": 0.75,
+      "oof_f1": 0.5440613026819923,
+      "oof_f1_at_0_5": 0.5164051355206848,
+      "oof_precision": 0.5035460992907801,
+      "oof_recall": 0.5916666666666667,
+      "training_positives": 240
+    },
+    "rooty": {
+      "threshold": 0.5,
+      "oof_f1": 0.15384615384615385,
+      "oof_f1_at_0_5": 0.15384615384615385,
+      "oof_precision": 0.2,
+      "oof_recall": 0.125,
+      "training_positives": 32
+    },
+    "rose": {
+      "threshold": 0.65,
+      "oof_f1": 0.5073891625615764,
+      "oof_f1_at_0_5": 0.48561151079136694,
+      "oof_precision": 0.5124378109452736,
+      "oof_recall": 0.5024390243902439,
+      "training_positives": 410
+    },
+    "rum": {
+      "threshold": 0.65,
+      "oof_f1": 0.31304347826086953,
+      "oof_f1_at_0_5": 0.2389937106918239,
+      "oof_precision": 0.2647058823529412,
+      "oof_recall": 0.3829787234042553,
+      "training_positives": 47
+    },
+    "sandalwood": {
+      "threshold": 0.85,
+      "oof_f1": 0.5294117647058824,
+      "oof_f1_at_0_5": 0.4,
+      "oof_precision": 0.6428571428571429,
+      "oof_recall": 0.45,
+      "training_positives": 40
+    },
+    "savoury": {
+      "threshold": 0.6,
+      "oof_f1": 0.32116788321167883,
+      "oof_f1_at_0_5": 0.3111111111111111,
+      "oof_precision": 0.2619047619047619,
+      "oof_recall": 0.41509433962264153,
+      "training_positives": 106
+    },
+    "sharp": {
+      "threshold": 0.65,
+      "oof_f1": 0.12834224598930477,
+      "oof_f1_at_0_5": 0.12624584717607973,
+      "oof_precision": 0.1188118811881188,
+      "oof_recall": 0.13953488372093023,
+      "training_positives": 86
+    },
+    "smoky": {
+      "threshold": 0.7,
+      "oof_f1": 0.393939393939394,
+      "oof_f1_at_0_5": 0.34285714285714286,
+      "oof_precision": 0.4,
+      "oof_recall": 0.3880597014925373,
+      "training_positives": 67
+    },
+    "soapy": {
+      "threshold": 0.3,
+      "oof_f1": 0.11290322580645162,
+      "oof_f1_at_0_5": 0.09722222222222222,
+      "oof_precision": 0.06829268292682927,
+      "oof_recall": 0.32558139534883723,
+      "training_positives": 43
+    },
+    "sour": {
+      "threshold": 0.85,
+      "oof_f1": 0.392156862745098,
+      "oof_f1_at_0_5": 0.28409090909090906,
+      "oof_precision": 0.5714285714285714,
+      "oof_recall": 0.29850746268656714,
+      "training_positives": 67
+    },
+    "spicy": {
+      "threshold": 0.65,
+      "oof_f1": 0.4073694984646878,
+      "oof_f1_at_0_5": 0.377027027027027,
+      "oof_precision": 0.4261241970021413,
+      "oof_recall": 0.39019607843137255,
+      "training_positives": 510
+    },
+    "strawberry": {
+      "threshold": 0.6,
+      "oof_f1": 0.17073170731707318,
+      "oof_f1_at_0_5": 0.15094339622641512,
+      "oof_precision": 0.17073170731707318,
+      "oof_recall": 0.17073170731707318,
+      "training_positives": 41
+    },
+    "sulfurous": {
+      "threshold": 0.55,
+      "oof_f1": 0.7606635071090048,
+      "oof_f1_at_0_5": 0.7573270808909731,
+      "oof_precision": 0.6432865731462926,
+      "oof_recall": 0.9304347826086956,
+      "training_positives": 345
+    },
+    "sweet": {
+      "threshold": 0.5,
+      "oof_f1": 0.47942521227955587,
+      "oof_f1_at_0_5": 0.47942521227955587,
+      "oof_precision": 0.40914158305462656,
+      "oof_recall": 0.5788643533123028,
+      "training_positives": 1268
+    },
+    "tea": {
+      "threshold": 0.4,
+      "oof_f1": 0.13888888888888887,
+      "oof_f1_at_0_5": 0.1212121212121212,
+      "oof_precision": 0.1111111111111111,
+      "oof_recall": 0.18518518518518517,
+      "training_positives": 54
+    },
+    "terpenic": {
+      "threshold": 0.45,
+      "oof_f1": 0.34375,
+      "oof_f1_at_0_5": 0.3050847457627119,
+      "oof_precision": 0.24719101123595505,
+      "oof_recall": 0.5641025641025641,
+      "training_positives": 39
+    },
+    "tobacco": {
+      "threshold": 0.6,
+      "oof_f1": 0.2648401826484018,
+      "oof_f1_at_0_5": 0.2397003745318352,
+      "oof_precision": 0.2457627118644068,
+      "oof_recall": 0.2871287128712871,
+      "training_positives": 101
+    },
+    "tropical fruit": {
+      "threshold": 0.65,
+      "oof_f1": 0.38567493112947665,
+      "oof_f1_at_0_5": 0.3630705394190872,
+      "oof_precision": 0.3508771929824561,
+      "oof_recall": 0.42813455657492355,
+      "training_positives": 327
+    },
+    "vanilla": {
+      "threshold": 0.75,
+      "oof_f1": 0.48514851485148514,
+      "oof_f1_at_0_5": 0.4322344322344322,
+      "oof_precision": 0.48514851485148514,
+      "oof_recall": 0.48514851485148514,
+      "training_positives": 101
+    },
+    "vegetable": {
+      "threshold": 0.7,
+      "oof_f1": 0.41379310344827586,
+      "oof_f1_at_0_5": 0.3793911007025761,
+      "oof_precision": 0.38961038961038963,
+      "oof_recall": 0.4411764705882353,
+      "training_positives": 272
+    },
+    "violet": {
+      "threshold": 0.55,
+      "oof_f1": 0.389937106918239,
+      "oof_f1_at_0_5": 0.3707865168539325,
+      "oof_precision": 0.36046511627906974,
+      "oof_recall": 0.4246575342465753,
+      "training_positives": 73
+    },
+    "warm": {
+      "threshold": 0.4,
+      "oof_f1": 0.13968253968253969,
+      "oof_f1_at_0_5": 0.13592233009708737,
+      "oof_precision": 0.09865470852017937,
+      "oof_recall": 0.2391304347826087,
+      "training_positives": 92
+    },
+    "waxy": {
+      "threshold": 0.65,
+      "oof_f1": 0.49113475177304966,
+      "oof_f1_at_0_5": 0.4748923959827834,
+      "oof_precision": 0.41842900302114805,
+      "oof_recall": 0.5944206008583691,
+      "training_positives": 466
+    },
+    "woody": {
+      "threshold": 0.6,
+      "oof_f1": 0.5587229190421892,
+      "oof_f1_at_0_5": 0.5500246426811237,
+      "oof_precision": 0.5291576673866091,
+      "oof_recall": 0.5917874396135265,
+      "training_positives": 828
+    }
+  }
+}

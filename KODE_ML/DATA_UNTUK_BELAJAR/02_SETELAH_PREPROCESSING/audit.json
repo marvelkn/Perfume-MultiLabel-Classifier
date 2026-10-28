@@ -1,0 +1,1891 @@
+{
+  "sources": {
+    "goodscents": {
+      "rows": 4626,
+      "missing_identity": 0,
+      "invalid_smiles": 0,
+      "multifragment": 183,
+      "empty_labels": 4,
+      "unmapped_labels": 335,
+      "invalid_behavior": 0,
+      "accepted": 4104
+    },
+    "ifra": {
+      "rows": 1146,
+      "missing_identity": 0,
+      "invalid_smiles": 0,
+      "multifragment": 28,
+      "empty_labels": 0,
+      "unmapped_labels": 0,
+      "invalid_behavior": 0,
+      "accepted": 1118
+    },
+    "leffingwell": {
+      "rows": 3522,
+      "missing_identity": 0,
+      "invalid_smiles": 0,
+      "multifragment": 0,
+      "empty_labels": 0,
+      "unmapped_labels": 114,
+      "invalid_behavior": 0,
+      "accepted": 3408
+    },
+    "arctander": {
+      "rows": 3102,
+      "missing_identity": 278,
+      "invalid_smiles": 0,
+      "multifragment": 102,
+      "empty_labels": 209,
+      "unmapped_labels": 73,
+      "invalid_behavior": 0,
+      "accepted": 2440
+    },
+    "sigma": {
+      "rows": 941,
+      "missing_identity": 204,
+      "invalid_smiles": 0,
+      "multifragment": 0,
+      "empty_labels": 0,
+      "unmapped_labels": 30,
+      "invalid_behavior": 0,
+      "accepted": 707
+    }
+  },
+  "ambiguous_cas": [
+    "10094-41-4",
+    "101-39-3",
+    "101-86-0",
+    "10152-77-9",
+    "10297-72-0",
+    "103-26-4",
+    "103-36-6",
+    "103-41-3",
+    "103-54-8",
+    "103-56-0",
+    "103-59-3",
+    "103-61-7",
+    "103-95-7",
+    "104-54-1",
+    "104-55-2",
+    "104-61-0",
+    "104-65-4",
+    "104-67-6",
+    "104228-51-5",
+    "10482-65-2",
+    "10482-79-8",
+    "10519-12-7",
+    "105683-99-6",
+    "106-22-9",
+    "106-23-0",
+    "1079-01-2",
+    "110-17-8",
+    "11028-42-5",
+    "111-28-4",
+    "111-62-6",
+    "111-79-5",
+    "1113-13-9",
+    "1119-44-4",
+    "112-80-1",
+    "113486-29-6",
+    "114099-96-6",
+    "115-71-9",
+    "116505-60-3",
+    "117013-33-9",
+    "1188-02-9",
+    "1197-15-5",
+    "120-11-6",
+    "122-40-7",
+    "122-57-6",
+    "122-67-8",
+    "122-69-0",
+    "122-84-9",
+    "123-86-4",
+    "124-76-5",
+    "1241905-19-0",
+    "125-12-2",
+    "126-14-7",
+    "127-43-5",
+    "127-51-5",
+    "127931-21-9",
+    "13019-16-4",
+    "13109-70-1",
+    "13162-46-4",
+    "1319-88-6",
+    "1321-30-8",
+    "13215-88-8",
+    "133447-37-7",
+    "133860-42-1",
+    "134-28-1",
+    "13481-87-3",
+    "136115-65-6",
+    "1365-19-1",
+    "136954-25-1",
+    "13851-11-1",
+    "13877-91-3",
+    "13894-62-7",
+    "139564-42-4",
+    "139564-43-5",
+    "140-10-3",
+    "140-27-2",
+    "140-67-0",
+    "141-03-7",
+    "14129-48-7",
+    "1416051-88-1",
+    "1424-83-5",
+    "142896-09-1",
+    "143-14-6",
+    "14309-57-0",
+    "143764-28-7",
+    "14507-02-9",
+    "1504-74-1",
+    "1504-75-2",
+    "1516-17-2",
+    "15356-60-2",
+    "1552-67-6",
+    "156420-69-8",
+    "156472-94-5",
+    "1575-74-2",
+    "1577-19-1",
+    "1604-28-0",
+    "1617-23-8",
+    "163038-04-8",
+    "1632-73-1",
+    "16356-11-9",
+    "16491-24-0",
+    "16491-25-1",
+    "16493-80-4",
+    "16510-27-3",
+    "1669-44-9",
+    "16930-93-1",
+    "16930-96-4",
+    "17373-84-1",
+    "17627-44-0",
+    "1866-31-5",
+    "18999-28-5",
+    "19089-92-0",
+    "19317-11-4",
+    "19464-94-9",
+    "1963-36-6",
+    "197098-61-6",
+    "19870-74-7",
+    "2009-74-7",
+    "20125-84-2",
+    "20273-24-9",
+    "20307-84-0",
+    "20675-95-0",
+    "207983-28-6",
+    "20859-10-3",
+    "20921-04-4",
+    "21063-71-8",
+    "21188-58-9",
+    "2142-94-1",
+    "21593-77-1",
+    "21662-09-9",
+    "21662-13-5",
+    "22029-76-1",
+    "22030-19-9",
+    "22047-26-3",
+    "22104-81-0",
+    "2216-52-6",
+    "2244-16-8",
+    "2278-53-7",
+    "22874-79-9",
+    "23267-57-4",
+    "23328-62-3",
+    "233665-96-8",
+    "2363-89-5",
+    "2396-77-2",
+    "2396-78-3",
+    "2396-83-0",
+    "2412-80-8",
+    "24323-38-4",
+    "24427-77-8",
+    "2463-53-8",
+    "2463-63-0",
+    "2463-77-6",
+    "2482-39-5",
+    "2497-21-4",
+    "25166-87-4",
+    "252736-39-3",
+    "252736-41-7",
+    "25312-34-9",
+    "253596-70-2",
+    "26131-91-9",
+    "26303-90-2",
+    "2639-68-1",
+    "26486-13-5",
+    "28069-74-1",
+    "28467-92-7",
+    "28645-51-4",
+    "28839-13-6",
+    "29350-73-0",
+    "29414-56-0",
+    "29548-14-9",
+    "29548-30-9",
+    "29895-73-6",
+    "29957-43-5",
+    "3085-26-5",
+    "30895-79-5",
+    "3142-72-1",
+    "31539-84-1",
+    "32388-55-9",
+    "32764-98-0",
+    "33368-80-8",
+    "33368-82-0",
+    "33441-50-8",
+    "3487-99-8",
+    "3491-63-2",
+    "35234-22-1",
+    "35243-43-7",
+    "3613-30-7",
+    "36789-59-0",
+    "3724-65-0",
+    "3760-11-0",
+    "37617-03-1",
+    "37674-63-8",
+    "37887-04-0",
+    "38284-11-6",
+    "3856-25-5",
+    "39067-80-6",
+    "3913-71-1",
+    "3913-85-7",
+    "3915-83-1",
+    "39924-27-1",
+    "39924-52-2",
+    "4023-65-8",
+    "40267-72-9",
+    "40878-73-7",
+    "41981-71-9",
+    "42075-42-3",
+    "4276-68-0",
+    "43052-87-5",
+    "4364-06-1",
+    "4411-89-6",
+    "443-79-8",
+    "4440-65-7",
+    "4501-58-0",
+    "45019-28-1",
+    "4536-23-6",
+    "458-36-6",
+    "4586-22-5",
+    "459-80-3",
+    "4602-84-0",
+    "463-40-1",
+    "464-43-7",
+    "464-49-3",
+    "4643-25-8",
+    "4674-50-4",
+    "4675-87-0",
+    "469-61-4",
+    "473438-39-0",
+    "475-20-7",
+    "479547-57-4",
+    "4826-62-4",
+    "4883-60-7",
+    "4906-24-5",
+    "491-09-8",
+    "494-90-6",
+    "495-62-5",
+    "4951-48-8",
+    "498-16-8",
+    "499-12-7",
+    "499-70-7",
+    "50-70-4",
+    "50-81-7",
+    "505-57-7",
+    "507-70-0",
+    "50746-09-3",
+    "50816-18-7",
+    "5090-41-5",
+    "51325-37-2",
+    "51352-68-2",
+    "5146-66-7",
+    "515-13-9",
+    "515-69-5",
+    "51534-36-2",
+    "51647-38-2",
+    "5166-53-0",
+    "51755-70-5",
+    "52-90-4",
+    "520-74-1",
+    "5208-59-3",
+    "52558-99-3",
+    "5320-75-2",
+    "53398-87-1",
+    "5355-63-5",
+    "5362-56-1",
+    "53626-94-1",
+    "538-65-8",
+    "53897-60-2",
+    "5392-40-5",
+    "54306-00-2",
+    "544-12-7",
+    "5454-28-4",
+    "546-79-2",
+    "54644-28-9",
+    "54653-25-7",
+    "548774-80-7",
+    "54947-74-9",
+    "551-08-6",
+    "555-10-2",
+    "56-86-0",
+    "564-20-5",
+    "5655-61-8",
+    "5704-20-1",
+    "57074-37-0",
+    "57378-68-4",
+    "58475-04-0",
+    "589-66-2",
+    "589-75-3",
+    "58936-30-4",
+    "5905-46-4",
+    "591-12-8",
+    "5925-75-7",
+    "59303-05-8",
+    "59324-17-3",
+    "5986-55-0",
+    "5989-33-3",
+    "599-04-2",
+    "60763-41-9",
+    "60770-00-5",
+    "61-90-5",
+    "61122-71-2",
+    "6126-50-7",
+    "61675-72-7",
+    "61792-12-9",
+    "61837-77-2",
+    "619-62-5",
+    "620-80-4",
+    "621-82-9",
+    "62147-49-3",
+    "623-15-4",
+    "623-30-3",
+    "623-36-9",
+    "62488-56-6",
+    "625-33-2",
+    "6281-40-9",
+    "63012-97-5",
+    "63196-63-4",
+    "63885-09-6",
+    "64280-32-6",
+    "65213-86-7",
+    "6540-86-9",
+    "65405-77-8",
+    "65405-80-3",
+    "65416-24-2",
+    "65442-31-1",
+    "65504-93-0",
+    "65505-16-0",
+    "65530-53-2",
+    "65813-53-8",
+    "65817-24-5",
+    "6622-76-0",
+    "66634-97-7",
+    "67114-38-9",
+    "673-84-7",
+    "6750-03-4",
+    "67633-96-9",
+    "67883-79-8",
+    "67952-65-2",
+    "68039-29-2",
+    "68820-35-9",
+    "68973-20-6",
+    "69-72-7",
+    "6938-45-0",
+    "6982-72-5",
+    "69925-33-3",
+    "70851-61-5",
+    "71048-82-3",
+    "71159-90-5",
+    "7148-78-9",
+    "71660-03-2",
+    "71662-27-6",
+    "71978-00-2",
+    "72-19-5",
+    "7212-44-4",
+    "72611-71-3",
+    "7392-19-0",
+    "7416-35-5",
+    "7492-39-9",
+    "7492-41-3",
+    "7492-44-6",
+    "7492-45-7",
+    "7492-65-1",
+    "7492-66-2",
+    "7549-37-3",
+    "7549-41-9",
+    "75587-06-3",
+    "75631-91-3",
+    "76-50-6",
+    "762-29-8",
+    "76238-22-7",
+    "764-39-6",
+    "764-40-9",
+    "76649-14-4",
+    "76649-25-7",
+    "77-90-7",
+    "77105-53-4",
+    "77341-67-4",
+    "7774-82-5",
+    "7774-96-1",
+    "7779-17-1",
+    "7779-54-6",
+    "7779-65-9",
+    "7779-80-8",
+    "78-37-5",
+    "78417-28-4",
+    "79-09-4",
+    "79-69-6",
+    "79-77-6",
+    "79-78-7",
+    "79-89-0",
+    "796857-79-9",
+    "79930-37-3",
+    "80-54-6",
+    "80-57-9",
+    "80866-83-7",
+    "817-88-9",
+    "818-57-5",
+    "81925-81-7",
+    "83418-53-5",
+    "83418-54-6",
+    "83861-74-9",
+    "84168-28-5",
+    "84788-08-9",
+    "87-29-6",
+    "881-68-5",
+    "888021-82-7",
+    "89-79-2",
+    "89534-38-3",
+    "89534-74-7",
+    "90397-36-7",
+    "91-50-9",
+    "91418-25-6",
+    "915971-43-6",
+    "93-16-3",
+    "93-29-8",
+    "94-86-0",
+    "96-15-1",
+    "97-45-0",
+    "97-54-1",
+    "97866-86-9",
+    "98-55-5",
+    "Note*"
+  ],
+  "sigma_identity_exclusions": [
+    {
+      "stimulus": "-1",
+      "cas": [
+        "8000-28-0"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "-10",
+      "cas": [
+        "-CH2CH2CO2CH2CH(C2H5)(CH2)3CH3"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "-11",
+      "cas": [
+        "90028-66-3"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "-12",
+      "cas": [
+        "8015-77-8"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "-13",
+      "cas": [
+        "8007-69-0"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "-14",
+      "cas": [
+        "92201-64-4"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "-15",
+      "cas": [
+        "8016-36-2"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "-16",
+      "cas": [
+        "8016-38-4"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "-17",
+      "cas": [
+        "8008-57-9"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "-18",
+      "cas": [
+        "8015-65-4"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "-19",
+      "cas": [
+        "8008-31-9"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "-2",
+      "cas": [
+        "8023-91-4"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "-20",
+      "cas": [
+        "9000-05-9"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "-21",
+      "cas": [
+        "8015-73-4"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "-22",
+      "cas": [
+        "8024-15-5"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "-23",
+      "cas": [
+        "8014-71-9"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "-24",
+      "cas": [
+        "90045-56-0"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "-25",
+      "cas": [
+        "8016-23-7"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "-26",
+      "cas": [
+        "8015-01-8"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "-27",
+      "cas": [
+        "(CH3)2CH"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "-28",
+      "cas": [
+        "8007-08-7"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "-29",
+      "cas": [
+        "90131-21-8"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "-3",
+      "cas": [
+        "84625-40-1"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "-30",
+      "cas": [
+        "8007-70-3"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "-31",
+      "cas": [
+        "68648-39-5"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "-32",
+      "cas": [
+        "8008-26-2"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "-33",
+      "cas": [
+        "8015-64-3"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "-34",
+      "cas": [
+        "61789-91-1"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "-35",
+      "cas": [
+        "8006-83-5"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "-36",
+      "cas": [
+        "8000-68-8"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "-37",
+      "cas": [
+        "8014-17-3"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "-38",
+      "cas": [
+        "68606-81-5"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "-39",
+      "cas": [
+        "8016-78-2"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "-4",
+      "cas": [
+        "84625-32-1"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "-40",
+      "cas": [
+        "27216-37-1"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "-41",
+      "cas": [
+        "8016-84-0"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "-42",
+      "cas": [
+        "8016-88-4"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "-43",
+      "cas": [
+        "4.5"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "-44",
+      "cas": [
+        "8022-56-8"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "-45",
+      "cas": [
+        "8015-88-1"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "-46",
+      "cas": [
+        "9000-64-0"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "-47",
+      "cas": [
+        "8046-22-8"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "-48",
+      "cas": [
+        "8000-66-6"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "-49",
+      "cas": [
+        "8000-42-8"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "-5",
+      "cas": [
+        "8007-75-8"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "-50",
+      "cas": [
+        "120962-03-0"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "-51",
+      "cas": [
+        "8001-31-8"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "-52",
+      "cas": [
+        "8037-19-2"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "-53",
+      "cas": [
+        "8007-00-9"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "-54",
+      "cas": [
+        "8001-23-8"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "-55",
+      "cas": [
+        "8023-85-6"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "-57",
+      "cas": [
+        "8016-03-3"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "-58",
+      "cas": [
+        "8013-86-3"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "-59",
+      "cas": [
+        "8001-61-4"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "-6",
+      "cas": [
+        "8016-37-3"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "-60",
+      "cas": [
+        "8000-25-7"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "-61",
+      "cas": [
+        "8000-34-8"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "-62",
+      "cas": [
+        "8006-77-7"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "-63",
+      "cas": [
+        "8023-88-9"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "-64",
+      "cas": [
+        "68917-18-0"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "-65",
+      "cas": [
+        "8016-49-7"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "-66",
+      "cas": [
+        "8008-52-4"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "-67",
+      "cas": [
+        "8030-97-5"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "-68",
+      "cas": [
+        "8015-91-6"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "-69",
+      "cas": [
+        "84961-50-2"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "-7",
+      "cas": [
+        "8031-03-6"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "-8",
+      "cas": [
+        "8023-80-1"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "-9",
+      "cas": [
+        "72968-50-4"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "10174581",
+      "cas": [
+        "152766-94-4"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "10311044",
+      "cas": [
+        "7367-79-5"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "1032",
+      "cas": [
+        "79-09-4"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "10351",
+      "cas": [
+        "498-60-2"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "103589",
+      "cas": [
+        "52089-55-1"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "107217",
+      "cas": [
+        "13851-11-1"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "11435490",
+      "cas": [
+        "1079-01-2"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "11559",
+      "cas": [
+        "591-12-8"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "12963317",
+      "cas": [
+        "2733-86-0"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "14030006",
+      "cas": [
+        "8001-79-4"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "14475",
+      "cas": [
+        "1188-02-9"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "14925",
+      "cas": [
+        "99-14-9"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "15406",
+      "cas": [
+        "1632-73-1"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "15461361",
+      "cas": [
+        "67883-79-8"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "1549521",
+      "cas": [
+        "623-30-3"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "1550884",
+      "cas": [
+        "101-86-0"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "1550890",
+      "cas": [
+        "122-69-0"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "1551246",
+      "cas": [
+        "5146-66-7"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "159055",
+      "cas": [
+        "464-49-3"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "16129778",
+      "cas": [
+        "1401-55-4"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "161875",
+      "cas": [
+        "35493-46-0"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "16212702",
+      "cas": [
+        "232257-97-5"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "16220105",
+      "cas": [
+        "36731-41-6"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "16220110",
+      "cas": [
+        "65405-80-3"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "16724",
+      "cas": [
+        "2244-16-8"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "17008",
+      "cas": [
+        "2412-80-8"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "170833",
+      "cas": [
+        "89-79-2"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "1712058",
+      "cas": [
+        "122-40-7"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "18756",
+      "cas": [
+        "13877-91-3"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "20653",
+      "cas": [
+        "4536-23-6"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "21596",
+      "cas": [
+        "5454-28-4"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "23308252",
+      "cas": [
+        "8014-13-9"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "234237",
+      "cas": [
+        "1322-17-4"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "23673663",
+      "cas": [
+        "10255-67-1"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "23693089",
+      "cas": [
+        "9005-38-3"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "240",
+      "cas": [
+        "8013-76-1",
+        "100-52-7"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "24758199",
+      "cas": [
+        "19870-74-7"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "24847856",
+      "cas": [
+        "9036-66-2"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "2724059",
+      "cas": [
+        "3715-29-5"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "31272",
+      "cas": [
+        "123-86-4"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "313",
+      "cas": [
+        "7647-01-0"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "33032",
+      "cas": [
+        "56-86-0"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "338",
+      "cas": [
+        "69-72-7"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "3479589",
+      "cas": [
+        "4809-35-2"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "3593",
+      "cas": [
+        "69097-99-0"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "369312",
+      "cas": [
+        "18457-55-1"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "4133",
+      "cas": [
+        "119-36-8",
+        "90045-28-6",
+        "68917-50-0"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "441246",
+      "cas": [
+        "38630-75-0"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "44134940",
+      "cas": [
+        "6381-91-5"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "443314",
+      "cas": [
+        "9005-64-5"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "444539",
+      "cas": [
+        "140-10-3"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "444972",
+      "cas": [
+        "110-17-8"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "445070",
+      "cas": [
+        "4602-84-0"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "445639",
+      "cas": [
+        "112-80-1"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "445858",
+      "cas": [
+        "537-98-4"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "517827",
+      "cas": [
+        "103-95-7"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "5273467",
+      "cas": [
+        "7779-65-9"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "5273469",
+      "cas": [
+        "103-41-3"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "5275520",
+      "cas": [
+        "459-80-3"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "5280443",
+      "cas": [
+        "8002-66-2"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "5282110",
+      "cas": [
+        "103-54-8"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "5283363",
+      "cas": [
+        "7774-82-5"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "5284507",
+      "cas": [
+        "7212-44-4"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "5311110",
+      "cas": [
+        "50-69-1"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "5315892",
+      "cas": [
+        "104-54-1"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "5319754",
+      "cas": [
+        "623-36-9"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "5352435",
+      "cas": [
+        "7549-37-3"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "5354883",
+      "cas": [
+        "104-65-4"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "5355851",
+      "cas": [
+        "103-59-3"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "5362588",
+      "cas": [
+        "81925-81-7"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "5362620",
+      "cas": [
+        "21662-09-9"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "5362622",
+      "cas": [
+        "2396-83-0"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "5363229",
+      "cas": [
+        "18402-82-9"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "5363491",
+      "cas": [
+        "1516-17-2"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "5363526",
+      "cas": [
+        "7416-35-5"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "5365794",
+      "cas": [
+        "7492-66-2"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "5365976",
+      "cas": [
+        "79-78-7"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "5366038",
+      "cas": [
+        "19089-92-0"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "5367719",
+      "cas": [
+        "39924-52-2"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "5367785",
+      "cas": [
+        "8000-46-2"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "5368076",
+      "cas": [
+        "111-79-5"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "5371102",
+      "cas": [
+        "65405-77-8"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "543664",
+      "cas": [
+        "818-57-5"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "5463904",
+      "cas": [
+        "7367-88-6"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "549519",
+      "cas": [
+        "1575-74-2"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "55251157",
+      "cas": [
+        "67952-65-2"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "566940",
+      "cas": [
+        "35493-47-1"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "576240",
+      "cas": [
+        "65813-53-8"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "576263",
+      "cas": [
+        "80866-83-7"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "61229",
+      "cas": [
+        "881-68-5"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "61631",
+      "cas": [
+        "13481-87-3"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "61840",
+      "cas": [
+        "16493-80-4"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "62003",
+      "cas": [
+        "45019-28-1"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "6202",
+      "cas": [
+        "67-03-8"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "62089",
+      "cas": [
+        "54947-74-9"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "62161",
+      "cas": [
+        "8028-48-6"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "637511",
+      "cas": [
+        "104-55-2",
+        "14371-10-9"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "637520",
+      "cas": [
+        "103-26-4"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "637758",
+      "cas": [
+        "103-36-6"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "637759",
+      "cas": [
+        "122-57-6"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "637776",
+      "cas": [
+        "93-16-3"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "638011",
+      "cas": [
+        "5392-40-5"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "638014",
+      "cas": [
+        "79-77-6"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "641298",
+      "cas": [
+        "1504-74-1"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "641423",
+      "cas": [
+        "1866-31-5"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "641834",
+      "cas": [
+        "37887-04-0"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "6429039",
+      "cas": [
+        "3915-83-1"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "643460",
+      "cas": [
+        "110-44-1"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "6850741",
+      "cas": [
+        "8006-90-4"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "6850743",
+      "cas": [
+        "8007-02-1"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "6850745",
+      "cas": [
+        "8007-46-3"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "6950273",
+      "cas": [
+        "125-12-2"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "7076215",
+      "cas": [
+        "61597-98-6"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "7276",
+      "cas": [
+        "96-09-3"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "7334",
+      "cas": [
+        "97-41-6"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "76654",
+      "cas": [
+        "3184-13-2"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "7710",
+      "cas": [
+        "104-61-0"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "7714",
+      "cas": [
+        "104-67-6"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "778574",
+      "cas": [
+        "122-67-8"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "7794",
+      "cas": [
+        "8000-29-1"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "78006",
+      "cas": [
+        "4313-57-9"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "8456",
+      "cas": [
+        "25013-16-5"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "853433",
+      "cas": [
+        "97-54-1"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "876160",
+      "cas": [
+        "93-29-8"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "8815",
+      "cas": [
+        "140-67-0"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "8842",
+      "cas": [
+        "106-22-9"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "9020",
+      "cas": [
+        "150-90-3"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "91001317",
+      "cas": [
+        "8030-89-5"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "92043553",
+      "cas": [
+        "8022-96-6"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "929336",
+      "cas": [
+        "35836-72-7"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    },
+    {
+      "stimulus": "93009",
+      "cas": [
+        "5655-61-8",
+        "76-49-3"
+      ],
+      "reason": "unresolved_or_conflicting_cas_aliases"
+    }
+  ],
+  "group_policy": "structure-or-morgan-components-v1",
+  "group_count": 5363,
+  "largest_group": 38,
+  "group_overlap_train_test": 0,
+  "group_overlap_cv": 0,
+  "folds_verified": 545,
+  "record_count": 6686,
+  "train_rows": 5353,
+  "test_rows": 1333,
+  "taxonomy_size": 184,
+  "label_count": 109,
+  "training_all_zero_target_rows": 11,
+  "canonical_overlap": 0,
+  "morgan_overlap_train_test": 0,
+  "morgan_plus_5_overlap_train_test": 0,
+  "scope": "Selected fragrance-relevant sources, not verified perfume-exclusive records."
+}

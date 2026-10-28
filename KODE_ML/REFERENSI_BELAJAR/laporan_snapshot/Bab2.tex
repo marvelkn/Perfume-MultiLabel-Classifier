@@ -1,0 +1,186 @@
+\chapter{\babDua}
+
+\section{Penelitian Terdahulu}
+
+Keller \textit{et al.} mengkaji prediksi atribut persepsi penciuman menggunakan fitur kimia molekul \cite{keller2017}. Saini dan Ramanathan menempatkan persoalan struktur--aroma dalam klasifikasi multi-label serta mengevaluasi \textit{Binary Relevance} dan \textit{Classifier Chains} \cite{saini2022}. Kedua penelitian tersebut mendukung pemodelan aroma dari struktur sekaligus menunjukkan bahwa satu molekul tidak harus mempunyai satu label saja.
+
+Suh \textit{et al.} menguji delapan deskriptor molekuler sebagai representasi tersendiri, terpisah dari fingerprint gugus fungsi dan Morgan, pada Random Forest, XGBoost, serta LightGBM \cite{suh2025}. Gabungan Morgan dan delapan deskriptor merupakan eksperimen penelitian ini, bukan konfigurasi yang diklaim direplikasi dari Suh. Penelitian ini menggunakan lima sumber Pyrfume dengan baseline internal yang dinilai pada data yang sama dengan kondisi modifikasi. Oleh karena dataset dan cakupan label berbeda, skor artikel Suh tidak digunakan sebagai pembanding langsung.
+
+\begin{table}[htbp]
+\centering
+\caption{Posisi penelitian terhadap studi Suh \textit{et al.}}
+\label{tab:penelitian_terdahulu}
+\small
+\begin{tabular}{>{\raggedright\arraybackslash}p{0.21\textwidth}>{\raggedright\arraybackslash}p{0.33\textwidth}>{\raggedright\arraybackslash}p{0.34\textwidth}}
+\toprule
+Aspek & Suh \textit{et al.} \cite{suh2025} & Penelitian ini \\
+\midrule
+Data & Sepuluh sumber, 8.681 molekul & Lima sumber Pyrfume; 6.686 molekul hasil kurasi \\
+Masukan dan target & Struktur molekul; satu klasifier biner per deskriptor aroma & SMILES satu molekul; target multi-label aroma \\
+Label yang dievaluasi & 100 dari 200 kandidat deskriptor, dengan dukungan sedikitnya 30 & 109 label; dukungan dipilih hanya dari training \\
+Pembagian & Training--test 80:20 dan validasi silang terstratifikasi lima fold & Pembagian kelompok dan lima pengulangan validasi per label \\
+Ringkasan metrik & Rata-rata metrik klasifier biner; dilaporkan sebagai AUPRC & Macro AP; accuracy biner per label, bukan subset accuracy \\
+Representasi & Gugus fungsi, delapan deskriptor, dan Morgan diuji terpisah & Morgan 2.048 bit, dengan/tanpa delapan deskriptor \\
+Algoritma & Random Forest, XGBoost, LightGBM & XGBoost dan LightGBM \\
+Fokus tambahan & Analisis prediksi dan ruang aroma & Ablasi fitur, Optuna, serta integrasi prototipe Android \\
+Status hasil & Evaluasi telah dilaporkan & Delapan kandidat dievaluasi secara eksploratori; prototipe diuji secara teknis \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Tabel~\ref{tab:penelitian_terdahulu} merangkum posisi penelitian terhadap studi Suh. Penelitian ini menggunakan pendekatan yang sudah dikenal untuk membangun perbandingan pada konteks data tertentu. Baseline internal adalah konfigurasi A dan B yang dinilai pada dataset penelitian ini, bukan skor dari artikel Suh. Penggabungan delapan deskriptor, rentang pencarian parameter, serta anggaran komputasi merupakan keputusan eksperimen yang dinilai melalui perbandingan terkontrol.
+
+\begin{table}[htbp]
+\centering
+\caption{Konteks data dan evaluasi studi struktur--aroma lainnya}
+\label{tab:konteks_studi_aroma}
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{>{\raggedright\arraybackslash}p{0.16\textwidth}>{\raggedright\arraybackslash}p{0.25\textwidth}>{\raggedright\arraybackslash}p{0.21\textwidth}>{\raggedright\arraybackslash}p{0.26\textwidth}}
+\toprule
+Studi & Input dan representasi & Data dan target & Split dan metrik \\
+\midrule
+Saini dan Ramanathan \cite{saini2022} & Struktur molekul; Morgan, Daylight, dan deskriptor & 7.374 molekul; 109 label aroma & Training--test 80:20, validasi lima fold; micro-F1 \\
+Tyagi \textit{et al.} \cite{tyagi2024} & Struktur molekul; 1.875 fitur fisikokimia dan PCA & 1.278 molekul; tujuh deskriptor aroma dasar & Pengujian independen; precision dan sensitivity \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Micro-F1 pada studi Saini mengagregasi keputusan antarlabel dan tidak setara dengan macro-F1 penelitian ini. Abstrak Tyagi melaporkan precision dan sensitivity di atas 99\% untuk pendekatan XGBoost \cite{tyagi2024}, tetapi tidak merinci proporsi pembagian data dan cara agregasi metrik. Oleh karena cakupan target dan rincian evaluasinya berbeda, angka tersebut tidak digunakan sebagai target pembanding langsung.
+
+Jumlah label yang kebetulan sama tidak menjamin kesamaan kosakata atau distribusi label. AUPRC pada artikel Suh juga tidak otomatis identik dengan implementasi AP dalam penelitian ini. Perbedaan target, data, split, dan agregasi metrik membatasi perbandingan angka lintas penelitian; kesimpulan komparatif penelitian ini bertumpu pada delapan kandidat penelitian.
+
+\section{Representasi Molekul}
+
+\subsection{SMILES dan Identitas Molekul}
+
+SMILES merupakan notasi teks untuk menyatakan struktur molekul, termasuk atom, ikatan, percabangan, dan cincin \cite{weininger1988}. Sebagai contoh, \texttt{CCO} menyatakan etanol dan \texttt{c1ccccc1} menyatakan benzena. Kanonisasi menghasilkan penulisan yang konsisten untuk suatu struktur berdasarkan aturan perangkat lunak yang dipakai. Dalam penelitian ini, informasi stereokimia dipertahankan pada SMILES kanonik yang digunakan untuk ekstraksi fitur. Penghapusan stereokimia hanya dilakukan saat membentuk kelompok pembagian data agar varian stereokimia dari struktur yang sama tidak melintasi partisi.
+
+Pencocokan struktur dari sumber berbeda perlu dibedakan dari penyamaan istilah aroma. Identitas senyawa dihubungkan melalui pengenal yang tersedia, sedangkan variasi istilah dipetakan ke taksonomi target. Pyrfume menyediakan kerangka data yang membedakan molekul, stimulus, dan pengamatan perilaku \cite{hamel2024}. Pemisahan tersebut mendasari penggunaan hubungan antartabel yang eksplisit dalam pipeline.
+
+\subsection{Morgan Fingerprint dan Deskriptor RDKit}
+
+\textit{Morgan fingerprint} berkaitan dengan \textit{Extended-Connectivity Fingerprint}, yang menyusun representasi dari lingkungan lokal atom \cite{rogers2010}. Lingkungan tersebut dipetakan melalui hashing ke posisi dalam vektor. Pada representasi biner, nilai satu menunjukkan adanya pola yang terpetakan pada bit tersebut. Beberapa pola dapat berakhir pada bit yang sama, sehingga bit tidak selalu mewakili satu substruktur unik.
+
+Representasi dasar penelitian ini adalah Morgan radius 2 dengan 2.048 bit tanpa kiralitas, dihitung dari SMILES kanonik. Delapan deskriptor dihitung dari struktur yang sama dalam urutan yang tetap sebagaimana Tabel~\ref{tab:makna_deskriptor}. Gabungan keduanya memiliki 2.056 fitur; delapan nilai tambahan merupakan besaran numerik, bukan bit fingerprint. RDKit menghitung kedua jenis fitur \cite{rdkitgenerator2026,rdkitdescriptors2026}. Manfaat gabungan diperiksa melalui perbandingan internal, bukan diasumsikan sejak awal.
+
+\begin{table}[htbp]
+\centering
+\caption{Sifat molekul yang diringkas oleh delapan deskriptor tambahan}
+\label{tab:makna_deskriptor}
+\small
+\begin{tabular}{>{\raggedright\arraybackslash}p{0.34\textwidth}>{\raggedright\arraybackslash}p{0.54\textwidth}}
+\toprule
+Deskriptor & Sifat yang direpresentasikan \\
+\midrule
+\texttt{MolWt} & Massa molekul relatif berdasarkan bobot atom rata-rata \\
+\texttt{MolLogP} & Estimasi log koefisien partisi sebagai ukuran lipofilisitas \\
+\texttt{NumHDonors} & Jumlah donor ikatan hidrogen \\
+\texttt{NumHAcceptors} & Jumlah akseptor ikatan hidrogen \\
+\texttt{TPSA} & Luas permukaan polar topologis \\
+\texttt{NumRotatableBonds} & Jumlah ikatan yang dapat berotasi menurut definisi RDKit \\
+\texttt{HeavyAtomCount} & Jumlah atom selain hidrogen \\
+\texttt{RingCount} & Jumlah cincin yang dihitung RDKit \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Tabel~\ref{tab:makna_deskriptor} menjelaskan paket fitur yang dihitung RDKit \cite{rdkitdescriptors2026}. Paket tersebut memberi ringkasan ukuran, lipofilisitas, sifat polar, ikatan yang dapat berotasi, dan cincin untuk melengkapi pola lokal pada Morgan. Ini merupakan alasan representasional untuk menguji paket ringkas, bukan bukti bahwa tepat delapan fitur merupakan pilihan terbaik atau bahwa masing-masing fitur meningkatkan prediksi aroma. Penelitian tidak menguji ablasi satu deskriptor pada satu waktu.
+
+\section{Klasifikasi Multi-Label}
+
+Untuk $N$ molekul dan $L$ label, target dapat ditulis sebagai matriks $Y \in \{0,1\}^{N \times L}$. Nilai $y_{ij}=1$ menyatakan bahwa label $j$ tercatat pada molekul $i$. Klasifikasi multi-label mengizinkan lebih dari satu elemen bernilai satu pada baris yang sama \cite{tsoumakas2007}.
+
+\textit{Binary Relevance} membentuk $L$ model biner. Model $j$ menghasilkan skor $p_{ij}$ untuk label $j$, kemudian keputusan diambil menggunakan threshold $t_j$:
+\addequation{Keputusan label dengan threshold per label}{
+\begin{equation}
+\hat{y}_{ij} = \mathbb{I}(p_{ij} \geq t_j).
+\label{eq:label_threshold}
+\end{equation}
+}
+Pendekatan ini memudahkan penggunaan algoritma klasifikasi biner, tetapi tidak mempelajari hubungan antarlabel secara eksplisit. Pada pelaporan utama, keputusan biner diperoleh dari skor kelas positif dengan threshold 0,5. Analisis tambahan menggunakan threshold per label yang dipilih dari prediksi validasi, bukan dari test. Skor yang dihasilkan model belum merupakan probabilitas persepsi manusia yang terkalibrasi dan tidak menyatakan intensitas aroma. Kalibrasi memerlukan pemeriksaan kesesuaian skor dengan frekuensi kejadian yang diamati; skor 0,8 tidak dengan sendirinya membuktikan ketepatan empiris 80\% \cite{sklearncalibration2026}.
+
+\section{XGBoost dan LightGBM}
+
+\subsection{XGBoost}
+
+XGBoost merupakan sistem \textit{gradient boosting} berbasis pohon yang dikembangkan dengan perhatian terhadap efisiensi, data jarang, dan pengendalian kompleksitas \cite{chen2016}. Pohon ditambahkan secara bertahap untuk memperbaiki prediksi model. Parameter kedalaman, laju belajar, bobot minimum anak, penalti pembentukan cabang, subsampling, serta regularisasi memengaruhi kapasitas dan proses pelatihan.
+
+Dalam penelitian ini, XGBoost digunakan sebagai pengklasifikasi biner pada setiap label. Kapasitas pohon, subsampling, regularisasi, laju belajar, dan jumlah pohon menjadi parameter yang dapat memengaruhi hasil. Konfigurasi baseline digunakan sebagai pembanding bagi konfigurasi hasil pencarian Optuna dalam ruang parameter yang telah ditetapkan.
+
+\subsection{LightGBM}
+
+LightGBM menggunakan pertumbuhan pohon \textit{leaf-wise}; kompleksitasnya berkaitan dengan jumlah daun, kedalaman, dan jumlah data pada daun \cite{ke2017,lightgbmtuning2026}. Karena pohon dapat tumbuh tidak seimbang, batas kedalaman saja belum cukup untuk menggambarkan kapasitasnya. Dokumentasi LightGBM menyarankan pengaturan \texttt{num\_leaves} bersama \texttt{max\_depth} dan parameter minimum data daun.
+
+Karya awal LightGBM juga memperkenalkan GOSS dan EFB \cite{ke2017}. Kedua teknik tersebut merupakan bagian dari landasan algoritma, tetapi tidak diperlakukan sebagai variabel eksperimen dalam penelitian ini. Penilaian kecepatan dan penggunaan memori dibatasi pada konfigurasi LightGBM yang benar-benar dieksekusi.
+
+\section{Penanganan Ketidakseimbangan Label}
+
+Ketidakseimbangan muncul ketika contoh positif jauh lebih sedikit daripada contoh negatif atau dukungan positif berbeda antarlabel. Protokol penelitian menggunakan bobot sampel seimbang yang sama untuk XGBoost dan LightGBM pada seluruh kondisi A--D. Bobot setiap kelas dihitung dari bagian pelatihan yang sedang digunakan, sehingga informasi kelas dari validasi atau test tidak digunakan untuk menentukan bobot pelatihan. Kesamaan kebijakan ini menjaga agar perbandingan fitur, tuning, dan algoritma tidak sekaligus mengubah aturan pembobotan.
+
+Focal loss dan resampling tidak diaktifkan pada protokol utama agar tidak menjadi faktor tambahan dalam pengujian fitur dan tuning.
+
+\section{Optimasi dan Pemisahan Data}
+
+Optuna menyediakan ruang pencarian yang didefinisikan saat program berjalan serta mekanisme optimasi hiperparameter \cite{akiba2019}. TPE digunakan untuk memilih kandidat parameter berdasarkan pengamatan trial sebelumnya \cite{bergstra2011}. Optuna juga mendukung pruning, tetapi fasilitas tersebut tidak digunakan pada protokol utama penelitian ini.
+
+Kesamaan dataset, fitur, pembagian data, dan aturan penilaian menyediakan dasar perbandingan kedua pipeline, sedangkan rentang parameter tetap disesuaikan dengan karakteristik masing-masing algoritma. Jumlah trial yang sama tidak menjamin waktu komputasi yang sama. Karena itu, jumlah trial selesai atau gagal serta durasi perlu dilaporkan bersama hasil terbaik.
+
+Pada data molekul, struktur yang sama atau mempunyai representasi identik pada training dan test dapat membuat evaluasi terlalu optimistis. Pembagian berbasis kelompok menjaga agar seluruh anggota kelompok hanya berada pada satu partisi. \texttt{GroupShuffleSplit} memisahkan kelompok untuk training dan test, sedangkan \texttt{StratifiedGroupKFold} membentuk fold dengan kelompok yang tidak beririsan sambil mempertahankan proporsi kelas sejauh memungkinkan \cite{sklearngroupshuffle2026,sklearnstratifiedgroup2026}. Proporsi test pada \texttt{GroupShuffleSplit} mengacu pada jumlah kelompok, sehingga proporsi jumlah molekul tidak harus tepat sama. Kelompok dibentuk secara transitif dari struktur yang identik setelah informasi stereokimia dihapus atau fingerprint identik. Pemeriksaan pascapembagian memastikan tidak terdapat irisan kelompok maupun Morgan fingerprint identik antara training dan test. Pemisahan berbasis \textit{scaffold} dapat digunakan sebagai analisis sensitivitas tambahan untuk menguji generalisasi pada kerangka struktur yang berbeda \cite{wu2018}, tetapi bukan pembagian utama penelitian.
+
+Pemisahan pemilihan parameter dari evaluasi akhir diperlukan untuk mengurangi bias seleksi \cite{cawley2010}. Protokol memakai \texttt{StratifiedGroupKFold} per label dengan maksimum lima fold. Banyak fold ditentukan berdasarkan jumlah kelompok positif dan negatif serta kelayakan kedua kelas pada setiap fold. Seluruh kandidat dinilai dengan lima pengulangan validasi kelompok, kemudian konfigurasi parameter, threshold tambahan, dan pilihan model dikunci sebelum evaluasi test pada eksperimen utama. Tidak ada holdout khusus threshold, early stopping, atau pruning; jumlah pohon menjadi parameter tuning. Pengulangan memakai data training yang sama dan bukan nested CV. Karena data test telah diakses selama tahap pengembangan, hasil evaluasi tetap bersifat eksploratori.
+
+\section{Metrik Evaluasi}
+
+\subsection{Average Precision}
+
+Kurva precision--recall menekankan hubungan antara ketepatan prediksi positif dan kemampuan menemukan contoh positif. Pendekatan ini relevan untuk label tidak seimbang \cite{saito2015}. Implementasi penelitian memakai \textit{average precision}, dengan definisi \cite{sklearnap2026}:
+\addequation{Average precision untuk satu label}{
+\begin{equation}
+AP_j = \sum_k (R_{j,k}-R_{j,k-1})P_{j,k},
+\label{eq:average_precision}
+\end{equation}
+}
+dengan $P_{j,k}$ dan $R_{j,k}$ menyatakan precision dan recall pada titik penilaian $k$. Macro AP adalah:
+\addequation{Macro average precision}{
+\begin{equation}
+AP_{\mathrm{macro}} = \frac{1}{L}\sum_{j=1}^{L} AP_j.
+\label{eq:macro_ap}
+\end{equation}
+}
+
+Setiap label mempunyai bobot yang sama pada macro AP. Dalam hasil eksperimen yang disimpan, nilai AP dicatat pada kolom bernama AUPRC. Untuk menghindari penyamaan dengan integral trapesium kurva precision--recall, laporan ini menyebut ukuran yang dihitung sebagai AP. Ringkasan memakai seluruh label terpilih dari training yang tetap antar-kondisi dan menyertakan cakupan label yang dapat dihitung.
+
+\subsection{Precision dan Recall}
+
+Untuk setiap label, precision mengukur proporsi prediksi positif yang benar, sedangkan recall mengukur proporsi contoh positif yang ditemukan:
+\addequation{Precision dan recall}{
+\begin{equation}
+P=\frac{TP}{TP+FP},\qquad
+R=\frac{TP}{TP+FN}.
+\label{eq:precision_recall}
+\end{equation}
+}
+Precision dan recall diringkas dengan rata-rata per label. Apabila penyebutnya tidak memiliki contoh positif, implementasi memberi nilai nol dan mencatat cakupan label yang dihitung.
+
+\subsection{Macro F1}
+
+Macro F1 digunakan sebagai ukuran tambahan keseimbangan precision dan recall. Untuk label $j$, $F1_j=2TP_j/(2TP_j+FP_j+FN_j)$, dengan nilai nol apabila penyebut nol. Macro F1 adalah rata-rata $F1_j$ seluruh label, bukan F1 yang dihitung dari rata-rata precision dan recall.
+
+\subsection{Accuracy Biner dan Specificity}
+
+Untuk satu label, accuracy dan specificity dihitung sebagai:
+\addequation{Accuracy biner dan specificity}{
+\begin{equation}
+Accuracy=\frac{TP+TN}{TP+TN+FP+FN},\qquad
+Specificity=\frac{TN}{TN+FP}.
+\label{eq:accuracy_specificity}
+\end{equation}
+}
+Accuracy pada penelitian ini dihitung terpisah untuk setiap label, bukan berdasarkan ketepatan seluruh label sebuah molekul secara bersamaan. AUROC menilai kemampuan model memberi peringkat contoh positif terhadap contoh negatif dan memerlukan kedua kelas. Specificity tidak terdefinisi apabila tidak terdapat contoh negatif. Implementasi penelitian menerapkan aturan yang lebih ketat dengan mencatat AUROC dan specificity sebagai tidak tersedia pada partisi satu kelas; cakupan label valid dilaporkan bersama rata-ratanya.
+
+\section{Integrasi Model pada Aplikasi}
+
+React Native menyediakan komponen untuk membangun antarmuka aplikasi seluler \cite{reactnative2024}. ONNX menyediakan format pertukaran model, sedangkan ONNX Runtime menyediakan mesin inferensi, termasuk untuk perangkat mobile \cite{onnxmobile2026}. Pada Essenza, layanan RDKit menghasilkan fitur dari SMILES, lalu model hasil ekspor ONNX menjalankan inferensi pada perangkat Android. Pemisahan layanan fitur dan inferensi tersebut menuntut kesesuaian skema masukan serta pemeriksaan keluaran terhadap model asal.
+
+Spesifikasi fitur, urutan label, threshold, dan checksum model dicatat dalam dokumentasi model. Pemeriksaan tersebut menjaga konsistensi antara training, ekspor, API, dan aplikasi. Pengujian data, model, serta integrasi perangkat lunak merupakan bagian dari kesiapan sistem ML \cite{breck2017}. Uji alur prediksi pada perangkat Android telah dilakukan, tetapi pengukuran latensi, penggunaan memori, dan ketahanan layanan fitur masih diperlukan untuk menilai kesiapan penggunaan yang lebih luas.

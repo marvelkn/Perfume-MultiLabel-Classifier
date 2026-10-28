@@ -1,0 +1,10 @@
+{
+  "date": "2026-10-27",
+  "name_input": "Air",
+  "resolved_smiles": "O",
+  "name_prediction_supported": false,
+  "direct_smiles": "O",
+  "direct_feature_status": "ok",
+  "direct_vector_length": 2056,
+  "scope": "direct local endpoint function calls, no server/no mobile inference"
+}

@@ -1,0 +1,22 @@
+\chapter{\kesimpulan}
+
+\section{Simpulan}
+Penelitian membandingkan delapan kandidat XGBoost dan LightGBM pada 6.686 molekul dari lima sumber Pyrfume dengan 109 label aroma. Seluruh kandidat menggunakan pembagian tetap: 5.353 molekul training dan 1.333 molekul test. Kondisi A/C menggunakan Morgan 2.048 bit, sedangkan B/D menggunakan Morgan dan delapan deskriptor RDKit, berjumlah 2.056 fitur. Berdasarkan hasil yang telah diverifikasi, simpulan penelitian adalah sebagai berikut.
+
+\begin{enumerate}
+    \item \textbf{Perbandingan algoritma.} LightGBM D dipilih berdasarkan rata-rata macro AP validasi tertinggi sebesar 0,299731 dengan simpangan baku sampel 0,001360. Kandidat terbaik XGBoost adalah D dengan rata-rata 0,296959. LightGBM D memperoleh AP test 0,310531 dan AUROC 0,842985, tetapi bukan pemilik macro F1 tertinggi pada threshold utama 0,5. Macro F1 LightGBM D sebesar 0,293156 lebih rendah daripada LightGBM B sebesar 0,320721. Keunggulan yang dinyatakan terbatas pada kriteria seleksi AP dan konfigurasi yang diuji.
+    \item \textbf{Tambahan deskriptor.} Penambahan delapan deskriptor meningkatkan AP validasi dan AP test melalui kontras B--A dan D--C pada kedua algoritma. Selisih AP validasi positif pada seluruh lima seed. Namun, recall menurun pada XGBoost B--A serta D--C pada kedua algoritma. Temuan ini mendukung manfaat paket deskriptor untuk pemeringkatan label pada data penelitian, bukan peningkatan semua metrik atau bukti kontribusi individual setiap deskriptor.
+    \item \textbf{Optimasi hiperparameter.} Optuna meningkatkan AP validasi dan AP test pada kontras C--A dan D--B, tetapi menurunkan macro F1 pada threshold 0,5 pada seluruh kontras tersebut. Empat studi masing-masing dibatasi delapan jam; jumlah trial selesai berbeda antarkandidat. Model hasil optimasi merupakan konfigurasi terbaik yang ditemukan dalam anggaran, bukan optimum global. Pada analisis tambahan LightGBM D, threshold OOF menghasilkan macro F1 0,330419 dengan precision 0,303265 dan recall 0,411890. Kenaikan F1 ini disertai penurunan recall dibandingkan threshold 0,5 dan tidak menggantikan hasil utama.
+    \item \textbf{Penyajian melalui Essenza.} Model terpilih telah diintegrasikan pada prototipe Android melalui layanan fitur RDKit dan inferensi ONNX pada perangkat. Pemeriksaan kesetaraan model hasil ekspor serta uji contoh prediksi pada perangkat telah dilakukan. Hasil ini mendukung keberfungsian jalur teknis pada cakupan uji, tetapi tidak membuktikan peningkatan kinerja model, manfaat bagi pengguna, atau kesiapan produksi.
+\end{enumerate}
+
+AP tidak sama dengan accuracy. Hasil dibatasi oleh ketidakseimbangan label, anotasi yang tidak lengkap, serta riwayat akses terhadap data test pada tahap pengembangan. Validasi berulang bukan nested CV dan tidak dilakukan pengujian signifikansi statistik. Karena itu, simpulan bersifat eksploratori, tidak menunjukkan keunggulan langsung atas Suh atau generalisasi yang telah terbukti pada data eksternal. Eksperimen utama tidak diperpanjang dengan pelatihan tambahan setelah hasil ini diperoleh.
+
+\section{Saran}
+\begin{enumerate}
+    \item Penyajian hasil model perlu mempertahankan perbedaan AP, accuracy, dan metrik pada setiap threshold. Pengguna perlu diberi informasi bahwa skor bukan intensitas aroma, komposisi parfum, atau probabilitas persepsi manusia yang sudah terkalibrasi.
+    \item Pengujian Essenza perlu diperluas ke lebih banyak struktur, kondisi jaringan, pengukuran latensi dan memori, serta penggunaan tanpa bantuan pengembang. Kecocokan pada vektor dan contoh perangkat yang telah diuji tidak menjamin kesetaraan seluruh masukan atau kesiapan produksi. Pengujian pengguna diperlukan sebelum menyatakan manfaat aplikasi.
+    \item Penelitian lanjutan yang terpisah dapat menilai generalisasi pada data eksternal yang belum pernah diperiksa, pemisahan scaffold, atau evaluasi nested. Kontrol strategi pencarian, pembobotan kelas, dan ablasi individual deskriptor diperlukan apabila ingin menarik simpulan khusus mengenai komponen tersebut.
+    \item Harmonisasi istilah aroma perlu ditinjau bersama pakar, khususnya pada anotasi yang belum lengkap atau bermakna ambigu. Dukungan per label perlu selalu disertakan agar skor pada label langka tidak ditafsirkan berlebihan.
+    \item Klaim probabilitas, intensitas, aroma campuran, dan pengaruh konsentrasi memerlukan evaluasi kalibrasi atau sensori tersendiri; klaim tersebut tidak dapat diturunkan hanya dari hasil klasifikasi molekul.
+\end{enumerate}

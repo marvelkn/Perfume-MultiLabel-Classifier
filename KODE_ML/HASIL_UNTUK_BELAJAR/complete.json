@@ -1,0 +1,321 @@
+{
+  "protocol": "perfume-five-grouped-v7-m2048-d8",
+  "completed_at": "2026-09-28T13:55:42.708540+00:00",
+  "selected_by_algorithm": {
+    "xgb": "xgb_D",
+    "lgbm": "lgbm_D"
+  },
+  "overall_selected_from_repeated_grouped_cv": "lgbm_D",
+  "comparison": [
+    {
+      "candidate": "xgb_A",
+      "descriptors": 0,
+      "tuned": false,
+      "cv_ap_mean": 0.2495892514804475,
+      "cv_ap_sd": 0.0024409426027270616,
+      "accuracy": 0.9354081639675974,
+      "auroc": 0.8092324041736538,
+      "auprc": 0.24904336857499654,
+      "specificity": 0.9484943706075754,
+      "precision": 0.22832404373841908,
+      "recall": 0.38592147347284406,
+      "macro_f1_0_5": 0.27489921335700046,
+      "macro_f1_validation_threshold": 0.2758332867976218,
+      "selected_for_algorithm": false,
+      "selected_overall": false
+    },
+    {
+      "candidate": "xgb_B",
+      "descriptors": 8,
+      "tuned": false,
+      "cv_ap_mean": 0.2774121584989916,
+      "cv_ap_sd": 0.0014254681030851446,
+      "accuracy": 0.9459107896240114,
+      "auroc": 0.8226356254890262,
+      "auprc": 0.2881245127414022,
+      "specificity": 0.9602845019212957,
+      "precision": 0.2847628607141487,
+      "recall": 0.37044971154911,
+      "macro_f1_0_5": 0.31183481713404787,
+      "macro_f1_validation_threshold": 0.30971661126869776,
+      "selected_for_algorithm": false,
+      "selected_overall": false
+    },
+    {
+      "candidate": "xgb_C",
+      "descriptors": 0,
+      "tuned": true,
+      "cv_ap_mean": 0.26704928912680964,
+      "cv_ap_sd": 0.0014628795250571267,
+      "accuracy": 0.9204112954844216,
+      "auroc": 0.8250342034564736,
+      "auprc": 0.2730290036072596,
+      "specificity": 0.9304005019557173,
+      "precision": 0.197872998221746,
+      "recall": 0.4866152837287541,
+      "macro_f1_0_5": 0.27036936535551914,
+      "macro_f1_validation_threshold": 0.293362367723672,
+      "selected_for_algorithm": false,
+      "selected_overall": false
+    },
+    {
+      "candidate": "xgb_D",
+      "descriptors": 8,
+      "tuned": true,
+      "cv_ap_mean": 0.29695872070474794,
+      "cv_ap_sd": 0.001128192303391864,
+      "accuracy": 0.9336875503279489,
+      "auroc": 0.8385461654476637,
+      "auprc": 0.30882705928454685,
+      "specificity": 0.944486725016124,
+      "precision": 0.2348199390641535,
+      "recall": 0.4755210645578712,
+      "macro_f1_0_5": 0.3059022781505884,
+      "macro_f1_validation_threshold": 0.3272405666203735,
+      "selected_for_algorithm": true,
+      "selected_overall": false
+    },
+    {
+      "candidate": "lgbm_A",
+      "descriptors": 0,
+      "tuned": false,
+      "cv_ap_mean": 0.2516809457669366,
+      "cv_ap_sd": 0.0032954985303367324,
+      "accuracy": 0.9393793402479059,
+      "auroc": 0.8094169689198496,
+      "auprc": 0.2528367419087412,
+      "specificity": 0.9530522899888152,
+      "precision": 0.24015994753170036,
+      "recall": 0.36074893852818557,
+      "macro_f1_0_5": 0.27718435550030784,
+      "macro_f1_validation_threshold": 0.2766951754518745,
+      "selected_for_algorithm": false,
+      "selected_overall": false
+    },
+    {
+      "candidate": "lgbm_B",
+      "descriptors": 8,
+      "tuned": false,
+      "cv_ap_mean": 0.2832113756377057,
+      "cv_ap_sd": 0.0014961610811155609,
+      "accuracy": 0.9488495977205311,
+      "auroc": 0.8258132849586343,
+      "auprc": 0.29637954623823043,
+      "specificity": 0.963098016223098,
+      "precision": 0.2988004536851239,
+      "recall": 0.3684955710002642,
+      "macro_f1_0_5": 0.32072117263695604,
+      "macro_f1_validation_threshold": 0.3159200675226749,
+      "selected_for_algorithm": false,
+      "selected_overall": false
+    },
+    {
+      "candidate": "lgbm_C",
+      "descriptors": 0,
+      "tuned": true,
+      "cv_ap_mean": 0.2691136510192022,
+      "cv_ap_sd": 0.002342986592221443,
+      "accuracy": 0.9031982766333785,
+      "auroc": 0.8279120094445424,
+      "auprc": 0.27646066435684397,
+      "specificity": 0.9108729664735815,
+      "precision": 0.17302959937553392,
+      "recall": 0.546477854223878,
+      "macro_f1_0_5": 0.25221954454812795,
+      "macro_f1_validation_threshold": 0.3008157278775182,
+      "selected_for_algorithm": false,
+      "selected_overall": false
+    },
+    {
+      "candidate": "lgbm_D",
+      "descriptors": 8,
+      "tuned": true,
+      "cv_ap_mean": 0.29973097800377524,
+      "cv_ap_sd": 0.0013601182165124798,
+      "accuracy": 0.9236598140360778,
+      "auroc": 0.8429847228194061,
+      "auprc": 0.31053132430322494,
+      "specificity": 0.9326110489793744,
+      "precision": 0.21386187491251393,
+      "recall": 0.5150894752128065,
+      "macro_f1_0_5": 0.2931560845565358,
+      "macro_f1_validation_threshold": 0.33041947387087184,
+      "selected_for_algorithm": true,
+      "selected_overall": true
+    }
+  ],
+  "paired_descriptor_cv": {
+    "contrasts": [
+      {
+        "algorithm": "xgb",
+        "contrast": "B-A",
+        "interpretation": "eight_descriptors_at_fixed_2048_baseline",
+        "seeds": [
+          7,
+          21,
+          42,
+          84,
+          100
+        ],
+        "delta_per_seed": [
+          0.026752342683674546,
+          0.030066460438701342,
+          0.027151748260744096,
+          0.025398204927091328,
+          0.029745778782509447
+        ],
+        "mean_delta": 0.027822907018544153,
+        "sd_delta": 0.0020128779195045738,
+        "added_features_wins": 5,
+        "morgan_only_wins": 0,
+        "ties": 0
+      },
+      {
+        "algorithm": "xgb",
+        "contrast": "D-C",
+        "interpretation": "eight_descriptors_at_fixed_2048_equal_tuning_budget",
+        "seeds": [
+          7,
+          21,
+          42,
+          84,
+          100
+        ],
+        "delta_per_seed": [
+          0.029898583680037005,
+          0.026924337195211645,
+          0.03068126076815142,
+          0.03055444630142018,
+          0.031488529944871335
+        ],
+        "mean_delta": 0.029909431577938315,
+        "sd_delta": 0.0017618330011311464,
+        "added_features_wins": 5,
+        "morgan_only_wins": 0,
+        "ties": 0
+      },
+      {
+        "algorithm": "lgbm",
+        "contrast": "B-A",
+        "interpretation": "eight_descriptors_at_fixed_2048_baseline",
+        "seeds": [
+          7,
+          21,
+          42,
+          84,
+          100
+        ],
+        "delta_per_seed": [
+          0.027978584507653004,
+          0.03172371990689682,
+          0.03218476227692446,
+          0.033879062853528874,
+          0.031886019808842314
+        ],
+        "mean_delta": 0.031530429870769094,
+        "sd_delta": 0.002163540992855614,
+        "added_features_wins": 5,
+        "morgan_only_wins": 0,
+        "ties": 0
+      },
+      {
+        "algorithm": "lgbm",
+        "contrast": "D-C",
+        "interpretation": "eight_descriptors_at_fixed_2048_equal_tuning_budget",
+        "seeds": [
+          7,
+          21,
+          42,
+          84,
+          100
+        ],
+        "delta_per_seed": [
+          0.027984392180123774,
+          0.027844919101156995,
+          0.03188296386017636,
+          0.03181844952132229,
+          0.03355591026008553
+        ],
+        "mean_delta": 0.03061732698457299,
+        "sd_delta": 0.0025640980320964396,
+        "added_features_wins": 5,
+        "morgan_only_wins": 0,
+        "ties": 0
+      }
+    ],
+    "identical_paired_folds": true,
+    "caveat": "Descriptive repeated-CV differences, not independent samples, p-values or equivalence tests."
+  },
+  "test_used_for_selection": false,
+  "tuning_outcome": {
+    "xgb_C": {
+      "complete_trials": 12,
+      "failed_trials": 1,
+      "best_trial": 2,
+      "best_macro_ap": 0.2673518801626136,
+      "completed_trials_after_best": 9,
+      "budget": {
+        "budget_seconds": 28800,
+        "charged_seconds": 28800,
+        "status": "complete",
+        "active_trial": null,
+        "source_completed_trials": 0,
+        "last_heartbeat_at": "2026-09-26T22:08:57.951833+00:00",
+        "stop_reason": "time_budget_exhausted"
+      },
+      "initial_recipe_recomputed": true
+    },
+    "xgb_D": {
+      "complete_trials": 12,
+      "failed_trials": 1,
+      "best_trial": 2,
+      "best_macro_ap": 0.298033140930765,
+      "completed_trials_after_best": 9,
+      "budget": {
+        "budget_seconds": 28800,
+        "charged_seconds": 28800,
+        "status": "complete",
+        "active_trial": null,
+        "source_completed_trials": 0,
+        "last_heartbeat_at": "2026-09-27T06:08:58.194873+00:00",
+        "stop_reason": "time_budget_exhausted"
+      },
+      "initial_recipe_recomputed": true
+    },
+    "lgbm_C": {
+      "complete_trials": 104,
+      "failed_trials": 1,
+      "best_trial": 56,
+      "best_macro_ap": 0.27009605868717895,
+      "completed_trials_after_best": 47,
+      "budget": {
+        "budget_seconds": 28800,
+        "charged_seconds": 28800,
+        "status": "complete",
+        "active_trial": null,
+        "source_completed_trials": 0,
+        "last_heartbeat_at": "2026-09-27T14:08:58.492818+00:00",
+        "stop_reason": "time_budget_exhausted"
+      },
+      "initial_recipe_recomputed": true
+    },
+    "lgbm_D": {
+      "complete_trials": 74,
+      "failed_trials": 1,
+      "best_trial": 73,
+      "best_macro_ap": 0.3019790225473553,
+      "completed_trials_after_best": 0,
+      "budget": {
+        "budget_seconds": 28800,
+        "charged_seconds": 28800,
+        "status": "complete",
+        "active_trial": null,
+        "source_completed_trials": 0,
+        "last_heartbeat_at": "2026-09-27T22:08:58.747063+00:00",
+        "stop_reason": "time_budget_exhausted"
+      },
+      "initial_recipe_recomputed": true
+    }
+  },
+  "confirmatory_status": "Exploratory extension planned after v6: the historical test set has already been inspected. Repeated CV is not nested CV or an independent test. No direct superiority claim over Suh on different cohorts."
+}

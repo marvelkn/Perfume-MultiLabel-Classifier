@@ -1,0 +1,63 @@
+\chapter{\babSatu}
+
+\section{Latar Belakang Masalah}
+
+Pyrfume mengintegrasikan lebih dari 40 dataset olfaksi dengan informasi mengenai lebih dari 20.000 senyawa odorant, sekaligus menunjukkan adanya kendala dalam menyatukan data yang tersebar dengan format berbeda \cite{hamel2024}. Dalam konteks pengembangan bahan pewangi, informasi tersebut menyediakan dasar untuk mempelajari karakter aroma dari struktur molekul. Namun, perubahan kecil pada struktur dapat menghasilkan perbedaan aroma, sedangkan satu molekul dapat memiliki beberapa label aroma sekaligus \cite{saini2022}. Dengan demikian, permasalahan yang dihadapi adalah bagaimana memprediksi beberapa label aroma molekul bahan pewangi secara andal dari struktur kimianya.
+
+Pada perbandingan Binary Relevance, Classifier Chains, dan Random Forest multi-label berbasis fingerprint, kombinasi Binary Relevance dengan Daylight fingerprint menghasilkan micro F1-score test tertinggi sebesar 0,3523 di antara konfigurasi yang diuji, sehingga memberikan dasar empiris bagi pemodelan aroma melalui pengklasifikasi per label \cite{saini2022}. Perbandingan fingerprint struktural, gugus fungsi, dan deskriptor molekuler pada Random Forest, XGBoost, serta LightGBM menghasilkan model XGBoost berbasis Morgan dengan AUROC 0,828 dan AUPRC 0,237 pada test, menunjukkan potensi fingerprint struktural untuk membedakan label aroma \cite{suh2025}. Pada pendekatan berbasis sifat fisikokimia, XGBoost dengan reduksi fitur Principal Component Analysis (PCA) pada 1.278 molekul dan tujuh kategori aroma menghasilkan precision dan sensitivity di atas 99\% pada test independen \cite{tyagi2024}. Temuan tersebut mendukung eksplorasi informasi fisikokimia sebagai fitur prediksi; perbedaan target, data, dan metrik pada ketiga studi perlu diperhatikan dalam menafsirkan hasilnya.
+
+Perbandingan representasi secara terpisah dalam studi Suh belum menjawab apakah penambahan delapan deskriptor pada Morgan fingerprint memberikan manfaat yang konsisten bagi XGBoost dan LightGBM \cite{suh2025}. Selain itu, pada konfigurasi ST-XGB, accuracy sebesar 97,8\% masih disertai recall sebesar 16,3\%, sehingga tingginya accuracy belum menunjukkan bahwa seluruh label positif berhasil dikenali \cite{suh2025}. Kesenjangan yang ditindaklanjuti dalam penelitian ini adalah kebutuhan akan perbandingan terkontrol untuk menilai perubahan kinerja yang berkaitan dengan tambahan deskriptor dan optimasi hiperparameter pada cakupan data yang dipilih. Pada eksperimen utama, konfigurasi dipilih berdasarkan validasi sebelum evaluasi test untuk mengurangi bias pemilihan \cite{cawley2010}. Riwayat akses terhadap data test pada tahap pengembangan tetap menjadi keterbatasan evaluasi penelitian ini.
+
+Untuk menindaklanjuti kesenjangan tersebut, penelitian ini mengusulkan perbandingan XGBoost dan LightGBM menggunakan Morgan fingerprint 2.048 bit, yaitu representasi biner yang merangkum pola struktur di sekitar atom \cite{rogers2010}. RDKit, yaitu pustaka cheminformatika, digunakan untuk membaca struktur dari notasi SMILES serta menghitung Morgan fingerprint dan delapan deskriptor molekuler \cite{rdkitgenerator2026,rdkitdescriptors2026}. Penggabungan fingerprint dengan deskriptor menguji apakah informasi sifat fisikokimia dapat melengkapi pola substruktur yang ditangkap fingerprint \cite{suh2025,tyagi2024}. Optuna merupakan kerangka kerja optimasi hiperparameter otomatis yang dipilih karena dapat menelusuri kombinasi parameter dalam ruang pencarian yang ditetapkan dan menilai setiap kombinasi melalui fungsi objektif validasi \cite{akiba2019}. Dalam penelitian ini, Optuna digunakan untuk mencari konfigurasi hiperparameter bagi kedua algoritma. Pengaruh fitur dan optimasi dinilai terhadap baseline pada data serta pembagian yang sama, dengan pemisahan berbasis kelompok untuk mengurangi kebocoran representasi identik. Penilaian mencakup kemampuan mengenali label positif agar interpretasi hasil tetap mempertimbangkan ketidakseimbangan label \cite{saito2015}.
+
+Dengan demikian, penelitian ini diharapkan memberikan kontribusi berupa bukti empiris mengenai kinerja kedua algoritma pada delapan kandidat serta manfaat dan keterbatasan penambahan deskriptor molekuler dan optimasi hiperparameter pada prediksi aroma. Kontribusi tersebut diarahkan untuk memperjelas pilihan pendekatan pemodelan dalam eksplorasi molekul bahan pewangi. Essenza merupakan prototipe aplikasi Android yang menerima struktur satu molekul dan menampilkan skor serta label aroma hasil prediksi model. Integrasi model pada prototipe telah diuji secara teknis, tetapi manfaat pengguna dan kesiapan penggunaan produksi belum dievaluasi.
+
+\section{Rumusan Masalah}
+
+\begin{enumerate}
+    \item Bagaimana mengimplementasikan XGBoost dan LightGBM untuk klasifikasi multi-label aroma molekul menggunakan Morgan fingerprint, dengan dan tanpa delapan deskriptor RDKit, serta optimasi hiperparameter menggunakan Optuna?
+    \item Bagaimana kinerja kedua algoritma pada setiap kondisi fitur dan optimasi berdasarkan hasil validasi dan pengujian?
+\end{enumerate}
+
+\section{Batasan Permasalahan}
+
+\begin{enumerate}
+    \item Sumber data dibatasi pada GoodScents, IFRA 2019, Leffingwell, Arctander 1960, dan Sigma-Aldrich 2014 yang tersedia melalui Pyrfume \cite{hamel2024,pyrfumeFive2026}.
+    \item Masukan dinyatakan dalam format SMILES untuk satu molekul terhubung. Interaksi campuran, intensitas sensoris, stabilitas formula, keamanan bahan, dan identifikasi komposisi parfum tidak dievaluasi.
+    \item Representasi yang diuji adalah Morgan fingerprint 2.048 bit (kondisi A/C) dan gabungannya dengan delapan deskriptor RDKit, berjumlah 2.056 fitur (kondisi B/D). Empat kondisi diterapkan pada kedua algoritma sehingga terdapat delapan kandidat; optimasi hiperparameter menggunakan Optuna dalam ruang pencarian dan anggaran waktu yang ditetapkan.
+    \item Label aroma mengikuti anotasi sumber yang telah diselaraskan. Label yang tidak tercatat tidak dianggap sebagai bukti pengujian sensoris bahwa aroma tersebut tidak ada.
+    \item Perbandingan baseline dan modifikasi menggunakan data serta pembagian kelompok yang sama. Data test pernah diperiksa pada tahap pengembangan sebelumnya, sehingga hasil diperlakukan sebagai evaluasi eksploratori, bukan konfirmasi pada data independen yang belum pernah diakses.
+    \item Essenza digunakan sebagai demonstrasi pendukung untuk menyajikan hasil prediksi melalui API fitur dan inferensi ONNX pada Android. Pengujian manfaat pengguna, iOS, dan kesiapan produksi tidak menjadi bagian evaluasi penelitian.
+\end{enumerate}
+
+\section{Tujuan Penelitian}
+
+\begin{enumerate}
+    \item Mengimplementasikan XGBoost dan LightGBM untuk klasifikasi multi-label aroma molekul menggunakan Morgan fingerprint, dengan dan tanpa delapan deskriptor RDKit, serta optimasi hiperparameter menggunakan Optuna.
+    \item Mengevaluasi dan membandingkan kinerja kedua algoritma pada setiap kondisi fitur dan optimasi berdasarkan hasil validasi dan pengujian.
+\end{enumerate}
+
+\section{Manfaat Penelitian}
+
+Penelitian ini diharapkan memberikan manfaat sebagai berikut.
+\begin{enumerate}
+    \item Menyediakan bukti perbandingan kinerja XGBoost dan LightGBM sebagai dasar pertimbangan pemilihan model untuk data yang diteliti.
+    \item Memberikan informasi mengenai manfaat dan keterbatasan tambahan delapan deskriptor RDKit dalam melengkapi Morgan fingerprint.
+    \item Memberikan informasi mengenai pengaruh optimasi Optuna terhadap kinerja model dalam anggaran pencarian yang ditetapkan.
+    \item Menyediakan contoh implementasi penyajian prediksi melalui Essenza untuk memasukkan struktur molekul dan melihat skor serta label aroma; manfaat penggunaan aplikasi belum diuji.
+\end{enumerate}
+
+\section{Sistematika Penulisan}
+
+\begin{enumerate}
+    \item \textbf{Bab I PENDAHULUAN}\\
+    Bab ini menjelaskan latar belakang prediksi aroma berbasis struktur molekul, rumusan masalah, batasan, tujuan, dan manfaat penelitian.
+    \item \textbf{Bab II LANDASAN TEORI}\\
+    Bab ini membahas penelitian terdahulu dan konsep yang mendasari representasi molekul, klasifikasi multi-label, kedua algoritma, serta optimasi model.
+    \item \textbf{Bab III METODOLOGI PENELITIAN}\\
+    Bab ini menjelaskan sumber dan pengolahan data, ekstraksi fitur, rancangan eksperimen, optimasi, evaluasi, dan demonstrasi model.
+    \item \textbf{Bab IV HASIL DAN DISKUSI}\\
+    Bab ini menyajikan hasil kurasi data, optimasi dan evaluasi delapan kandidat, pengaruh fitur serta threshold keputusan, dan keterbatasan interpretasi hasil.
+    \item \textbf{Bab V SIMPULAN DAN SARAN}\\
+    Bab ini memuat simpulan perbandingan algoritma, penambahan deskriptor, dan optimasi hiperparameter, disertai batas pencapaian integrasi aplikasi serta saran pengembangan.
+\end{enumerate}

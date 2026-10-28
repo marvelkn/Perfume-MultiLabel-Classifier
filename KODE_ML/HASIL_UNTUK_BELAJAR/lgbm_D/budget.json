@@ -1,0 +1,9 @@
+{
+  "budget_seconds": 28800,
+  "charged_seconds": 28800,
+  "status": "complete",
+  "active_trial": null,
+  "source_completed_trials": 0,
+  "last_heartbeat_at": "2026-09-27T22:08:58.747063+00:00",
+  "stop_reason": "time_budget_exhausted"
+}

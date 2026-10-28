@@ -1,0 +1,17 @@
+{
+  "complete_trials": 74,
+  "failed_trials": 1,
+  "best_trial": 73,
+  "best_macro_ap": 0.3019790225473553,
+  "completed_trials_after_best": 0,
+  "budget": {
+    "budget_seconds": 28800,
+    "charged_seconds": 28800,
+    "status": "complete",
+    "active_trial": null,
+    "source_completed_trials": 0,
+    "last_heartbeat_at": "2026-09-27T22:08:58.747063+00:00",
+    "stop_reason": "time_budget_exhausted"
+  },
+  "initial_recipe_recomputed": true
+}

@@ -1,0 +1,368 @@
+\chapter{\babEmpat}
+
+\section{Cakupan dan Status Pelaporan}
+Pelatihan dan evaluasi delapan kandidat XGBoost dan LightGBM pada kondisi A--D telah selesai. Dataset tetap terdiri atas 6.686 molekul dan 109 label, dengan Morgan 2.048 bit pada A/C serta Morgan ditambah delapan deskriptor pada B/D. Hasil utama mencakup seluruh kandidat, termasuk penurunan metrik tertentu, tanpa pelatihan tambahan atau perubahan dataset setelah evaluasi.
+
+LightGBM D dipilih berdasarkan rata-rata macro Average Precision (AP) pada lima pengulangan validasi kelompok, bukan skor test. Hasil threshold utama 0,5 dipisahkan dari analisis tambahan menggunakan threshold per label yang ditentukan dari prediksi out-of-fold. AP dan AUROC tidak berubah akibat pergantian threshold keputusan. Seluruh hasil tetap ditafsirkan secara eksploratori karena data test pernah diperiksa pada tahap pengembangan sebelumnya.
+
+\section{Dataset Beku dan Penyiapan Fitur}
+Dataset penelitian dibentuk melalui kurasi lima sumber. Rekonsiliasi berikut menunjukkan jumlah rekaman pada setiap tahap sebelum penggabungan menjadi molekul unik.
+\begin{table}[htbp]
+\centering
+\caption{Rekonsiliasi baris sumber sebelum penggabungan rekaman identik}
+\label{tab:audit_sumber}
+\small
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{lrrrrrr}
+\toprule
+Sumber & Awal & ID gagal & Fragmen & Kosong & Tak terpetakan & Diterima \\
+\midrule
+GoodScents & 4.626 & 0 & 183 & 4 & 335 & 4.104 \\
+IFRA 2019 & 1.146 & 0 & 28 & 0 & 0 & 1.118 \\
+Leffingwell & 3.522 & 0 & 0 & 0 & 114 & 3.408 \\
+Arctander 1960 & 3.102 & 278 & 102 & 209 & 73 & 2.440 \\
+Sigma-Aldrich 2014 & 941 & 204 & 0 & 0 & 30 & 707 \\
+\midrule
+Jumlah & 13.337 & 482 & 313 & 213 & 552 & 11.777 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Tabel~\ref{tab:audit_sumber} membedakan baris sumber dari molekul unik. Sebanyak 1.560 dari 13.337 baris ditolak: 482 gagal pencocokan identitas, 313 memiliki struktur multifragmen, 213 tidak memiliki anotasi, dan 552 tidak memiliki label terpetakan. Tidak ditemukan kegagalan parsing SMILES atau format behavior pada baris yang mencapai pemeriksaan tersebut. Kolom kosong menunjukkan ketiadaan anotasi, sedangkan tak terpetakan menunjukkan anotasi yang tidak memiliki padanan dalam kamus target. Alasan dicatat pada tahap penolakan pertama, sehingga kategorinya tidak dihitung ganda.
+
+Sebanyak 11.777 baris diterima sebelum penggabungan. Penggabungan rekaman dengan SMILES kanonik identik mengurangi 5.091 baris redundan sehingga tersisa 6.686 molekul unik. Pengurangan ini merupakan konsolidasi rekaman, bukan penghapusan ribuan molekul tanpa label. Label dari rekaman yang digabungkan disatukan dengan tetap menyimpan asal anotasinya.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{assets/pdf/kurasi_lima_sumber.pdf}
+\caption[Rekaman lima sumber sebelum dan sesudah kurasi]{Rekaman lima sumber sebelum dan sesudah kurasi. Angka di kanan menunjukkan jumlah diterima/jumlah awal, sebelum penggabungan rekaman identik; jumlah tersebut bukan banyak molekul unik.}
+\label{fig:perfume_sources}
+\end{figure}
+
+Kamus IFRA memuat 184 istilah aroma. Seleksi berdasarkan dukungan data training menghasilkan 109 label; 75 istilah lainnya tidak memenuhi kriteria. Jumlah label ditentukan oleh aturan dukungan, bukan dibatasi secara manual. Kelima sumber relevan untuk kajian aroma dan bahan pewangi, tetapi penggunaan seluruh molekul secara khusus dalam parfum belum diverifikasi.
+
+\subsection{Pembagian Kelompok, Label, dan Fitur}
+Sebanyak 6.686 molekul membentuk 5.363 kelompok berdasarkan struktur tanpa stereokimia atau fingerprint identik. Kelompok ini digunakan untuk seluruh kondisi pemodelan dengan fitur Morgan 2.048 bit. Pembagian kelompok menghasilkan 5.353 molekul training dan 1.333 molekul test. Audit tidak menemukan irisan kelompok maupun Morgan fingerprint identik antarpartisi. Pemeriksaan ini tidak membuktikan bahwa seluruh molekul dengan kemiripan parsial atau scaffold yang sama telah dipisahkan.
+
+Seluruh 109 label memperoleh lima fold pada pembagian validasi awal, sehingga terdapat 545 pasangan bagian pelatihan--validasi yang telah diperiksa tanpa irisan kelompok. Lima pengulangan validasi seluruh kandidat telah selesai menggunakan molekul training yang sama. Setiap label memperoleh lima fold pada seluruh seed, tanpa irisan kelompok antara bagian pelatihan dan validasi; pembagian label--seed identik antarkandidat. Sebanyak 11 baris training yang menjadi seluruhnya nol setelah seleksi target tetap disimpan. Nilai nol menyatakan anotasi yang tidak tercatat, bukan negatif sensori terverifikasi.
+
+Artefak fitur penelitian telah tersedia dengan matriks Morgan berukuran $6686\times2048$, deskriptor $6686\times8$, dan target tetap $6686\times109$. Representasi A/C memiliki 2.048 fitur, sedangkan B/D memiliki 2.056 fitur. Pemeriksaan artefak memastikan kesesuaian identitas baris, label, dan indeks pembagian. Pemeriksaan ini menilai konsistensi fitur dan data, bukan hasil prediksi. Morgan maupun delapan deskriptor dihitung menggunakan RDKit; perbandingan A/C dengan B/D bukan perbandingan tanpa dan dengan RDKit.
+
+\begin{figure}[p]
+\centering
+\includegraphics[width=\textwidth,height=0.68\textheight,keepaspectratio]{assets/pdf/distribusi_label_training.pdf}
+\caption[Distribusi dukungan label pada data training]{Distribusi dukungan label pada 5.353 molekul training: (a) 20 label dengan frekuensi positif tertinggi; (b) jumlah label pada setiap rentang frekuensi positif untuk seluruh 109 label. Satu molekul dapat memiliki lebih dari satu label.}
+\label{fig:distribusi_label_baru}
+\end{figure}
+
+Gambar~\ref{fig:distribusi_label_baru} memperlihatkan ketidakseimbangan dukungan label. Label fruity tercatat pada 1.987 molekul training, sedangkan 66 dari 109 label memiliki kurang dari 120 contoh positif. Seluruh label yang memenuhi kriteria seleksi tetap digunakan; pembatasan 20 label hanya berlaku untuk panel visual frekuensi tertinggi.
+
+\subsection{Pola Kemunculan Bersama Anotasi}
+Gambar~\ref{fig:kelompok_label_training} memperlihatkan hubungan di antara 16 label dengan frekuensi training tertinggi. Sel yang lebih gelap menunjukkan proporsi kemunculan bersama yang lebih besar menurut Jaccard. Dendrogram menyusun label berdasarkan jarak kemunculan bersama, bukan menurut keluarga kimia atau kategori aroma yang ditetapkan pakar.
+
+\begin{figure}[p]
+\centering
+\includegraphics[width=\textwidth,height=0.68\textheight,keepaspectratio]{assets/pdf/kelompok_label_training.pdf}
+\caption[Heatmap berkelompok kemunculan bersama label training]{Heatmap berkelompok berdasarkan Jaccard dan average linkage pada anotasi training. Skala warna 0--0,30 mencakup seluruh nilai antarpasangan yang ditampilkan, sedangkan rentang teoritis Jaccard adalah 0--1. Angka sel ditampilkan hanya untuk nilai sedikitnya 0,10; sel lain tetap diberi warna dan bukan berarti nol. Diagonal diri tidak ditampilkan.}
+\label{fig:kelompok_label_training}
+\end{figure}
+
+Di antara 16 label tersebut, pasangan fruity--green memiliki Jaccard tertinggi sebesar 0,271, dengan 779 molekul memiliki kedua anotasi dari 2.873 molekul yang memiliki sedikitnya salah satunya. Pasangan fatty--waxy memiliki Jaccard 0,241, yaitu 211 kemunculan bersama dari gabungan 874 molekul. Nilai tersebut menunjukkan kedekatan relatif dalam anotasi, bukan kesamaan aroma yang tinggi atau hubungan sebab-akibat. Tidak ditetapkan jumlah kelompok maupun nama keluarga aroma. Pola ini bersifat deskriptif dan dapat dipengaruhi frekuensi label serta kebiasaan anotasi antarsumber; tidak digunakan untuk mengubah model atau keputusan pemilihan kandidat.
+
+\section{Hasil Optimasi Hiperparameter}
+Empat studi Optuna diselesaikan dengan anggaran delapan jam per studi, sehingga total anggaran tuning aktif adalah 32 jam. Lama pelaksanaan keseluruhan berdasarkan selang pencatatan awal dan akhir sekitar 47,78 jam, mencakup tahapan di luar tuning seperti validasi berulang, fitting final, dan evaluasi. Angka ini bukan tolok ukur kecepatan yang dikendalikan pada perangkat berbeda. Metadata mencatat enam inti CPU fisik; tiap model memakai enam thread dan kandidat dijalankan berurutan.
+
+\begin{table}[htbp]
+\centering
+\caption{Hasil empat studi Optuna dalam anggaran delapan jam per studi}
+\label{tab:studi_optuna}
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lrrrr}
+\toprule
+Kandidat & Selesai & Terputus & Trial terbaik & AP tuning \\
+\midrule
+XGBoost C & 12 & 1 & 2 & 0,267352 \\
+XGBoost D & 12 & 1 & 2 & 0,298033 \\
+LightGBM C & 104 & 1 & 56 & 0,270096 \\
+LightGBM D & 74 & 1 & 73 & 0,301979 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Nomor trial dimulai dari nol. Setiap studi memiliki satu trial berstatus gagal karena anggaran habis, bukan karena model yang telah selesai tidak dapat dievaluasi. Trial terputus tidak dipakai sebagai konfigurasi terbaik. AP tuning pada Tabel~\ref{tab:studi_optuna} adalah objektif pada pembagian validasi seed 42; nilainya berbeda dari rata-rata lima pengulangan yang digunakan untuk pemilihan kandidat.
+
+XGBoost C dan D masing-masing menyelesaikan 12 trial, sedangkan LightGBM C dan D menyelesaikan 104 dan 74 trial. Dengan 10 trial awal pada TPE, pencarian adaptif XGBoost dalam anggaran ini relatif terbatas. LightGBM D memperoleh nilai terbaik pada trial terakhir yang selesai. Oleh sebab itu, hasil optimasi berarti konfigurasi terbaik yang ditemukan dalam ruang dan anggaran yang ditetapkan, bukan optimum global atau bukti bahwa pencarian telah konvergen. Pelatihan penelitian dicukupkan pada eksperimen ini tanpa penambahan anggaran setelah hasil test diperiksa.
+
+\begin{table}[htbp]
+\centering
+\caption{Parameter hasil optimasi yang digunakan pada fitting final}
+\label{tab:parameter_terpilih}
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lrrr}
+\toprule
+Parameter & XGBoost C/D & LightGBM C & LightGBM D \\
+\midrule
+\texttt{n\_estimators} & 1200 & 400 & 1100 \\
+\texttt{learning\_rate} & 0,005394 & 0,028581 & 0,007598 \\
+\texttt{max\_depth} & 8 & 6 & 7 \\
+\texttt{colsample\_bytree} & 0,882710 & 0,740236 & 0,393844 \\
+\texttt{subsample} & 0,684936 & 0,875156 & 0,896796 \\
+\texttt{reg\_alpha} & 0,000019 & 0,092028 & 0,000038 \\
+\texttt{reg\_lambda} & 0,008261 & 5,274218 & 0,267942 \\
+\texttt{min\_child\_weight} & 2,814509 & -- & -- \\
+\texttt{gamma} & 2,623782 & -- & -- \\
+\texttt{min\_child\_samples} & -- & 16 & 41 \\
+\texttt{num\_leaves} & -- & 29 & 75 \\
+\texttt{subsample\_freq} & -- & 1 & 1 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Angka desimal pada Tabel~\ref{tab:parameter_terpilih} dibulatkan untuk penyajian; fitting final memakai nilai presisi penuh yang tersimpan. XGBoost C dan D memperoleh parameter yang sama, meskipun pencarian keduanya dilakukan terpisah. Pada LightGBM, C dan D memperoleh parameter berbeda. Perbedaan ini diperhitungkan saat menafsirkan kontras D--C.
+
+\section{Perbandingan Delapan Kandidat}
+\subsection{Validasi dan Pemilihan Kandidat}
+\begin{table}[htbp]
+\centering
+\caption{Macro AP validasi lima pengulangan dan keputusan pemilihan}
+\label{tab:validasi_kandidat}
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lrrrl}
+\toprule
+Kandidat & Fitur & Mean AP CV & SD AP CV & Status \\
+\midrule
+XGBoost A & 2.048 & 0,249589 & 0,002441 & Pembanding \\
+XGBoost B & 2.056 & 0,277412 & 0,001425 & Pembanding \\
+XGBoost C & 2.048 & 0,267049 & 0,001463 & Pembanding \\
+XGBoost D & 2.056 & 0,296959 & 0,001128 & Terbaik XGB \\
+LightGBM A & 2.048 & 0,251681 & 0,003295 & Pembanding \\
+LightGBM B & 2.056 & 0,283211 & 0,001496 & Pembanding \\
+LightGBM C & 2.048 & 0,269114 & 0,002343 & Pembanding \\
+LightGBM D & 2.056 & 0,299731 & 0,001360 & Terpilih \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+LightGBM D dipilih berdasarkan rata-rata macro AP validasi sebesar 0,299731 dengan simpangan baku sampel 0,001360. Kandidat terbaik XGBoost adalah D, dengan rata-rata 0,296959 dan simpangan baku 0,001128. Selisih rata-rata keduanya sebesar 0,002772 dan arah selisih positif terjadi pada seluruh lima seed. Hasil ini menunjukkan keunggulan deskriptif LightGBM D pada kriteria pemilihan dan data yang digunakan, bukan keunggulan umum atau perbedaan yang telah dibuktikan signifikan secara statistik.
+
+Parameter, hasil validasi, threshold tambahan, dan keputusan pemilihan telah dikunci sebelum fitting final serta evaluasi test. Pembagian untuk setiap pasangan label--seed sama pada seluruh kandidat. Lima pengulangan menggunakan data training yang saling bertumpang tindih; simpangan baku pada Tabel~\ref{tab:validasi_kandidat} menggambarkan variasi pembagian, bukan interval kepercayaan dari lima dataset independen.
+
+Gambar~\ref{fig:ap_kandidat} memudahkan pembacaan AP validasi dan test secara berdampingan. XGB menyatakan XGBoost dan LGBM menyatakan LightGBM. Pada setiap algoritma, A/C memakai Morgan saja dan B/D memakai Morgan ditambah delapan deskriptor; A/B adalah baseline dan C/D adalah hasil Optuna. Urutan kandidat dipertahankan sama pada kedua panel agar perubahan antar-kondisi dapat dibandingkan.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{assets/pdf/perbandingan_ap_kandidat.pdf}
+\caption[Perbandingan AP validasi dan test delapan kandidat]{Macro AP seluruh kandidat: (a) rata-rata validasi dengan garis galat berupa satu simpangan baku lima pengulangan; (b) hasil test. Angka gambar dibulatkan tiga desimal. Seleksi kandidat hanya menggunakan validasi; garis galat bukan interval kepercayaan.}
+\label{fig:ap_kandidat}
+\end{figure}
+
+\subsection{Hasil Utama pada Threshold 0,5}
+\begin{table}[htbp]
+\centering
+\caption{Metrik test seluruh kandidat; accuracy dan specificity pada threshold 0,5}
+\label{tab:test_pemeringkatan_kandidat}
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lrrrr}
+\toprule
+Kandidat & Accuracy & AUROC & AP & Specificity \\
+\midrule
+XGBoost A & 0,935408 & 0,809232 & 0,249043 & 0,948494 \\
+XGBoost B & 0,945911 & 0,822636 & 0,288125 & 0,960285 \\
+XGBoost C & 0,920411 & 0,825034 & 0,273029 & 0,930401 \\
+XGBoost D & 0,933688 & 0,838546 & 0,308827 & 0,944487 \\
+LightGBM A & 0,939379 & 0,809417 & 0,252837 & 0,953052 \\
+LightGBM B & 0,948850 & 0,825813 & 0,296380 & 0,963098 \\
+LightGBM C & 0,903198 & 0,827912 & 0,276461 & 0,910873 \\
+LightGBM D & 0,923660 & 0,842985 & 0,310531 & 0,932611 \\
+\bottomrule
+\end{tabular}
+\end{table}
+\begin{table}[htbp]
+\centering
+\caption{Metrik label positif pada test dengan threshold utama 0,5}
+\label{tab:test_label_positif_kandidat}
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lrrr}
+\toprule
+Kandidat & Precision & Recall & Macro F1 \\
+\midrule
+XGBoost A & 0,228324 & 0,385921 & 0,274899 \\
+XGBoost B & 0,284763 & 0,370450 & 0,311835 \\
+XGBoost C & 0,197873 & 0,486615 & 0,270369 \\
+XGBoost D & 0,234820 & 0,475521 & 0,305902 \\
+LightGBM A & 0,240160 & 0,360749 & 0,277184 \\
+LightGBM B & 0,298800 & 0,368496 & 0,320721 \\
+LightGBM C & 0,173030 & 0,546478 & 0,252220 \\
+LightGBM D & 0,213862 & 0,515089 & 0,293156 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Evaluasi memakai 1.333 molekul dan 109 label; seluruh label memiliki kedua kelas pada test sehingga cakupan seluruh metrik sama. Metrik disajikan pada skala 0--1 sebagai rata-rata per label. AP dan AUROC dihitung dari skor, sedangkan accuracy, specificity, precision, recall, dan macro F1 pada Tabel~\ref{tab:test_pemeringkatan_kandidat}--\ref{tab:test_label_positif_kandidat} memakai threshold 0,5. Skor dan keputusan tersimpan telah dihitung ulang dan cocok dengan ringkasan hasil.
+
+LightGBM D memiliki AP test 0,310531 dan AUROC 0,842985, tertinggi di antara delapan kandidat. Urutan kedelapan kandidat berdasarkan AP test sama dengan urutan rata-rata AP validasi, meskipun nilai skornya berbeda. Namun, macro F1 tertinggi pada threshold 0,5 diperoleh LightGBM B sebesar 0,320721, bukan LightGBM D yang memperoleh 0,293156. LightGBM D mempunyai recall lebih tinggi daripada B (0,515089 dibandingkan 0,368496), tetapi precision lebih rendah (0,213862 dibandingkan 0,298800). Model terpilih tetap LightGBM D sesuai keputusan validasi; hasil test tidak digunakan untuk mengganti kandidat atau kriteria seleksi.
+
+AP sebesar 0,310531 bukan accuracy sebesar 31,0531\%. Accuracy biner LightGBM D adalah 0,923660, tetapi prediksi seluruh label negatif menghasilkan accuracy lebih tinggi, yaitu 0,960970, dengan recall dan macro F1 nol. Pembanding diagnostik ini memperlihatkan bahwa ketepatan terhadap kelas negatif yang dominan dapat menghasilkan accuracy tinggi tanpa menemukan label positif. Karena itu, accuracy dibaca bersama AP, precision, recall, dan macro F1, bukan sebagai satu-satunya ukuran keberhasilan.
+
+\subsection{Analisis Tambahan dengan Threshold OOF}
+\begin{table}[htbp]
+\centering
+\caption{Hasil test pada threshold per label yang dipilih dari prediksi OOF}
+\label{tab:test_ambang_oof}
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lrrrrr}
+\toprule
+Kandidat & Accuracy & Specificity & Precision & Recall & Macro F1 \\
+\midrule
+XGBoost A & 0,936083 & 0,948496 & 0,239724 & 0,373846 & 0,275833 \\
+XGBoost B & 0,941843 & 0,954948 & 0,278490 & 0,393723 & 0,309717 \\
+XGBoost C & 0,940542 & 0,953742 & 0,264645 & 0,380515 & 0,293362 \\
+XGBoost D & 0,945326 & 0,958995 & 0,305135 & 0,408728 & 0,327241 \\
+LightGBM A & 0,939242 & 0,953475 & 0,246341 & 0,358362 & 0,276695 \\
+LightGBM B & 0,943729 & 0,956450 & 0,281377 & 0,398125 & 0,315920 \\
+LightGBM C & 0,940247 & 0,953231 & 0,267423 & 0,402428 & 0,300816 \\
+LightGBM D & 0,945002 & 0,957765 & 0,303265 & 0,411890 & 0,330419 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Threshold tambahan dipilih hanya dari rata-rata prediksi out-of-fold (OOF) training sebelum evaluasi test, bukan dicari pada test. AP dan AUROC tetap sama dengan hasil utama karena skor model tidak berubah. Tabel~\ref{tab:test_ambang_oof} tidak menggantikan pelaporan threshold utama 0,5.
+
+Pada LightGBM D, threshold OOF menaikkan macro F1 dari 0,293156 menjadi 0,330419 dan precision dari 0,213862 menjadi 0,303265, sementara recall turun dari 0,515089 menjadi 0,411890. Rata-rata jumlah label yang diprediksi per molekul turun dari 9,356 menjadi 6,372; rata-rata label tercatat pada test adalah 4,254. Perubahan tersebut menunjukkan pertukaran antara ketepatan prediksi positif dan cakupan contoh positif, bukan perbaikan seluruh aspek.
+
+Threshold OOF tidak selalu meningkatkan macro F1 test. Pada XGBoost B, nilainya turun dari 0,311835 menjadi 0,309717; pada LightGBM A dan B, nilainya turun dari 0,277184 menjadi 0,276695 dan dari 0,320721 menjadi 0,315920. Threshold yang dipilih dari validasi tidak menjamin peningkatan pada semua kandidat atau data lain.
+
+Gambar~\ref{fig:tradeoff_ambang} menampilkan pertukaran precision, recall, dan F1 pada seluruh kandidat dengan skala warna yang sama. Panel kiri mempertahankan threshold utama, sedangkan panel kanan hanya menunjukkan analisis tambahan. Perubahan warna antarpanel tidak menyatakan perubahan AP.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{assets/pdf/tradeoff_ambang.pdf}
+\caption[Perbandingan metrik pada threshold utama dan threshold OOF]{Precision, recall, dan F1 test yang dirata-ratakan per label pada threshold utama 0,5 dan threshold tambahan OOF. Skala warna bersama 0--0,6 mencakup seluruh nilai yang ditampilkan. Angka dibulatkan tiga desimal; threshold OOF tidak menggantikan hasil utama.}
+\label{fig:tradeoff_ambang}
+\end{figure}
+
+\section{Pengaruh Deskriptor, Optimasi, dan Variasi Label}
+\subsection{Perbandingan Kondisi dalam Setiap Algoritma}
+Kontras B--A menilai tambahan delapan deskriptor pada baseline dengan Morgan tetap 2.048 bit. Kontras D--C menilai representasi gabungan pada anggaran tuning yang sama. Kontras C--A dan D--B menilai perubahan dari baseline ke konfigurasi hasil Optuna pada representasi yang tetap. Selisih berikut dihitung dari angka presisi penuh, sehingga dapat sedikit berbeda dari pengurangan angka tabel yang telah dibulatkan.
+
+\begin{table}[htbp]
+\centering
+\caption{Selisih kinerja antar-kondisi; tanda negatif menyatakan penurunan}
+\label{tab:kontras_kandidat}
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{llrrrr}
+\toprule
+Algoritma & Kontras & $\Delta$ AP CV & $\Delta$ AP test & $\Delta$ F1 (0,5) & $\Delta$ F1 (OOF) \\
+\midrule
+XGBoost & B--A & 0,027823 & 0,039081 & 0,036936 & 0,033883 \\
+XGBoost & D--C & 0,029909 & 0,035798 & 0,035533 & 0,033878 \\
+XGBoost & C--A & 0,017460 & 0,023986 & -0,004530 & 0,017529 \\
+XGBoost & D--B & 0,019547 & 0,020703 & -0,005933 & 0,017524 \\
+LightGBM & B--A & 0,031530 & 0,043543 & 0,043537 & 0,039225 \\
+LightGBM & D--C & 0,030617 & 0,034071 & 0,040937 & 0,029604 \\
+LightGBM & C--A & 0,017433 & 0,023624 & -0,024965 & 0,024121 \\
+LightGBM & D--B & 0,016520 & 0,014152 & -0,027565 & 0,014499 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Penambahan deskriptor meningkatkan rata-rata AP validasi dan AP test pada kedua algoritma, baik pada baseline maupun setelah tuning. Pada baseline, AP test XGBoost bertambah 0,039081 dan LightGBM bertambah 0,043543. Meskipun demikian, recall XGBoost B lebih rendah daripada A sebesar 0,015472. Pada kondisi hasil tuning, recall D juga lebih rendah daripada C pada XGBoost sebesar 0,011094 dan LightGBM sebesar 0,031388. Dengan demikian, manfaat deskriptor pada AP tidak berarti seluruh metrik meningkat.
+
+Optuna meningkatkan AP validasi dan AP test pada kedua representasi, tetapi macro F1 pada threshold 0,5 menurun untuk seluruh kontras C--A dan D--B. Penurunan paling besar pada kontras tersebut terjadi pada LightGBM D--B, yaitu 0,027565. Accuracy, specificity, dan precision juga menurun pada keempat kontras tuning, sedangkan recall meningkat. Hasil ini konsisten dengan perbedaan objektif: pencarian menggunakan AP, bukan F1 atau accuracy pada threshold 0,5. Temuan tersebut tidak membuktikan bahwa TPE lebih baik daripada strategi pencarian lain karena tidak tersedia kontrol random search atau grid search.
+
+\begin{table}[htbp]
+\centering
+\caption{Selisih AP validasi berpasangan akibat tambahan deskriptor}
+\label{tab:deskriptor_berpasangan}
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{llrrr}
+\toprule
+Algoritma & Kontras & Mean selisih & SD selisih & Seed positif \\
+\midrule
+XGBoost & B--A & 0,027823 & 0,002013 & 5/5 \\
+XGBoost & D--C & 0,029909 & 0,001762 & 5/5 \\
+LightGBM & B--A & 0,031530 & 0,002164 & 5/5 \\
+LightGBM & D--C & 0,030617 & 0,002564 & 5/5 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Seluruh kontras deskriptor pada Tabel~\ref{tab:deskriptor_berpasangan} positif pada lima seed, tanpa selisih negatif atau nol. Rincian per seed disajikan pada Lampiran~\ref{app:rincian_evaluasi}. Hasil ini merupakan konsistensi deskriptif antarpembagian, bukan pengujian signifikansi statistik.
+
+Studi C dan D dituning terpisah. Pada pelaksanaan ini parameter terbaik XGBoost C dan D kebetulan identik, sedangkan parameter LightGBM berbeda. Oleh karena itu, D--C pada LightGBM merepresentasikan perubahan fitur beserta konfigurasi hasil pencariannya dan tidak mengisolasi pengaruh deskriptor pada parameter identik. Tidak dilakukan ablasi per deskriptor, sehingga manfaat tidak dapat diatribusikan kepada salah satu dari delapan deskriptor secara tersendiri.
+
+Gambar~\ref{fig:kontras_ap_f1} menempatkan garis nol sebagai pembeda peningkatan dan penurunan. Seluruh kontras pada panel AP test berada di sisi positif, tetapi empat kontras tuning pada panel F1 threshold 0,5 berada di sisi negatif. Dengan demikian, arah perubahan tetap terlihat tanpa menyamakan AP dengan F1.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{assets/pdf/kontras_ap_f1.pdf}
+\caption[Selisih AP dan F1 test antar-kondisi]{Selisih AP test dan macro F1 test pada threshold 0,5 dalam setiap algoritma. B--A dan D--C membandingkan representasi; C--A dan D--B membandingkan baseline dengan hasil tuning. Nilai adalah selisih skor, bukan persentase perubahan.}
+\label{fig:kontras_ap_f1}
+\end{figure}
+
+\subsection{Variasi Kinerja Antarlabel}
+Gambar~\ref{fig:heatmap_ap_label} memperlihatkan AP test seluruh kandidat pada 20 label dengan frekuensi training tertinggi. Urutan label ditentukan dari training, bukan dari kinerja test. Angka dalam kurung menunjukkan dukungan positif test; warna lebih gelap menunjukkan AP lebih tinggi pada skala yang sama. Tidak ada satu kandidat yang memiliki AP tertinggi pada setiap label, sehingga ringkasan macro perlu dilengkapi pembacaan per label.
+
+\begin{figure}[p]
+\centering
+\includegraphics[width=\textwidth,height=0.72\textheight,keepaspectratio]{assets/pdf/heatmap_ap_label.pdf}
+\caption[Heatmap AP test per label untuk delapan kandidat]{AP test delapan kandidat pada 20 label dengan frekuensi training tertinggi, dibulatkan dua desimal. Nilai menggunakan skala warna 0--1; dukungan positif test tercantum di samping label. Rincian seluruh 109 label tetap disajikan pada lampiran.}
+\label{fig:heatmap_ap_label}
+\end{figure}
+
+\begin{table}[htbp]
+\centering
+\caption{Contoh kinerja label LightGBM D pada threshold 0,5}
+\label{tab:contoh_label}
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lrrr}
+\toprule
+Label & Positif test & AP & F1 \\
+\midrule
+fruity & 511 & 0,794976 & 0,714154 \\
+floral & 374 & 0,650814 & 0,633371 \\
+sweet & 327 & 0,436889 & 0,459584 \\
+woody & 240 & 0,610696 & 0,574545 \\
+vanilla & 28 & 0,307348 & 0,265306 \\
+musk like & 22 & 0,517758 & 0,464286 \\
+tea & 13 & 0,029003 & 0,040000 \\
+narcissus & 2 & 0,013459 & 0,000000 \\
+popcorn & 3 & 0,916667 & 0,461538 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Contoh pada Tabel~\ref{tab:contoh_label} dipilih untuk memperlihatkan variasi dukungan serta hasil, bukan hanya label dengan kinerja tinggi. Label fruity mempunyai 511 contoh positif dan AP 0,794976, sedangkan tea mempunyai 13 contoh positif dan AP 0,029003. Popcorn memperoleh AP 0,916667, tetapi hanya memiliki tiga contoh positif; angka ini tidak cukup untuk menyatakan kinerja stabil pada populasi luas. Narcissus memiliki dua contoh positif dengan F1 nol pada threshold utama. Oleh sebab itu, skor tinggi maupun rendah perlu dibaca bersama dukungan label.
+
+AP seluruh 109 label untuk delapan kandidat, beserta dukungan positif dan selisih B--A serta D--C, dicantumkan pada Lampiran~\ref{app:rincian_evaluasi}. Rata-rata macro memberi bobot sama kepada label dengan banyak maupun sedikit contoh. Ketidakseimbangan serta anotasi yang tidak lengkap membatasi makna kesalahan: prediksi yang tidak cocok dengan anotasi belum otomatis merupakan kesalahan persepsi aroma yang terverifikasi melalui uji sensori.
+
+\subsection{Posisi terhadap Eksperimen Pendahuluan dan Literatur}
+Eksperimen pendahuluan menggunakan Morgan 1.024 bit dengan lima deskriptor, sedangkan eksperimen utama menggunakan Morgan 2.048 bit dengan delapan deskriptor. Riwayat tersebut dipertahankan sebagai konteks pengembangan, bukan pembanding utama. Karena panjang fingerprint dan paket deskriptor berubah bersamaan, perbandingan keduanya tidak mengisolasi lima versus delapan deskriptor dan tidak membuktikan bahwa delapan deskriptor lebih baik daripada lima.
+
+Suh \textit{et al.} mengevaluasi delapan deskriptor sebagai representasi tersendiri serta membandingkan Random Forest, XGBoost, dan LightGBM \cite{suh2025}. Gabungan Morgan dengan delapan deskriptor merupakan eksperimen penelitian ini. Perbedaan kohort, label, pembagian, dan agregasi metrik membuat hasil penelitian ini tidak dapat digunakan untuk menyatakan keunggulan langsung atas Suh. Bukti komparatif utama tetap berasal dari delapan kandidat pada dataset dan prosedur yang sama.
+
+\section{Integritas Hasil dan Verifikasi Integrasi}
+Pemeriksaan integritas menunjukkan kecocokan 1.199 berkas hasil dengan manifest penyelesaian, 55 berkas kode dengan identitas pelaksanaan, serta 261 berkas yang dikunci sebelum fitting final. Tersedia 872 model biner dari delapan kandidat dengan masing-masing 109 label. Metrik test seluruh kandidat pada kedua jenis threshold telah dihitung ulang dari target, skor, dan keputusan tersimpan; hasilnya cocok dengan ringkasan. Pemeriksaan ini mendukung konsistensi artefak dan perhitungan, bukan peningkatan accuracy atau bukti keberhasilan aplikasi.
+
+Manifest model terpilih mengacu pada LightGBM D dengan 2.056 fitur dan 109 label. Spesifikasi fitur, urutan label, threshold, serta identitas model dicatat dan diperiksa pada jalur aplikasi. Seluruh 109 model biner telah diekspor ke ONNX. Pada 32 vektor training yang dibekukan untuk pemeriksaan kesetaraan, keluaran setiap model ONNX sesuai dengan model LightGBM asal dalam toleransi relatif $10^{-5}$ dan absolut $10^{-6}$; keputusan pada threshold 0,5 juga sama. Pemeriksaan checksum menunjukkan kecocokan seluruh 109 aset ONNX dengan manifest aplikasi. Bukti ini mendukung kesetaraan konversi pada cakupan vektor yang diuji, bukan peningkatan kinerja prediksi.
+
+Prototipe Android Essenza menggunakan layanan RDKit untuk membentuk fitur dari SMILES dan menjalankan inferensi ONNX pada perangkat. Alur tersebut diuji pada perangkat Android fisik. Pada contoh vanilin, aplikasi menampilkan 16 label dengan skor tertinggi untuk vanilla sebesar 0,99; jumlah label dan pembulatan skor cocok dengan inferensi Python untuk molekul yang sama. Pengujian ini menunjukkan jalur integrasi berfungsi pada contoh tersebut, tetapi tidak menggantikan evaluasi model pada data test maupun membuktikan manfaat bagi pengguna. Layanan fitur tetap diperlukan untuk prediksi baru; pengujian iOS, pengukuran kinerja perangkat secara menyeluruh, dan kesiapan produksi belum dilakukan. Skor model bukan intensitas aroma atau komposisi parfum.
+
+\section{Keterbatasan Penelitian}
+\begin{enumerate}
+    \item \textbf{Data dan anotasi.} Cakupan lima sumber tidak menjamin semua molekul digunakan khusus dalam parfum. Harmonisasi istilah belum divalidasi pakar sensori, dan anotasi yang tidak tercatat bukan negatif sensori terverifikasi. Dukungan label tidak seimbang; hasil label dengan sedikit contoh positif lebih sensitif terhadap perubahan sampel.
+    \item \textbf{Generalisasi.} Pembagian kelompok mengurangi kebocoran struktur atau fingerprint identik, tetapi bukan pemisahan seluruh scaffold atau kemiripan parsial. Morgan tanpa kiralitas membatasi informasi stereokimia.
+    \item \textbf{Bias evaluasi.} Data test pernah diperiksa pada iterasi pengembangan sebelumnya. Penguncian keputusan pada eksperimen utama tidak menghapus riwayat akses tersebut. Validasi berulang bukan nested CV; threshold dipilih dari prediksi validasi pengembangan. Hasil bersifat eksploratori, bukan konfirmasi pada data eksternal yang belum pernah diperiksa.
+    \item \textbf{Ketidakpastian dan optimasi.} Tidak dilakukan pengujian signifikansi statistik. Simpangan baku lima seed bukan interval kepercayaan independen. Anggaran tuning sama menghasilkan jumlah trial berbeda; hasil terbaik hanya berlaku pada pencarian yang selesai, bukan optimum global.
+    \item \textbf{Batas atribusi.} Tidak tersedia ablasi individual deskriptor, kontrol tanpa bobot kelas, atau pembanding random/grid search. D--C dapat melibatkan perbedaan parameter hasil tuning. Perbandingan dengan eksperimen pendahuluan juga mengubah panjang Morgan, sehingga tidak mengisolasi jumlah deskriptor.
+    \item \textbf{Penerapan.} Integrasi pada prototipe Android telah diuji secara teknis pada cakupan terbatas. Kalibrasi skor, validasi sensori, manfaat pengguna, pengujian iOS, dan kesiapan produksi belum dibuktikan. Skor bukan intensitas aroma atau komposisi parfum. Tidak dilakukan pseudo-labeling, pelatihan tambahan, atau perubahan dataset setelah eksperimen utama ini.
+\end{enumerate}

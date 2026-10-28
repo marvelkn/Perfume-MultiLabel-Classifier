@@ -1,0 +1,214 @@
+\chapter{\babTiga}
+
+\section{Rancangan Penelitian}
+Penelitian ini membandingkan XGBoost dan LightGBM menggunakan Morgan fingerprint 2.048 bit, dengan dan tanpa delapan deskriptor RDKit, serta optimasi Optuna. Seluruh kandidat menggunakan dataset, label, kelompok, dan pembagian data yang sama. Pelatihan dan evaluasi delapan kandidat telah diselesaikan sesuai protokol; uraian berikut menjelaskan prosedur yang digunakan tanpa penambahan eksperimen setelah hasil test diperiksa.
+
+Delapan deskriptor pada studi Suh diuji sebagai representasi tersendiri bersama dua representasi fingerprint, masing-masing pada Random Forest, XGBoost, dan LightGBM \cite{suh2025}. Penggabungan Morgan dengan delapan deskriptor dalam penelitian ini merupakan rancangan eksperimen tersendiri. Perbandingan dilakukan pada delapan kandidat internal dengan dataset yang sama, bukan untuk mereproduksi skor artikel Suh.
+
+\begin{table}[htbp]
+\centering
+\caption{Kondisi eksperimen untuk masing-masing algoritma}
+\label{tab:kondisi_perfume_five}
+\small
+\begin{tabular}{llrl}
+\toprule
+Kondisi & Representasi & Fitur & Pengaturan model \\
+\midrule
+A & Morgan 2.048 bit & 2.048 & Baseline 100 pohon \\
+B & Morgan + 8 deskriptor & 2.056 & Baseline 100 pohon \\
+C & Morgan 2.048 bit & 2.048 & Optuna, 8 jam \\
+D & Morgan + 8 deskriptor & 2.056 & Optuna, 8 jam \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Tabel~\ref{tab:kondisi_perfume_five} memuat empat kondisi yang diterapkan pada XGBoost dan LightGBM, sehingga terdapat delapan kandidat. Selisih B--A menguji tambahan deskriptor pada baseline; C--A dan D--B menguji tuning pada representasi yang tetap. D--C membandingkan tambahan deskriptor dengan anggaran tuning yang sama, tetapi parameter hasil pencarian dapat berbeda. Seluruh perbandingan tersebut memakai Morgan 2.048 bit dan menilai delapan kandidat pada pembagian data yang sama.
+
+\begin{figure}[p]
+\centering
+\resizebox{\textwidth}{!}{\def\alurEmbed{}\input{assets/pdf/alur_penelitian_lima_sumber_terperinci.tex}}
+\caption{Alur penelitian hingga integrasi dan pengujian teknis prototipe Essenza.}
+\label{fig:alur_penelitian_baru}
+\end{figure}
+
+Gambar~\ref{fig:alur_penelitian_baru} menunjukkan urutan pengolahan lima sumber data hingga integrasi dan pengujian teknis prototipe Essenza. Rekaman dari GoodScents, IFRA 2019, Leffingwell, Arctander 1960, dan Sigma-Aldrich 2014 dicocokkan berdasarkan pengenal yang tersedia. Rekaman dengan identitas atau SMILES yang tidak memenuhi kriteria dikeluarkan. SMILES yang valid dikanonisasi, rekaman duplikat digabungkan, dan istilah aroma diselaraskan. Dari hasil kurasi diperoleh 6.686 molekul. Molekul dengan identitas struktur nonstereokimia atau Morgan 1.024 bit yang identik ditempatkan dalam kelompok yang sama sebelum data dibagi menjadi 5.353 molekul training dan 1.333 molekul test. Pemilihan label dilakukan hanya pada training dan menghasilkan 109 label yang memenuhi syarat dukungan kelas. Anotasi label tersebut kemudian diubah menjadi target multi-hot.
+
+RDKit digunakan untuk menghitung Morgan fingerprint 2.048 bit dari SMILES kanonik. Delapan deskriptor molekuler ditambahkan pada kondisi tertentu sehingga terbentuk dua representasi, yaitu 2.048 dan 2.056 fitur. Urutan molekul, label, dan indeks pembagian diperiksa agar seluruh kandidat menerima data yang sama. Pada cabang XGBoost dan LightGBM, kondisi A dan B menggunakan parameter baseline, sedangkan kondisi C dan D menjalani optimasi hiperparameter menggunakan Optuna. A dan C menggunakan Morgan saja; B dan D menggunakan Morgan bersama delapan deskriptor. Setiap label dipelajari melalui pengklasifikasi biner dengan bobot kelas yang dihitung dari bagian pelatihan. Dengan demikian, terdapat delapan kandidat. Percabangan pada gambar menunjukkan rancangan perbandingan, bukan bahwa seluruh pelatihan berlangsung serentak.
+
+Setiap kandidat dievaluasi melalui lima pengulangan validasi berkelompok dengan lima fold per label. Model yang dilatih pada setiap fold hanya digunakan untuk menghasilkan prediksi validasi; model tersebut tidak dipakai sebagai model pengujian akhir. Rata-rata macro Average Precision (AP) validasi dari delapan kandidat kemudian dibandingkan pada pembagian yang sama. Kandidat terpilih ditetapkan berdasarkan hasil validasi sebelum evaluasi test pada tahap ini.
+
+Setelah pemilihan kandidat, masing-masing dari delapan kandidat dilatih kembali dari awal menggunakan seluruh data training dan konfigurasi yang telah ditetapkan. Pelatihan ulang ini dilakukan untuk seluruh kandidat agar hasil pengujian kedelapannya dapat dilaporkan. Setiap model hasil pelatihan ulang kemudian dievaluasi pada data test yang tetap. Hasil test dibandingkan menurut algoritma, representasi fitur, dan penggunaan Optuna, tetapi tidak digunakan untuk memilih ulang model terpilih. Kandidat yang telah dipilih berdasarkan validasi adalah LightGBM D. Metrik dengan threshold utama 0,5 dilaporkan terpisah dari analisis tambahan menggunakan threshold yang ditentukan dari prediksi \textit{out-of-fold}.
+
+Model LightGBM D beserta urutan label, spesifikasi fitur, dan threshold prediksi disiapkan sebagai paket penelitian untuk mendukung inferensi. Pada prototipe Android Essenza, layanan RDKit menghitung fitur dari SMILES, sedangkan model hasil ekspor ONNX menjalankan inferensi pada perangkat. Pemeriksaan kesesuaian fitur dan keluaran model serta pengujian alur pada perangkat dilakukan secara terbatas. Integrasi tersebut menunjukkan bahwa jalur teknis dapat dijalankan pada cakupan uji, bukan peningkatan kinerja prediksi atau manfaat aplikasi bagi pengguna. Data test pernah diakses pada pengembangan sebelumnya; karena itu, hasil pengujiannya ditafsirkan sebagai evaluasi eksploratori, bukan pembuktian pada data yang sepenuhnya belum pernah diperiksa.
+
+\section{Akuisisi dan Kurasi Data}
+\subsection{Pemilihan Lima Sumber}
+Sumber dibatasi pada GoodScents, IFRA 2019, Leffingwell, Arctander 1960, dan Sigma-Aldrich 2014 melalui Pyrfume \cite{hamel2024,pyrfumeFive2026}. Kelima sumber digunakan untuk memperoleh identitas senyawa, struktur molekul, dan anotasi aroma.
+
+Kriteria pemilihan sumber adalah tersedianya anotasi aroma dan pengenal yang dapat dihubungkan dengan struktur molekul pada arsip tetap. Tabel~\ref{tab:inklusi_sumber} merangkum bentuk bukti yang tersedia, bukan peringkat mutu atau kelengkapan sumber \cite{pyrfumeFive2026}.
+
+\begin{table}[htbp]
+\centering
+\caption{Dasar penggunaan lima sumber pada arsip penelitian}
+\label{tab:inklusi_sumber}
+\small
+\begin{tabular}{>{\raggedright\arraybackslash}p{0.23\textwidth}>{\raggedright\arraybackslash}p{0.65\textwidth}}
+\toprule
+Sumber & Anotasi dan jalur pencocokan yang tersedia \\
+\midrule
+GoodScents & Teks deskriptor; stimulus dihubungkan dengan pengenal dan struktur molekul \\
+IFRA 2019 & Tiga kolom deskriptor sebagai kosakata target; tersedia hubungan stimulus--molekul \\
+Leffingwell & Indikator biner deskriptor aroma dan hubungan stimulus--molekul \\
+Arctander 1960 & Teks label aroma; identitas dicocokkan melalui tabel stimulus dan molekul \\
+Sigma-Aldrich 2014 & Indikator biner aroma; pencocokan identitas dibantu hubungan CAS dari sumber terpilih \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Seluruh sumber diproses menggunakan aturan kurasi yang sama sebelum digabungkan. Cakupan data relevan untuk kajian aroma dan bahan pewangi, tetapi penggunaan setiap molekul secara khusus dalam parfum belum diverifikasi. Penelitian membatasi keluaran pada prediksi label aroma molekul dan tidak menentukan fungsi, keamanan, atau penggunaan komersial bahan.
+
+Data diperoleh dari salinan tetap arsip Pyrfume untuk menjaga konsistensi sumber selama penelitian. Identitas sumber dan informasi pemeriksaan integritas disimpan untuk mendukung reproduktibilitas. Akuisisi dibatasi pada tabel dari lima sumber yang telah ditetapkan.
+
+\subsection{Identitas, Missing Values, dan Struktur}
+Pencocokan tabel memakai Stimulus, CID, dan CAS sesuai ketersediaannya, bukan posisi baris. Sigma dihubungkan melalui CAS yang dapat diverifikasi dari sumber terpilih. Alias CAS yang tidak terselesaikan atau bertentangan dicatat sebagai pengecualian.
+
+RDKit memeriksa validitas SMILES serta jumlah fragmen. Identitas atau struktur kosong, struktur tidak valid, dan struktur multifragmen dikeluarkan. Struktur tidak diimputasi karena imputasi angka tidak menghasilkan identitas molekul yang sah. SMILES dikanonisasi menggunakan RDKit untuk menyeragamkan penulisan struktur dengan tetap mempertahankan informasi stereokimia. Pada tahap deduplikasi, hanya rekaman dengan SMILES kanonik identik yang digabungkan; bentuk tautomer, protonasi, dan stereoisomer tidak disatukan secara khusus. Himpunan label dari rekaman yang digabungkan disatukan dan asal setiap anotasi disimpan. Pembedaan antara penyeragaman penulisan dan standardisasi kimia diperlukan dalam kurasi data molekul \cite{fourches2016}. Penelitian tidak melakukan netralisasi, normalisasi tautomer, atau pemilihan fragmen terbesar secara otomatis. Morgan tanpa kiralitas tidak membedakan informasi stereokimia meskipun informasi tersebut masih tercatat pada SMILES.
+
+\subsection{Harmonisasi dan Encoding Label}
+Kamus target berasal dari tiga kolom descriptor IFRA 2019, yang menghasilkan 184 istilah teramati pada arsip sumber. GoodScents dan Arctander memuat teks label; Leffingwell dan Sigma menggunakan indikator biner. Kolom metadata teks tidak dibaca sebagai indikator biner. Nilai behavior yang tidak sesuai dicatat dan rekamannya dikeluarkan.
+
+Teks dinormalisasi, lalu dicocokkan langsung atau melalui sinonim eksplisit. Istilah tanpa padanan disimpan pada daftar audit. Tidak ada pencocokan fuzzy atau pemetaan rasa menjadi aroma secara otomatis. Rekaman tanpa label hasil pemetaan dikeluarkan. Pemetaan ini merupakan aturan penelitian dan belum setara dengan validasi pakar sensori. Normalisasi penulisan mencakup huruf kecil, tanda baca, dan spasi; aturan sinonim baru dipakai ketika pencocokan langsung gagal dan target tersedia dalam kamus. Contohnya, \textit{jasmine} dipetakan ke \textit{jasmin}, sedangkan \textit{tropical} dipetakan ke \textit{tropical fruit}. Contoh kedua memerlukan tinjauan makna karena menambahkan kekhususan istilah, sehingga tidak dianggap sekadar perbedaan ejaan. Pemetaan seperti \textit{animal} ke \textit{animal like} dan \textit{musk} ke \textit{musk like} juga dicatat untuk tinjauan ahli. Penggabungan anotasi memperluas cakupan label, tetapi dapat membawa ketidakkonsistenan antarsumber.
+
+Matriks multi-hot berisi satu jika label tercatat dan nol bila tidak tercatat. Nol bukan bukti eksperimen bahwa aroma tidak ada. Setelah pembagian awal, label dipilih jika mempunyai sedikitnya 30 contoh positif dan dua negatif pada training. Angka 30 merupakan batas dukungan yang ditetapkan dalam rancangan eksperimen, bukan jumlah optimal yang telah dibuktikan. Seluruh label yang memenuhi kriteria tersebut digunakan dalam pemodelan. Baris yang menjadi semua nol setelah seleksi tetap dipertahankan. Penyaringan ini cenderung mempertahankan label yang lebih umum. Precision dan recall mengukur kesesuaian terhadap anotasi yang tersedia, sehingga anotasi positif yang tidak tercatat dapat memengaruhi interpretasi kesalahan model; keduanya bukan pengukuran langsung kebenaran sensori.
+
+\section{Pembagian Data dan Validasi}
+Pembagian training--test yang telah dibekukan digunakan kembali tanpa perubahan. Pembagian tersebut dibuat menggunakan \texttt{GroupShuffleSplit} dengan seed 42 dan proporsi test 20\% pada unit kelompok \cite{sklearngroupshuffle2026}. Kelompok dibentuk secara transitif dari struktur yang identik setelah informasi stereokimia dihapus atau Morgan 1.024 bit yang identik. Kelompok yang sama digunakan pada seluruh kondisi pemodelan dengan Morgan 2.048 bit. Karena proporsi dihitung terhadap kelompok, proporsi jumlah molekul tidak harus tepat 20\%. Dari 6.686 molekul dalam 5.363 kelompok, pembagian menghasilkan 5.353 data training dan 1.333 data test tanpa irisan kelompok maupun Morgan fingerprint identik antarpartisi.
+
+Kelompok terbesar memuat 38 molekul. Kesamaan vektor hasil hashing tidak membuktikan identitas kimia; pembentukan kelompok ini menjaga pemisahan menurut identitas struktur nonstereokimia atau representasi yang digunakan. Aturan tersebut bukan scaffold split maupun pengelompokan seluruh molekul yang memiliki kemiripan parsial.
+
+Pada data training, setiap label menggunakan \texttt{StratifiedGroupKFold} dengan seed 42 dan maksimum lima fold \cite{sklearnstratifiedgroup2026}. Banyak fold dibatasi berdasarkan jumlah kelompok positif dan negatif serta kelayakan kedua kelas pada setiap fold. Seluruh 109 label pada dataset penelitian memperoleh lima fold. Indeks setiap label disimpan dan digunakan secara sama oleh seluruh kondisi, serta kelompok tidak beririsan antara bagian training dan validasi pada setiap fold.
+
+Validasi tuning menggunakan fold yang telah disimpan. Setelah konfigurasi parameter setiap kandidat ditetapkan, seluruh delapan kandidat menjalani lima pengulangan grouped CV dengan seed 7, 21, 42, 84, dan 100 serta maksimum lima fold per label. Rata-rata macro AP antarpengulangan menjadi dasar pemilihan kandidat. Prediksi out-of-fold dirata-ratakan untuk menentukan threshold tambahan per label. Protokol tidak menggunakan early stopping atau pruning. Pemilihan parameter dipisahkan dari evaluasi test untuk mengurangi bias pemilihan \cite{cawley2010}; pengulangan ini bukan nested CV dan digunakan sebagai evaluasi pengembangan model.
+
+Lima fold dan lima pengulangan merupakan pengaturan evaluasi yang digunakan, dengan kompromi antara variasi pembagian yang diamati dan biaya fitting banyak model biner. Tidak dilakukan eksperimen untuk membuktikan bahwa jumlah tersebut paling optimal; kelayakan kelas pada setiap fold tetap menjadi syarat.
+
+\section{Ekstraksi Fitur dan Lingkungan}
+Morgan fingerprint radius 2 dengan 2.048 bit dan tanpa kiralitas menjadi fitur dasar. Delapan deskriptor tambahan berurutan adalah \texttt{MolWt}, \texttt{MolLogP}, \texttt{NumHDonors}, \texttt{NumHAcceptors}, \texttt{TPSA}, \texttt{NumRotatableBonds}, \texttt{HeavyAtomCount}, dan \texttt{RingCount}. Keduanya dihitung dari SMILES kanonik yang sama oleh RDKit \cite{rdkitgenerator2026,rdkitdescriptors2026}. Kondisi A/C berdimensi 2.048 dan B/D berdimensi 2.056. Matriks masukan disimpan sebagai \texttt{float32}; bit Morgan bernilai nol atau satu, sedangkan deskriptor berupa nilai numerik. Nilai deskriptor tidak finite menghentikan proses untuk diperiksa.
+
+Manifest fitur mencatat bahwa tidak ada molekul, label, atau indeks pembagian yang berubah. Identitas baris, target, serta indeks training dan test diperiksa terhadap dataset yang digunakan. Fingerprint 2.048 bit yang identik juga akan menghasilkan fingerprint 1.024 bit yang identik pada pembentukan kelompok, sehingga pemisahan kelompok tetap mencegah fingerprint identik melintasi partisi. Pemeriksaan ini mendukung konsistensi data, bukan membuktikan kinerja prediksi.
+
+Metadata menyimpan versi RDKit, urutan fitur dan label, bentuk matriks, checksum sumber, serta indeks pembagian data. Versi utama adalah NumPy 1.26.4, pandas 2.2.3, scikit-learn 1.6.1, RDKit 2026.3.4, XGBoost 2.1.4, LightGBM 4.6.0, Optuna 4.5.0, dan joblib 1.6.0. Ekstraksi untuk pelatihan dan inferensi harus menggunakan definisi dan urutan fitur yang sama; kesetaraan keluaran pada jalur inferensi perlu diperiksa terhadap model terpilih yang telah dievaluasi.
+
+\section{Model dan Optimasi Optuna}
+Binary Relevance membentuk satu pengklasifikasi biner per label \cite{tsoumakas2007}. Baseline kedua algoritma menggunakan 100 pohon. XGBoost dan LightGBM menerima bobot sampel seimbang dengan aturan yang sama, yaitu $w_c=N/(2N_c)$, dengan $N$ sebagai jumlah sampel pada bagian pelatihan dan $N_c$ sebagai jumlah sampel kelas $c$ pada bagian tersebut. Rumus tersebut mengikuti prinsip pembobotan kelas seimbang untuk target biner \cite{sklearnweights2026}. Bobot dihitung kembali pada setiap bagian pelatihan fold dan pada fitting final. Aturan ini berlaku pada seluruh kondisi A--D. Oversampling dan MLSMOTE tidak digunakan. Tidak ada kondisi tanpa bobot, sehingga penelitian tidak menyimpulkan keunggulan pembobotan terhadap pelatihan tanpa bobot.
+
+\begin{table}[htbp]
+\centering
+\caption{Parameter baseline A/B pada versi pustaka yang digunakan}
+\label{tab:baseline_efektif}
+\small
+\begin{tabular}{>{\raggedright\arraybackslash}p{0.38\textwidth}ll}
+\toprule
+Parameter & XGBoost & LightGBM \\
+\midrule
+\texttt{n\_estimators} & 100 & 100 \\
+\texttt{learning\_rate} & 0,3 & 0,1 \\
+\texttt{max\_depth} & 6 & $-1$ (tidak dibatasi) \\
+\texttt{num\_leaves} & -- & 31 \\
+\texttt{min\_child\_weight} & 1 & 0,001 \\
+\texttt{min\_child\_samples} & -- & 20 \\
+\texttt{subsample} & 1 & 1 \\
+\texttt{colsample\_bytree} & 1 & 1 \\
+\texttt{reg\_alpha} / \texttt{reg\_lambda} & 0 / 1 & 0 / 0 \\
+\texttt{gamma} / \texttt{min\_split\_gain} & 0 / -- & -- / 0 \\
+\texttt{subsample\_freq} & -- & 0 \\
+\texttt{random\_state} / \texttt{n\_jobs} & 42 / 6 & 42 / 6 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Tabel~\ref{tab:baseline_efektif} merinci pengaturan baseline yang dicocokkan dengan kode dan versi pustaka pada protokol penelitian. Jumlah pohon, seed, dan jumlah thread ditetapkan eksplisit; parameter kapasitas lainnya mengikuti default XGBoost 2.1.4 dan LightGBM 4.6.0. XGBoost menggunakan \texttt{tree\_method=hist} dan \texttt{eval\_metric=logloss}; LightGBM memakai \texttt{boosting\_type=gbdt} dengan keluaran log dinonaktifkan melalui \texttt{verbosity=-1}. Keduanya melakukan klasifikasi biner. Nilai 100 pohon adalah titik pembanding operasional, bukan bukti kesamaan kapasitas atau kompleksitas kedua algoritma.
+
+Optuna memakai TPE, seed 42, dengan studi terpisah untuk C dan D pada setiap algoritma \cite{akiba2019,bergstra2011}. TPE menggunakan 10 trial awal, 24 kandidat expected improvement, dan pengaturan nonmultivariat sesuai protokol. Satu kombinasi parameter berlaku untuk semua label dalam satu trial. Objektif adalah:
+\addequation{Objektif validasi silang Optuna}{
+\begin{equation}
+J(\theta)=\frac{1}{L}\sum_{j=1}^{L}
+\left(\frac{1}{K_j}\sum_{k=1}^{K_j}AP_{j,k}(\theta)\right).
+\label{eq:optuna_objective}
+\end{equation}
+}
+$L$ adalah jumlah label terpilih dari training; pada dataset penelitian $L=109$ dan $K_j=5$. AP dirata-ratakan terlebih dahulu antarfold untuk setiap label, kemudian antarlabel dengan bobot yang sama. Rata-rata tersebut tidak dibobot menurut banyak sampel atau frekuensi label. Untuk seleksi kandidat, nilai $J$ dihitung pada setiap pengulangan dan dirata-ratakan atas lima seed. Simpangan baku antarseed menggunakan simpangan baku sampel. Nilai seleksi ini berbeda dari AP yang dihitung langsung atas gabungan seluruh prediksi out-of-fold.
+
+\begin{table}[htbp]
+\centering
+\caption{Ruang pencarian hiperparameter XGBoost dan LightGBM}
+\label{tab:ruang_optuna_baru}
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{>{\raggedright\arraybackslash}p{0.30\textwidth}ll}
+\toprule
+Parameter & XGBoost & LightGBM \\
+\midrule
+\multicolumn{3}{l}{\textit{Dioptimasi pada kedua algoritma}} \\
+\texttt{n\_estimators} & 100--1.600; langkah 100 & 100--1.600; langkah 100 \\
+\texttt{learning\_rate} & 0,005--0,20 (log) & 0,005--0,20 (log) \\
+\texttt{max\_depth} & 3--8 (integer) & 3--8 (integer) \\
+\texttt{colsample\_bytree} & 0,30--1,00 & 0,30--1,00 \\
+\texttt{subsample} & 0,60--1,00 & 0,60--1,00 \\
+\texttt{reg\_alpha} & $10^{-6}$--10 (log) & $10^{-6}$--10 (log) \\
+\texttt{reg\_lambda} & $10^{-3}$--100 (log) & $10^{-3}$--100 (log) \\
+\midrule
+\multicolumn{3}{l}{\textit{Parameter tambahan yang dioptimasi pada XGBoost}} \\
+\texttt{min\_child\_weight} & 1--30 (log) & -- \\
+\texttt{gamma} & 0--5 & -- \\
+\midrule
+\multicolumn{3}{l}{\textit{Parameter tambahan yang dioptimasi pada LightGBM}} \\
+\texttt{num\_leaves} & -- & $8$--$\min(128,2^d)$ \\
+\texttt{min\_child\_samples} & -- & 10--150 (integer) \\
+\midrule
+\multicolumn{3}{l}{\textit{Parameter tetap, bukan variabel pencarian}} \\
+\texttt{subsample\_freq} & -- & 1 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Tabel~\ref{tab:ruang_optuna_baru} menggunakan nama parameter antarmuka Python yang dipakai dalam implementasi. Rentang parameter bersama sengaja disamakan, sedangkan parameter tambahan disesuaikan dengan kendali kompleksitas setiap algoritma. Batas numerik merupakan keputusan eksperimen, bukan batas baku pustaka. Notasi log menyatakan sampling logaritmik; parameter kontinu lainnya disampling pada skala linear. Tanda -- berarti tidak dioptimasi pada algoritma tersebut, bukan menyatakan parameter atau konsep padanannya tidak tersedia.
+
+Pada LightGBM, \texttt{num\_leaves} membatasi jumlah daun dan dipilih sebagai bilangan bulat dengan batas atas yang bergantung pada kedalaman $d=\texttt{max\_depth}$. Parameter \texttt{min\_child\_samples} mengendalikan minimum jumlah data pada daun. Sebaliknya, \texttt{min\_child\_weight} pada XGBoost membatasi jumlah Hessian pada simpul anak, bukan jumlah sampel secara langsung; \texttt{gamma} mengatur minimum pengurangan fungsi kerugian untuk membuat pemisahan \cite{chen2016,lightgbmparameters2026}. Parameter tersebut tidak diperlakukan sebagai ukuran yang identik.
+
+LightGBM memakai pertumbuhan \textit{leaf-wise}, sehingga jumlah daun dan kedalaman diatur bersama \cite{lightgbmtuning2026}. Parameter \texttt{subsample\_freq}=1 ditetapkan agar subsampling baris dapat aktif ketika \texttt{subsample}<1; parameter ini tidak dicari oleh Optuna \cite{lightgbmparameters2026}. Tuning tidak menggunakan early stopping atau pruning; jumlah pohon dipilih sebagai parameter. Konfigurasi terbaik berarti AP validasi tertinggi di antara trial yang selesai dalam anggaran, bukan optimum global.
+
+Empat studi C/D dimulai sebagai studi baru dengan anggaran delapan jam tuning aktif per studi, sehingga total anggaran tuning adalah 32 jam. Masing-masing studi menggunakan satu resep awal generik yang sama untuk C dan D dalam algoritma tersebut. Batas pengaman 10.000 trial tidak digunakan sebagai target jumlah percobaan. Waktu percobaan yang terputus dan overhead putaran tuning tetap dihitung dalam anggaran. Validasi berulang dan fitting final berada di luar anggaran tuning. Anggaran yang sama tidak menyamakan jumlah trial atau kapasitas model. Tidak ada kontrol random search atau grid search, sehingga hasil tidak membuktikan keunggulan TPE terhadap kedua strategi tersebut.
+
+Resep awal generik memakai \texttt{n\_estimators}=300, \texttt{learning\_rate}=0,05, \texttt{max\_depth}=5, \texttt{colsample\_bytree}=0,8, \texttt{subsample}=0,8, \texttt{reg\_alpha}=0,01, dan \texttt{reg\_lambda}=1. Pada XGBoost ditambahkan \texttt{min\_child\_weight}=1 dan \texttt{gamma}=0. Pada LightGBM ditambahkan \texttt{min\_child\_samples}=20, \texttt{num\_leaves}=31, dan \texttt{subsample\_freq}=1. Resep awal C dan D sama dalam setiap algoritma; trial berikutnya ditentukan oleh TPE.
+
+\section{Pemilihan Model dan Evaluasi Akhir}
+Setelah validasi berulang seluruh kandidat selesai, dipilih satu kandidat terbaik pada setiap algoritma dan satu kandidat keseluruhan berdasarkan rata-rata macro AP validasi. Pada nilai yang sama dalam satu algoritma, urutan prioritas kondisi adalah A, B, C, kemudian D. Jika rata-rata kedua kandidat terbaik antaralgoritma persis sama, aturan deterministik implementasi mendahulukan XGBoost; aturan administratif ini bukan bukti keunggulan algoritma. Konfigurasi, hasil validasi, threshold tambahan, dan keputusan pemilihan dikunci. Setiap kandidat kemudian dilatih pada seluruh data training dan dievaluasi pada test secara berurutan. Model biner disimpan secara terpisah untuk setiap label.
+
+Enam metrik utama adalah accuracy biner per label, AUROC, Average Precision (AP), specificity, precision, dan recall. Keputusan biner diperoleh dengan membandingkan skor kelas positif terhadap threshold 0,5. Ringkasan menggunakan rata-rata per label dengan cakupan label valid yang konsisten. AP tanpa contoh positif bernilai nol; AUROC dan specificity pada partisi satu kelas dicatat sebagai tidak tersedia. Precision dan recall tanpa penyebut positif diberi nilai nol.
+
+Average Precision dihitung sebagai jumlah precision yang dibobot oleh kenaikan recall pada setiap threshold, bukan sebagai integral trapesium kurva precision--recall \cite{sklearnap2026}. Macro F1 ditambahkan sebagai ukuran pendukung. Accuracy adalah rata-rata ketepatan keputusan biner pada pasangan molekul--label, bukan proporsi molekul yang seluruh labelnya tepat. Prediksi seluruh label negatif dihitung sebagai pembanding diagnostik ketidakseimbangan, bukan sebagai kandidat model yang dipilih. AP dan AUROC menggunakan skor, sehingga nilainya tidak berubah hanya karena threshold keputusan diganti.
+
+Pemilihan threshold dapat disesuaikan dengan objektif F1, tetapi harus dipisahkan dari data evaluasi \cite{lipton2014,sklearnthreshold2026}. Analisis tambahan memakai threshold per label yang memaksimalkan F1 pada rata-rata prediksi out-of-fold. Grid threshold adalah 0,05 hingga 0,95 dengan langkah 0,05. Jika F1 sama, dipilih threshold yang paling dekat dengan 0,5; jika jaraknya juga sama, dipilih threshold yang lebih besar. Threshold ditetapkan sebelum evaluasi test dan dilaporkan terpisah dari hasil utama pada threshold 0,5. Prediksi berasal dari validasi pengembangan yang terkait dengan pemilihan parameter, sehingga pemilihan threshold ini tidak bebas bias seleksi. Penelitian menggunakan pencarian grid sendiri, bukan estimator tuning threshold bawaan pustaka; rumus khusus yang memerlukan probabilitas terkalibrasi tidak diterapkan. Perbandingan utama mencakup delapan kandidat serta selisih B--A, D--C, C--A, dan D--B dalam setiap algoritma. Selisih AP validasi B--A dan D--C juga diringkas secara berpasangan pada lima seed, dengan pemeriksaan kesamaan fold, rata-rata, simpangan baku sampel, dan jumlah selisih positif, negatif, atau nol. Analisis per label memakai AP test dan dukungan label untuk seluruh 109 label. Data test telah diakses pada tahap pengembangan, sehingga perbandingan ini diperlakukan sebagai analisis eksploratori.
+
+\section{Visualisasi Hasil dan Hubungan Antarlabel}
+Grafik digunakan untuk memperlihatkan pola yang sulit dibaca hanya dari tabel. Perbandingan AP menampilkan seluruh delapan kandidat, dengan hasil validasi dan test pada panel terpisah. Garis galat pada AP validasi menunjukkan simpangan baku lima pengulangan, bukan interval kepercayaan atau bukti signifikansi. Heatmap precision, recall, dan F1 memisahkan threshold utama 0,5 dari threshold tambahan OOF. Grafik selisih menampilkan perubahan positif maupun negatif. Angka rinci tetap disajikan pada tabel.
+
+Heatmap AP per label menampilkan 20 label dengan frekuensi positif training tertinggi, bukan label yang dipilih berdasarkan skor test terbaik. Pemilihan tersebut membatasi kepadatan gambar; hasil seluruh 109 label tetap tersedia pada lampiran. Dukungan positif test ditampilkan agar pembaca dapat menilai skor bersama jumlah contoh yang tersedia.
+
+Hubungan anotasi dieksplorasi menggunakan 16 label dengan frekuensi positif training tertinggi. Untuk dua label $a$ dan $b$, kemiripan Jaccard dihitung sebagai $J_{ab}=n_{ab}/(n_a+n_b-n_{ab})$, dengan $n_a$ dan $n_b$ sebagai jumlah molekul yang memiliki masing-masing label, serta $n_{ab}$ sebagai jumlah molekul yang memiliki keduanya. Jarak yang digunakan adalah $1-J_{ab}$. Ukuran ini tidak menghitung kesamaan karena kedua label sama-sama tidak tercatat \cite{scipyjaccard2026}.
+
+Pengelompokan hierarkis menggunakan \textit{average linkage}, yaitu rata-rata jarak seluruh pasangan label di antara dua kelompok \cite{scipylinkage2026}. Perhitungan memakai SciPy 1.15.3 pada anotasi 5.353 molekul training yang telah tersedia. Urutan daun disesuaikan untuk mendekatkan label bertetangga tanpa mengubah struktur penggabungan. Heatmap dan dendrogram menampilkan kedekatan relatif; jumlah kelompok tertentu tidak ditetapkan. Analisis deskriptif ini tidak mengubah label, pembagian data, fitur, model, atau pemilihan kandidat.
+
+Visualisasi tersebut berbeda dari pemetaan Suh \textit{et al.}, yang menggunakan feature importance, proyeksi UMAP--MDS, dan interpretasi pakar parfum \cite{suh2025}. Pengelompokan dalam penelitian ini hanya menggambarkan kemunculan bersama anotasi training, bukan kesamaan struktur kimia, representasi yang dipelajari model, atau kelompok aroma tervalidasi secara sensori. Cakupan sumber, ketidakseimbangan label, dan anotasi yang tidak lengkap membatasi interpretasinya.
+
+\section{Pelaksanaan dan Integrasi}
+Protokol penelitian memakai enam thread CPU untuk setiap model, dengan kandidat dijalankan berurutan. XGBoost menggunakan \texttt{tree\_method=hist}; akselerasi GPU tidak menjadi bagian rancangan. Metadata pelaksanaan mencatat enam inti CPU fisik dan versi pustaka yang sesuai dengan protokol. Durasi serta jumlah trial selesai dan terputus dilaporkan dari artefak eksperimen. Identitas prosesor, kapasitas RAM, dan hasil pengukuran suhu tidak disimpulkan dari jumlah inti tersebut. Anggaran 32 jam merupakan anggaran empat studi tuning, bukan seluruh waktu validasi berulang, fitting final, dan evaluasi.
+
+Sebelum pelatihan, sistem memeriksa checksum sumber, versi dependency, daftar label, dimensi fitur, dan validitas fold. Identitas konfigurasi dicatat agar setiap hasil dapat ditelusuri ke prosedur yang digunakan. Pemeriksaan pipeline dan fitur tidak dianggap sebagai hasil evaluasi model.
+
+Paket model disiapkan dari kandidat yang dipilih berdasarkan validasi. LightGBM kondisi D menjadi model terpilih, dengan 109 model biner dan 2.056 fitur. Manifest paket mencatat urutan label, spesifikasi fitur, threshold utama 0,5, threshold tambahan, versi pustaka, dan checksum. Model yang dikemas berasal dari fitting final yang telah dievaluasi, tanpa pelatihan tambahan untuk pengemasan.
+
+Ketersediaan paket model saja belum membuktikan kesetaraan jalur inferensi dari masukan SMILES. Oleh karena itu, layanan fitur memeriksa kecocokan skema dan panjang vektor, sedangkan model ONNX dibandingkan dengan keluaran model asal pada vektor uji yang dibekukan. Aplikasi juga diuji pada perangkat Android menggunakan contoh molekul. Pemeriksaan ini menilai konsistensi implementasi pada cakupan uji; penilaian kinerja prediksi tetap mengacu pada evaluasi model.
+
+Essenza menerima SMILES satu molekul dan menampilkan skor serta label aroma. Pencarian berdasarkan nama atau rumus terlebih dahulu meminta pengguna memilih struktur yang akan dianalisis. Layanan API menghitung fitur RDKit, lalu ONNX Runtime menjalankan model pada Android; prediksi baru masih memerlukan layanan fitur. Implementasi ini telah diuji pada perangkat Android, tetapi pengujian pengguna, iOS, dan kesiapan produksi belum dilakukan. Penelitian ini tidak memakai pseudo-labeling. Skor model bukan intensitas aroma; prediksi campuran dan konsentrasi memerlukan data serta evaluasi tersendiri.

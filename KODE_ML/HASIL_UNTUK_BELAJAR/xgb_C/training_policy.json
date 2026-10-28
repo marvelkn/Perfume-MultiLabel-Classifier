@@ -1,0 +1,5 @@
+{
+  "condition": "C",
+  "weighting": "balanced-sample-weight-from-training-partition-v1",
+  "tuning_budget_seconds": 28800
+}

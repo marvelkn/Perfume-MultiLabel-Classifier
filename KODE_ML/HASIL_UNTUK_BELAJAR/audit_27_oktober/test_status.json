@@ -1,0 +1,12 @@
+{
+  "date": "2026-10-27",
+  "backend_readonly_pytest": {"passed": 7, "elapsed_seconds": 25.19, "exit_code": 0, "training": false},
+  "feature_api_unittest": {"passed": 7, "elapsed_seconds": 0.746, "exit_code": 0, "network_calls_mocked": true},
+  "raw_snapshot_csv_hashes_verified": 15,
+  "preflight": "passed",
+  "protected_input_files_checked_by_dataset_verify": 19,
+  "testclient_sandbox_attempt": "hung; interrupted; process exit confirmed; rerun outside sandbox passed",
+  "notebook_execution": "previous Oct26 fresh-kernel evidence reused; Oct27 source hashes and saved outputs checked",
+  "implementation_files_modified": false,
+  "datasets_models_notebooks_latex_frontend_modified": false
+}

@@ -1,5 +1,24 @@
 # Mulai belajar di sini
 
+## Panduan dari nol sampai sidang
+
+Buka **[MULAI_BELAJAR.md](MULAI_BELAJAR.md)** sebelum masuk notebook. Ada urutan belajar 10 sesi, **[PDF lengkap](PANDUAN_BELAJAR_DARI_NOL.pdf)**, materi per bab, contoh hitungan, penjelasan library, peta fungsi, latihan sidang dan **[checklist progres](CHECKLIST_BELAJAR.md)**. Hari pertama cukup pengantar dan bab 01.
+
+[HASIL_UNTUK_BELAJAR](HASIL_UNTUK_BELAJAR/README.md) menyimpan salinan hasil asli; [REFERENSI_BELAJAR](REFERENSI_BELAJAR/README.md) berisi paper dan snapshot bab laporan. Source aktif tetap research di folder ini.
+
+**Status aplikasi terbaru (27 Oktober 2026):** prototipe API RDKit + 109 ONNX tersedia dan telah diuji terbatas. Parity desktop diverifikasi; demo Android sebelumnya tercatat. Pengujian luas dan hosting produksi belum selesai. Ikuti [audit terbaru](HASIL_UNTUK_BELAJAR/audit_27_oktober/README.md); tulisan ONNX ditunda pada dokumen backend lama sudah usang.
+
+## Salinan data sebelum dan sesudah preprocessing
+
+Buka [DATA_UNTUK_BELAJAR/README.md](DATA_UNTUK_BELAJAR/README.md) kalau mau langsung melihat datanya.
+
+- **01_SEBELUM_PREPROCESSING:** 15 CSV mentah dari lima sumber, disalin persis.
+- **02_SETELAH_PREPROCESSING:** 6.686 molekul hasil cleaning/gabung, beserta alasan penolakan dan pembagian data.
+- **03_SIAP_TRAINING_2048_8:** fitur 2048+8 dan target 109 label yang sudah dipisahkan menjadi train/test; ada CSV target supaya mudah dibuka.
+
+Ini salinan tambahan untuk belajar. Notebook dan program penelitian tetap membaca data asli; tidak ada training ulang atau perubahan model.
+
+
 Folder **KODE_ML** sekarang menyimpan notebook bertahap **dan source utama yang dipakai program**.
 Tidak perlu keluar folder untuk mencari implementasi cleaning, fitur, training, Optuna, CV, evaluasi, atau prediksi.
 
@@ -107,7 +126,7 @@ Belum ada penambahan fuzzy/alias baru: kesetaraan aturan terbukti, validitas mak
 
 ## Data dan hasil berada di mana?
 
-Data/model tidak diduplikasi ke folder belajar. Source pembacanya berada di sini; file besarnya tetap di:
+Data dan model utama tetap di lokasi asli berikut. Salinan data tambahan untuk belajar ada di DATA_UNTUK_BELAJAR; model tidak disalin ke sana:
 
 - `../data/snapshots/perfume-five-v1/8054ea98ed675005ec10e67359902f500e4911b0/`: CSV mentah.
 - `../data/builds/perfume-five-grouped-v2/`: 6.686 records, 109 target, train 5.353/test 1.333, grup dan split.
@@ -143,7 +162,7 @@ Data/model tidak diduplikasi ke folder belajar. Source pembacanya berada di sini
 - Hasil/model lama tidak ditimpa. Kesetaraan sumber dan keluaran yang diperiksa tidak sama dengan
   pembuktian bahwa training ulang seluruh eksperimen akan menghasilkan angka bit-identik.
 - Nol target berarti tidak tercatat. Ada 11 baris train dan 4 test dengan seluruh target nol setelah seleksi.
-- Test pernah dilihat dan CV bukan nested CV. ONNX/Android model baru tetap ditunda.
+- Test pernah dilihat dan CV bukan nested CV. Prototipe ONNX/Android tersedia dan diuji terbatas; lihat audit 27 Oktober di atas untuk batas pemeriksaannya.
 
 Lihat [HASIL_VERIFIKASI.md](HASIL_VERIFIKASI.md) untuk pemeriksaan dan daftar perubahan,
 serta [PANDUAN_SIDANG_KODE.md](PANDUAN_SIDANG_KODE.md) untuk latihan menjelaskan metode.

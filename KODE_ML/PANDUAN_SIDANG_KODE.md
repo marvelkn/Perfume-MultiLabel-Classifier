@@ -2,6 +2,8 @@
 
 Perapian 26 Oktober 2026 menempatkan implementasi aktif di `research/` dalam KODE_ML, bersama delapan notebook belajar. Fungsi inti, fitur, target, grup, split, dan model hasil utama dipertahankan. Kode checkpoint lebih panjang karena eksperimen berlangsung puluhan jam; itu alat menjaga proses, bukan metode ML baru.
 
+Untuk belajar bertahap dari nol, buka [MULAI_BELAJAR.md](MULAI_BELAJAR.md) dan [panduan lengkap PDF](PANDUAN_BELAJAR_DARI_NOL.pdf).
+
 ## Mana yang perlu dikuasai?
 
 | Kategori | Bagian | Yang harus bisa dijelaskan |
@@ -47,7 +49,7 @@ Pada training, `y[:, j]` mengambil target satu aroma dari semua molekul. `fit_fi
 
 ## Batas yang jangan dilewati saat menjawab
 
-Jangan menyebut skor sebagai intensitas aroma; jangan mengklaim memprediksi campuran. Jangan menyebut seluruh sumber hanya berisi parfum. Jangan menyebut lima seed sebagai lima eksperimen independen untuk uji signifikansi. V9 tambahan tidak otomatis mengganti hasil utama. ONNX dan Android belum selesai.
+Jangan menyebut skor sebagai intensitas aroma; jangan mengklaim memprediksi campuran. Jangan menyebut seluruh sumber hanya berisi parfum. Jangan menyebut lima seed sebagai lima eksperimen independen untuk uji signifikansi. V9 tambahan tidak otomatis mengganti hasil utama. Prototipe API RDKit + 109 ONNX tersedia dan telah diuji terbatas; audit 27 Oktober memverifikasi parity desktop, bukan menguji ulang Android atau kesiapan produksi. Lihat [audit terbaru](HASIL_UNTUK_BELAJAR/audit_27_oktober/README.md).
 
 Peta delapan notebook, kode, dan alamat hasil ada di [README](README.md).
 
