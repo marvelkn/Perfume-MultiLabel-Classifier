@@ -21,4 +21,4 @@ Ini salinan byte-identik dari hasil utama yang dikunci. Bukan training baru. Buk
 
 Nama file arsip bukan nama metode. Hasil tambahan V8/V9 tidak dimasukkan ke sini. Notebook tetap membaca artefak asli melalui 03_Kode/results.py. Model .joblib tidak diduplikasi; notebook08 otomatis memuatnya dari hasil utama.
 
-Daftar asal, checksum dan ukuran setiap salinan tercatat di **../ASAL_BAHAN_BELAJAR.json**. Jika hasil asli berubah pada masa mendatang, ini tetap snapshot tanggal 27 Oktober 2026. Cocokkan kembali sebelum memakai untuk laporan baru.
+Daftar asal, checksum dan ukuran setiap salinan tercatat di **../05_Referensi/Arsip_Penataan_20261103/ASAL_BAHAN_BELAJAR.json**. Jika hasil asli berubah pada masa mendatang, ini tetap snapshot tanggal 27 Oktober 2026. Cocokkan kembali sebelum memakai untuk laporan baru.

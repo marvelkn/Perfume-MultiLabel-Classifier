@@ -1,6 +1,6 @@
 # Kode asli project
 
-Di sinilah implementasi yang dipakai notebook dan program berada. Untuk urutan belajar, buka ../MULAI_BELAJAR.md.
+Di sinilah implementasi yang dipakai notebook dan program berada. Untuk urutan belajar, buka ../README.md.
 
 - **config/**: pengaturan dataset, eksperimen dan komputasi.
 - **tests/**: pemeriksaan kontrak data dan jalur program; bukan training.

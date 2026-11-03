@@ -17,4 +17,4 @@ Pemeriksaan sebelum pemasangan:
 - Tujuh tes kontrak baca-saja lulus setelah pemasangan (15,11 detik), termasuk kesamaan prediksi terhadap arsip. Bootstrap import notebook dari KODE_ML juga berhasil.
 - Tidak menjalankan training atau tuning; pemeriksaan inferensi memakai model tersimpan tanpa fit.
 
-Manifest dan audit bertanggal lama sengaja menyimpan path pada tanggal asalnya. **../PETA_FOLDER.json** memetakan alamat tersebut ke lokasi sekarang beserta hash sebelum/sesudah. Backup sebelum perapian disimpan di workspace tugas.
+Manifest dan audit bertanggal lama sengaja menyimpan path pada tanggal asalnya. **../05_Referensi/Arsip_Penataan_20261103/PETA_FOLDER.json** memetakan alamat tersebut ke lokasi sekarang beserta hash sebelum/sesudah. Backup sebelum perapian disimpan di workspace tugas.
