@@ -1,9 +1,9 @@
 # Peta notebook sesuai PDF
 
-Mulai dari bagian **Persiapan** saat membuka notebook mandiri. Cari judul berikut dengan Ctrl+F. Baca penjelasan, source yang ditampilkan, dan output setelahnya. Nomor halaman merujuk PDF versi 3 November 2026.
+Mulai dari **dasar ilmiah dan gap penelitian** pada halaman 2-3, lalu **alasan pemilihan XGBoost-LightGBM dan batas tanpa RF** pada halaman 5-6 PDF. Saat membuka notebook mandiri, mulai dari **Persiapan**, lalu cari judul berikut dengan Ctrl+F. Baca penjelasan, source yang ditampilkan, dan output setelahnya. Nomor halaman merujuk panduan revisi 22 halaman, 3 November 2026.
 
 
-## Halaman 3: 01_Sumber_Data.ipynb
+## Halaman 7: 01_Sumber_Data.ipynb
 
 [Buka notebook](../01_Sumber_Data.ipynb)
 
@@ -12,7 +12,7 @@ Mulai dari bagian **Persiapan** saat membuka notebook mandiri. Cari judul beriku
 3. **Ikuti contoh join GoodScents**
 
 
-## Halaman 4: 02_Preprocessing_dan_Audit_Label.ipynb
+## Halaman 8: 02_Preprocessing_dan_Audit_Label.ipynb
 
 [Buka notebook](../02_Preprocessing_dan_Audit_Label.ipynb)
 
@@ -25,7 +25,7 @@ Mulai dari bagian **Persiapan** saat membuka notebook mandiri. Cari judul beriku
 7. **Rekonsiliasi jumlah baris dan token**
 
 
-## Halaman 5: 03_Dataset_dan_Fitur.ipynb
+## Halaman 9: 03_Dataset_dan_Fitur.ipynb
 
 [Buka notebook](../03_Dataset_dan_Fitur.ipynb)
 
@@ -35,7 +35,7 @@ Mulai dari bagian **Persiapan** saat membuka notebook mandiri. Cari judul beriku
 4. **Lihat satu molekul yang memang ada dalam data**
 
 
-## Halaman 6: 04_Grup_Split_dan_Fold.ipynb
+## Halaman 10: 04_Grup_Split_dan_Fold.ipynb
 
 [Buka notebook](../04_Grup_Split_dan_Fold.ipynb)
 
@@ -46,7 +46,7 @@ Mulai dari bagian **Persiapan** saat membuka notebook mandiri. Cari judul beriku
 5. **Contoh pembagian satu label**
 
 
-## Halaman 7: 05_Model_dan_Bobot.ipynb
+## Halaman 11: 05_Model_dan_Bobot.ipynb
 
 [Buka notebook](../05_Model_dan_Bobot.ipynb)
 
@@ -55,7 +55,7 @@ Mulai dari bagian **Persiapan** saat membuka notebook mandiri. Cari judul beriku
 3. **Periksa model final yang sudah ada**
 
 
-## Halaman 8: 05_Model_dan_Bobot.ipynb
+## Halaman 12: 05_Model_dan_Bobot.ipynb
 
 [Buka notebook](../05_Model_dan_Bobot.ipynb)
 
@@ -64,7 +64,7 @@ Mulai dari bagian **Persiapan** saat membuka notebook mandiri. Cari judul beriku
 3. **training.fit**
 
 
-## Halaman 9: 06_Optuna_CV_dan_OOF.ipynb
+## Halaman 13: 06_Optuna_CV_dan_OOF.ipynb
 
 [Buka notebook](../06_Optuna_CV_dan_OOF.ipynb)
 
@@ -74,7 +74,7 @@ Mulai dari bagian **Persiapan** saat membuka notebook mandiri. Cari judul beriku
 4. **Baca hasil empat studi sebenarnya**
 
 
-## Halaman 10: 06_Optuna_CV_dan_OOF.ipynb
+## Halaman 14: 06_Optuna_CV_dan_OOF.ipynb
 
 [Buka notebook](../06_Optuna_CV_dan_OOF.ipynb)
 
@@ -82,7 +82,7 @@ Mulai dari bagian **Persiapan** saat membuka notebook mandiri. Cari judul beriku
 2. **validation.repeated_grouped_cv**
 
 
-## Halaman 11: 06_Optuna_CV_dan_OOF.ipynb
+## Halaman 15: 06_Optuna_CV_dan_OOF.ipynb
 
 [Buka notebook](../06_Optuna_CV_dan_OOF.ipynb)
 
@@ -90,7 +90,7 @@ Mulai dari bagian **Persiapan** saat membuka notebook mandiri. Cari judul beriku
 2. **Hitung ulang ambang dari OOF tersimpan**
 
 
-## Halaman 12: 07_Evaluasi_dan_Pemilihan.ipynb
+## Halaman 16: 07_Evaluasi_dan_Pemilihan.ipynb
 
 [Buka notebook](../07_Evaluasi_dan_Pemilihan.ipynb)
 
@@ -99,7 +99,7 @@ Mulai dari bagian **Persiapan** saat membuka notebook mandiri. Cari judul beriku
 3. **Hitung ulang metrik delapan kandidat**
 
 
-## Halaman 13: 07_Evaluasi_dan_Pemilihan.ipynb
+## Halaman 17: 07_Evaluasi_dan_Pemilihan.ipynb
 
 [Buka notebook](../07_Evaluasi_dan_Pemilihan.ipynb)
 
@@ -107,7 +107,7 @@ Mulai dari bagian **Persiapan** saat membuka notebook mandiri. Cari judul beriku
 2. **Hitung ulang metrik delapan kandidat**
 
 
-## Halaman 14: 07_Evaluasi_dan_Pemilihan.ipynb
+## Halaman 18: 07_Evaluasi_dan_Pemilihan.ipynb
 
 [Buka notebook](../07_Evaluasi_dan_Pemilihan.ipynb)
 
@@ -115,7 +115,7 @@ Mulai dari bagian **Persiapan** saat membuka notebook mandiri. Cari judul beriku
 2. **metrics.summarize**
 
 
-## Halaman 15: 06_Optuna_CV_dan_OOF.ipynb
+## Halaman 19: 06_Optuna_CV_dan_OOF.ipynb
 
 [Buka notebook](../06_Optuna_CV_dan_OOF.ipynb)
 
@@ -124,7 +124,7 @@ Mulai dari bagian **Persiapan** saat membuka notebook mandiri. Cari judul beriku
 3. **Hitung ulang ambang dari OOF tersimpan**
 
 
-## Halaman 16: 07_Evaluasi_dan_Pemilihan.ipynb
+## Halaman 20: 07_Evaluasi_dan_Pemilihan.ipynb
 
 [Buka notebook](../07_Evaluasi_dan_Pemilihan.ipynb)
 
@@ -133,7 +133,7 @@ Mulai dari bagian **Persiapan** saat membuka notebook mandiri. Cari judul beriku
 3. **Baca delta dan cek kesamaan cakupan**
 
 
-## Halaman 17: 08_Prediksi_Molekul.ipynb
+## Halaman 21: 08_Prediksi_Molekul.ipynb
 
 [Buka notebook](../08_Prediksi_Molekul.ipynb)
 

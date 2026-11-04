@@ -1,19 +1,21 @@
 # Mulai dari PDF ini
 
-**Buka [PANDUAN_BELAJAR_DARI_NOL.pdf](PANDUAN_BELAJAR_DARI_NOL.pdf), lalu ikuti halaman 1-18.**
+**Buka [PANDUAN_BELAJAR_DARI_NOL.pdf](PANDUAN_BELAJAR_DARI_NOL.pdf), lalu ikuti halaman 1-22.**
 Panduan mengarahkanmu ke nama notebook dan judul bagian yang harus dibaca. Tidak perlu membaca seluruh folder sekaligus.
 
 | Tahap | Halaman PDF | Notebook yang dibuka |
 |---|---|---|
-| Masalah dan penelitian terdahulu | 2 | Belum perlu notebook |
-| Dataset | 3 | 01_Sumber_Data.ipynb |
-| Preprocessing dan label | 4 | 02_Preprocessing_dan_Audit_Label.ipynb |
-| Morgan dan delapan deskriptor | 5 | 03_Dataset_dan_Fitur.ipynb |
-| Grup, train/test, fold | 6 | 04_Grup_Split_dan_Fold.ipynb |
-| Model dan bobot | 7-8 | 05_Model_dan_Bobot.ipynb |
-| Tuning, CV, OOF | 9-11 | 06_Optuna_CV_dan_OOF.ipynb |
-| Evaluasi dan hasil | 12-16 | 07_Evaluasi_dan_Pemilihan.ipynb; bagian threshold di notebook 06 |
-| Prediksi dan persiapan sidang | 17-18 | 08_Prediksi_Molekul.ipynb |
+| Dasar ilmiah, gap, dan kontribusi penelitian | 2-3 | Belum perlu notebook |
+| Masalah dan penelitian terdahulu | 4 | Belum perlu notebook |
+| Pemilihan XGBoost-LightGBM dan batas tanpa RF | 5-6 | Belum perlu notebook |
+| Dataset | 7 | 01_Sumber_Data.ipynb |
+| Preprocessing dan label | 8 | 02_Preprocessing_dan_Audit_Label.ipynb |
+| Morgan dan delapan deskriptor | 9 | 03_Dataset_dan_Fitur.ipynb |
+| Grup, train/test, fold | 10 | 04_Grup_Split_dan_Fold.ipynb |
+| Model dan bobot | 11-12 | 05_Model_dan_Bobot.ipynb |
+| Tuning, CV, OOF | 13-15 | 06_Optuna_CV_dan_OOF.ipynb |
+| Evaluasi dan hasil | 16-20 | 07_Evaluasi_dan_Pemilihan.ipynb; bagian threshold di notebook 06 |
+| Prediksi dan persiapan sidang | 21-22 | 08_Prediksi_Molekul.ipynb |
 
 **Mau langsung ke bagian kode tertentu?** Lihat [Peta_Notebook.md](01_Materi/Peta_Notebook.md).
 Setiap kali membuka notebook mandiri, baca **Persiapan**, lalu bagian yang ditunjuk PDF. Output tersimpan dapat dibaca tanpa menjalankan sel.
