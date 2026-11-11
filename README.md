@@ -18,7 +18,9 @@ Setiap algoritma menjalankan A–D. Satu kandidat berisi 109 classifier biner. M
 
 Hasil utama **sudah selesai dan dikunci sebagai V7**. V9 adalah eksperimen tambahan, bukan pengganti otomatis. Kandidat utama terpilih LightGBM D: mean CV AP 0,299731; test AP 0,310531; macro F1 pada ambang 0,5 sekitar 0,293156. AP bukan accuracy. Hasil masih eksploratori karena test sudah pernah dilihat dalam pengembangan dan CV bukan nested CV.
 
-Source dirapikan pada 25 Oktober dan dipusatkan di KODE_ML pada 26 Oktober 2026. Hasil lama tidak ditulis ulang dan tidak diklaim dibuat oleh source baru. ONNX dan Android model baru ditunda. API lama dan folder src tetap untuk kompatibilitas, di luar jalur penelitian utama; kontraknya belum diubah.
+Source dirapikan pada 25 Oktober dan dipusatkan di KODE_ML pada 26 Oktober 2026. Hasil lama tidak ditulis ulang dan tidak diklaim dibuat oleh source baru. API lama dan folder src tetap untuk kompatibilitas, di luar jalur penelitian utama; kontraknya belum diubah.
+
+**Implementasi lokal, 7 November 2026.** Aplikasi Android mengirim struktur satu molekul melalui USB ke [API aplikasi di repo Essenza_Frontend](../Essenza_Frontend/README.md). **RDKit dan 109 model LightGBM D asli berformat joblib berjalan di komputer lokal**; Android menampilkan hasil dan menyimpan Riwayat/Koleksi. Tidak ada konversi model atau inferensi ML pada HP. Setelah dependensi dan paket model tersedia, katalog, preprocessing, dan prediksi dapat digunakan tanpa hosting atau internet; komputer dan USB tetap diperlukan untuk prediksi baru. Notebook 08 memperlihatkan inferensi Python model asli. [Panduan lokal aplikasi](../Essenza_Frontend/docs/LOCAL_DEVELOPMENT.md) menjadi acuan setup dan batas pengujian. Model/data/hasil penelitian tidak dilatih atau dievaluasi ulang untuk perubahan runtime ini. Catatan dan audit lama dalam reports/protocols/archive mencatat keadaan saat dibuat, bukan arsitektur aplikasi saat ini.
 
 ## Menjalankan contoh ringan
 
@@ -47,3 +49,9 @@ Grup historis berasal dari struktur tanpa stereo atau fingerprint Morgan 1024 ya
 `config.yaml`, `feature_spec.json`, `src/` dan API di root adalah jalur kompatibilitas aplikasi lama, bukan konfigurasi penelitian utama. Tes ringan utama: `python -B -m pytest KODE_ML/03_Kode/tests/test_research_readonly.py -q -p no:cacheprovider`. Sebagian tes lama melakukan fitting; jangan jalankan seluruh suite untuk audit baca-saja.
 
 Audit label dan hasil perapian terbaru: [KODE_ML/HASIL_VERIFIKASI.md](KODE_ML/HASIL_VERIFIKASI.md). `research/__init__.py` di root hanya penghubung import ke source dalam KODE_ML.
+
+## Menjalankan aplikasi lokal
+
+Gunakan `scripts/start-local-api.ps1` dan `scripts/run-local-android.ps1` **dari repo frontend**. Setup pertama menyalin byte model v7 yang terverifikasi ke `feature_api/models/v7/`, tanpa melatih atau menyimpan ulang estimator. Model kemudian dimuat sekali oleh `feature_api/native_model.py`; `POST /predict` mengembalikan 109 skor. `POST /fingerprint` dipertahankan untuk diagnosis fitur.
+
+API root backend (`api_light.py`, `api.py`, `app.py`), `src/inference.py`, dan rilis grouped-v6 merupakan jalur kompatibilitas lama 1.029 fitur, **bukan API/model aktif aplikasi v7**. Jangan memakainya sebagai pengganti `feature_api.app:app` di frontend. `requirements_lock.txt` adalah snapshot environment lama untuk provenance; instalasi layanan baru mengikuti requirements terpin di `Essenza_Frontend/feature_api/`, sedangkan penelitian memakai `requirements_research.txt`.

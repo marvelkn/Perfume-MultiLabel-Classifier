@@ -1,7 +1,13 @@
 # Mulai dari PDF ini
 
-**Buka [PANDUAN_BELAJAR_DARI_NOL.pdf](PANDUAN_BELAJAR_DARI_NOL.pdf), lalu ikuti halaman 1-22.**
-Panduan mengarahkanmu ke nama notebook dan judul bagian yang harus dibaca. Tidak perlu membaca seluruh folder sekaligus.
+**Buka [PANDUAN_BELAJAR_DARI_NOL.pdf](PANDUAN_BELAJAR_DARI_NOL.pdf), lalu ikuti jalur inti.**
+Panduan dan delapan notebook tetap menjadi satu jalur belajar aktif. Revisi 6 November 2026 membedakan kedalaman bacaan; tidak perlu membaca seluruh fungsi secara berurutan.
+
+| Penanda | Target belajar |
+|---|---|
+| **Inti** | Jelaskan keputusan, alasan, output, dan batasnya; kerjakan satu contoh kecil bila relevan. |
+| **Rujukan fungsi** | Cukup tahu tujuan dan lokasi bukti. Versi, helper, penyimpanan, log, checksum, dan pengaman tetap tersedia. |
+| **Pendalaman** | Buka untuk penelusuran rinci, bukan syarat menyelesaikan alur inti. |
 
 | Tahap | Halaman PDF | Notebook yang dibuka |
 |---|---|---|
@@ -16,9 +22,14 @@ Panduan mengarahkanmu ke nama notebook dan judul bagian yang harus dibaca. Tidak
 | Tuning, CV, OOF | 13-15 | 06_Optuna_CV_dan_OOF.ipynb |
 | Evaluasi dan hasil | 16-20 | 07_Evaluasi_dan_Pemilihan.ipynb; bagian threshold di notebook 06 |
 | Prediksi dan persiapan sidang | 21-22 | 08_Prediksi_Molekul.ipynb |
+| Peta 33 referensi skripsi: fungsi, halaman tercetak/PDF, dan batas klaim | 23-34 | Tidak perlu notebook |
+
+**Tambahan 9 November 2026:** PDF sekarang berjumlah **34 halaman**. Materi inti tetap halaman 1-22; peta referensi berada pada halaman 23-34. Semua 33 referensi aktif disitasi. Nomor halaman skripsi mengacu pada PDF 94 halaman yang diperiksa dan dapat berubah setelah tata letak direvisi. Versi teks: [PETA_REFERENSI_SKRIPSI.md](05_Referensi/PETA_REFERENSI_SKRIPSI.md).
 
 **Mau langsung ke bagian kode tertentu?** Lihat [Peta_Notebook.md](01_Materi/Peta_Notebook.md).
-Setiap kali membuka notebook mandiri, baca **Persiapan**, lalu bagian yang ditunjuk PDF. Output tersimpan dapat dibaca tanpa menjalankan sel.
+Untuk belajar dari output tersimpan, ikuti **Prioritas membaca** di awal setiap notebook dan bagian bertanda **Inti**. Jika akan menjalankan sel, baca **Persiapan** lebih dulu. Bagian campuran menjelaskan temuan yang tetap inti serta rincian yang cukup dirujuk.
+
+**Latihan inti:** bobot kelas, keputusan threshold, TP/FP/FN/TN, precision/recall/F1, AP, macro AP, dan mean fold/seed. **Pendalaman hitung:** akar SD serta enumerasi banyak pasangan AUROC. Makna SD/AUROC tetap perlu dipahami; lima seed bukan lima dataset independen dan SD bukan interval kepercayaan.
 
 ## Isi folder
 
@@ -43,8 +54,10 @@ Notebook boleh dibuka sendiri dengan kernel baru. **Run All bukan training penel
 
 Hasil utama dikunci: lima sumber, 6.686 molekul, 109 label, Morgan 2.048 bit + delapan deskriptor untuk B/D. **LightGBM D dipilih dari mean macro AP validasi 0,299731; AP test 0,310531.** Angka AP bukan accuracy. Target nol berarti anotasi tidak tercatat; hasil eksploratori karena test pernah diakses dan CV bukan nested CV.
 
-Laporan utama berada di `C:\Users\ACER\Documents\Marvel\Skripsi\Laporan Skripsi\2521_skripsi_Marvel_Kevin_Nathanael`; `SKRIPSI.tex` menyertakan Bab1-Bab5. **05_Referensi/Laporan adalah snapshot lama**, bukan naskah aktif. PDF baru diperiksa terhadap laporan utama dan kode aktual, bukan snapshot tersebut.
+Laporan utama berada di `C:\Users\ACER\Documents\Marvel\Skripsi\Laporan Skripsi\2521_skripsi_Marvel_Kevin_Nathanael`; `SKRIPSI.tex` menyertakan Bab1-Bab5. **05_Referensi/Laporan adalah snapshot lama**, bukan naskah aktif. Rujukan implementasi terbaru mengikuti laporan utama dan dokumentasi aplikasi lokal; snapshot tersebut tidak menjadi acuan arsitektur aktif.
 
-Prototipe Android memakai layanan fitur RDKit lokal dan 109 model ONNX pada perangkat. Integrasi tersedia dan diuji terbatas; dokumentasi historis yang menyebut ONNX ditunda tidak mewakili status kini.
+**Arsitektur aplikasi per 7 November 2026:** Android mengirim SMILES ke komputer melalui USB; RDKit menghitung 2.056 fitur dan **109 model LightGBM D asli (joblib)** menjalankan inferensi pada komputer yang sama. Android menerima skor, menampilkan label, dan menyimpan Riwayat/Koleksi. Prediksi baru tetap memerlukan komputer, tetapi tidak membutuhkan hosting/internet setelah setup lokal selesai. Notebook 08 memperlihatkan inferensi Python; pengujian Android harus dibaca dari bukti aplikasi. Gunakan [panduan aplikasi lokal](../../Essenza_Frontend/docs/LOCAL_DEVELOPMENT.md) untuk implementasi terbaru. Dokumen audit lama adalah bukti bertanggal, bukan spesifikasi runtime saat ini. Pengujian teknis belum membuktikan validitas sensori, manfaat pengguna, atau kesiapan produksi.
 
-Panduan masuk lama yang tumpang tindih sudah digabung ke PDF ini. Bukti audit dan materi lama yang masih berguna disimpan di **05_Referensi**, terpisah dari jalur belajar aktif. [Catatan penataan](05_Referensi/Arsip_Penataan_20261103/README.md) mencatat apa yang dipindah/dihapus. Kode, notebook, data, hasil eksperimen, dan model tidak diubah.
+Panduan masuk lama yang tumpang tindih sudah digabung ke PDF ini. Bukti audit dan materi lama yang masih berguna disimpan di **05_Referensi**, terpisah dari jalur belajar aktif. [Catatan penataan](05_Referensi/Arsip_Penataan_20261103/README.md) mencatat apa yang dipindah/dihapus. Penataan 3 November tersebut tidak mengubah kode, notebook, data, hasil eksperimen, atau model. Revisi 6 November hanya menambahkan prioritas baca pada narasi notebook; sel kode dan output tersimpannya tetap sama.
+
+Pembaruan arsitektur 7 November ini hanya mengoreksi narasi implementasi. Sel kode dan output notebook, data, model, angka eksperimen, serta protokol tetap dipertahankan.

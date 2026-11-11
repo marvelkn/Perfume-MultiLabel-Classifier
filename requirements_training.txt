@@ -10,9 +10,4 @@ psutil==7.0.0
 xgboost==2.1.4
 lightgbm==4.6.0
 optuna==4.5.0
-onnx==1.17.0
-onnxruntime==1.19.2
-onnxmltools==1.14.0
-skl2onnx==1.19.1
-protobuf==5.29.5
 joblib==1.6.0

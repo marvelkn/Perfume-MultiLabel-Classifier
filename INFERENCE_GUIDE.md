@@ -1,97 +1,64 @@
-# Inferensi Python model final
+# Inferensi model final dan aplikasi lokal
 
-Status 21 September 2026: model final **LightGBM D grouped-v6**, 109 label,
-1.029 fitur. Training tambahan dan pseudo-labeling tidak dijalankan.
-ONNX, Android, dan deployment ditunda. API `/fingerprint` tetap layanan fitur;
-perintah Python di bawah menjalankan prediksi model secara lokal tanpa jaringan.
+Status arsitektur **7 November 2026**: **RDKit dan model LightGBM D asli berjalan di komputer lokal**. Android terhubung melalui USB, mengirim struktur satu molekul, menerima 109 skor, dan menyimpan Riwayat/Koleksi pada HP. Tidak ada inferensi estimator di HP. Setelah dependensi serta paket model tersedia, katalog, fitur, dan prediksi dapat berjalan tanpa hosting atau internet; komputer harus tetap menyala untuk prediksi baru.
 
-## Jalankan dari folder backend
+## Model dan kontrak aktif
 
-PowerShell Windows:
+- Run **perfume-five-grouped-v7-m2048-d8**, kandidat **lgbm_D**, **109 classifier biner** hasil training yang sudah ada, berformat **joblib**. Tidak ada pelatihan atau penyimpanan ulang estimator saat pengemasan.
+- **2.048 bit Morgan**, radius **2**, tanpa chirality; lalu **MolWt, MolLogP, NumHDonors, NumHAcceptors, TPSA, NumRotatableBonds, HeavyAtomCount, RingCount**. Total **2.056 fitur**, `float32`, satu molekul terhubung, seluruh nilai finite. Tidak ada scaler tambahan.
+- Model memuat kelas `[0, 1]`; `predict_proba(..., num_threads=1)[:, 1]` mengambil skor kelas positif. Ambang utama **0,5**; tidak mengaktifkan threshold OOF tambahan atau memaksa top-k bila semua skor di bawah ambang.
+- Skor belum dikalibrasi; bukan intensitas, komposisi, kadar, keamanan bahan, atau probabilitas persepsi manusia yang pasti. Prediksi campuran tidak didukung.
 
-```powershell
-Set-Location 'C:\Users\ACER\Documents\Marvel\Skripsi\Project Skripsi\Perfume-MultiLabel-Classifier'
-.\.venv\Scripts\python.exe -m src.release --verify
-.\.venv\Scripts\python.exe -m src.inference --smiles 'COc1cc(C=O)ccc1O'
-```
+API aplikasi yang benar berada di **repo frontend**: `Essenza_Frontend/feature_api/app.py`, entrypoint **feature_api.app:app**. Model dimuat sekali saat startup oleh `feature_api/native_model.py`. Health hanya siap setelah paket berhasil diverifikasi dan dimuat.
 
-Linux, setelah menyalin backend dan paket rilis ke komputer tujuan:
+## Menjalankan PC dan HP
 
-```bash
-cd /lokasi/Perfume-MultiLabel-Classifier
-.venv/bin/python -m src.release --verify
-.venv/bin/python -m src.inference --smiles 'COc1cc(C=O)ccc1O'
-```
-
-Lingkungan lokal saat penyelarasan sudah cocok. Untuk lingkungan baru gunakan
-Python 3.12, buat `.venv`, lalu instal `requirements_inference.txt` dengan pip
-pada lingkungan tersebut. Dependensi layanan API terpisah di
-`requirements_api.txt`. Inferensi memeriksa versi pustaka terhadap paket training.
-
-## Lokasi paket
-
-`releases/grouped-v6-lgbm-d/` berisi:
-
-- `release.json`: pengikatan model-label, checksum, versi dan identitas rilis;
-- `feature_spec.json`: radius 2, 1.024 bit Morgan tanpa kiralitas, lima deskriptor;
-- `models/`: 109 model Python hasil training yang sudah ada;
-- `evidence/`: salinan hasil, penguncian seleksi, ambang tambahan dan provenance.
-
-Paket lokal ini diabaikan Git karena memuat model biner. Clone repository saja
-belum membawa model. Salin seluruh folder rilis atau bangun kembali dari run
-kampus yang selesai. Jangan menggunakan aset ONNX 25 label; 50 ONNX lama dan
-dua array ambangnya telah dihapus. Model hasil penelitian kampus tidak dihapus.
-
-Untuk mengemas kembali (hanya bila folder tujuan belum ada):
+Terminal pertama:
 
 ```powershell
-.\.venv\Scripts\python.exe -m src.release --run '.local-tools/campus-transfer-full-20260909/perfume-campus-grouped-v6/perfume-campus-grouped-v6/runs/perfume-five-grouped-v6'
+Set-Location -LiteralPath 'C:\Users\ACER\Documents\Marvel\Skripsi\Project Skripsi\Essenza_Frontend'
+.\scripts\start-local-api.ps1
 ```
 
-Perintah ini memverifikasi dan menyalin model, bukan melatih. Rilis yang sudah
-ada tidak ditimpa. `--output` dapat dipakai untuk tujuan baru; `--release` pada
-perintah inferensi memilih paket tersebut. Jangan memuat joblib dari pihak yang
-tidak dipercaya; checksum mendeteksi perubahan, bukan membuktikan asal penerbit.
+Terminal kedua, setelah USB debugging diizinkan:
 
-## Kontrak fitur dan keluaran
-
-Urutan fitur: 1.024 bit Morgan, kemudian `MolWt`, `MolLogP`, `NumHDonors`,
-`NumHAcceptors`, `TPSA`, seluruhnya `float32`. Satu molekul terhubung diperlukan.
-Penyeragaman SMILES dilakukan sebelum ekstraksi agar sama dengan training.
-Schema ID aktif:
-`630793962c4fb25dd0e1fbf39c02d1b4ba24502cf4512f6110ee841e957870eb`.
-
-JSON hasil memuat `model_id`, `feature_schema_id`, `model_manifest_sha256`,
-`predictions` (109 baris dalam urutan label tetap), dan `predicted_labels`.
-Setiap prediksi memuat `label`, `score`, `threshold`, dan `predicted`.
-Ambang utama tetap 0,5. Ambang per label hasil validasi hanya disimpan sebagai
-analisis tambahan dan tidak diaktifkan diam-diam. Semua label dapat berada di
-bawah ambang; daftar positif kosong tidak dipaksa menjadi top-k.
-
-Skor belum terkalibrasi; bukan intensitas aroma, komposisi, atau prediksi campuran.
-Nilai antarlabel tidak harus berjumlah satu. Prediksi ini tidak menggantikan uji
-sensori atau identifikasi bahan parfum.
-
-Untuk penggunaan berulang dalam proses Python, muat `Predictor` sekali:
-
-```python
-from src.inference import Predictor
-model = Predictor()
-result = model.predict('COc1cc(C=O)ccc1O')
+```powershell
+Set-Location -LiteralPath 'C:\Users\ACER\Documents\Marvel\Skripsi\Project Skripsi\Essenza_Frontend'
+.\scripts\run-local-android.ps1
 ```
 
-## Bukti verifikasi
+API default `http://127.0.0.1:8000`. `adb reverse tcp:8000 tcp:8000` menghubungkan loopback HP ke PC. APK varian local membawa bundle JavaScript dan tidak membutuhkan Metro untuk digunakan. Riwayat/Koleksi tetap lokal di HP.
 
-`reports/backend_alignment_20260921/verification.json` mencatat:
+Setup memakai Python **3.12** dan paket terpin pada `Essenza_Frontend/feature_api/requirements*.txt`. Setup awal dapat membutuhkan internet untuk memasang dependensi. PubChem mati secara default; katalog dan input SMILES tidak memerlukannya. `-AllowPubChem` hanya mengaktifkan pencarian struktur tambahan dan memerlukan internet.
 
-- 124 berkas paket dan 14 berkas dataset lolos checksum;
-- fitur seluruh 6.686 molekul sama persis dengan artefak training/test;
-- 32 posisi test dipilih merata sebelum membandingkan skor: 3.488 skor dari
-  109 label memiliki selisih maksimum 0 dan keputusan ambang 0,5 identik;
-- input salah/multifragmen dan schema ID salah ditolak;
-- SMILES setara, prediksi berulang, fitur API, dan keluaran tanpa positif diperiksa;
-- 23 tes fitur, API dan kontrak inferensi lulus (`tests.xml`).
+## Pengemasan dan verifikasi model
 
-Pemeriksaan tersebut menguji kesetaraan implementasi pada sampel prediksi,
-bukan estimasi akurasi baru atau bukti kemampuan pada molekul independen.
-Tidak ada ONNX, Android, deployment, atau training yang dijalankan.
+`scripts/prepare-local-models.py` membaca bundle serta completion manifest run v7, memverifikasi 109 checksum asli, kemudian menyalin byte model ke **feature_api/models/v7/**. Manifest aplikasi ada di **src/assets/metadata/v7_model_manifest.json** dan memakai ID paket native. Model biner tidak masuk Git.
+
+Script startup menemukan run final pada repo penelitian di sebelah frontend. Bila lokasi berbeda, gunakan `start-local-api.ps1 -SourceRun 'C:\path\ke\runs\perfume-five-grouped-v7-m2048-d8'`. Jangan memilih eksperimen terbaru otomatis. Setelah paket tersalin, operasi normal hanya memerlukan frontend, environment API, dan paket model; sumber penelitian tidak dibutuhkan untuk startup berikutnya.
+
+Pemeriksaan paket dan konsistensi, dari root frontend:
+
+```powershell
+.\.venv-feature-api\Scripts\python.exe -B scripts\prepare-local-models.py --verify-only
+.\.venv-feature-api\Scripts\python.exe -B scripts\verify-local-predictions.py --api-url http://127.0.0.1:8000 --output .local-run\native-parity.json
+```
+
+Audit kedua membutuhkan sumber model dan vektor penelitian beku. Ia membandingkan model salinan dengan model sumber, fitur RDKit dengan vektor train beku, skor referensi Vanillin/Ethanol, dan respons HTTP. Keberhasilan prosedur harus dibaca dari JSON hasil aktual; perintah di atas bukan klaim bahwa pengujian sudah lulus. Konsistensi runtime bukan ukuran kualitas aroma baru atau validasi sensori.
+
+## Kontrak API aplikasi
+
+| Endpoint | Fungsi |
+| --- | --- |
+| `GET /health` | Status kesiapan model, runtime LightGBM, ID paket/skema, 2.056 fitur, 109 label, dan threshold 0,5. |
+| `POST /resolve` | Mencocokkan nama/rumus dan mengembalikan kandidat struktur untuk dipilih eksplisit. |
+| `POST /predict` | Memeriksa `bundle_id` dan `feature_schema_id`, menghitung fitur, menjalankan model asli, mengembalikan 109 skor berurutan. Tidak mengirim vektor fitur ke HP untuk inferensi. |
+| `POST /fingerprint` | Diagnosis/validasi fitur; bukan endpoint prediksi yang dipakai frontend aktif. |
+
+## Jalur penelitian dan kompatibilitas historis
+
+Notebook 08 dan `python -B -m research.inference --smiles 'COc1cc(C=O)ccc1O'` menjalankan inferensi Python dari run v7 dalam environment penelitian. Kode utama tetap **KODE_ML/03_Kode/**; data, label, grup/split, hyperparameter, model, dan angka hasil tidak diubah oleh migrasi aplikasi.
+
+**Jangan memakai `src.inference.Predictor`, `src.release`, `api_light.py`, `api.py`, `app.py`, atau `feature_spec.json` root backend untuk aplikasi v7.** Jalur tersebut adalah kompatibilitas **grouped-v6 / 1.029 fitur**. Bukti di `reports/backend_alignment_20260921` berlaku untuk jalur v6 pada tanggal tersebut, bukan bukti migrasi aplikasi sekarang.
+
+`requirements_lock.txt`, completion manifests, protokol, arsip, dan audit bertanggal adalah rekaman lingkungan/implementasi historis. Jangan menginstal API baru dari freeze tersebut atau menghapus/mengubah hasil penelitian untuk menghilangkan kata terkait teknologi lama. `requirements_research.txt` mendefinisikan lingkungan penelitian aktif; requirements API aplikasi dipisahkan agar tidak membawa alat tuning/konversi yang tidak dipakai untuk serving.

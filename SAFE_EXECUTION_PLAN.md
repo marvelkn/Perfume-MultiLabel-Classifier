@@ -1,4 +1,19 @@
+# Status aktif 7 November 2026 — aplikasi lokal memakai model Python asli
+
+Acuan arsitektur saat ini: **RDKit + 109 model LightGBM D joblib pada komputer lokal**, API `feature_api.app:app` di repo `Essenza_Frontend`, Android melalui USB. Android mengirim struktur dan menerima skor; Riwayat/Koleksi tetap pada HP. Setup dan hasil pengujian terbaru mengikuti [panduan aplikasi](../Essenza_Frontend/docs/LOCAL_DEVELOPMENT.md). Model, training, data, evaluasi, serta source penelitian tidak diubah untuk migrasi runtime.
+
+**Seluruh bagian bertanggal 6 November dan sebelumnya di bawah adalah riwayat sebelum migrasi.** Pernyataan status integrasi, rencana ekspor, dan bukti pengujian pada bagian tersebut hanya berlaku pada waktu dicatat, bukan instruksi operasi atau hasil pengujian arsitektur sekarang. Protokol, completion manifests, model, serta bukti numerik asli dipertahankan agar provenance penelitian tidak berubah. `requirements_lock.txt` adalah freeze historis; layanan baru memakai requirements API pada repo frontend.
+
+---
+
 # Rencana Eksekusi Aman Proyek Skripsi Essenza
+
+## Catatan status dokumentasi — 6 November 2026
+
+Jalur belajar aktif tetap `KODE_ML/README.md`, delapan notebook 01–08, dan `PANDUAN_BELAJAR_DARI_NOL.pdf`; source utama tetap `KODE_ML/03_Kode`. Revisi penyajian membedakan materi inti dari pendalaman tanpa mengubah kode, data, model, hasil, atau protokol.
+
+Status bertanggal di bawah merupakan riwayat. Kalimat ONNX/Android "ditunda" pada catatan 23–26 Oktober dan templat hasil penelitian tidak menggambarkan integrasi V7 terkini. Integrasi tersedia di repo [Essenza_Frontend](../Essenza_Frontend/README.md), dengan fitur RDKit di komputer dan 109 ONNX di Android. Skenario laporan memakai komputer lokal dan USB; prediksi baru belum mandiri sepenuhnya di HP. Notebook 08 hanya inferensi Python. Artefak dan templat historis tidak ditulis ulang; cakupan bukti tetap mengikuti dokumentasi aplikasi dan audit yang dirujuk, tanpa klaim uji baru.
+
 
 ## Status 28 Oktober 2026: nama folder belajar disederhanakan
 
